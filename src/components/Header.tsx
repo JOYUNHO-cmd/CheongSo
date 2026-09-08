@@ -38,9 +38,9 @@ export default function Header() {
       </div>
 
       {/* 메인 헤더 */}
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <Link href="/" className="flex items-center">
-          <Logo className="h-9 w-auto" />
+          <Logo className="h-11 w-auto lg:h-12 xl:h-14" />
         </Link>
 
         <div
@@ -56,7 +56,7 @@ export default function Header() {
               <Link
                 key={cat.slug}
                 href={`/services#${cat.slug}`}
-                className="border-b-2 border-transparent px-2 py-6 text-center text-sm font-medium text-gray-700 transition-colors hover:border-brand hover:text-brand"
+                className="border-b-2 border-transparent px-1 py-6 text-center text-sm font-medium whitespace-nowrap text-gray-700 transition-colors hover:border-brand hover:text-brand xl:px-2 xl:text-base"
               >
                 {cat.title}
               </Link>
@@ -91,13 +91,13 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="hidden text-lg font-bold text-brand-dark md:block"
+            className="hidden text-lg font-bold text-brand-dark md:block xl:text-xl"
           >
             {siteConfig.phone}
           </a>
           <Link
             href="/contact"
-            className="rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-dark"
+            className="rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-dark xl:px-6 xl:py-3 xl:text-base"
           >
             간편 견적 신청
           </Link>
