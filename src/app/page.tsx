@@ -87,16 +87,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 서비스 카테고리 */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <SectionHeading
-          eyebrow="OUR SERVICE"
-          title="상황에 맞는 서비스를 선택하세요"
-          description="간단청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
-        />
-        <ServiceCategoryGrid />
-      </section>
-
       {/* 시공 전/후 포트폴리오 */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 text-center">
@@ -163,6 +153,16 @@ export default function Home() {
       {/* 투명 견적 안내 */}
       <section className="bg-gray-50 py-16 md:py-24">
         <PricingTransparency />
+      </section>
+
+      {/* 서비스 카테고리 */}
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <SectionHeading
+          eyebrow="OUR SERVICE"
+          title="상황에 맞는 서비스를 선택하세요"
+          description="간단청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
+        />
+        <ServiceCategoryGrid />
       </section>
 
       {/* FAQ */}
