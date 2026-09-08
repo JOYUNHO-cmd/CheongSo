@@ -36,11 +36,24 @@ export default function Home() {
           <p className="text-sm font-bold tracking-widest text-brand-light [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
             {siteConfig.nameEn}
           </p>
-          <h1 className="mx-auto mt-3 max-w-2xl text-3xl font-black leading-tight [text-shadow:0_2px_14px_rgba(0,0,0,0.6)] md:text-5xl">
-            {siteConfig.tagline}
+          <h1 className="mx-auto mt-3 max-w-3xl text-xl font-black leading-tight [text-shadow:0_2px_14px_rgba(0,0,0,0.6)] sm:text-2xl md:text-4xl">
+            {siteConfig.heroHeadline.map((line, i) => (
+              <span key={line}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))}
           </h1>
-          <p className="mx-auto mt-4 max-w-3xl text-sm text-gray-100 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:whitespace-nowrap md:text-base">
-            {siteConfig.description}
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-100 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:text-base">
+            {siteConfig.heroSubcopy.map((line, i) => (
+              <span key={line}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))}
+          </p>
+          <p className="mx-auto mt-4 text-base font-bold tracking-wide text-brand-light [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:text-lg">
+            {siteConfig.heroClosing}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
