@@ -15,7 +15,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     slug: "easy",
     number: "01",
-    title: "간편청소",
+    title: "간단청소",
     description: "혼자 하기 번거로운 생활 공간을 가볍게 정리해 드립니다.",
     items: ["원룸청소", "부분청소", "외창청소"],
   },

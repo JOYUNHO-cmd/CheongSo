@@ -56,7 +56,7 @@ export default function Header() {
               <Link
                 key={cat.slug}
                 href={`/services#${cat.slug}`}
-                className="border-b-2 border-transparent px-1 py-6 text-center text-xs font-medium whitespace-nowrap text-gray-700 transition-colors hover:border-brand hover:text-brand"
+                className="border-b-2 border-transparent px-1 py-6 text-center text-base font-medium whitespace-nowrap text-gray-700 transition-colors hover:border-brand hover:text-brand"
               >
                 {cat.title}
               </Link>
@@ -75,7 +75,7 @@ export default function Header() {
                       <li key={item}>
                         <Link
                           href={`/services#${itemAnchor(cat.slug, i)}`}
-                          className="block text-base text-gray-600 hover:text-brand"
+                          className="block whitespace-nowrap text-xs text-gray-600 hover:text-brand"
                         >
                           {item}
                         </Link>

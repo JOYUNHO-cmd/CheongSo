@@ -77,7 +77,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="OUR SERVICE"
           title="상황에 맞는 서비스를 선택하세요"
-          description="간편청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
+          description="간단청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
         />
         <ServiceCategoryGrid />
       </section>
