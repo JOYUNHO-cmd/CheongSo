@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* 히어로 */}
-      <section className="relative overflow-hidden px-6 py-20 text-center text-white md:py-28">
+      <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-6 py-20 text-center text-white md:min-h-[92vh]">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src="/videos/hero.mp4"
@@ -31,13 +31,15 @@ export default function Home() {
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/85 to-brand/75" />
+        <div className="absolute inset-0 bg-black/30" />
         <div className="relative">
-          <p className="text-sm font-bold tracking-widest text-brand-light">{siteConfig.nameEn}</p>
-          <h1 className="mx-auto mt-3 max-w-2xl text-3xl font-black leading-tight md:text-5xl">
+          <p className="text-sm font-bold tracking-widest text-brand-light [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
+            {siteConfig.nameEn}
+          </p>
+          <h1 className="mx-auto mt-3 max-w-2xl text-3xl font-black leading-tight [text-shadow:0_2px_14px_rgba(0,0,0,0.6)] md:text-5xl">
             {siteConfig.tagline}
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-gray-100 md:text-base">
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-gray-100 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:whitespace-nowrap md:text-base">
             {siteConfig.description}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
