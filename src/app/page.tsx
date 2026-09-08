@@ -2,19 +2,20 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCategoryGrid from "@/components/ServiceCategoryGrid";
 import QuoteForm from "@/components/QuoteForm";
+import PortfolioShowcase from "@/components/home/PortfolioShowcase";
+import ReviewShowcase from "@/components/home/ReviewShowcase";
+import TrustConcerns from "@/components/home/TrustConcerns";
+import ProcessSteps from "@/components/home/ProcessSteps";
+import TrustFeatures from "@/components/home/TrustFeatures";
+import Certifications from "@/components/home/Certifications";
+import PricingTransparency from "@/components/home/PricingTransparency";
+import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
 
 const stats = [
-  { label: "누적 이용 고객", value: "250,000+" },
-  { label: "전문 청소팀", value: "80+" },
-  { label: "전문 시공팀", value: "30+" },
-  { label: "고객 만족도", value: "98%" },
-];
-
-const reviews = [
-  { name: "김O영", service: "입주청소", text: "꼼꼼하게 구석구석 청소해 주셔서 만족스러웠어요." },
-  { name: "이O진", service: "냄새악취제거", text: "집안 냄새 걱정이 사라졌어요. 확실히 다릅니다." },
-  { name: "박O수", service: "나노코팅", text: "시공 후 바닥이 새 집처럼 밝아졌어요. 추천합니다." },
+  { label: "대표 현장 경력", value: "15년" },
+  { label: "누적 시공 건수", value: "5,000+" },
+  { label: "실제 고객 평점", value: "4.9★" },
 ];
 
 export default function Home() {
@@ -72,6 +73,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 신뢰 지표 */}
+      <section className="bg-gray-900 px-6 py-8">
+        <div className="mx-auto grid max-w-4xl grid-cols-3 divide-x divide-white/10 text-center">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-2xl font-black text-white md:text-4xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-[11px] text-gray-400 md:text-sm">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* 서비스 카테고리 */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <SectionHeading
@@ -82,35 +97,80 @@ export default function Home() {
         <ServiceCategoryGrid />
       </section>
 
-      {/* 통계 */}
-      <section className="bg-gray-900 px-6 py-16 text-white">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 text-center md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl font-black text-brand-light md:text-4xl">{stat.value}</p>
-              <p className="mt-2 text-sm text-gray-300">{stat.label}</p>
-            </div>
-          ))}
+      {/* 시공 전/후 포트폴리오 */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <SectionHeading
+            eyebrow="BEFORE & AFTER"
+            title="직접 발로 뛴 현장 사진으로 증명합니다"
+            description="실제 시공 현장의 전/후 비교 사진입니다. 사진을 누르면 크게 볼 수 있어요."
+          />
         </div>
+        <PortfolioShowcase />
       </section>
 
       {/* 고객 후기 */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <SectionHeading eyebrow="CUSTOMER REVIEW" title="이용 고객님의 실제 후기" />
-        <div className="grid gap-4 md:grid-cols-3">
-          {reviews.map((review) => (
-            <div key={review.name} className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-              <p className="text-xs font-bold text-brand">{review.service}</p>
-              <p className="mt-3 text-sm leading-relaxed text-gray-600">&ldquo;{review.text}&rdquo;</p>
-              <p className="mt-4 text-sm font-bold text-gray-800">{review.name}</p>
-            </div>
-          ))}
+      <section className="bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <SectionHeading
+            eyebrow="CUSTOMER REVIEW"
+            title="직접 이용해보신 고객님들의 후기"
+            description="저희가 아닌, 실제로 청소를 맡기신 고객님들의 이야기입니다."
+          />
         </div>
-        <div className="mt-8 text-center">
-          <Link href="/reviews" className="text-sm font-bold text-brand hover:underline">
-            후기 더 보기 →
-          </Link>
+        <ReviewShowcase />
+      </section>
+
+      {/* 청소업체 불안 포인트 + 대표 인사말 */}
+      <section className="bg-gradient-to-b from-white via-brand-light/20 to-brand-light/30 py-16 md:py-24">
+        <TrustConcerns />
+      </section>
+
+      {/* 5단계 진행 과정 */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mb-12 text-center">
+          <SectionHeading
+            eyebrow="OUR PROCESS"
+            title="고객님을 위한 5단계 진행 과정"
+            description={`처음부터 끝까지 투명하고 철저하게 진행되는 ${siteConfig.name}만의 안심 청소 서비스 시스템입니다.`}
+          />
         </div>
+        <ProcessSteps />
+      </section>
+
+      {/* 4대 안심 보장 */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="mb-10 text-center">
+          <SectionHeading eyebrow="WHY US" title="사실로만 입증하는 4대 안심 보장 조건" />
+        </div>
+        <TrustFeatures />
+      </section>
+
+      {/* 자격증 */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 text-center">
+            <SectionHeading
+              eyebrow="CERTIFIED"
+              title="말이 아닌 자격증으로 증명합니다"
+              description="대표와 전담팀이 취득한 공인 자격증입니다. 눌러서 실제 자격증을 확인하실 수 있습니다."
+            />
+          </div>
+          <Certifications />
+        </div>
+      </section>
+
+      {/* 투명 견적 안내 */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <PricingTransparency />
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mb-10 text-center">
+          <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
+        </div>
+        <FaqAccordion />
       </section>
 
       {/* 간편 견적 신청 */}

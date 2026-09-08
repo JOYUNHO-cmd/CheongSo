@@ -35,3 +35,12 @@ body {
   border-color: var(--brand);
   box-shadow: 0 0 0 3px var(--brand-light);
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
