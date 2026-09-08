@@ -39,12 +39,8 @@ export default function Header() {
 
       {/* 메인 헤더 */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <Logo className="h-9 w-9" />
-          <span className="text-2xl font-black tracking-tight">
-            <span className="text-brand-dark">Cheong</span>
-            <span className="text-brand">So</span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <Logo className="h-9 w-auto" />
         </Link>
 
         <div

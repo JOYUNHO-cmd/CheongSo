@@ -1,7 +1,7 @@
 // 회사 기본 정보 — 실제 정보로 교체해서 사용하세요.
 export const siteConfig = {
-  name: "CheongSo",
-  nameEn: "CHEONGSO",
+  name: "찐청소",
+  nameEn: "JJIN CHEONGSO",
   tagline: "믿을 수 있는 위생관리 전문기업",
   description: "입주청소, 특수청소, 바닥시공까지 !! 책임지고 제대로 관리합니다",
   phone: "1588-0000",
@@ -14,5 +14,5 @@ export const siteConfig = {
   address: "서울시 영등포구 국제금융로 10",
   businessNumber: "000-00-00000",
   ceo: "홍길동",
-  copyright: "Copyright ⓒ CHEONGSO. All Rights Reserved.",
+  copyright: "Copyright ⓒ JJIN CHEONGSO. All Rights Reserved.",
 };
