@@ -8,7 +8,7 @@ export const siteConfig = {
   heroHeadline: ["찐찐찐찐 찐이야~♪ 정말 찐 청소!", "가짜는 가라! 제대로 하는 찐 청소!"],
   heroSubcopy: ["대충이 아닌 꼼꼼함으로,", "말이 아닌 결과로 보여드립니다."],
   heroClosing: "청소는 제대로. 신뢰는 확실하게.",
-  phone: "010-9882-8882",
+  phone: "010.9882.8882",
   phoneRaw: "01098828882",
   email: "",
   hours: {

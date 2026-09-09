@@ -44,7 +44,7 @@ export default function PricingPage() {
           href="/contact"
           className="inline-block rounded-full bg-brand px-6 py-3 text-sm font-bold text-white hover:bg-brand-dark"
         >
-          상담 준비하기
+          무료견적신청
         </Link>
       </div>
     </div>

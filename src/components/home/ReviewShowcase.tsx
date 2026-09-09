@@ -38,7 +38,7 @@ export default function ReviewShowcase() {
     if (stopped || reviews.length <= 4) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
-    }, 1000);
+    }, 2000);
     return () => window.clearInterval(timer);
   }, [stopped, reviews.length]);
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function ReviewShowcase() {
                 const review = reviews[position];
                 return <button key={index} type="button" onClick={() => setOpenFile(review.file)} className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-brand" aria-label={`고객 후기 ${position + 1} 크게 보기`}>
                   <div className="relative min-h-0 flex-1 overflow-hidden bg-gray-50"><Image src={`/images/reviews-v2/${review.file}`} alt={`실제 고객 후기 ${position + 1}`} width={review.width} height={review.height} className="h-full w-full object-contain" sizes="(min-width: 768px) 25vw, 45vw" /></div>
-                  <span className="flex shrink-0 justify-between border-t border-gray-100 px-4 py-3 text-xs text-gray-500"><span>고객님이 남겨주신 후기</span><span className="font-bold text-brand-dark">크게 보기 ↗</span></span>
+                  <span className="flex shrink-0 justify-end border-t border-gray-100 px-4 py-3 text-xs font-bold text-brand-dark">크게 보기 ↗</span>
                 </button>;
               })}
             </div>

@@ -92,15 +92,15 @@ export default function Header() {
         <div className="flex items-center gap-3">
           {siteConfig.phoneRaw && (<a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="hidden text-xl font-bold text-brand-dark md:block 2xl:text-2xl"
+            className="hidden whitespace-nowrap text-base font-medium text-brand-dark md:block"
           >
             {siteConfig.phone}
           </a>)}
           <Link
             href="/contact"
-            className="rounded-full bg-brand px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-dark 2xl:px-8 2xl:py-4 2xl:text-lg"
+            className="whitespace-nowrap rounded-full bg-brand px-4 py-3 text-base font-medium text-white transition-colors hover:bg-brand-dark"
           >
-            상담 준비하기
+            무료견적신청
           </Link>
           <button
             type="button"
