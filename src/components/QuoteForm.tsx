@@ -1,117 +1,17 @@
 "use client";
-
 import { useState, type FormEvent } from "react";
 import { serviceCategories } from "@/lib/services-data";
-
 export default function QuoteForm() {
-  const [agreed, setAgreed] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!agreed) return;
-    setSubmitted(true);
-  }
-
-  if (submitted) {
-    return (
-      <div className="rounded-2xl border border-brand-light bg-brand-light/40 p-10 text-center">
-        <p className="text-lg font-bold text-brand-dark">신청이 접수되었습니다.</p>
-        <p className="mt-2 text-sm text-gray-600">
-          입력하신 연락처로 담당자가 빠르게 연락드리겠습니다.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-      <div className="grid gap-4 md:grid-cols-2">
-        <Field label="이름" required>
-          <input
-            required
-            type="text"
-            name="name"
-            placeholder="이름을 입력해 주세요"
-            className="input"
-          />
-        </Field>
-        <Field label="휴대폰" required>
-          <input
-            required
-            type="tel"
-            name="phone"
-            placeholder="010-0000-0000"
-            className="input"
-          />
-        </Field>
-      </div>
-
-      <Field label="주소" required>
-        <input
-          required
-          type="text"
-          name="address"
-          placeholder="시공/청소가 필요한 주소를 입력해 주세요"
-          className="input"
-        />
-      </Field>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <Field label="평수">
-          <input type="text" name="area" placeholder="예) 24평" className="input" />
-        </Field>
-        <Field label="서비스명" required>
-          <select required name="service" defaultValue="" className="input">
-            <option value="" disabled>
-              서비스를 선택해 주세요
-            </option>
-            {serviceCategories.map((cat) => (
-              <option key={cat.slug} value={cat.title}>
-                {cat.title}
-              </option>
-            ))}
-          </select>
-        </Field>
-      </div>
-
-      <label className="flex items-center gap-2 text-sm text-gray-600">
-        <input
-          type="checkbox"
-          checked={agreed}
-          onChange={(e) => setAgreed(e.target.checked)}
-          className="h-4 w-4 accent-brand"
-        />
-        개인정보 처리방침에 동의합니다
-      </label>
-
-      <button
-        type="submit"
-        disabled={!agreed}
-        className="mt-2 rounded-full bg-brand px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-gray-300"
-      >
-        신청하기
-      </button>
-    </form>
-  );
-}
-
-function Field({
-  label,
-  required,
-  children,
-}: {
-  label: string;
-  required?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <label className="grid gap-1.5 text-sm font-medium text-gray-700">
-      <span>
-        {label}
-        {required && <span className="ml-0.5 text-brand">*</span>}
-      </span>
-      {children}
-    </label>
-  );
+ const [summary, setSummary] = useState(""); const [copyState, setCopyState] = useState("");
+ function prepare(e: FormEvent<HTMLFormElement>) { e.preventDefault(); const d = new FormData(e.currentTarget); setSummary(`찐청소 상담 준비\n서비스: ${d.get("service")}\n지역: ${d.get("region")}\n면적: ${d.get("area") || "확인 필요"}\n희망 일정: ${d.get("schedule") || "협의"}\n요청 내용: ${d.get("notes") || "상담 시 협의"}`); setCopyState(""); }
+ async function copy() { try { await navigator.clipboard.writeText(summary); setCopyState("복사했습니다. 아직 업체에 전송되지는 않았습니다."); } catch { setCopyState("자동 복사가 지원되지 않습니다. 내용을 선택해서 복사해 주세요."); } }
+ return <form onSubmit={prepare} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+ <p className="rounded-xl bg-brand-light/40 p-4 text-sm leading-6 text-brand-dark">현재 상담 연락처와 온라인 접수를 준비하고 있습니다. 아래에서 상담할 내용을 정리하고 복사할 수 있습니다. 입력 내용은 서버로 전송하거나 저장하지 않습니다.</p>
+ <label className="grid gap-2 text-sm font-bold">서비스<select required name="service" className="input" defaultValue=""><option value="" disabled>서비스 선택</option>{serviceCategories.map(c => <optgroup key={c.slug} label={c.title}>{c.items.map(item => <option key={item}>{item}</option>)}</optgroup>)}</select></label>
+ <label className="grid gap-2 text-sm font-bold">지역<input required name="region" className="input" placeholder="예: 경기도 안양시 동안구 (상세 주소 제외)" maxLength={100} /></label>
+ <div className="grid gap-4 md:grid-cols-2"><label className="grid gap-2 text-sm font-bold">면적<input name="area" className="input" placeholder="예: 약 30평" maxLength={60} /></label><label className="grid gap-2 text-sm font-bold">희망 일정<input name="schedule" className="input" placeholder="예: 평일 영업 종료 후" maxLength={100} /></label></div>
+ <label className="grid gap-2 text-sm font-bold">공간 상태와 요청 내용<textarea name="notes" className="input min-h-28" maxLength={2000} placeholder="바닥 재질, 짐 유무, 집중적으로 청소할 부분 등" /></label>
+ <button className="rounded-full bg-brand px-6 py-3 font-bold text-white hover:bg-brand-dark" type="submit">상담 내용 정리하기</button>
+ {summary && <section aria-live="polite" className="rounded-xl border border-brand-light p-4"><h3 className="font-bold text-brand-dark">상담 준비 내용 · 미전송</h3><pre className="my-4 whitespace-pre-wrap break-words font-sans text-sm leading-7">{summary}</pre><button type="button" onClick={copy} className="rounded-full border border-brand px-4 py-2 text-sm font-bold text-brand-dark">내용 복사</button>{copyState && <p className="mt-3 text-sm" role="status">{copyState}</p>}</section>}
+ </form>;
 }

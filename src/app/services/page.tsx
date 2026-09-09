@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { serviceCategories, itemAnchor } from "@/lib/services-data";
+import { servicePath } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -12,9 +13,10 @@ export default function ServicesPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-16">
       <SectionHeading
+        as="h1"
         eyebrow="ALL SERVICES"
-        title="서비스 안내"
-        description="필요한 서비스를 카테고리별로 확인하세요."
+        title="청소 고민은 제각각, 찐청소는 상황에 맞게."
+        description="33가지 서비스에서 필요한 관리를 찾아보세요. 항목을 누르면 작업 범위와 견적 준비 내용을 확인할 수 있습니다."
       />
 
       <div className="grid gap-10">
@@ -32,7 +34,7 @@ export default function ServicesPage() {
                   id={itemAnchor(cat.slug, i)}
                   className="scroll-mt-28 rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-700 target:bg-brand-light target:text-brand-dark target:font-bold"
                 >
-                  {item}
+                  <Link href={servicePath(item)} className="block hover:text-brand">{item} →</Link>
                 </li>
               ))}
             </ul>

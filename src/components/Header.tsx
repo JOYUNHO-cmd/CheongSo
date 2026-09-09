@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { serviceCategories, itemAnchor } from "@/lib/services-data";
+import { serviceCategories } from "@/lib/services-data";
+import { servicePath } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
 import Logo from "@/components/Logo";
 
@@ -31,7 +32,7 @@ export default function Header() {
           </nav>
           <div className="flex items-center gap-1">
             <span>{siteConfig.hours.weekday}</span>
-            <span className="mx-1">·</span>
+            {siteConfig.hours.weekend && <span className="mx-1">·</span>}
             <span>{siteConfig.hours.weekend}</span>
           </div>
         </div>
@@ -71,10 +72,10 @@ export default function Header() {
               >
                 {serviceCategories.map((cat) => (
                   <ul key={cat.slug} className="flex flex-col items-center gap-2 px-2 text-center">
-                    {cat.items.map((item, i) => (
+                    {cat.items.map((item) => (
                       <li key={item}>
                         <Link
-                          href={`/services#${itemAnchor(cat.slug, i)}`}
+                          href={servicePath(item)}
                           className="block whitespace-nowrap text-xs text-gray-600 hover:text-brand"
                         >
                           {item}
@@ -89,17 +90,17 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
+          {siteConfig.phoneRaw && (<a
             href={`tel:${siteConfig.phoneRaw}`}
             className="hidden text-xl font-bold text-brand-dark md:block 2xl:text-2xl"
           >
             {siteConfig.phone}
-          </a>
+          </a>)}
           <Link
             href="/contact"
             className="rounded-full bg-brand px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-dark 2xl:px-8 2xl:py-4 2xl:text-lg"
           >
-            간편 견적 신청
+            상담 준비하기
           </Link>
           <button
             type="button"
