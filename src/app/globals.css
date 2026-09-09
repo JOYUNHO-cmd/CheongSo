@@ -62,7 +62,17 @@ body {
   animation: marquee-right 70s linear infinite;
 }
 
+.animate-marquee-left-slow {
+  animation: marquee-left 95s linear infinite;
+}
+
+.animate-marquee-right-slow {
+  animation: marquee-right 95s linear infinite;
+}
+
 .marquee-row:hover .animate-marquee-left,
-.marquee-row:hover .animate-marquee-right {
+.marquee-row:hover .animate-marquee-right,
+.marquee-row:hover .animate-marquee-left-slow,
+.marquee-row:hover .animate-marquee-right-slow {
   animation-play-state: paused;
 }

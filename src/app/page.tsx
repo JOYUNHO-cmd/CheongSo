@@ -92,7 +92,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 text-center">
           <SectionHeading
             eyebrow="BEFORE & AFTER"
-            title="직접 발로 뛴 현장 사진으로 증명합니다"
+            title="직접 찐으로 뛴 현장 보여드립니다"
             description="실제 시공 현장의 전/후 비교 사진입니다. 사진을 누르면 크게 볼 수 있어요."
           />
         </div>
