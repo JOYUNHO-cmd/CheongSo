@@ -1,37 +1,5 @@
 import type { Metadata } from "next";
-import SectionHeading from "@/components/SectionHeading";
 import QuoteForm from "@/components/QuoteForm";
-import { siteConfig } from "@/lib/site-config";
-
-export const metadata: Metadata = {
-  title: `문의하기 | ${siteConfig.name}`,
-};
-
-export default function ContactPage() {
-  return (
-    <div className="mx-auto max-w-2xl px-6 py-16">
-      <SectionHeading
-        eyebrow="CONTACT"
-        title="문의하기"
-        description="아래 정보를 남겨주시면 상담원이 빠르게 연락드립니다."
-      />
-
-      <div className="mb-8 grid grid-cols-1 gap-3 rounded-2xl border border-gray-100 bg-white p-6 text-sm text-gray-600 shadow-sm md:grid-cols-2">
-        <p>
-          <span className="font-bold text-gray-800">전화</span> · {siteConfig.phone}
-        </p>
-        <p>
-          <span className="font-bold text-gray-800">이메일</span> · {siteConfig.email}
-        </p>
-        <p>
-          <span className="font-bold text-gray-800">평일</span> · {siteConfig.hours.weekday}
-        </p>
-        <p>
-          <span className="font-bold text-gray-800">주말</span> · {siteConfig.hours.weekend}
-        </p>
-      </div>
-
-      <QuoteForm />
-    </div>
-  );
-}
+import SectionHeading from "@/components/SectionHeading";
+export const metadata: Metadata = { title: "상담 준비 | 찐청소", description: "청소가 필요한 공간과 서비스를 정리해 보세요. 견적 상담에 필요한 항목을 안내합니다." };
+export default function ContactPage() { return <div className="mx-auto max-w-2xl px-6 py-16"><SectionHeading as="h1" eyebrow="CONTACT" title="청소 고민, 하나씩 정리해 볼까요?" description="필요한 서비스와 현장 상태를 먼저 정리해 두세요." /><QuoteForm /></div>; }

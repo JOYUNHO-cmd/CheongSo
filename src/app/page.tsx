@@ -13,9 +13,9 @@ import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
 
 const stats = [
-  { label: "대표 현장 경력", value: "15년" },
-  { label: "누적 시공 건수", value: "5,000+" },
-  { label: "실제 고객 평점", value: "4.9★" },
+  { label: "필요에 맞는 서비스", value: "33가지" },
+  { label: "작업 전 범위 확인", value: "꼼꼼히" },
+  { label: "마무리까지 함께", value: "차근차근" },
 ];
 
 export default function Home() {
@@ -61,14 +61,14 @@ export default function Home() {
               href="/contact"
               className="rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-dark transition-transform hover:scale-105"
             >
-              간편 견적 신청
+              상담 준비하기
             </Link>
-            <a
+            {siteConfig.phoneRaw && (<a
               href={`tel:${siteConfig.phoneRaw}`}
               className="rounded-full border border-white/60 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
             >
               전화 상담 {siteConfig.phone}
-            </a>
+            </a>)}
           </div>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function Home() {
       {/* 4대 안심 보장 */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="mb-10 text-center">
-          <SectionHeading eyebrow="WHY US" title="사실로만 입증하는 4대 안심 보장 조건" />
+          <SectionHeading eyebrow="WHY US" title="맡기기 전부터 마무리까지, 네 가지 기준" />
         </div>
         <TrustFeatures />
       </section>
@@ -142,8 +142,8 @@ export default function Home() {
           <div className="mb-10 text-center">
             <SectionHeading
               eyebrow="CERTIFIED"
-              title="말이 아닌 자격증으로 증명합니다"
-              description="대표와 전담팀이 취득한 공인 자격증입니다. 눌러서 실제 자격증을 확인하실 수 있습니다."
+              title="청소를 공부하고, 현장에 적용합니다"
+              description="등록된 자격증 자료를 확인하실 수 있습니다. 이미지를 누르면 크게 볼 수 있어요."
             />
           </div>
           <Certifications />
@@ -173,13 +173,13 @@ export default function Home() {
         <FaqAccordion />
       </section>
 
-      {/* 간편 견적 신청 */}
+      {/* 상담 준비하기 */}
       <section className="bg-brand-light/30 px-6 py-16">
         <div className="mx-auto max-w-2xl">
           <SectionHeading
             eyebrow="ONLINE QUOTE"
-            title="365일 24시간, 간편하게 견적을 접수하세요"
-            description="간단한 정보 확인 후 상담원이 빠르게 연락드립니다."
+            title="상담 전에 정리하면, 청소가 한결 쉬워집니다"
+            description="공간과 필요한 서비스를 정리한 뒤 010-9882-8882로 전화해 주세요."
           />
           <QuoteForm />
         </div>

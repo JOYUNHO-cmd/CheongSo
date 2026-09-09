@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "표준화된 청소", text: "전국 어디서나 동일한 기준으로 관리되는 서비스를 제공합니다." },
-  { title: "전문 인력", text: "각 분야에 특화된 교육을 받은 현장팀이 직접 방문합니다." },
-  { title: "합리적인 가격", text: "불필요한 비용 없이 투명한 견적으로 안내해 드립니다." },
+  { title: "범위부터 분명하게", text: "어디를 청소하고 무엇을 따로 확인할지, 작업 전에 목록으로 정리합니다." },
+  { title: "소재부터 세심하게", text: "같은 얼룩이라도 바닥과 벽의 재질은 다릅니다. 현장 상태에 맞는 방법을 살펴봅니다." },
+  { title: "마무리까지 함께", text: "협의한 범위의 결과를 확인하고, 이후 공간 이용과 관리에 필요한 내용을 안내합니다." },
 ];
 
 export default function AboutPage() {
@@ -35,23 +35,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 pb-16 text-sm leading-relaxed text-gray-600">
-        <h2 className="mb-3 text-lg font-bold text-gray-900">회사 정보</h2>
-        <dl className="grid grid-cols-[100px_1fr] gap-y-2">
-          <dt className="text-gray-400">대표</dt>
-          <dd>{siteConfig.ceo}</dd>
-          <dt className="text-gray-400">사업자등록번호</dt>
-          <dd>{siteConfig.businessNumber}</dd>
-          <dt className="text-gray-400">주소</dt>
-          <dd>{siteConfig.address}</dd>
-          <dt className="text-gray-400">고객센터</dt>
-          <dd>
-            {siteConfig.phone} ({siteConfig.hours.weekday}, {siteConfig.hours.weekend})
-          </dd>
-          <dt className="text-gray-400">이메일</dt>
-          <dd>{siteConfig.email}</dd>
-        </dl>
-      </section>
+
     </div>
   );
 }

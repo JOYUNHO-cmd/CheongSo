@@ -1,10 +1,10 @@
 import { ShieldCheck, CheckCircle2, Clock, Star } from "lucide-react";
 
 const features = [
-  { icon: ShieldCheck, title: "대표 직접 관리", desc: "상담부터 마무리까지 대표가 직접 관리합니다." },
-  { icon: CheckCircle2, title: "정직한 투명 견적", desc: "현장 상태와 범위 확인 후 추가 없는 견적 안내" },
-  { icon: Clock, title: "신속 현장 대응", desc: "고객님이 원하는 시간, 언제든 달려갑니다." },
-  { icon: Star, title: "100% 만족 보장", desc: "만족하실 때까지 끝까지 책임집니다." },
+  { icon: ShieldCheck, title: "범위부터 확인", desc: "포함 구역과 별도 작업을 미리 정리합니다." },
+  { icon: CheckCircle2, title: "비용은 사전 협의", desc: "현장 조건에 맞춰 작업과 비용을 확인합니다." },
+  { icon: Clock, title: "일정은 함께 조율", desc: "출입 시간과 이용 재개 시점을 협의합니다." },
+  { icon: Star, title: "마무리도 꼼꼼히", desc: "작업 결과와 이후 관리 방법을 안내합니다." },
 ];
 
 export default function TrustFeatures() {
