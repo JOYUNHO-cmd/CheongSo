@@ -1,17 +1,21 @@
 import records from "./regional-pages.json";
 import regions from "./phase-regions.json";
 import { findService } from "./service-profiles";
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 export type RegionalPage = {
   service: string; region: string; title: string; description: string; heading: string; intro: string;
   sections: { heading: string; body: string }[];
   media: { type: "image" | "video"; src: string; alt: string; caption: string }[];
   reviewed: boolean;
+  publicationId?: string;
 };
+const directory = resolve("content/regional");
+const imported: RegionalPage[] = existsSync(directory) ? readdirSync(directory).filter(f => /^[a-f0-9]{64}\.json$/.test(f)).map(f => JSON.parse(readFileSync(resolve(directory, f), "utf8"))) : [];
+const allRecords = [...records, ...imported] as RegionalPage[];
 // 공개용 데이터만 읽습니다. 관리자 초안이나 업로드 원본은 이 파일에 연결하지 않습니다.
 const seen = new Set<string>();
-for (const page of records as RegionalPage[]) {
+for (const page of allRecords) {
   const key = `${page.service}/${page.region}`;
   if (seen.has(key)) throw new Error(`중복 지역 주소: ${key}. 새 문서를 추가하지 말고 기존 문서를 갱신하세요.`);
   seen.add(key);
@@ -25,5 +29,5 @@ for (const page of records as RegionalPage[]) {
     if (!pattern?.test(media.src) || media.src.includes("..") || !media.alt?.trim() || !media.caption?.trim() || !existsSync(resolve("public", `.${media.src}`))) throw new Error(`미디어 파일 또는 설명 확인 필요: ${key}`);
   }
 }
-export const regionalPages = (records as RegionalPage[]).filter(p => p.reviewed);
+export const regionalPages = allRecords.filter(p => p.reviewed);
 export const regionalPath = (page: Pick<RegionalPage, "service" | "region">) => `/${page.service}/${page.region}/`;

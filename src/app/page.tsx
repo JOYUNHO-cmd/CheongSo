@@ -179,7 +179,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="ONLINE QUOTE"
             title="상담 전에 정리하면, 청소가 한결 쉬워집니다"
-            description="공간과 필요한 서비스를 정리해 두세요. 현재 온라인 접수는 준비 중입니다."
+            description="공간과 필요한 서비스를 정리한 뒤 010-9882-8882로 전화해 주세요."
           />
           <QuoteForm />
         </div>
