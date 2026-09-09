@@ -78,7 +78,7 @@ export default function ReviewShowcase() {
         </div>
       </div>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
-        <p className="text-gray-500">카톡·숨고 후기 4개씩 · 선택하면 크게 읽을 수 있어요.</p>
+        <p className="text-gray-500">선택하면 크게 읽을 수 있어요.</p>
         <div className="flex gap-2"><button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} className="rounded-full border border-gray-200 px-4 py-2">{paused ? "자동 넘김 재개" : "자동 넘김 멈춤"}</button><button type="button" disabled={moving} onClick={next} className="rounded-full bg-brand-dark px-4 py-2 text-white disabled:opacity-50">다음 후기 ↑</button></div>
       </div>
       <dialog ref={dialog} onClose={() => setOpenFile(null)} aria-label="고객 후기 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
