@@ -1,80 +1,90 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import reviewManifest from "@/lib/review-manifest.json";
 
-type Review = { file: string; width: number; height: number };
-const initialReviews = reviewManifest as Review[];
-
-function shuffle<T>(arr: T[]): T[] {
-  const result = [...arr];
-  for (let i = result.length - 1; i > 0; i--) {
+function shuffled<T>(items: T[]) {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
+    [copy[i], copy[j]] = [copy[j], copy[i]];
   }
-  return result;
+  return copy;
+}
+function mixedReviews() {
+  const groups = shuffled([
+    shuffled(reviewManifest.filter(review => review.file.startsWith("kakao-"))),
+    shuffled(reviewManifest.filter(review => review.file.startsWith("soomgo-"))),
+  ]);
+  return Array.from({ length: Math.max(...groups.map(group => group.length)) }, (_, i) => groups.flatMap(group => group[i] ? [group[i]] : [])).flat();
 }
 
 export default function ReviewShowcase() {
-  const [openFile, setOpenFile] = useState<string | null>(null);
-  // Server/first-client-render use the same fixed order (avoids a hydration
-  // mismatch); reshuffled client-side right after mount so each visit sees
-  // the reviews in a different order.
-  const [reviews, setReviews] = useState(initialReviews);
+  const [reviews, setReviews] = useState(reviewManifest);
   useEffect(() => {
-    // Randomizing only makes sense post-hydration (SSR output must match
-    // the deterministic initial order), so this one-time reshuffle has to
-    // happen here rather than during render.
+    // Shuffle after hydration so the server and initial client markup agree.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setReviews(shuffle(initialReviews));
+    setReviews(mixedReviews());
   }, []);
-
+  const [start, setStart] = useState(0);
+  const [moving, setMoving] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [openFile, setOpenFile] = useState<string | null>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const stopped = paused || hovered || focused || !!openFile;
+  useEffect(() => {
+    if (stopped || reviews.length <= 4) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, [stopped, reviews.length]);
+  useEffect(() => {
+    if (!moving) return;
+    const timer = window.setTimeout(() => {
+      setStart(value => (value + 4) % reviews.length);
+      setMoving(false);
+    }, 650);
+    return () => window.clearTimeout(timer);
+  }, [moving, reviews.length]);
+  useEffect(() => {
+    if (openFile) dialog.current?.showModal();
+    else dialog.current?.close();
+  }, [openFile]);
+  function next() {
+    if (moving) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setStart(value => (value + 4) % reviews.length);
+    else setMoving(true);
+  }
+  const selected = reviews.find(item => item.file === openFile);
   return (
-    <>
-      <div className="marquee-row overflow-hidden">
-        <div className="flex w-max animate-marquee-left items-start">
-          {[...reviews, ...reviews].map((review, idx) => (
-            <button
-              key={`${review.file}-${idx}`}
-              type="button"
-              onClick={() => setOpenFile(review.file)}
-              className="mx-2 w-48 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white text-left shadow-sm transition-shadow hover:shadow-lg md:mx-3 md:w-60"
-              aria-label="후기 크게 보기"
-            >
-              <Image
-                src={`/images/reviews-v2/${review.file}`}
-                alt="실제 고객 후기"
-                width={review.width}
-                height={review.height}
-                className="h-auto w-full"
-              />
-            </button>
+    <section aria-label="고객 후기 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
+      <div className="review-curtain-window" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
+        <div className={`review-curtain-track${moving ? " is-moving" : ""}`}>
+          {[0, 1].map(panel => (
+            <div key={panel} className="review-curtain-panel" aria-hidden={panel === 1} inert={panel === 1}>
+              {Array.from({ length: Math.min(4, reviews.length) }, (_, index) => {
+                const position = (start + panel * 4 + index) % reviews.length;
+                const review = reviews[position];
+                return <button key={index} type="button" onClick={() => setOpenFile(review.file)} className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm transition-shadow hover:shadow-lg focus-visible:outline-2 focus-visible:outline-brand" aria-label={`고객 후기 ${position + 1} 크게 보기`}>
+                  <div className="relative min-h-0 flex-1 overflow-hidden bg-gray-50"><Image src={`/images/reviews-v2/${review.file}`} alt={`실제 고객 후기 ${position + 1}`} width={review.width} height={review.height} className="h-full w-full object-contain" sizes="(min-width: 768px) 25vw, 45vw" /></div>
+                  <span className="flex shrink-0 justify-end border-t border-gray-100 px-4 py-3 text-xs font-bold text-brand-dark">크게 보기 ↗</span>
+                </button>;
+              })}
+            </div>
           ))}
         </div>
       </div>
-
-      {openFile && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm md:p-10"
-          onClick={() => setOpenFile(null)}
-        >
-          <button
-            type="button"
-            onClick={() => setOpenFile(null)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:right-6 md:top-6"
-            aria-label="닫기"
-          >
-            ✕
-          </button>
-          <img
-            src={`/images/reviews-v2/${openFile}`}
-            alt="실제 고객 후기"
-            className="max-h-full max-w-full rounded-xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
-    </>
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
+        <p className="text-gray-500">카톡·숨고 후기 4개씩 · 선택하면 크게 읽을 수 있어요.</p>
+        <div className="flex gap-2"><button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} className="rounded-full border border-gray-200 px-4 py-2">{paused ? "자동 넘김 재개" : "자동 넘김 멈춤"}</button><button type="button" disabled={moving} onClick={next} className="rounded-full bg-brand-dark px-4 py-2 text-white disabled:opacity-50">다음 후기 ↑</button></div>
+      </div>
+      <dialog ref={dialog} onClose={() => setOpenFile(null)} aria-label="고객 후기 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
+        <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
+        {selected && <Image src={`/images/reviews-v2/${selected.file}`} alt="실제 고객 후기 원문" width={selected.width} height={selected.height} className="h-auto max-w-full" sizes="90vw" />}
+      </dialog>
+    </section>
   );
 }

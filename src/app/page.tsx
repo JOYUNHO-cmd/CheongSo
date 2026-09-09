@@ -61,7 +61,7 @@ export default function Home() {
               href="/contact"
               className="rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-dark transition-transform hover:scale-105"
             >
-              상담 준비하기
+              무료견적신청
             </Link>
             {siteConfig.phoneRaw && (<a
               href={`tel:${siteConfig.phoneRaw}`}
@@ -179,7 +179,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="ONLINE QUOTE"
             title="상담 전에 정리하면, 청소가 한결 쉬워집니다"
-            description="공간과 필요한 서비스를 정리한 뒤 010-9882-8882로 전화해 주세요."
+            description={`공간과 필요한 서비스를 정리한 뒤 ${siteConfig.phone}로 전화해 주세요.`}
           />
           <QuoteForm />
         </div>
