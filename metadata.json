@@ -1,0 +1,6 @@
+{
+  "name": "찐청소",
+  "description": "33가지 공간 청소 및 특수청소 전문 서비스 웹사이트",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
