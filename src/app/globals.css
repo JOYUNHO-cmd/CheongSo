@@ -3,9 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #1a1f24;
-  --brand: #2563eb;
-  --brand-dark: #1e3a8a;
-  --brand-light: #dbeafe;
+  --brand: #00adbc;
+  --brand-dark: #00376a;
+  --brand-light: #dff7f9;
 }
 
 @theme inline {
@@ -34,4 +34,35 @@ body {
 .input:focus {
   border-color: var(--brand);
   box-shadow: 0 0 0 3px var(--brand-light);
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 70s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 70s linear infinite;
+}
+
+.marquee-row:hover .animate-marquee-left,
+.marquee-row:hover .animate-marquee-right {
+  animation-play-state: paused;
 }

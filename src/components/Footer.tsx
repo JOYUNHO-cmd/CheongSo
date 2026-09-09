@@ -21,13 +21,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="grid gap-1 leading-relaxed">
-          <div className="mb-2 flex items-center gap-2">
-            <Logo className="h-6 w-6" />
-            <p className="text-base font-bold">
-              <span className="text-brand-dark">Cheong</span>
-              <span className="text-brand">So</span>
-            </p>
-          </div>
+          <Logo className="mb-2 h-7 w-auto" />
           <p>
             대표 {siteConfig.ceo} · 사업자등록번호 {siteConfig.businessNumber} · {siteConfig.address}
           </p>
