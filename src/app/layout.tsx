@@ -3,6 +3,7 @@ import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ConsultationBot from "@/components/consultation/ConsultationBot";
 import { siteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <ConsultationBot />
       </body>
     </html>
   );
