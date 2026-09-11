@@ -43,6 +43,11 @@ export default function Header() {
 
   // 전역 편의 함수 등록 (어느 버튼에서나 window.openServiceMenu() 호출 가능)
   useEffect(() => {
+    const handleOpen = () => openMenu();
+    const handleClose = () => closeMenu();
+    window.addEventListener("open-service-menu", handleOpen);
+    window.addEventListener("close-service-menu", handleClose);
+
     if (typeof window !== "undefined") {
       (window as unknown as { openServiceMenu?: () => void }).openServiceMenu = openMenu;
       (window as unknown as { closeServiceMenu?: () => void }).closeServiceMenu = closeMenu;
@@ -64,6 +69,8 @@ export default function Header() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.removeEventListener("open-service-menu", handleOpen);
+      window.removeEventListener("close-service-menu", handleClose);
       window.removeEventListener("keydown", handleKeyDown);
       if (typeof document !== "undefined") {
         document.body.style.overflow = "";
@@ -172,11 +179,10 @@ export default function Header() {
                 무료견적신청
               </Link>
 
-              {/* [모바일 전용] 상단 우측 버튼 세트 (견적신청 제거, 전체 메뉴 버튼만 깔끔하게 노출) */}
+              {/* [모바일 전용] 상단 우측 버튼 세트 (전체 메뉴 버튼) */}
               <div className="flex items-center md:hidden">
-                {/* label + onClick 결합: 모바일 사파리/모든 브라우저에서 100% 즉시 열림 */}
-                <label
-                  htmlFor="mobile-menu-toggle"
+                <button
+                  type="button"
                   onClick={openMenu}
                   className="flex min-h-[38px] items-center gap-1.5 rounded-lg bg-brand px-3.5 py-2 text-xs font-bold text-white shadow-xs active:scale-95 cursor-pointer touch-manipulation hover:bg-brand-dark select-none"
                   aria-label="전체 메뉴 열기"
@@ -195,7 +201,7 @@ export default function Header() {
                   <span className="whitespace-nowrap font-bold text-xs pointer-events-none">
                     전체 메뉴
                   </span>
-                </label>
+                </button>
               </div>
             </div>
           </div>
@@ -325,29 +331,27 @@ export default function Header() {
       {/* 5. 모바일 전용 미니멀 계층형 메뉴 드로어 (한스클린 레퍼런스 스타일) */}
       <div
         id="mobile-menu-overlay"
-        className="fixed inset-0 z-[99999999] md:hidden hidden peer-checked:flex flex-col bg-white overflow-hidden"
+        className={`fixed inset-0 z-[99999999] md:hidden ${mobileMenuOpen ? "flex" : "hidden"} flex-col bg-white overflow-hidden`}
         style={{ touchAction: "pan-y" }}
       >
         {/* 1) 상단 바: "제대로 합니다" (날리는 붓글씨 서체) + 찐청소 로고 + 세련된 '✕' 닫기 버튼 (상단에 맞춘 최고 크기 적용) */}
         <div className="flex items-center justify-between px-3 sm:px-4 py-1.5 sm:py-2.5 border-b border-gray-200 shrink-0 bg-white">
-          <label htmlFor="mobile-menu-toggle" className="cursor-pointer">
-            <Link
-              href="/"
-              onClick={closeMenu}
-              className="flex items-center gap-1.5 sm:gap-2 shrink-0"
-            >
-              {/* 날리는 붓글씨 서체 "제대로 합니다" (상단 바 맞춤 최고 크기) */}
-              <span className="font-brush font-bold text-[34px] sm:text-[38px] leading-[38px] sm:leading-[40px] text-gray-900 whitespace-nowrap select-none -rotate-2 tracking-tight">
-                제대로 합니다
-              </span>
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer"
+          >
+            {/* 날리는 붓글씨 서체 "제대로 합니다" (상단 바 맞춤 최고 크기) */}
+            <span className="font-brush font-bold text-[34px] sm:text-[38px] leading-[38px] sm:leading-[40px] text-gray-900 whitespace-nowrap select-none -rotate-2 tracking-tight">
+              제대로 합니다
+            </span>
 
-              {/* 찐청소 로고 (상단 바 맞춤 최고 크기) */}
-              <Logo className="h-[44px] sm:h-[48px] w-auto object-contain" />
-            </Link>
-          </label>
+            {/* 찐청소 로고 (상단 바 맞춤 최고 크기) */}
+            <Logo className="h-[44px] sm:h-[48px] w-auto object-contain" />
+          </Link>
 
-          <label
-            htmlFor="mobile-menu-toggle"
+          <button
+            type="button"
             onClick={closeMenu}
             className="flex h-11 w-11 shrink-0 items-center justify-center text-gray-500 hover:text-gray-900 transition-colors active:scale-90 cursor-pointer p-1"
             aria-label="메뉴 닫기"
@@ -355,7 +359,7 @@ export default function Header() {
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </label>
+          </button>
         </div>
 
         {/* 2) 본문: 오직 서비스 메뉴만 세로로 깔끔하게 나열되는 브라우저 네이티브 아코디언 트리 */}
@@ -420,40 +424,39 @@ export default function Header() {
 
                   <div className="space-y-2">
                     {cat.items.map((item) => (
-                      <label key={item} htmlFor="mobile-menu-toggle" className="block">
-                        <Link
-                          href={servicePath(item)}
-                          onClick={closeMenu}
-                          className="group/item relative flex items-center gap-2.5 py-1 text-[16px] font-medium text-gray-700 hover:text-[#00a8cc] active:opacity-75 transition-colors cursor-pointer"
-                        >
-                          {/* 작은 서비스 왼쪽 인디케이터: 평소 ▽, 호버 시 ▼ 불 들어옴 */}
-                          <span className="relative z-10 flex h-4 w-4 shrink-0 items-center justify-center bg-white transition-all">
-                            {/* 평소: ▽ (빈 역삼각형) */}
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 24 24"
-                              className="block group-hover/item:hidden text-gray-400 fill-none stroke-current stroke-[2.5]"
-                            >
-                              <path d="M4 6L12 18L20 6Z" strokeLinejoin="round" />
-                            </svg>
-                            {/* 마우스 커서 호버 시: ▼ (꽉 찬 역삼각형 + 불 들어옴) */}
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 24 24"
-                              className="hidden group-hover/item:block text-[#00a8cc] fill-current drop-shadow-[0_0_6px_rgba(0,168,204,0.7)] scale-110"
-                            >
-                              <path d="M4 6L12 18L20 6Z" />
-                            </svg>
-                          </span>
+                      <Link
+                        key={item}
+                        href={servicePath(item)}
+                        onClick={closeMenu}
+                        className="group/item relative flex items-center gap-2.5 py-1 text-[16px] font-medium text-gray-700 hover:text-[#00a8cc] active:opacity-75 transition-colors cursor-pointer"
+                      >
+                        {/* 작은 서비스 왼쪽 인디케이터: 평소 ▽, 호버 시 ▼ 불 들어옴 */}
+                        <span className="relative z-10 flex h-4 w-4 shrink-0 items-center justify-center bg-white transition-all">
+                          {/* 평소: ▽ (빈 역삼각형) */}
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            className="block group-hover/item:hidden text-gray-400 fill-none stroke-current stroke-[2.5]"
+                          >
+                            <path d="M4 6L12 18L20 6Z" strokeLinejoin="round" />
+                          </svg>
+                          {/* 마우스 커서 호버 시: ▼ (꽉 찬 역삼각형 + 불 들어옴) */}
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            className="hidden group-hover/item:block text-[#00a8cc] fill-current drop-shadow-[0_0_6px_rgba(0,168,204,0.7)] scale-110"
+                          >
+                            <path d="M4 6L12 18L20 6Z" />
+                          </svg>
+                        </span>
 
-                          {/* 세부 서비스명 */}
-                          <span className="tracking-tight transition-colors group-hover/item:text-[#00a8cc] group-hover/item:font-bold">
-                            {item}
-                          </span>
-                        </Link>
-                      </label>
+                        {/* 세부 서비스명 */}
+                        <span className="tracking-tight transition-colors group-hover/item:text-[#00a8cc] group-hover/item:font-bold">
+                          {item}
+                        </span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -464,58 +467,68 @@ export default function Header() {
 
         {/* 3) 하단 고정 바: 가격안내, 24시 전화안내, 빠른 무료견적 신청하기 */}
         <div className="border-t border-gray-200 bg-gray-50/80 px-5 py-4 shrink-0 space-y-2.5">
-          {/* 가격안내 & 24시 전화안내 2열 */}
-          <div className="grid grid-cols-2 gap-2">
-            <label htmlFor="mobile-menu-toggle" className="block">
-              <Link
-                href="/pricing"
-                onClick={closeMenu}
-                className="flex items-center justify-center gap-1.5 rounded-xl border border-gray-300 bg-white py-2.5 text-xs sm:text-sm font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500">
-                  <rect x="2" y="5" width="20" height="14" rx="2" />
-                  <line x1="2" y1="10" x2="22" y2="10" />
-                </svg>
-                <span>가격안내</span>
-              </Link>
-            </label>
+          {/* 가격안내 & 자동상담 & 24시 전화안내 3열 */}
+          <div className="grid grid-cols-3 gap-1.5">
+            <Link
+              href="/pricing"
+              onClick={closeMenu}
+              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+              <span>가격안내</span>
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => {
+                closeMenu();
+                if (typeof window !== "undefined") {
+                  (window as unknown as { openConsultationBot?: () => void }).openConsultationBot?.();
+                }
+              }}
+              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-teal-200 bg-teal-50/70 py-2 px-1 text-xs font-bold text-teal-800 shadow-2xs hover:bg-teal-100 transition-colors active:scale-98 cursor-pointer"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              <span>자동상담</span>
+            </button>
 
             {siteConfig.phoneRaw ? (
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex items-center justify-center gap-1.5 rounded-xl border border-gray-300 bg-white py-2.5 text-xs sm:text-sm font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
+                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                <span>24시 전화안내</span>
+                <span>전화상담</span>
               </a>
             ) : (
-              <label htmlFor="mobile-menu-toggle" className="block">
-                <Link
-                  href="/contact"
-                  onClick={closeMenu}
-                  className="flex items-center justify-center gap-1.5 rounded-xl border border-gray-300 bg-white py-2.5 text-xs sm:text-sm font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
-                >
-                  <span>상담안내</span>
-                </Link>
-              </label>
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
+              >
+                <span>상담안내</span>
+              </Link>
             )}
           </div>
 
           {/* 빠른 무료견적 신청하기 */}
-          <label htmlFor="mobile-menu-toggle" className="block">
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-3.5 text-[15px] font-bold text-white shadow-sm hover:bg-brand-dark transition-all active:scale-98 cursor-pointer"
-            >
-              <span>빠른 무료견적 신청하기</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </label>
+          <Link
+            href="/contact"
+            onClick={closeMenu}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-3.5 text-[15px] font-bold text-white shadow-sm hover:bg-brand-dark transition-all active:scale-98 cursor-pointer"
+          >
+            <span>빠른 무료견적 신청하기</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
       </div>
     </>

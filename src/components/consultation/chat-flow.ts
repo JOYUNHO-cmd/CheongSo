@@ -81,7 +81,13 @@ export type Prompt = {
 const options = (labels: readonly string[]): Choice[] =>
   labels.map((label) => ({ value: label, label }));
 export function getPrompt(answers: Choice[]): Prompt | null {
-  const situation = situations.find((s) => s.id === answers[0]?.value);
+  const situation = situations.find(
+    (s) =>
+      s.id === answers[0]?.value ||
+      s.label === answers[0]?.value ||
+      s.label === answers[0]?.label ||
+      s.id === answers[0]?.label
+  );
   switch (answers.length) {
     case 0:
       return {
@@ -136,8 +142,32 @@ export function getPrompt(answers: Choice[]): Prompt | null {
   }
 }
 export function choose(answers: Choice[], value: string): Choice[] {
-  const option = getPrompt(answers)?.options.find((o) => o.value === value);
-  return option ? [...answers, option] : answers;
+  const p = getPrompt(answers);
+  if (!p) return answers;
+  const trimmed = (value || "").trim();
+  const option = p.options.find(
+    (o) =>
+      o.value === trimmed ||
+      o.label === trimmed ||
+      o.label.includes(trimmed) ||
+      trimmed.includes(o.label)
+  );
+  if (option) {
+    return [...answers, option];
+  }
+  if (answers.length === 0) {
+    const s = situations.find(
+      (sit) =>
+        sit.id === trimmed ||
+        sit.label === trimmed ||
+        sit.label.includes(trimmed) ||
+        trimmed.includes(sit.label)
+    );
+    if (s) {
+      return [{ value: s.id, label: s.label }];
+    }
+  }
+  return answers;
 }
 export function summaryText(answers: Choice[]): string {
   const labels = ["상황", "희망 서비스", "지역", "면적", "희망 시기"];

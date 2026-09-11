@@ -173,15 +173,15 @@ export default function Home() {
 
         {/* 모바일 전용 33개 세부 서비스 한눈에 보기 바로가기 */}
         <div className="mt-8 flex justify-center md:hidden">
-          <label
-            htmlFor="mobile-menu-toggle"
+          <Link
+            href="/services"
             className="flex items-center gap-2 rounded-2xl bg-brand px-6 py-3.5 text-sm font-extrabold text-white shadow-md active:scale-95 hover:bg-brand-dark cursor-pointer touch-manipulation select-none"
           >
             <span>📋 33개 전체 서비스 세부목록 보기</span>
             <svg className="h-4 w-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </label>
+          </Link>
         </div>
       </section>
 

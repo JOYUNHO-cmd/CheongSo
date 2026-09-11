@@ -495,6 +495,10 @@
   gap: 10px;
 }
 .jjin-chat-choices > button {
+  touch-action: manipulation !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
   border: 1px solid var(--jjin-line);
   border-radius: 12px;
   padding: 12px 15px;
@@ -505,6 +509,9 @@
   letter-spacing: -0.02em;
   color: var(--jjin-ink);
   box-shadow: 0 2px 4px #173c5b04;
+}
+.jjin-chat-choices > button * {
+  pointer-events: none !important;
 }
 .jjin-chat-choices > button:hover {
   background: #f1f5f9;
@@ -689,34 +696,84 @@
   cursor: default;
 }
 .jjin-chat-launcher {
-  z-index: 60;
+  z-index: 100001 !important;
   bottom: max(24px, env(safe-area-inset-bottom));
+  touch-action: manipulation;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
 }
+.jjin-chat-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(9, 43, 71, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 99995;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.jjin-chat-dialog,
 dialog.jjin-chat-dialog {
   position: fixed;
-  inset: auto 24px 96px auto;
+  right: 24px;
+  bottom: 96px;
+  top: auto;
+  left: auto;
   margin: 0;
   padding: 0;
   border: 1px solid #d4dee7;
   width: 440px;
   max-width: calc(100vw - 32px);
-  height: min(790px, calc(100dvh - 120px));
-  max-height: none;
+  height: 680px;
+  height: min(720px, calc(100vh - 120px));
+  height: min(720px, calc(100dvh - 120px));
+  max-height: calc(100vh - 110px);
   overflow: hidden;
   border-radius: 22px;
   background: white;
   color: #172b3d;
   box-shadow: 0 20px 80px #0b2b4b33;
   font-family: inherit;
+  z-index: 100000;
+  flex-direction: column;
+  pointer-events: auto;
 }
-dialog.jjin-chat-dialog:not([open]) {
-  display: none;
+.jjin-chat-dialog:not(.is-open),
+dialog.jjin-chat-dialog:not(.is-open):not([open]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
+.jjin-chat-dialog.is-open,
+dialog.jjin-chat-dialog.is-open,
 dialog.jjin-chat-dialog[open] {
-  display: block;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
-.jjin-chat-dialog::backdrop {
-  background: #092b472e;
+.jjin-chat-backdrop:not(.is-open) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.jjin-chat-backdrop.is-open {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+.jjin-chat-dialog::backdrop,
+dialog.jjin-chat-dialog::backdrop {
+  background: rgba(9, 43, 71, 0.45);
 }
 .jjin-chat-sr-only {
   position: absolute;
@@ -728,6 +785,11 @@ dialog.jjin-chat-dialog[open] {
 }
 .jjin-chat-shell {
   isolation: isolate;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
 }
 .jjin-chat-shell p,
 .jjin-chat-shell h2 {
@@ -739,14 +801,33 @@ dialog.jjin-chat-dialog[open] {
     bottom: max(20px, env(safe-area-inset-bottom));
     padding: 14px 18px;
   }
+  .jjin-chat-dialog,
   dialog.jjin-chat-dialog {
-    inset: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100dvh;
-    border: 0;
-    border-radius: 0;
-    margin: 0;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    z-index: 100000 !important;
+  }
+  .jjin-chat-dialog:not(.is-open),
+  dialog.jjin-chat-dialog:not(.is-open) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .jjin-chat-dialog.is-open,
+  dialog.jjin-chat-dialog.is-open {
+    display: flex !important;
+    visibility: visible !important;
   }
   .jjin-chat-heading .jjin-chat-brand-image {
     width: 96px;
