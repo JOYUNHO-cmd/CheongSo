@@ -2,6 +2,7 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCategoryGrid from "@/components/ServiceCategoryGrid";
 import QuoteForm from "@/components/QuoteForm";
+import HeroVideo from "@/components/HeroVideo";
 import PortfolioShowcase from "@/components/home/PortfolioShowcase";
 import ReviewShowcase from "@/components/home/ReviewShowcase";
 import TrustConcerns from "@/components/home/TrustConcerns";
@@ -21,54 +22,60 @@ const stats = [
 export default function Home() {
   return (
     <>
-      {/* 히어로 */}
-      <section className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-6 py-20 text-center text-white md:min-h-[92vh]">
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/videos/hero.mp4"
-          poster="/videos/hero-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative">
-          <p className="text-sm font-bold tracking-widest text-brand-light [text-shadow:0_2px_10px_rgba(0,0,0,0.6)]">
-            {siteConfig.nameEn}
-          </p>
-          <h1 className="mx-auto mt-3 max-w-3xl text-xl font-black leading-tight [text-shadow:0_2px_14px_rgba(0,0,0,0.6)] sm:text-2xl md:text-4xl">
-            {siteConfig.heroHeadline.map((line, i) => (
-              <span key={line}>
-                {i > 0 && <br />}
+      {/* 히어로: 모바일 뷰포트 72% 이상 및 PC 92%를 시원하게 채우는 웅장한 비디오 쇼케이스 */}
+      <section className="relative flex min-h-[72svh] sm:min-h-[82vh] md:min-h-[92vh] flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 sm:py-20 text-center text-white">
+        {/* 풀스크린 배경 영상 (모바일 화면의 70% 이상을 시원하게 채우며 현장 작업 실황 재생) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <HeroVideo mode="background" className="object-[center_35%]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/65" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-2 w-full">
+          {/* H1 메인 헤드라인 (모바일 기준 21px, PC는 이전의 웅장한 56px 스케일로 완벽 복원) */}
+          <h1 className="mx-auto max-w-4xl text-[21px] font-black leading-[1.25] tracking-tight [text-shadow:0_4px_24px_rgba(0,0,0,0.8)] sm:text-4xl md:text-5xl lg:text-[56px]">
+            {siteConfig.heroHeadline.map((line) => (
+              <span
+                key={line}
+                className="block mt-1 sm:mt-2 text-[21px] sm:text-4xl md:text-5xl lg:text-[56px]"
+              >
                 {line}
               </span>
             ))}
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-100 [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:text-base">
-            {siteConfig.heroSubcopy.map((line, i) => (
-              <span key={line}>
-                {i > 0 && <br />}
+
+          {/* 서브 문구 (모바일 text-sm, PC 이전 크기인 lg:text-[26px] 복원) */}
+          <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-normal leading-relaxed text-gray-100 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+            {siteConfig.heroSubcopy.map((line) => (
+              <span key={line} className="block">
                 {line}
               </span>
             ))}
           </p>
-          <p className="mx-auto mt-4 text-base font-bold tracking-wide text-brand-light [text-shadow:0_2px_10px_rgba(0,0,0,0.6)] md:text-lg">
+
+          {/* 클로징 강조 문구 (모바일 text-base, PC 이전 크기인 lg:text-[32px] 복원) */}
+          <p className="mx-auto mt-3 sm:mt-5 text-base sm:text-2xl md:text-3xl lg:text-[32px] font-bold tracking-normal text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
             {siteConfig.heroClosing}
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+
+          {/* 중앙 강조 대형 무료견적신청 버튼 */}
+          <div className="mt-6 sm:mt-12 flex items-center justify-center">
             <Link
               href="/contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-bold text-brand-dark transition-transform hover:scale-105"
+              className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-brand px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-2xl font-extrabold text-white shadow-[0_10px_35px_rgba(13,148,136,0.6)] transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-[0_15px_45px_rgba(13,148,136,0.8)] active:scale-95 cursor-pointer"
             >
-              무료견적신청
+              <span>무료견적신청</span>
+              <svg
+                className="h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-200 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
-            {siteConfig.phoneRaw && (<a
-              href={`tel:${siteConfig.phoneRaw}`}
-              className="rounded-full border border-white/60 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
-            >
-              전화 상담 {siteConfig.phone}
-            </a>)}
           </div>
         </div>
       </section>
@@ -163,6 +170,19 @@ export default function Home() {
           description="간단청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
         />
         <ServiceCategoryGrid />
+
+        {/* 모바일 전용 33개 세부 서비스 한눈에 보기 바로가기 */}
+        <div className="mt-8 flex justify-center md:hidden">
+          <label
+            htmlFor="mobile-menu-toggle"
+            className="flex items-center gap-2 rounded-2xl bg-brand px-6 py-3.5 text-sm font-extrabold text-white shadow-md active:scale-95 hover:bg-brand-dark cursor-pointer touch-manipulation select-none"
+          >
+            <span>📋 33개 전체 서비스 세부목록 보기</span>
+            <svg className="h-4 w-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </label>
+        </div>
       </section>
 
       {/* FAQ */}

@@ -12,7 +12,7 @@ export const siteConfig = {
   phoneRaw: "01098828882",
   email: "",
   hours: {
-    weekday: "전화로 상담해 주세요",
+    weekday: "연중무휴 전화상담가능",
     weekend: "",
   },
   address: "",

@@ -40,10 +40,12 @@ export default function Certifications() {
             ✕
           </button>
           <div className="flex max-h-full flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
-            <img
+            <Image
               src={certifications[openIdx].image}
               alt={certifications[openIdx].title}
-              className="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl"
+              width={800}
+              height={1100}
+              className="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"
             />
             <p className="text-center font-bold text-white">
               {certifications[openIdx].title} · {certifications[openIdx].issuer}

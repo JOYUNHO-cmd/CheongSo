@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -15,6 +16,11 @@
   --color-brand-dark: var(--brand-dark);
   --color-brand-light: var(--brand-light);
   --font-sans: var(--font-noto-sans-kr);
+  --font-brush: 'Nanum Brush Script', 'Nanum Pen Script', cursive;
+}
+
+.font-brush {
+  font-family: 'Nanum Brush Script', 'Nanum Pen Script', cursive, sans-serif;
 }
 
 body {
@@ -88,3 +94,22 @@ body {
 .marquee-row:hover .animate-marquee-right-slow {
   animation-play-state: paused;
 }
+
+/* details & summary 모바일 기본 브라우저 삼각형 화살표 완전 제거 */
+details > summary::-webkit-details-marker,
+details > summary::marker {
+  display: none !important;
+  content: "" !important;
+}
+details > summary {
+  list-style: none !important;
+}
+
+/* 모바일 메뉴 오버레이 체크박스 순수 CSS 엔진 (자바스크립트 씹힘 0% 방지) */
+#mobile-menu-toggle:checked ~ #mobile-menu-overlay {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
