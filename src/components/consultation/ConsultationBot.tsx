@@ -117,12 +117,27 @@ export default function ConsultationBot() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      launcherRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // Direct DOM click listener backup for launcher buttons to guarantee responsiveness
+  useEffect(() => {
+    const handleTrigger = (e: Event) => {
+      e.stopPropagation();
+      setOpen(true);
+    };
+    const launcherBtn = document.getElementById("jjin-chat-launcher-btn");
+    const bubbleBtn = document.getElementById("jjin-launcher-bubble-btn");
+    launcherBtn?.addEventListener("click", handleTrigger);
+    bubbleBtn?.addEventListener("click", handleTrigger);
+    return () => {
+      launcherBtn?.removeEventListener("click", handleTrigger);
+      bubbleBtn?.removeEventListener("click", handleTrigger);
+    };
+  }, []);
 
   // Expose global control APIs for Header and other triggers
   useEffect(() => {
@@ -192,6 +207,7 @@ export default function ConsultationBot() {
           {/* Floating hint bubble */}
           <button
             type="button"
+            id="jjin-launcher-bubble-btn"
             className={`jjin-launcher-bubble ${launcherHovered ? "is-launcher-hovered" : ""}`}
             onClick={() => toggle(true)}
             aria-label="1분 맞춤견적 자동상담 열기"
@@ -240,15 +256,16 @@ export default function ConsultationBot() {
       )}
 
       {/* Consultation Dialog */}
-      <div
-        id="jjin-consultation-dialog"
-        className={`jjin-chat-dialog ${open ? "is-open" : ""}`}
-        style={{ display: open ? "flex" : "none" }}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="jjin-consultation-title"
-        aria-describedby="jjin-consultation-description"
-      >
+      {open && (
+        <div
+          id="jjin-consultation-dialog"
+          className="jjin-chat-dialog is-open"
+          style={{ display: "flex" }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="jjin-consultation-title"
+          aria-describedby="jjin-consultation-description"
+        >
         <h2 className="jjin-chat-sr-only" id="jjin-consultation-title">
           찐청소 선택형 자동상담
         </h2>
@@ -452,6 +469,7 @@ export default function ConsultationBot() {
           </footer>
         </div>
       </div>
+      )}
     </>
   );
 }

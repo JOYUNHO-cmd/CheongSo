@@ -1035,11 +1035,15 @@ dialog.jjin-chat-dialog::backdrop {
   dialog.jjin-chat-dialog:not(.is-open) {
     display: none !important;
     visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
   .jjin-chat-dialog.is-open,
   dialog.jjin-chat-dialog.is-open {
     display: flex !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
   .jjin-chat-heading .jjin-chat-brand-image {
     width: 96px;

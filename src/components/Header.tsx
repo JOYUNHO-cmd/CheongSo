@@ -19,8 +19,9 @@ const mainNavLinks = [
 export default function Header() {
   // 모바일 메뉴 드로어 열림 상태
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openMobileCategory, setOpenMobileCategory] = useState<string>("moving");
 
-  // PC 메가 드롭다운 상태
+  // PC & 태블릿 메가 드롭다운 상태
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
@@ -31,6 +32,13 @@ export default function Header() {
     setMobileMenuOpen(true);
     if (typeof document !== "undefined") {
       document.body.style.overflow = "hidden";
+      const overlay = document.getElementById("mobile-menu-overlay");
+      if (overlay) {
+        overlay.classList.add("is-open");
+        overlay.classList.remove("hidden");
+        overlay.style.display = "flex";
+        overlay.style.pointerEvents = "auto";
+      }
     }
   }, []);
 
@@ -39,8 +47,29 @@ export default function Header() {
     setMobileMenuOpen(false);
     if (typeof document !== "undefined") {
       document.body.style.overflow = "";
+      const overlay = document.getElementById("mobile-menu-overlay");
+      if (overlay) {
+        overlay.classList.remove("is-open");
+        overlay.classList.add("hidden");
+        overlay.style.display = "none";
+        overlay.style.pointerEvents = "none";
+      }
     }
   }, []);
+
+  // 모바일 메뉴 버튼 직접 DOM 리스너 백업 (터치 반응성 100% 보장)
+  useEffect(() => {
+    const btn = document.getElementById("mobile-all-menu-btn");
+    if (!btn) return;
+    const handleTap = (e: Event) => {
+      e.stopPropagation();
+      openMenu();
+    };
+    btn.addEventListener("click", handleTap);
+    return () => {
+      btn.removeEventListener("click", handleTap);
+    };
+  }, [openMenu]);
 
   // 전역 편의 함수 등록 (어느 버튼에서나 window.openServiceMenu() 호출 가능)
   useEffect(() => {
@@ -52,12 +81,6 @@ export default function Header() {
     if (typeof window !== "undefined") {
       (window as unknown as { openServiceMenu?: () => void }).openServiceMenu = openMenu;
       (window as unknown as { closeServiceMenu?: () => void }).closeServiceMenu = closeMenu;
-
-      // 초기 기본값으로 이사·입주청소(1번째) 열기
-      const defaultEl = document.getElementById("mobile-service-cat-1") as HTMLDetailsElement | null;
-      if (defaultEl) {
-        defaultEl.open = true;
-      }
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -80,7 +103,23 @@ export default function Header() {
     };
   }, [openMenu, closeMenu]);
 
-  // PC: 마우스 진입 시 즉시 7열 전체 드롭다운 펼침
+  // 네비게이션 드롭다운 열려있을 때만 외부 클릭 감지
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      const navBar = document.getElementById("main-navigation-bar");
+      if (navBar && !navBar.contains(event.target as Node)) {
+        setDropdownOpen(false);
+        setActiveCategory(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
+  // PC & 태블릿: 마우스 진입 시 즉시 7열 전체 드롭다운 펼침
   const handleMouseEnterNav = (catSlug?: string) => {
     if (leaveTimerRef.current) {
       clearTimeout(leaveTimerRef.current);
@@ -92,13 +131,29 @@ export default function Header() {
     setDropdownOpen(true);
   };
 
-  // PC: 마우스 이탈 시 부드럽게 닫힘
+  // PC & 태블릿: 마우스 이탈 시 부드럽게 닫힘
   const handleMouseLeaveNav = () => {
     if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
     leaveTimerRef.current = setTimeout(() => {
       setDropdownOpen(false);
       setActiveCategory(null);
-    }, 180);
+    }, 280);
+  };
+
+  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글
+  const handleCategoryClick = (e: React.MouseEvent, catSlug: string) => {
+    if (!dropdownOpen || activeCategory !== catSlug) {
+      e.preventDefault();
+      if (leaveTimerRef.current) {
+        clearTimeout(leaveTimerRef.current);
+        leaveTimerRef.current = null;
+      }
+      setDropdownOpen(true);
+      setActiveCategory(catSlug);
+    } else {
+      setDropdownOpen(false);
+      setActiveCategory(null);
+    }
   };
 
   return (
@@ -121,8 +176,8 @@ export default function Header() {
         {/* 2. 메인 헤더 바 */}
         <div className="border-b border-gray-100 bg-white">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 py-1.5 sm:py-3.5">
-            {/* 로고 & [모바일: "진짜 청소" + 최고 크기 로고] & [PC: 로고 + 주요 메뉴] */}
-            <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-10">
+            {/* 로고 & [모바일: "진짜 청소" + 최고 크기 로고] & [PC/태블릿: 로고 + 주요 메뉴] */}
+            <div className="flex items-center gap-2 sm:gap-2.5 md:gap-2 lg:gap-6 xl:gap-10">
               <Link
                 href="/"
                 className="flex items-center gap-2 sm:gap-2.5 shrink-0"
@@ -137,17 +192,17 @@ export default function Header() {
                   진짜 청소
                 </span>
 
-                {/* 우리회사 로고 (모바일 헤더 상단을 해치지 않는 최적의 최대 크기 및 완벽한 중앙 배치) */}
-                <Logo className="h-[48px] sm:h-12 lg:h-14 w-auto object-contain transition-all" />
+                {/* 우리회사 로고 (모바일, 태블릿, PC 밸런스 조정: 태블릿은 md:h-8 로 컴팩트하게) */}
+                <Logo className="h-[48px] sm:h-12 md:h-8 lg:h-11 xl:h-14 w-auto object-contain transition-all" />
               </Link>
 
-              {/* PC 전용 로고 옆 안내 메뉴 */}
-              <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+              {/* PC/태블릿 로고 옆 안내 메뉴 (태블릿은 md:text-[11.5px] md:px-1.5 로 벨런스 있게) */}
+              <nav className="hidden md:flex items-center md:gap-0.5 lg:gap-1.5 xl:gap-2">
                 {mainNavLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="rounded-lg px-3.5 py-2 text-[15px] lg:text-[16px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer"
+                    className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[11.5px] lg:text-[14.5px] xl:px-3.5 xl:py-2 xl:text-[16px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
@@ -155,40 +210,40 @@ export default function Header() {
               </nav>
             </div>
 
-            {/* 우측 상담 및 버튼 영역 */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              {/* PC 전용 24시 전화상담 버튼 (메인 견적 버튼 스타일 호버 반응: 바탕색 변경 및 확대) */}
+            {/* 우측 상담 및 버튼 영역 (태블릿은 md:gap-1.5) */}
+            <div className="flex items-center gap-2 sm:gap-2.5 md:gap-1.5 xl:gap-3">
+              {/* PC/태블릿 24시 전화상담 버튼 (태블릿 화면 맞춤 축소) */}
               {siteConfig.phoneRaw && (
                 <a
                   href={`tel:${siteConfig.phoneRaw}`}
-                  className="group hidden whitespace-nowrap rounded-full bg-brand px-3.5 lg:px-4.5 py-1.5 lg:py-2 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center gap-2 lg:gap-2.5 select-none"
+                  className="group hidden whitespace-nowrap rounded-full bg-brand px-2.5 py-1 md:px-2 md:py-1 md:gap-1 lg:px-3.5 lg:py-1.5 lg:gap-2 xl:px-4.5 xl:py-2 xl:gap-2.5 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center select-none"
                   aria-label={`24시 빠른 전화상담 ${siteConfig.phone}`}
                 >
                   <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
-                    <Phone className="h-5 w-5 lg:h-6 lg:w-6 text-white" strokeWidth={2.4} aria-hidden="true" />
+                    <Phone className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-white" strokeWidth={2.4} aria-hidden="true" />
                   </span>
                   <div className="text-left leading-none">
-                    <span className="block text-[10px] lg:text-[11px] font-bold text-teal-100 uppercase tracking-wider mb-0.5">
+                    <span className="block text-[8px] md:text-[8px] lg:text-[10px] xl:text-[11px] font-bold text-teal-100 uppercase tracking-wider mb-0.5">
                       24시 빠른 전화상담
                     </span>
-                    <span className="block text-sm lg:text-base font-black tracking-wide text-white">
+                    <span className="block text-[11px] md:text-[11px] lg:text-sm xl:text-base font-black tracking-wide text-white">
                       {siteConfig.phone}
                     </span>
                   </div>
                 </a>
               )}
 
-              {/* PC 전용 카카오톡 실시간 상담 바로가기 버튼 */}
+              {/* PC/태블릿 카카오톡 실시간 상담 바로가기 버튼 (태블릿 화면 맞춤 축소) */}
               <a
                 href={siteConfig.kakaoUrl || "https://open.kakao.com/o/srNJGmpg"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group hidden whitespace-nowrap rounded-full bg-[#FEE500] px-3.5 lg:px-4.5 py-1.5 lg:py-2 text-[#191919] shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#fed900] hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center gap-2 select-none"
+                className="group hidden whitespace-nowrap rounded-full bg-[#FEE500] px-2.5 py-1 md:px-2 md:py-1 md:gap-1 lg:px-3.5 lg:py-1.5 lg:gap-2 xl:px-4.5 xl:py-2 xl:gap-2 text-[#191919] shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#fed900] hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center select-none"
                 aria-label="카카오톡 1:1 실시간 상담 바로가기 (새 창 열림)"
               >
                 <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
                   <svg
-                    className="h-5 w-5 lg:h-6 lg:w-6 text-[#381E1F]"
+                    className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-[#381E1F]"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -197,10 +252,10 @@ export default function Header() {
                   </svg>
                 </span>
                 <div className="text-left leading-none">
-                  <span className="block text-[10px] lg:text-[11px] font-bold text-[#6a5300] uppercase tracking-wider mb-0.5">
+                  <span className="block text-[8px] md:text-[8px] lg:text-[10px] xl:text-[11px] font-bold text-[#6a5300] uppercase tracking-wider mb-0.5">
                     실시간 1:1 상담
                   </span>
-                  <span className="block text-sm lg:text-base font-black tracking-wide text-[#191919]">
+                  <span className="block text-[11px] md:text-[11px] lg:text-sm xl:text-base font-black tracking-wide text-[#191919]">
                     카카오톡 문의
                   </span>
                 </div>
@@ -210,8 +265,9 @@ export default function Header() {
               <div className="flex items-center md:hidden">
                 <button
                   type="button"
+                  id="mobile-all-menu-btn"
                   onClick={openMenu}
-                  className="flex min-h-[38px] items-center gap-1.5 rounded-lg bg-brand px-3.5 py-2 text-xs font-bold text-white shadow-xs active:scale-95 cursor-pointer touch-manipulation hover:bg-brand-dark select-none"
+                  className="flex min-h-[38px] items-center gap-1.5 rounded-lg bg-brand px-3.5 py-2 text-xs font-bold text-white shadow-xs active:scale-95 cursor-pointer touch-manipulation hover:bg-brand-dark select-none relative z-50"
                   aria-label="전체 메뉴 열기"
                 >
                   <svg
@@ -234,14 +290,14 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 3. [PC 전용] 7개 전문 청소 카테고리 상시 노출 & 마우스 호버 시 7열 자동 펼침 네비게이션 */}
+        {/* 3. [PC & 태블릿 전용] 7개 전문 청소 카테고리 상시 노출 & 마우스 호버 시 7열 자동 펼침 네비게이션 */}
         <div
           id="main-navigation-bar"
           className="relative hidden md:block border-b border-gray-200 bg-white group/gnb"
           onMouseEnter={() => handleMouseEnterNav()}
           onMouseLeave={handleMouseLeaveNav}
         >
-          <div className="mx-auto max-w-7xl px-3 sm:px-6">
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 xl:px-6">
             <nav>
               <div
                 className="grid w-full items-center"
@@ -257,11 +313,8 @@ export default function Header() {
                     >
                       <Link
                         href={`/services#${cat.slug}`}
-                        onClick={() => {
-                          setDropdownOpen(false);
-                          setActiveCategory(null);
-                        }}
-                        className={`block py-3.5 sm:py-4 px-1 sm:px-2 text-[15.5px] sm:text-[17px] font-extrabold whitespace-nowrap transition-colors cursor-pointer ${
+                        onClick={(e) => handleCategoryClick(e, cat.slug)}
+                        className={`block py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
                           isHovered ? "text-brand" : "text-gray-900 group-hover/item:text-brand"
                         }`}
                       >
@@ -270,7 +323,7 @@ export default function Header() {
 
                       {/* 마우스 호버 밑줄 */}
                       <span
-                        className={`absolute bottom-0 left-2 right-2 sm:left-3 sm:right-3 h-[3px] bg-brand rounded-t-sm transition-all duration-150 ${
+                        className={`absolute bottom-0 left-1 right-1 sm:left-2 sm:right-2 xl:left-3 xl:right-3 h-[2.5px] xl:h-[3px] bg-brand rounded-t-sm transition-all duration-150 ${
                           isHovered
                             ? "opacity-100 scale-x-100"
                             : "opacity-0 scale-x-75 group-hover/item:opacity-100 group-hover/item:scale-x-100"
@@ -283,13 +336,13 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* [PC 전용] 7열 서브메뉴 패널 */}
+          {/* [PC & 태블릿 전용] 서브메뉴 패널 */}
           <div
             id="full-service-dropdown"
             className={`absolute inset-x-0 top-full bg-white shadow-2xl border-t border-gray-100 border-b border-gray-200 z-50 transition-all duration-200 ease-out origin-top overflow-hidden ${
               dropdownOpen
-                ? "opacity-100 translate-y-0 pointer-events-auto visible max-h-[700px]"
-                : "opacity-0 -translate-y-1 pointer-events-none invisible max-h-0 group-hover/gnb:opacity-100 group-hover/gnb:translate-y-0 group-hover/gnb:pointer-events-auto group-hover/gnb:visible group-hover/gnb:max-h-[700px]"
+                ? "is-open opacity-100 translate-y-0 pointer-events-auto visible max-h-[850px]"
+                : "opacity-0 -translate-y-1 pointer-events-none invisible max-h-0"
             }`}
             onMouseEnter={() => {
               if (leaveTimerRef.current) {
@@ -297,8 +350,37 @@ export default function Header() {
                 leaveTimerRef.current = null;
               }
             }}
+            onMouseLeave={handleMouseLeaveNav}
           >
-            <div className="mx-auto max-w-7xl px-3 sm:px-6 pt-6 pb-10">
+            {/* [태블릿 전용: 큰서비스 마우스 호버 시 나오는 작은서비스들이 한 줄로 표시 - 768px ~ 1023px] */}
+            <div className="hidden md:block lg:hidden bg-slate-50/90 border-b border-gray-200 py-2.5 px-3">
+              {(() => {
+                const currentCat = serviceCategories.find((c) => c.slug === activeCategory) || serviceCategories[0];
+                return (
+                  <div className="mx-auto max-w-7xl flex items-center justify-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none py-0.5">
+                    <span className="shrink-0 text-[11px] font-extrabold text-brand bg-teal-50 border border-brand/40 px-2.5 py-1 rounded-full mr-1 shadow-2xs">
+                      {currentCat.title}
+                    </span>
+                    {currentCat.items.map((item) => (
+                      <Link
+                        key={item}
+                        href={servicePath(item)}
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          setActiveCategory(null);
+                        }}
+                        className="inline-flex items-center text-[11.5px] font-semibold text-gray-700 hover:text-brand hover:bg-white px-2 py-1 rounded-md transition-all shrink-0 border border-transparent hover:border-gray-200 hover:shadow-2xs cursor-pointer"
+                      >
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* [PC 전용: 7열 전체 펼침 그리드 - 1024px 이상] */}
+            <div className="hidden lg:block mx-auto max-w-7xl px-1.5 md:px-2 lg:px-4 xl:px-6 pt-3 md:pt-4 lg:pt-5 xl:pt-6 pb-6 md:pb-6 lg:pb-8 xl:pb-10">
               <div
                 className="grid w-full"
                 style={{ gridTemplateColumns: `repeat(${serviceCategories.length}, minmax(0, 1fr))` }}
@@ -308,10 +390,10 @@ export default function Header() {
                   return (
                     <div
                       key={cat.slug}
-                      className="px-1.5 sm:px-2"
+                      className="px-0.5 md:px-0.5 lg:px-1 xl:px-2"
                       onMouseEnter={() => setActiveCategory(cat.slug)}
                     >
-                      <ul className="flex flex-col gap-3 text-center">
+                      <ul className="flex flex-col gap-1.5 md:gap-2 lg:gap-2.5 xl:gap-3 text-center">
                         {cat.items.map((item) => (
                           <li key={item}>
                             <Link
@@ -320,7 +402,7 @@ export default function Header() {
                                 setDropdownOpen(false);
                                 setActiveCategory(null);
                               }}
-                              className={`block text-[14px] sm:text-[15px] tracking-tight transition-all py-1 px-1 rounded cursor-pointer ${
+                              className={`block text-[11px] md:text-[11.5px] md:tracking-tighter lg:text-[13px] lg:tracking-tight xl:text-[15px] xl:tracking-tight whitespace-nowrap transition-all py-0.5 md:py-1 px-0.5 md:px-0.5 lg:px-1 rounded cursor-pointer ${
                                 isHovered
                                   ? "text-gray-900 font-semibold hover:text-brand hover:bg-teal-50/70"
                                   : "text-gray-700 font-normal hover:text-brand hover:font-bold hover:bg-teal-50/50"
@@ -355,11 +437,15 @@ export default function Header() {
         }}
       />
 
-      {/* 5. 모바일 전용 미니멀 계층형 메뉴 드로어 (한스클린 레퍼런스 스타일) */}
+      {/* 5. 모바일 및 태블릿 전용 미니멀 계층형 메뉴 드로어 (한스클린 레퍼런스 스타일) */}
       <div
         id="mobile-menu-overlay"
-        className={`fixed inset-0 z-[99999999] md:hidden ${mobileMenuOpen ? "flex" : "hidden"} flex-col bg-white overflow-hidden`}
-        style={{ touchAction: "pan-y" }}
+        className={`fixed inset-0 z-[99999999] ${mobileMenuOpen ? "flex is-open" : "hidden"} flex-col bg-white overflow-hidden`}
+        style={{
+          touchAction: "pan-y",
+          display: mobileMenuOpen ? "flex" : "none",
+          pointerEvents: mobileMenuOpen ? "auto" : "none",
+        }}
       >
         {/* 1) 상단 바: "제대로 합니다" (날리는 붓글씨 서체) + 찐청소 로고 + 세련된 '✕' 닫기 버튼 (상단에 맞춘 최고 크기 적용) */}
         <div className="flex items-center justify-between px-3 sm:px-4 py-1.5 sm:py-2.5 border-b border-gray-200 shrink-0 bg-white">
@@ -389,105 +475,98 @@ export default function Header() {
           </button>
         </div>
 
-        {/* 2) 본문: 오직 서비스 메뉴만 세로로 깔끔하게 나열되는 브라우저 네이티브 아코디언 트리 */}
+        {/* 2) 본문: 오직 서비스 메뉴만 세로로 깔끔하게 나열되는 계층형 아코디언 트리 */}
         <div className="flex-1 overflow-y-auto px-6 py-2 divide-y divide-gray-100">
           {serviceCategories.map((cat, idx) => {
+            const isOpen = openMobileCategory === cat.slug;
             return (
-              <details
+              <div
                 key={cat.slug}
-                name="service-group"
                 id={`mobile-service-cat-${idx}`}
                 className="group py-0.5"
               >
-                {/* 대분류 헤더 - 브라우저 네이티브 토글 (터치 시 0.00초 즉시 반응) */}
-                <summary className="flex w-full items-center justify-between py-3.5 text-left cursor-pointer list-none select-none touch-manipulation">
-                  <span className="text-[18px] font-bold tracking-tight text-gray-800 group-hover:text-gray-950 group-open:text-gray-950 transition-colors">
+                {/* 대분류 헤더 - 터치/클릭 시 100% 즉시 토글 */}
+                <button
+                  type="button"
+                  onClick={() => setOpenMobileCategory(isOpen ? "" : cat.slug)}
+                  className="flex w-full items-center justify-between py-3.5 text-left cursor-pointer list-none select-none touch-manipulation"
+                >
+                  <span className={`text-[18px] font-bold tracking-tight transition-colors ${isOpen ? "text-gray-950 font-extrabold" : "text-gray-800 hover:text-gray-950"}`}>
                     {cat.title}
                   </span>
 
-                  {/* 큰 서비스 화살표: 기본 ◁, 마우스 커서 호버 시 ◀ 불 들어옴, 열렸을 시 ▼ (호버 시 중복 발생 완벽 방지) */}
+                  {/* 큰 서비스 화살표: 닫혀있을 시 ◁, 열렸을 시 ▼ */}
                   <div className="shrink-0 pl-2 transition-all flex items-center justify-center">
-                    {/* 1) 닫혀있을 때만 표시 (열리면 group-open:hidden으로 완전 숨김 처리되어 ◀ 중복 발생 원천 차단) */}
-                    <div className="group-open:hidden flex items-center">
-                      {/* 평소: ◁ (빈 왼쪽 큰 삼각형) */}
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        className="block group-hover:hidden text-gray-400 fill-none stroke-current stroke-[2.5]"
-                      >
-                        <path d="M19 4L5 12L19 20Z" strokeLinejoin="round" />
-                      </svg>
+                    {!isOpen ? (
+                      <div className="flex items-center">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          className="text-gray-400 fill-none stroke-current stroke-[2.5]"
+                        >
+                          <path d="M19 4L5 12L19 20Z" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    ) : (
+                      <div className="flex items-center">
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          className="text-[#00a8cc] fill-current drop-shadow-[0_0_8px_rgba(0,168,204,0.6)]"
+                        >
+                          <path d="M4 6L12 19L20 6Z" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                </button>
 
-                      {/* 호버 시: ◀ (꽉 찬 왼쪽 큰 삼각형 + 시안색 불빛) */}
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        className="hidden group-hover:block text-[#00a8cc] fill-current drop-shadow-[0_0_8px_rgba(0,168,204,0.7)]"
-                      >
-                        <path d="M19 4L5 12L19 20Z" />
-                      </svg>
-                    </div>
+                {/* 세부 서비스 목록 (서비스 왼쪽에 작은 ▽, 호버 시 작은 ▼) */}
+                {isOpen && (
+                  <div className="relative pl-3.5 pb-3 pt-1 animate-in fade-in duration-100">
+                    {/* 세로 연결 안내선 */}
+                    <div className="absolute left-[21px] top-2 bottom-3.5 w-[1.5px] bg-cyan-100" />
 
-                    {/* 2) 열려있을 때만 표시: ▼ (아래를 가리키며 호버 시에도 오직 ▼만 유지) */}
-                    <div className="hidden group-open:flex items-center">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        className="text-[#00a8cc] fill-current drop-shadow-[0_0_8px_rgba(0,168,204,0.6)] group-hover:scale-110 transition-transform"
-                      >
-                        <path d="M4 6L12 19L20 6Z" />
-                      </svg>
+                    <div className="space-y-2">
+                      {cat.items.map((item) => (
+                        <Link
+                          key={item}
+                          href={servicePath(item)}
+                          onClick={closeMenu}
+                          className="group/item relative flex items-center gap-2.5 py-1 text-[16px] font-medium text-gray-700 hover:text-[#00a8cc] active:opacity-75 transition-colors cursor-pointer"
+                        >
+                          {/* 작은 서비스 왼쪽 인디케이터: 평소 ▽, 호버 시 ▼ */}
+                          <span className="relative z-10 flex h-4 w-4 shrink-0 items-center justify-center bg-white transition-all">
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              className="block group-hover/item:hidden text-gray-400 fill-none stroke-current stroke-[2.5]"
+                            >
+                              <path d="M4 6L12 18L20 6Z" strokeLinejoin="round" />
+                            </svg>
+                            <svg
+                              width="14"
+                              height="14"
+                              viewBox="0 0 24 24"
+                              className="hidden group-hover/item:block text-[#00a8cc] fill-current drop-shadow-[0_0_6px_rgba(0,168,204,0.7)] scale-110"
+                            >
+                              <path d="M4 6L12 18L20 6Z" />
+                            </svg>
+                          </span>
+
+                          {/* 세부 서비스명 */}
+                          <span className="tracking-tight transition-colors group-hover/item:text-[#00a8cc] group-hover/item:font-bold">
+                            {item}
+                          </span>
+                        </Link>
+                      ))}
                     </div>
                   </div>
-                </summary>
-
-                {/* 세부 서비스 목록 (서비스 왼쪽에 작은 ▽, 마우스 호버 시 작은 ▼ 불 들어옴) */}
-                <div className="relative pl-3.5 pb-3 pt-1 animate-in fade-in duration-100">
-                  {/* 세로 연결 안내선 (작은 삼각형 중심 정렬) */}
-                  <div className="absolute left-[21px] top-2 bottom-3.5 w-[1.5px] bg-cyan-100" />
-
-                  <div className="space-y-2">
-                    {cat.items.map((item) => (
-                      <Link
-                        key={item}
-                        href={servicePath(item)}
-                        onClick={closeMenu}
-                        className="group/item relative flex items-center gap-2.5 py-1 text-[16px] font-medium text-gray-700 hover:text-[#00a8cc] active:opacity-75 transition-colors cursor-pointer"
-                      >
-                        {/* 작은 서비스 왼쪽 인디케이터: 평소 ▽, 호버 시 ▼ 불 들어옴 */}
-                        <span className="relative z-10 flex h-4 w-4 shrink-0 items-center justify-center bg-white transition-all">
-                          {/* 평소: ▽ (빈 역삼각형) */}
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            className="block group-hover/item:hidden text-gray-400 fill-none stroke-current stroke-[2.5]"
-                          >
-                            <path d="M4 6L12 18L20 6Z" strokeLinejoin="round" />
-                          </svg>
-                          {/* 마우스 커서 호버 시: ▼ (꽉 찬 역삼각형 + 불 들어옴) */}
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            className="hidden group-hover/item:block text-[#00a8cc] fill-current drop-shadow-[0_0_6px_rgba(0,168,204,0.7)] scale-110"
-                          >
-                            <path d="M4 6L12 18L20 6Z" />
-                          </svg>
-                        </span>
-
-                        {/* 세부 서비스명 */}
-                        <span className="tracking-tight transition-colors group-hover/item:text-[#00a8cc] group-hover/item:font-bold">
-                          {item}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </details>
+                )}
+              </div>
             );
           })}
         </div>
