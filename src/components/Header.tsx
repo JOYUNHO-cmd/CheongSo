@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
 import { servicePath } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
@@ -112,7 +113,7 @@ export default function Header() {
                 전국 24시간 긴급 청소·시공 출동망 운영
               </span>
               <span className="text-gray-300">|</span>
-              <span>서울 · 경기 · 인천 및 전국 전지역 방문 견적 가능</span>
+              <span>전지역 어디든 방문 견적 가능</span>
             </div>
           </div>
         </div>
@@ -155,29 +156,55 @@ export default function Header() {
             </div>
 
             {/* 우측 상담 및 버튼 영역 */}
-            <div className="flex items-center gap-2 sm:gap-4">
-              {/* PC 전용 전화번호 */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* PC 전용 24시 전화상담 버튼 (메인 견적 버튼 스타일 호버 반응: 바탕색 변경 및 확대) */}
               {siteConfig.phoneRaw && (
                 <a
                   href={`tel:${siteConfig.phoneRaw}`}
-                  className="hidden whitespace-nowrap text-right sm:block group"
+                  className="group hidden whitespace-nowrap rounded-full bg-brand px-3.5 lg:px-4.5 py-1.5 lg:py-2 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center gap-2 lg:gap-2.5 select-none"
+                  aria-label={`24시 빠른 전화상담 ${siteConfig.phone}`}
                 >
-                  <span className="text-[11px] font-bold tracking-wider text-brand block uppercase">
-                    24시 빠른 전화상담
+                  <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
+                    <Phone className="h-5 w-5 lg:h-6 lg:w-6 text-white" strokeWidth={2.4} aria-hidden="true" />
                   </span>
-                  <span className="text-base lg:text-lg font-black text-gray-900 group-hover:text-brand transition-colors">
-                    {siteConfig.phone}
-                  </span>
+                  <div className="text-left leading-none">
+                    <span className="block text-[10px] lg:text-[11px] font-bold text-teal-100 uppercase tracking-wider mb-0.5">
+                      24시 빠른 전화상담
+                    </span>
+                    <span className="block text-sm lg:text-base font-black tracking-wide text-white">
+                      {siteConfig.phone}
+                    </span>
+                  </div>
                 </a>
               )}
 
-              {/* PC 전용 무료견적 버튼 */}
-              <Link
-                href="/contact"
-                className="hidden md:inline-flex whitespace-nowrap rounded-full bg-brand px-5 py-2.5 text-base font-bold text-white shadow-sm transition-all hover:bg-brand-dark hover:shadow-md cursor-pointer"
+              {/* PC 전용 카카오톡 실시간 상담 바로가기 버튼 */}
+              <a
+                href={siteConfig.kakaoUrl || "https://open.kakao.com/o/srNJGmpg"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group hidden whitespace-nowrap rounded-full bg-[#FEE500] px-3.5 lg:px-4.5 py-1.5 lg:py-2 text-[#191919] shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#fed900] hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center gap-2 select-none"
+                aria-label="카카오톡 1:1 실시간 상담 바로가기 (새 창 열림)"
               >
-                무료견적신청
-              </Link>
+                <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
+                  <svg
+                    className="h-5 w-5 lg:h-6 lg:w-6 text-[#381E1F]"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3C6.48 3 2 6.51 2 10.84c0 2.77 1.85 5.21 4.66 6.58l-1.18 4.33c-.1.37.29.69.63.52l5.16-2.62c.24.02.49.03.73.03 5.52 0 10-3.51 10-7.84C22 6.51 17.52 3 12 3z" />
+                  </svg>
+                </span>
+                <div className="text-left leading-none">
+                  <span className="block text-[10px] lg:text-[11px] font-bold text-[#6a5300] uppercase tracking-wider mb-0.5">
+                    실시간 1:1 상담
+                  </span>
+                  <span className="block text-sm lg:text-base font-black tracking-wide text-[#191919]">
+                    카카오톡 문의
+                  </span>
+                </div>
+              </a>
 
               {/* [모바일 전용] 상단 우측 버튼 세트 (전체 메뉴 버튼) */}
               <div className="flex items-center md:hidden">
@@ -467,12 +494,12 @@ export default function Header() {
 
         {/* 3) 하단 고정 바: 가격안내, 24시 전화안내, 빠른 무료견적 신청하기 */}
         <div className="border-t border-gray-200 bg-gray-50/80 px-5 py-4 shrink-0 space-y-2.5">
-          {/* 가격안내 & 자동상담 & 24시 전화안내 3열 */}
-          <div className="grid grid-cols-3 gap-1.5">
+          {/* 가격안내 & 자동상담 & 카톡상담 & 24시 전화안내 4열 */}
+          <div className="grid grid-cols-4 gap-1 sm:gap-1.5">
             <Link
               href="/pricing"
               onClick={closeMenu}
-              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
+              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-[11px] sm:text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500">
                 <rect x="2" y="5" width="20" height="14" rx="2" />
@@ -489,7 +516,7 @@ export default function Header() {
                   (window as unknown as { openConsultationBot?: () => void }).openConsultationBot?.();
                 }
               }}
-              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-teal-200 bg-teal-50/70 py-2 px-1 text-xs font-bold text-teal-800 shadow-2xs hover:bg-teal-100 transition-colors active:scale-98 cursor-pointer"
+              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-teal-200 bg-teal-50/70 py-2 px-1 text-[11px] sm:text-xs font-bold text-teal-800 shadow-2xs hover:bg-teal-100 transition-colors active:scale-98 cursor-pointer"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -497,10 +524,22 @@ export default function Header() {
               <span>자동상담</span>
             </button>
 
+            <a
+              href={siteConfig.kakaoUrl || "https://open.kakao.com/o/srNJGmpg"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-amber-300 bg-[#FEE500]/30 py-2 px-1 text-[11px] sm:text-xs font-bold text-[#381E1F] shadow-2xs hover:bg-[#FEE500] transition-colors active:scale-98"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#381E1F]">
+                <path d="M12 3C6.48 3 2 6.51 2 10.84c0 2.77 1.85 5.21 4.66 6.58l-1.18 4.33c-.1.37.29.69.63.52l5.16-2.62c.24.02.49.03.73.03 5.52 0 10-3.51 10-7.84C22 6.51 17.52 3 12 3z" />
+              </svg>
+              <span>카톡상담</span>
+            </a>
+
             {siteConfig.phoneRaw ? (
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
+                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-[11px] sm:text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />

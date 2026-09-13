@@ -96,11 +96,20 @@ export default function Home() {
 
       {/* 시공 전/후 포트폴리오 */}
       <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-6 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
-            eyebrow="BEFORE & AFTER"
             title="직접 찐으로 뛴 현장 보여드립니다"
-            description="실제 시공 현장의 전/후 비교 사진입니다. 사진을 누르면 크게 볼 수 있어요."
+            description={
+              <>
+                <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
+                  실제 시공 현장의 전/후 비교사진입니다.
+                </span>{" "}
+                <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
+                  사진을 누르면 크게 볼 수 있어요
+                </span>
+              </>
+            }
+            titleClassName="text-[24px] leading-[30px] sm:text-2xl sm:leading-normal md:text-3xl"
           />
         </div>
         <PortfolioShowcase />
@@ -108,11 +117,20 @@ export default function Home() {
 
       {/* 고객 후기 */}
       <section className="bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
-        <div className="mx-auto max-w-7xl px-6 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
-            eyebrow="CUSTOMER REVIEW"
-            title="직접 이용해보신 고객님들의 후기"
-            description="저희가 아닌, 실제로 청소를 맡기신 고객님들의 이야기입니다."
+            title="직접 이용해본 고객님들의 찐후기"
+            description={
+              <>
+                <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
+                  저희가 아닌, 실제로 청소를 맡기신
+                </span>{" "}
+                <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
+                  고객님들의 이야기입니다
+                </span>
+              </>
+            }
+            titleClassName="text-[23px] leading-[28px] sm:text-2xl sm:leading-normal md:text-3xl"
           />
         </div>
         <ReviewShowcase />
@@ -127,9 +145,13 @@ export default function Home() {
       <section className="bg-white py-16 md:py-24">
         <div className="mb-12 text-center">
           <SectionHeading
-            eyebrow="OUR PROCESS"
             title="고객님을 위한 5단계 진행 과정"
-            description={`처음부터 끝까지 투명하고 철저하게 진행되는 ${siteConfig.name}만의 안심 청소 서비스 시스템입니다.`}
+            description={
+              <>
+                <span className="block sm:inline">처음부터 끝까지 투명하고 철저하게 진행되는</span>{" "}
+                <span className="block sm:inline">{siteConfig.name}만의 안심 청소 서비스 시스템입니다</span>
+              </>
+            }
           />
         </div>
         <ProcessSteps />
@@ -138,19 +160,23 @@ export default function Home() {
       {/* 4대 안심 보장 */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="mb-10 text-center">
-          <SectionHeading eyebrow="WHY US" title="맡기기 전부터 마무리까지, 네 가지 기준" />
+          <SectionHeading title="맡기기 전부터 마무리까지, 네 가지 기준" />
         </div>
         <TrustFeatures />
       </section>
 
       {/* 자격증 */}
       <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-10 text-center">
             <SectionHeading
-              eyebrow="CERTIFIED"
               title="청소를 공부하고, 현장에 적용합니다"
-              description="등록된 자격증 자료를 확인하실 수 있습니다. 이미지를 누르면 크게 볼 수 있어요."
+              description={
+                <>
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                </>
+              }
             />
           </div>
           <Certifications />
@@ -163,11 +189,15 @@ export default function Home() {
       </section>
 
       {/* 서비스 카테고리 */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
         <SectionHeading
-          eyebrow="OUR SERVICE"
           title="상황에 맞는 서비스를 선택하세요"
-          description="간단청소부터 특수청소, 예방시공까지 한 곳에서 해결합니다."
+          description={
+            <>
+              <span className="block sm:inline">간단청소부터 특수청소, 예방시공까지!</span>{" "}
+              <span className="block sm:inline">한 곳에서 해결합니다</span>
+            </>
+          }
         />
         <ServiceCategoryGrid />
 
@@ -188,18 +218,17 @@ export default function Home() {
       {/* FAQ */}
       <section className="bg-white py-16 md:py-24">
         <div className="mb-10 text-center">
-          <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
+          <SectionHeading title="자주 묻는 질문" />
         </div>
         <FaqAccordion />
       </section>
 
       {/* 상담 준비하기 */}
-      <section className="bg-brand-light/30 px-6 py-16">
+      <section className="bg-brand-light/30 px-4 sm:px-6 py-16">
         <div className="mx-auto max-w-2xl">
           <SectionHeading
-            eyebrow="ONLINE QUOTE"
             title="상담 전에 정리하면, 청소가 한결 쉬워집니다"
-            description={`공간과 필요한 서비스를 정리한 뒤 ${siteConfig.phone}로 전화해 주세요.`}
+            description={`공간과 필요한 서비스를 정리한 뒤 ${siteConfig.phone}로 전화해 주세요`}
           />
           <QuoteForm />
         </div>

@@ -21,6 +21,7 @@ import {
   Copy,
   Check,
   HelpCircle,
+  Headset,
 } from "lucide-react";
 import { chatFaq, choose, getPrompt, summaryText, type Choice } from "./chat-flow";
 import Logo from "@/components/Logo";
@@ -52,10 +53,21 @@ const situationIcons = [
 
 export default function ConsultationBot() {
   const [open, setOpen] = useState(false);
+  const [launcherHovered, setLauncherHovered] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [answers, setAnswers] = useState<Choice[]>([]);
   const [view, setView] = useState<"chat" | "faq">("chat");
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const currentRef = useRef<HTMLDivElement>(null);
@@ -175,21 +187,46 @@ export default function ConsultationBot() {
   return (
     <>
       {/* Floating launcher - hidden when dialog is open */}
-      <button
-        ref={launcherRef}
-        type="button"
-        id="jjin-chat-launcher-btn"
-        className="jjin-chat-launcher cursor-pointer"
-        style={{ display: open ? "none" : "flex" }}
-        aria-label="찐청소 간편 자동상담 열기"
-        aria-haspopup="dialog"
-        aria-expanded={open}
-        aria-controls="jjin-consultation-dialog"
-        onClick={() => toggle(true)}
-      >
-        <MessageCircle size={25} className="pointer-events-none" />
-        <span className="pointer-events-none">자동상담</span>
-      </button>
+      {!open && (
+        <div className={`jjin-launcher-wrapper ${isScrolled ? "is-scrolled" : ""}`}>
+          {/* Floating hint bubble */}
+          <button
+            type="button"
+            className={`jjin-launcher-bubble ${launcherHovered ? "is-launcher-hovered" : ""}`}
+            onClick={() => toggle(true)}
+            aria-label="1분 맞춤견적 자동상담 열기"
+          >
+            <span>1분 맞춤견적</span>
+          </button>
+
+          {/* Launcher Button Container */}
+          <div className="jjin-launcher-btn-container">
+            <button
+              ref={launcherRef}
+              type="button"
+              id="jjin-chat-launcher-btn"
+              className="jjin-chat-launcher cursor-pointer"
+              aria-label="찐청소 간편 자동상담 열기"
+              aria-haspopup="dialog"
+              aria-expanded={open}
+              aria-controls="jjin-consultation-dialog"
+              onClick={() => toggle(true)}
+              onMouseEnter={() => setLauncherHovered(true)}
+              onMouseLeave={() => setLauncherHovered(false)}
+            >
+              <div className="jjin-launcher-icon-box">
+                <Headset strokeWidth={2.2} className="pointer-events-none jjin-launcher-icon" />
+              </div>
+
+              {/* Alive notification alert badge with ripple */}
+              <span className="jjin-live-alert-badge" aria-label="상담 준비완료">
+                <span className="jjin-live-alert-ping" />
+                <span className="jjin-live-alert-core" />
+              </span>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Backdrop overlay */}
       {open && (
@@ -216,7 +253,7 @@ export default function ConsultationBot() {
           찐청소 선택형 자동상담
         </h2>
         <p className="jjin-chat-sr-only" id="jjin-consultation-description">
-          상황과 서비스를 선택해 상담을 준비하세요. 선택 내용은 저장하거나 전송하지 않습니다.
+          상황과 서비스를 선택해 상담을 준비하세요. 선택 내용은 저장하거나 전송하지 않습니다
         </p>
 
         <div className="jjin-chat-shell">
@@ -302,7 +339,7 @@ export default function ConsultationBot() {
                     <span>찐청소 자동안내</span>
                     <p>
                       {prompt?.text ||
-                        "상담에 필요한 내용을 정리했어요 😊\n아래 내용을 확인하고 찐청소에 전화해 주세요."}
+                        "상담에 필요한 내용을 정리했어요 😊\n아래 내용을 확인하고 찐청소에 전화해 주세요"}
                     </p>
                   </div>
 
@@ -349,22 +386,22 @@ export default function ConsultationBot() {
                       <p>
                         아직 접수·예약되지 않았습니다.
                         <br />
-                        가격과 작업 가능 여부는 전화 상담으로 확인해 주세요.
+                        가격과 작업 가능 여부는 전화 상담으로 확인해 주세요
                       </p>
                       <a className="jjin-chat-call" href={"tel:" + chatContact.phone}>
                         <Phone size={18} />
                         {chatContact.displayPhone} 전화상담
                       </a>
-                      <p className="jjin-chat-note">선택 내용은 전화로 자동 전달되지 않아요.</p>
+                      <p className="jjin-chat-note">선택 내용은 전화로 자동 전달되지 않아요</p>
                       <button type="button" className="jjin-chat-copy" onClick={copy}>
                         {copied ? <Check size={17} /> : <Copy size={17} />}{" "}
                         {copied ? "상담 내용 복사 완료" : "상담 내용 복사"}
                       </button>
                       <output className="jjin-chat-copy-status">
                         {copied
-                          ? "복사한 내용을 상담 시 활용해 주세요."
+                          ? "복사한 내용을 상담 시 활용해 주세요"
                           : copyError
-                            ? "복사가 차단되어 있어요. 아래 내용을 직접 선택해 복사해 주세요."
+                            ? "복사가 차단되어 있어요. 아래 내용을 직접 선택해 복사해 주세요"
                             : ""}
                       </output>
                       {copyError && (

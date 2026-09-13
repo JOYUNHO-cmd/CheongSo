@@ -14,15 +14,12 @@ export default function ServicesPage() {
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-16">
       {/* 1. 상단 타이틀 */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <span className="inline-block rounded-full bg-teal-50 px-3.5 py-1.5 text-xs font-black text-brand border border-teal-200/60 mb-3">
-          TOTAL 33 SERVICES
-        </span>
         <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-gray-900 mb-3">
           찐청소 33가지 전문 서비스 안내
         </h1>
         <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
           고객님의 공간과 상황에 딱 맞춘 7개 분야 33개 전문 청소·시공 솔루션입니다.
-          원하시는 서비스를 선택하시면 상세 작업 범위와 예상 비용을 확인하실 수 있습니다.
+          원하시는 서비스를 선택하시면 상세 작업 범위와 예상 비용을 확인하실 수 있습니다
         </p>
 
         {/* 상단 빠른 상담 액션 */}

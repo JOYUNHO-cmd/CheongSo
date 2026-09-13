@@ -113,3 +113,20 @@ details > summary {
   pointer-events: auto !important;
 }
 
+/* 모바일 좌측 퀵 상담 버튼 생동감 애니메이션 (전화 & 카톡 흔들림 링 모션) */
+@keyframes mobile-wiggle-ring {
+  0%, 100% { transform: rotate(0deg); }
+  6%, 18% { transform: rotate(-14deg) scale(1.08); }
+  12%, 24% { transform: rotate(14deg) scale(1.08); }
+  30% { transform: rotate(0deg) scale(1); }
+}
+
+.animate-phone-ring {
+  animation: mobile-wiggle-ring 3.8s ease-in-out infinite;
+}
+
+.animate-kakao-ring {
+  animation: mobile-wiggle-ring 3.8s ease-in-out infinite 0.7s;
+}
+
+

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConsultationBot from "@/components/consultation/ConsultationBot";
+import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <ConsultationBot />
+        <MobileQuickContact />
       </body>
     </html>
   );
