@@ -1,26 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import KakaoIcon from "@/components/icons/KakaoIcon";
 
 /**
  * 모바일 전용 좌측 플로팅 빠른 상담 도크 (전화걸기 & 카톡문의)
- * - 상단 영역에서는 최적의 중간 위치(calc(25% + 9px))에 자리하다가,
- *   스크롤 다운 시 최하단으로 자연스럽게 부드럽게 이동(slide down)
+ * - 히어로 영상이 나오는 홈 화면에서만: 상단 영역 중간 위치(calc(25% + 9px))에
+ *   자리하다가 스크롤 다운 시 최하단으로 부드럽게 이동(slide down)
+ * - 그 외 페이지에서는 항상 최하단 고정 위치로 표시
  */
 export default function MobileQuickContact() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [scrolledOnHome, setScrolledOnHome] = useState(false);
+  const isScrolled = isHome ? scrolledOnHome : true;
 
   useEffect(() => {
+    if (!isHome) return;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setScrolledOnHome(window.scrollY > 40);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   if (!siteConfig.phoneRaw && !siteConfig.kakaoUrl) return null;
 

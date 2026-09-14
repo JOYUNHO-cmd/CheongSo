@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import {
   MessageCircle,
   ChevronLeft,
@@ -53,21 +54,25 @@ const situationIcons = [
 ];
 
 export default function ConsultationBot() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [launcherHovered, setLauncherHovered] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolledOnHome, setScrolledOnHome] = useState(false);
+  const isScrolled = isHome ? scrolledOnHome : true;
   const [answers, setAnswers] = useState<Choice[]>([]);
   const [view, setView] = useState<"chat" | "faq">("chat");
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
+    if (!isHome) return;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setScrolledOnHome(window.scrollY > 40);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const currentRef = useRef<HTMLDivElement>(null);
