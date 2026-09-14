@@ -17,10 +17,15 @@
   --color-brand-light: var(--brand-light);
   --font-sans: var(--font-noto-sans-kr);
   --font-brush: 'Nanum Brush Script', 'Nanum Pen Script', cursive;
+  --font-signature: 'Nanum Pen Script', 'Nanum Brush Script', cursive;
 }
 
 .font-brush {
   font-family: 'Nanum Brush Script', 'Nanum Pen Script', cursive, sans-serif;
+}
+
+.font-signature {
+  font-family: 'Nanum Pen Script', 'Nanum Brush Script', cursive, sans-serif;
 }
 
 body {
