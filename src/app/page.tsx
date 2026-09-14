@@ -218,7 +218,14 @@ export default function Home() {
       {/* FAQ */}
       <section className="bg-white py-16 md:py-24">
         <div className="mb-10 text-center">
-          <SectionHeading title="자주 묻는 질문" />
+          <SectionHeading
+            title="자주 묻는 질문"
+            description={
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-light/60 px-4 py-1.5 text-sm sm:text-base font-bold text-brand-dark">
+                궁금한 질문을 아래에서 선택하세요
+              </span>
+            }
+          />
         </div>
         <FaqAccordion />
       </section>
