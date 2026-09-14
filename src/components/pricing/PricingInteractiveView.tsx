@@ -41,6 +41,21 @@ function getCategoryIcon(id: string): LucideIcon {
   return categoryIconMap[id] || Sparkles;
 }
 
+// "|" 구분자를 모바일 화면 전용 줄바꿈으로 변환 (PC/태블릿은 자연스럽게 한 줄로 흐름)
+function withMobileBreaks(text: string) {
+  return text.split("|").map((line, i, arr) => (
+    <span key={i}>
+      {line}
+      {i < arr.length - 1 && (
+        <>
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> </span>
+        </>
+      )}
+    </span>
+  ));
+}
+
 export default function PricingInteractiveView() {
   const [activeCategory, setActiveCategory] = useState<string>(PRICING_GUIDE_DATA[0].id);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
@@ -219,17 +234,7 @@ export default function PricingInteractiveView() {
 
               {/* 서비스 요약 설명 (좌측 컬러 바 적용으로 시각적 앵커 부여) */}
               <div className="mt-5 rounded-xl bg-slate-50/90 border-l-4 border-brand p-3.5 sm:p-4 text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-                {cat.tagline.split("|").map((line, i, arr) => (
-                  <span key={i}>
-                    {line}
-                    {i < arr.length - 1 && (
-                      <>
-                        <br className="sm:hidden" />
-                        <span className="hidden sm:inline"> </span>
-                      </>
-                    )}
-                  </span>
-                ))}
+                {withMobileBreaks(cat.tagline)}
               </div>
 
               {/* 비용 안내 — 메뉴판처럼 항목·가격을 한 줄에 나란히 */}
@@ -249,17 +254,7 @@ export default function PricingInteractiveView() {
                         <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
                         {item.note && (
                           <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
-                            {item.note.split("|").map((line, i, arr) => (
-                              <span key={i}>
-                                {line}
-                                {i < arr.length - 1 && (
-                                  <>
-                                    <br className="sm:hidden" />
-                                    <span className="hidden sm:inline"> </span>
-                                  </>
-                                )}
-                              </span>
-                            ))}
+                            {withMobileBreaks(item.note)}
                           </p>
                         )}
                       </div>
@@ -311,7 +306,7 @@ export default function PricingInteractiveView() {
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-teal-100 text-xs font-black text-teal-800">
                               Q
                             </span>
-                            <span className="leading-snug">{faq.q}</span>
+                            <span className="leading-snug">{withMobileBreaks(faq.q)}</span>
                           </span>
                           <ChevronDown
                             className={`h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 ${
@@ -327,7 +322,7 @@ export default function PricingInteractiveView() {
                                 A
                               </span>
                               <div className="space-y-1">
-                                <p className="leading-relaxed">{faq.a}</p>
+                                <p className="leading-relaxed">{withMobileBreaks(faq.a)}</p>
                               </div>
                             </div>
                           </div>
