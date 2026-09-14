@@ -238,7 +238,19 @@ export default function PricingInteractiveView() {
                       <div className="min-w-0">
                         <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
                         {item.note && (
-                          <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">{item.note}</p>
+                          <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
+                            {item.note.split("|").map((line, i, arr) => (
+                              <span key={i}>
+                                {line}
+                                {i < arr.length - 1 && (
+                                  <>
+                                    <br className="sm:hidden" />
+                                    <span className="hidden sm:inline"> </span>
+                                  </>
+                                )}
+                              </span>
+                            ))}
+                          </p>
                         )}
                       </div>
                       <div className="shrink-0 text-lg sm:text-xl font-black text-brand-dark tracking-tight sm:whitespace-nowrap sm:text-right">
