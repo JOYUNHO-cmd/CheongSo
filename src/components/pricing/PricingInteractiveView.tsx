@@ -21,7 +21,6 @@ import {
   Lightbulb,
   Camera,
   Ruler,
-  CheckCircle2,
   type LucideIcon
 } from "lucide-react";
 import { PRICING_GUIDE_DATA } from "@/lib/pricing-guide-data";
@@ -219,20 +218,10 @@ export default function PricingInteractiveView() {
                   {cat.pricingItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className={`flex items-start justify-between gap-4 px-4 sm:px-5 py-4 ${
-                        item.highlight ? "bg-teal-50/50" : "bg-white"
-                      }`}
+                      className="flex items-start justify-between gap-4 px-4 sm:px-5 py-4 bg-white"
                     >
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
-                          {item.highlight && (
-                            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-brand px-2 py-0.5 text-[10px] font-black text-white">
-                              <CheckCircle2 className="h-2.5 w-2.5" strokeWidth={2.5} />
-                              추천
-                            </span>
-                          )}
-                        </div>
+                        <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
                         {item.note && (
                           <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">{item.note}</p>
                         )}
