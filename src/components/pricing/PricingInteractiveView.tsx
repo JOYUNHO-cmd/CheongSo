@@ -219,7 +219,17 @@ export default function PricingInteractiveView() {
 
               {/* 서비스 요약 설명 (좌측 컬러 바 적용으로 시각적 앵커 부여) */}
               <div className="mt-5 rounded-xl bg-slate-50/90 border-l-4 border-brand p-3.5 sm:p-4 text-sm sm:text-base text-gray-700 font-medium leading-relaxed">
-                {cat.tagline}
+                {cat.tagline.split("|").map((line, i, arr) => (
+                  <span key={i}>
+                    {line}
+                    {i < arr.length - 1 && (
+                      <>
+                        <br className="sm:hidden" />
+                        <span className="hidden sm:inline"> </span>
+                      </>
+                    )}
+                  </span>
+                ))}
               </div>
 
               {/* 비용 안내 — 메뉴판처럼 항목·가격을 한 줄에 나란히 */}

@@ -37,7 +37,7 @@ type PricingContent = {
 const PRICING_CONTENT: Record<string, PricingContent> = {
   easy: {
     badge: "생활 맞춤 케어",
-    tagline: "혼자 하기 번거롭고 까다로운 생활 공간을 군더더기 없이 가볍고 말끔하게 정리합니다",
+    tagline: "혼자 하기 번거롭고 까다로운 생활 공간을|군더더기 없이 가볍고 말끔하게 정리합니다",
     pricingItems: [
       {
         name: "원룸청소",
@@ -74,7 +74,7 @@ const PRICING_CONTENT: Record<string, PricingContent> = {
   },
   moving: {
     badge: "새로운 시작의 첫걸음",
-    tagline: "새집의 첫인상을 결정하는 정밀 위생 케어, 투명한 팀 구성과 검증된 매뉴얼로 작업합니다",
+    tagline: "새집의 첫인상을 결정하는 정밀 위생 케어,|투명한 팀 구성 검증된 매뉴얼로 작업합니다",
     pricingItems: [
       {
         name: "입주·이사·신축청소 (표준팀)",
@@ -130,7 +130,7 @@ const PRICING_CONTENT: Record<string, PricingContent> = {
   },
   commercial: {
     badge: "기업 & 매장 전문 관리",
-    tagline: "업무와 영업에 지장 없는 야간·주말 유연 시공, 정확한 현장 파악 후 합리적인 맞춤 견적을 드립니다",
+    tagline: "업무와 영업에 지장 없는 야간·주말 시공,|정확한 현장 파악 후 합리적인 맞춤 견적",
     pricingItems: [
       {
         name: "사무실 · 관공서 청소",
