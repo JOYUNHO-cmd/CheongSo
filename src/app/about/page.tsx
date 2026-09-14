@@ -140,7 +140,6 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <SectionHeading eyebrow="대표 인사말" title="대표의 말" />
         <div className="grid gap-8 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10 md:grid-cols-[280px_1fr] md:items-start md:gap-10 lg:grid-cols-[320px_1fr]">
           <div className="relative mx-auto aspect-[3/4] w-full max-w-[280px] overflow-hidden rounded-2xl shadow-md md:max-w-none">
             <Image
@@ -163,7 +162,7 @@ export default function AboutPage() {
                 <br />
                 그런데도 두 번째로 이 일을 다시 시작한 이유는 하나입니다.
                 <br />
-                &quot;진짜 제대로 하는 곳&quot;이 생각보다 많지 않다는 걸, 현장에서 계속 느꼈기 때문입니다.
+                <strong className="font-black text-brand-dark">&quot;진짜 제대로 하는 곳&quot;</strong>이 생각보다 많지 않다는 걸, 현장에서 계속 느꼈기 때문입니다.
               </p>
               <p>
                 번지르르한 말은 쉽습니다. 사진도 예쁘게 찍을 수 있습니다.
