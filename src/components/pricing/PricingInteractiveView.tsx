@@ -18,9 +18,6 @@ import {
   Landmark,
   Layers,
   LayoutGrid,
-  Handshake,
-  Car,
-  SearchCheck,
   Lightbulb,
   Camera,
   Ruler,
@@ -93,42 +90,27 @@ export default function PricingInteractiveView() {
           </div>
         </div>
 
-        {/* 3대 핵심 보장 원칙 카드 (벡터 아이콘 스퀴클 배지 적용) */}
+        {/* 3대 핵심 보장 원칙 카드 */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3 border-t border-white/15 pt-6">
-          <div className="flex items-start gap-3.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm border border-white/10">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-400/20 text-teal-200 border border-teal-300/30 shadow-xs">
-              <Handshake className="h-5 w-5" strokeWidth={2.2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm sm:text-base text-white">동의 없는 추가금 0원</h3>
-              <p className="mt-1 text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-                현장 특이사항 발생 시 사전 설명 후 동의하셔야만 진행합니다
-              </p>
-            </div>
+          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
+            <h3 className="font-bold text-sm sm:text-base text-white">동의 없는 추가금 0원</h3>
+            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+              현장 특이사항 발생 시 사전 설명 후 동의하셔야만 진행합니다
+            </p>
           </div>
 
-          <div className="flex items-start gap-3.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm border border-white/10">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-400/20 text-teal-200 border border-teal-300/30 shadow-xs">
-              <Car className="h-5 w-5" strokeWidth={2.2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm sm:text-base text-white">무료 현장 방문 견적</h3>
-              <p className="mt-1 text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-                사업장·특수·외벽 등 복합 현장은 100% 무료로 방문 진단합니다
-              </p>
-            </div>
+          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
+            <h3 className="font-bold text-sm sm:text-base text-white">무료 현장 방문 견적</h3>
+            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+              사업장·특수·외벽 등 복합 현장은 100% 무료로 방문 진단합니다
+            </p>
           </div>
 
-          <div className="flex items-start gap-3.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm border border-white/10">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-400/20 text-teal-200 border border-teal-300/30 shadow-xs">
-              <SearchCheck className="h-5 w-5" strokeWidth={2.2} />
-            </div>
-            <div>
-              <h3 className="font-bold text-sm sm:text-base text-white">고객 동행 당일 검수</h3>
-              <p className="mt-1 text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-                구석구석 꼼꼼하게 직접 눈으로 확인 후 만족하셔야 결제합니다
-              </p>
-            </div>
+          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
+            <h3 className="font-bold text-sm sm:text-base text-white">고객 동행 당일 검수</h3>
+            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+              구석구석 꼼꼼하게 직접 눈으로 확인 후 만족하셔야 결제합니다
+            </p>
           </div>
         </div>
       </section>
