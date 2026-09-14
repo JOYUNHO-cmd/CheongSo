@@ -22,6 +22,7 @@ import {
   Check,
   HelpCircle,
   Headset,
+  Mail,
 } from "lucide-react";
 import { chatFaq, choose, getPrompt, summaryText, type Choice } from "./chat-flow";
 import Logo from "@/components/Logo";
@@ -60,6 +61,7 @@ export default function ConsultationBot() {
   const [view, setView] = useState<"chat" | "faq">("chat");
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,6 +85,7 @@ export default function ConsultationBot() {
   const handleBack = useCallback(() => {
     setCopied(false);
     setCopyError(false);
+    setEmailStatus("idle");
     if (view === "faq") {
       setView("chat");
     } else {
@@ -94,6 +97,7 @@ export default function ConsultationBot() {
   const handleReset = useCallback(() => {
     setCopied(false);
     setCopyError(false);
+    setEmailStatus("idle");
     setAnswers([]);
     setView("chat");
   }, []);
@@ -101,6 +105,7 @@ export default function ConsultationBot() {
   const handleJumpBack = useCallback((index: number) => {
     setCopied(false);
     setCopyError(false);
+    setEmailStatus("idle");
     setAnswers((a) => a.slice(0, index));
     setView("chat");
   }, []);
@@ -182,6 +187,20 @@ export default function ConsultationBot() {
       setCopied(true);
     } catch {
       setCopyError(true);
+    }
+  }
+
+  async function sendEmail() {
+    setEmailStatus("sending");
+    try {
+      const res = await fetch("/api/consultation-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ summary: summaryText(answers) }),
+      });
+      setEmailStatus(res.ok ? "sent" : "error");
+    } catch {
+      setEmailStatus("error");
     }
   }
 
@@ -396,6 +415,26 @@ export default function ConsultationBot() {
                         {chatContact.displayPhone} 전화상담
                       </a>
                       <p className="jjin-chat-note">선택 내용은 전화로 자동 전달되지 않아요</p>
+                      <button
+                        type="button"
+                        className="jjin-chat-copy"
+                        onClick={sendEmail}
+                        disabled={emailStatus === "sending"}
+                      >
+                        {emailStatus === "sent" ? <Check size={17} /> : <Mail size={17} />}{" "}
+                        {emailStatus === "sending"
+                          ? "보내는 중..."
+                          : emailStatus === "sent"
+                            ? "이메일 전송 완료"
+                            : "상담 내용 이메일로 보내기"}
+                      </button>
+                      <output className="jjin-chat-copy-status">
+                        {emailStatus === "sent"
+                          ? "찐청소로 상담 내용을 보냈어요. 확인 후 연락드릴게요"
+                          : emailStatus === "error"
+                            ? "전송에 실패했어요. 잠시 후 다시 시도하거나 전화로 연락해 주세요"
+                            : ""}
+                      </output>
                       <button type="button" className="jjin-chat-copy" onClick={copy}>
                         {copied ? <Check size={17} /> : <Copy size={17} />}{" "}
                         {copied ? "상담 내용 복사 완료" : "상담 내용 복사"}
@@ -432,15 +471,10 @@ export default function ConsultationBot() {
 
           <footer className="jjin-chat-footer">
             <nav aria-label="상담 메뉴">
-              <button
-                type="button"
-                data-chat-view="chat"
-                onClick={() => setView("chat")}
-                aria-current={view === "chat" ? "page" : undefined}
-              >
+              <a href={siteConfig.kakaoUrl} target="_blank" rel="noopener noreferrer" data-chat-view="kakao">
                 <MessageCircle size={19} />
                 맞춤 상담
-              </button>
+              </a>
               <button
                 type="button"
                 data-chat-view="faq"
