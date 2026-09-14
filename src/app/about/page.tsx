@@ -170,12 +170,17 @@ export default function AboutPage() {
                 <br />
                 하지만 정작 손님이 없을 때, 구석까지 진짜로 닦았는지는 아무도 모릅니다.
                 <br />
-                저는 그 &quot;아무도 모르는 순간&quot;에 제대로 하는 사람이고 싶었습니다. 그래서 이름도 찐청소입니다.
+                저는 그{" "}
+                <strong className="font-black text-brand-dark">&quot;아무도 모르는 순간&quot;</strong>에
+                제대로 하는 사람이고 싶었습니다.
+                <br />
+                그래서 이름도 <strong className="font-black text-brand-dark">찐청소</strong>입니다.
               </p>
               <p>
                 화려한 말보다, 끝나고 난 뒤의 공간이 모든 걸 말해준다고 믿습니다.
                 <br />
-                찐청소는 앞으로도 그 하나만 보고 가겠습니다.
+                <strong className="font-black text-brand-dark">찐청소</strong>는 앞으로도 그 하나만 보고
+                가겠습니다.
                 <br />
                 보이지 않는 곳도 보이는 곳처럼, 대충이 아닌 진짜로.
               </p>
