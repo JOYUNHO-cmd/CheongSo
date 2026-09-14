@@ -8,7 +8,8 @@ interface HeroVideoProps {
   className?: string;
 }
 
-export default function HeroVideo({ mode = "background", className = "" }: HeroVideoProps) {
+// 배경 영상 1개를 담당하는 내부 컴포넌트 (모바일 좌/우 분할, PC 풀스크린에서 공용)
+function BackgroundVideo({ objectPositionClass }: { objectPositionClass: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -38,6 +39,60 @@ export default function HeroVideo({ mode = "background", className = "" }: HeroV
 
     tryPlay();
   }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className={`absolute inset-0 h-full w-full object-cover scale-[1.01] contrast-[1.04] brightness-[1.02] transition-opacity duration-700 pointer-events-none ${objectPositionClass} ${
+        isPlaying ? "opacity-100" : "opacity-90"
+      }`}
+      poster="/videos/hero-poster.jpg"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      onPlaying={() => setIsPlaying(true)}
+    >
+      {/* 고화질 원본을 최우선으로 시도 */}
+      <source src="/videos/hero-hd.mp4" type="video/mp4" />
+      <source src="/videos/hero-web.mp4" type="video/mp4" />
+      <source src="/videos/hero.mp4" type="video/mp4" />
+    </video>
+  );
+}
+
+export default function HeroVideo({ mode = "background", className = "" }: HeroVideoProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (mode !== "inline") return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const tryPlay = () => {
+      video
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {
+          const handleFirstInteraction = () => {
+            video.play().then(() => setIsPlaying(true)).catch(() => {});
+            window.removeEventListener("touchstart", handleFirstInteraction);
+            window.removeEventListener("click", handleFirstInteraction);
+            window.removeEventListener("scroll", handleFirstInteraction);
+          };
+          window.addEventListener("touchstart", handleFirstInteraction, { once: true, passive: true });
+          window.addEventListener("click", handleFirstInteraction, { once: true });
+          window.addEventListener("scroll", handleFirstInteraction, { once: true, passive: true });
+        });
+    };
+
+    tryPlay();
+  }, [mode]);
 
   if (mode === "inline") {
     return (
@@ -74,23 +129,21 @@ export default function HeroVideo({ mode = "background", className = "" }: HeroV
   }
 
   return (
-    <video
-      ref={videoRef}
-      id="hero-background-video"
-      className={`absolute inset-0 h-full w-full object-cover scale-[1.01] contrast-[1.04] brightness-[1.02] transition-opacity duration-700 pointer-events-none ${
-        isPlaying ? "opacity-100" : "opacity-90"
-      } ${className}`}
-      poster="/videos/hero-poster.jpg"
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      onPlaying={() => setIsPlaying(true)}
-    >
-      <source src="/videos/hero-web.mp4" type="video/mp4" />
-      <source src="/videos/hero-hd.mp4" type="video/mp4" />
-      <source src="/videos/hero.mp4" type="video/mp4" />
-    </video>
+    <>
+      {/* 모바일: 화면이 좌/우로 갈리는 특성에 맞춰 왼쪽은 왼쪽 가장자리로, 오른쪽은 오른쪽 가장자리로 더 치우치게 크롭 */}
+      <div className="grid h-full w-full grid-cols-2 md:hidden">
+        <div className="relative h-full w-full overflow-hidden">
+          <BackgroundVideo objectPositionClass="object-[20%_35%]" />
+        </div>
+        <div className="relative h-full w-full overflow-hidden">
+          <BackgroundVideo objectPositionClass="object-[80%_35%]" />
+        </div>
+      </div>
+
+      {/* PC/태블릿: 기존 방식대로 풀스크린 단일 영상 */}
+      <div className="relative hidden h-full w-full md:block">
+        <BackgroundVideo objectPositionClass={className || "object-[center_35%]"} />
+      </div>
+    </>
   );
 }
