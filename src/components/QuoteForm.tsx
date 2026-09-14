@@ -20,6 +20,8 @@ export default function QuoteForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: d.get("name"),
+          phone: d.get("phone"),
           service: d.get("service"),
           region: d.get("region"),
           area: d.get("area"),
@@ -45,6 +47,24 @@ export default function QuoteForm() {
           <Phone className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" strokeWidth={2.6} />
           <span>급하신 경우 전화 {siteConfig.phone} (빠른 연결)</span>
         </a>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <label className="grid gap-2 text-sm font-bold">
+          성함 (또는 업체명)
+          <input required name="name" className="input" placeholder="홍길동" maxLength={60} />
+        </label>
+        <label className="grid gap-2 text-sm font-bold">
+          연락처
+          <input
+            required
+            name="phone"
+            type="tel"
+            className="input"
+            placeholder="010-0000-0000"
+            maxLength={20}
+          />
+        </label>
       </div>
 
       <label className="grid gap-2 text-sm font-bold">
@@ -93,6 +113,11 @@ export default function QuoteForm() {
           maxLength={2000}
           placeholder="바닥 재질, 짐 유무, 집중적으로 청소할 부분 등"
         />
+      </label>
+
+      <label className="flex items-start gap-2.5 text-xs text-gray-600">
+        <input required name="privacyConsent" type="checkbox" className="mt-0.5 h-4 w-4 shrink-0 accent-brand" />
+        <span>(필수) 견적 상담을 위한 개인정보 수집·이용에 동의합니다.</span>
       </label>
 
       <button

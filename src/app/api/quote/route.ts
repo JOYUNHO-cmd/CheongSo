@@ -1,6 +1,8 @@
 export const runtime = "nodejs";
 
 type QuoteRequest = {
+  name?: string;
+  phone?: string;
   service?: string;
   region?: string;
   area?: string;
@@ -10,10 +12,10 @@ type QuoteRequest = {
 
 export async function POST(request: Request) {
   const body = (await request.json()) as QuoteRequest;
-  const { service, region, area, schedule, notes } = body;
+  const { name, phone, service, region, area, schedule, notes } = body;
 
-  if (!service || !region) {
-    return Response.json({ ok: false, error: "서비스와 지역은 필수입니다" }, { status: 400 });
+  if (!name || !phone || !service || !region) {
+    return Response.json({ ok: false, error: "성함, 연락처, 서비스, 지역은 필수입니다" }, { status: 400 });
   }
 
   const res = await fetch("https://api.resend.com/emails", {
@@ -28,6 +30,8 @@ export async function POST(request: Request) {
       subject: `[찐청소] 견적 문의 - ${service}`,
       text: [
         "찐청소 견적 문의",
+        `성함(업체명): ${name}`,
+        `연락처: ${phone}`,
         `서비스: ${service}`,
         `지역: ${region}`,
         `면적: ${area || "확인 필요"}`,
