@@ -56,25 +56,6 @@ function withMobileBreaks(text: string) {
   ));
 }
 
-// mobileText가 있으면 PC/태블릿은 desktopText를, 모바일은 mobileText("|" 구분 줄바꿈)를 따로 표시
-// (mobileText가 없으면 기존처럼 desktopText 하나를 모바일에서만 줄바꿈)
-function responsiveText(desktopText: string, mobileText?: string) {
-  if (!mobileText) return withMobileBreaks(desktopText);
-  return (
-    <>
-      <span className="sm:hidden">
-        {mobileText.split("|").map((line, i, arr) => (
-          <span key={i}>
-            {line}
-            {i < arr.length - 1 && <br />}
-          </span>
-        ))}
-      </span>
-      <span className="hidden sm:inline">{desktopText}</span>
-    </>
-  );
-}
-
 export default function PricingInteractiveView() {
   const [activeCategory, setActiveCategory] = useState<string>(PRICING_GUIDE_DATA[0].id);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
@@ -273,12 +254,12 @@ export default function PricingInteractiveView() {
                         <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
                         {item.note && (
                           <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
-                            {responsiveText(item.note, item.mobileNote)}
+                            {withMobileBreaks(item.note)}
                           </p>
                         )}
                       </div>
                       <div className="shrink-0 whitespace-nowrap text-[15px] sm:text-xl font-black text-brand-dark tracking-tight sm:text-right">
-                        {responsiveText(item.price, item.mobilePrice)}
+                        {withMobileBreaks(item.price)}
                       </div>
                     </div>
                   ))}
@@ -292,7 +273,7 @@ export default function PricingInteractiveView() {
                     <Lightbulb className="h-4 w-4" strokeWidth={2.2} />
                   </div>
                   <div className="text-xs sm:text-sm font-medium text-amber-950 leading-relaxed pt-0.5">
-                    {cat.trustTip && responsiveText(cat.trustTip, cat.mobileTrustTip)}
+                    {cat.trustTip && withMobileBreaks(cat.trustTip)}
                   </div>
                 </div>
               )}
@@ -325,7 +306,7 @@ export default function PricingInteractiveView() {
                             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-teal-100 text-xs font-black text-teal-800">
                               Q
                             </span>
-                            <span className="leading-snug">{responsiveText(faq.q, faq.mobileQ)}</span>
+                            <span className="leading-snug">{withMobileBreaks(faq.q)}</span>
                           </span>
                           <span
                             className={`flex h-8 w-8 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
@@ -345,7 +326,7 @@ export default function PricingInteractiveView() {
                                 A
                               </span>
                               <div className="space-y-1">
-                                <p className="leading-relaxed">{responsiveText(faq.a, faq.mobileA)}</p>
+                                <p className="leading-relaxed">{withMobileBreaks(faq.a)}</p>
                               </div>
                             </div>
                           </div>
