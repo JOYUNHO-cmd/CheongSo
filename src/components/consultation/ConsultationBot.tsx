@@ -18,7 +18,6 @@ import {
   Plane,
   PartyPopper,
   PawPrint,
-  Copy,
   Check,
   HelpCircle,
   Headset,
@@ -59,8 +58,6 @@ export default function ConsultationBot() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [answers, setAnswers] = useState<Choice[]>([]);
   const [view, setView] = useState<"chat" | "faq">("chat");
-  const [copied, setCopied] = useState(false);
-  const [copyError, setCopyError] = useState(false);
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
@@ -83,8 +80,6 @@ export default function ConsultationBot() {
   }, []);
 
   const handleBack = useCallback(() => {
-    setCopied(false);
-    setCopyError(false);
     setEmailStatus("idle");
     if (view === "faq") {
       setView("chat");
@@ -95,16 +90,12 @@ export default function ConsultationBot() {
   }, [view]);
 
   const handleReset = useCallback(() => {
-    setCopied(false);
-    setCopyError(false);
     setEmailStatus("idle");
     setAnswers([]);
     setView("chat");
   }, []);
 
   const handleJumpBack = useCallback((index: number) => {
-    setCopied(false);
-    setCopyError(false);
     setEmailStatus("idle");
     setAnswers((a) => a.slice(0, index));
     setView("chat");
@@ -180,15 +171,6 @@ export default function ConsultationBot() {
       box.scrollTop = 0;
     }
   }, [answers.length, view, open]);
-
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(summaryText(answers));
-      setCopied(true);
-    } catch {
-      setCopyError(true);
-    }
-  }
 
   async function sendEmail() {
     setEmailStatus("sending");
@@ -435,25 +417,6 @@ export default function ConsultationBot() {
                             ? "전송에 실패했어요. 잠시 후 다시 시도하거나 전화로 연락해 주세요"
                             : ""}
                       </output>
-                      <button type="button" className="jjin-chat-copy" onClick={copy}>
-                        {copied ? <Check size={17} /> : <Copy size={17} />}{" "}
-                        {copied ? "상담 내용 복사 완료" : "상담 내용 복사"}
-                      </button>
-                      <output className="jjin-chat-copy-status">
-                        {copied
-                          ? "복사한 내용을 상담 시 활용해 주세요"
-                          : copyError
-                            ? "복사가 차단되어 있어요. 아래 내용을 직접 선택해 복사해 주세요"
-                            : ""}
-                      </output>
-                      {copyError && (
-                        <textarea
-                          readOnly
-                          aria-label="복사할 상담 내용"
-                          value={summaryText(answers)}
-                          rows={9}
-                        />
-                      )}
                       <button
                         type="button"
                         id="jjin-chat-restart-btn"
