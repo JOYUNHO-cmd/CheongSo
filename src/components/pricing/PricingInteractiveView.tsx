@@ -344,7 +344,7 @@ export default function PricingInteractiveView() {
                     <MessageSquare className="h-4 w-4" />
                   </div>
                   <span className="text-xs sm:text-sm text-gray-800 font-semibold">
-                    {cat.title} 관련 더 궁금한 점이 있거나 실시간 맞춤 견적이 필요하신가요?
+                    {withMobileBreaks(`${cat.title} 관련 더 궁금한 점이 있거나|실시간 맞춤 견적이 필요하신가요?`)}
                   </span>
                 </div>
                 <a
