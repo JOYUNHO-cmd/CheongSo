@@ -2,20 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { 
-  HelpCircle, 
-  ChevronDown, 
-  PhoneCall, 
-  MessageSquare, 
-  Sparkles, 
-  ShieldCheck, 
+import {
+  HelpCircle,
+  ChevronDown,
+  PhoneCall,
+  MessageSquare,
+  Sparkles,
+  ShieldCheck,
   ArrowRight,
   Coins,
-  Broom,
+  SprayCan,
   House,
   Building2,
-  AlertTriangle,
-  Building,
+  ShieldAlert,
+  Landmark,
   Layers,
   LayoutGrid,
   Handshake,
@@ -30,14 +30,14 @@ import {
 import { PRICING_GUIDE_DATA } from "@/lib/pricing-guide-data";
 import { siteConfig } from "@/lib/site-config";
 
-// 7대 분야별 Lucide 아이콘 매핑 (1분 맞춤견적과 동일한 정갈한 벡터 아이콘 스타일)
+// 7대 분야별 Lucide 아이콘 매핑 (절제된 톤의 라인 아이콘으로 통일)
 const categoryIconMap: Record<string, LucideIcon> = {
-  easy: Broom,
+  easy: SprayCan,
   moving: House,
   commercial: Building2,
   hygiene: ShieldCheck,
-  special: AlertTriangle,
-  exterior: Building,
+  special: ShieldAlert,
+  exterior: Landmark,
   floor: Layers,
 };
 
@@ -135,20 +135,23 @@ export default function PricingInteractiveView() {
         </div>
       </section>
 
-      {/* 2. 카테고리 빠른 필터 탭 바 (모바일 가로 스크롤 & 고대비 가독성) */}
+      {/* 2. 카테고리 빠른 필터 탭 바 — 카드마다 소속 서비스명을 함께 보여줘 한눈에 파악 가능 */}
       <div className="sticky top-20 z-20 -mx-4 sm:mx-0 px-4 sm:px-0 py-3 bg-white/95 backdrop-blur-md border-y sm:border sm:rounded-2xl border-gray-200 shadow-xs">
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <div className="flex items-stretch gap-2.5 overflow-x-auto no-scrollbar py-1">
           <button
             type="button"
             onClick={() => setActiveCategory("all")}
-            className={`whitespace-nowrap px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 transition-all cursor-pointer ${
+            className={`shrink-0 w-[104px] sm:w-28 flex flex-col items-center justify-center gap-1.5 rounded-xl px-2.5 py-3 text-center transition-all cursor-pointer ${
               activeCategory === "all"
                 ? "bg-brand text-white shadow-md ring-2 ring-brand/30"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gray-200/60"
             }`}
           >
-            <LayoutGrid size={16} strokeWidth={2.2} className="shrink-0" />
-            <span>전체 보기 (7개 분야)</span>
+            <LayoutGrid size={18} strokeWidth={2.2} className="shrink-0" />
+            <span className="text-xs font-extrabold">전체 보기</span>
+            <span className={`text-[10px] font-medium ${activeCategory === "all" ? "text-white/80" : "text-gray-400"}`}>
+              7개 분야
+            </span>
           </button>
           {PRICING_GUIDE_DATA.map((cat) => {
             const CatIcon = getCategoryIcon(cat.id);
@@ -159,14 +162,23 @@ export default function PricingInteractiveView() {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`whitespace-nowrap px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold flex items-center gap-2 transition-all cursor-pointer ${
+                className={`shrink-0 w-36 sm:w-40 flex flex-col items-start gap-1 rounded-xl px-3.5 py-2.5 text-left transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-brand text-white shadow-md ring-2 ring-brand/30 scale-102"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gray-200/60"
+                    ? "bg-brand text-white shadow-md ring-2 ring-brand/30"
+                    : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200/60"
                 }`}
               >
-                <CatIcon size={16} strokeWidth={2.2} className="shrink-0" />
-                <span>{cat.title}</span>
+                <span className="flex items-center gap-1.5">
+                  <CatIcon size={16} strokeWidth={2.2} className="shrink-0" />
+                  <span className="text-xs sm:text-[13px] font-extrabold whitespace-nowrap">{cat.title}</span>
+                </span>
+                <span
+                  className={`text-[10.5px] leading-snug line-clamp-2 break-keep ${
+                    isSelected ? "text-white/85" : "text-gray-500"
+                  }`}
+                >
+                  {cat.services.join(" · ")}
+                </span>
               </button>
             );
           })}
