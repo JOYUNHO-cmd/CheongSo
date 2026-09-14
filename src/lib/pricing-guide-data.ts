@@ -145,7 +145,7 @@ const PRICING_CONTENT: Record<string, PricingContent> = {
       {
         name: "공장 · 물류센터 청소",
         price: "무료 방문 견적",
-        note: "가동 설비 유무, 내부 작업 vs 외곽 바닥까지|작업 구역 정밀 확인",
+        note: "가동 설비 유무, 내부 작업 vs|외곽 바닥까지 작업 구역 정밀 확인",
       },
       {
         name: "업소용 주방 청소",
