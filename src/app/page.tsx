@@ -7,6 +7,7 @@ import PortfolioShowcase from "@/components/home/PortfolioShowcase";
 import ReviewShowcase from "@/components/home/ReviewShowcase";
 import TrustConcerns from "@/components/home/TrustConcerns";
 import ProcessSteps from "@/components/home/ProcessSteps";
+import CeoMessage from "@/components/home/CeoMessage";
 import TrustFeatures from "@/components/home/TrustFeatures";
 import Certifications from "@/components/home/Certifications";
 import PricingTransparency from "@/components/home/PricingTransparency";
@@ -140,6 +141,9 @@ export default function Home() {
       <section className="bg-gradient-to-b from-white via-brand-light/20 to-brand-light/30 py-16 md:py-24">
         <TrustConcerns />
       </section>
+
+      {/* 대표 인사말 요약 (모바일 전용) */}
+      <CeoMessage />
 
       {/* 5단계 진행 과정 */}
       <section className="bg-white py-16 md:py-24">
