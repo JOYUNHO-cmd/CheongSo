@@ -7,36 +7,44 @@ export const metadata: Metadata = {
   title: `회사소개 | ${siteConfig.name}`,
 };
 
+// "|" 구분자를 모바일 화면 전용 줄바꿈으로 변환 (PC/태블릿은 자연스럽게 한 줄로 흐름)
+function withMobileBreaks(text: string) {
+  return text.split("|").map((line, i, arr) => (
+    <span key={i}>
+      {line}
+      {i < arr.length - 1 && (
+        <>
+          <br className="sm:hidden" />
+          <span className="hidden sm:inline"> </span>
+        </>
+      )}
+    </span>
+  ));
+}
+
+// "|"는 모바일 화면 전용 줄바꿈 구분자 (PC/태블릿은 자연스럽게 한 줄로 흐름)
+// 배열의 각 항목은 하나의 문단으로, 문단 사이에는 여백을 둠
 const proofPoints = [
   {
     title: "15년, 안 봐도 압니다",
     body: [
-      "현장을 15년 봐온 눈으로,",
-      "사진 한장 안 보내도 대략적인",
-      "오염 상태를 짐작합니다.",
-      "짐작이 틀릴 것 같은 경우엔",
-      "무료방문견적을 진행합니다.",
-      "대충 견적 내고 나중에",
-      "말바꾸는 일은 없습니다.",
+      "현장을 15년 봐온 눈으로, 사진만으로|대략적인 오염 상태를 짐작합니다.",
+      "짐작이 틀릴 것 같은 경우엔|무료방문견적을 진행합니다.",
+      "견적 내고 나중에 말바꾸는 일은 없습니다.",
     ],
   },
   {
     title: "가격은 숨기지 않습니다",
     body: [
-      "어떤 조건에서든 가격이 어떻게",
-      "산정되는지 현장에 맞춰 설명합니다.",
-      "그리고 변수가 생길시에 고객님께",
-      "설명드리고, 동의 없이는 금액을",
-      "추가하는 행위를 하지 않습니다.",
+      "어떤 조건에서든 가격이 어떻게 산정되는지|현장에 맞춰 설명합니다.",
+      "그리고 변수가 생길시 고객님께 설명드리고,|동의 없이 금액을 추가하는 행위는 없습니다.",
     ],
   },
   {
     title: `"찐"이라 부르는 이유`,
     body: [
-      "겉만 훑는 청소와 달리 구석까지",
-      "파고드는 청소는 시간부터 다릅니다.",
-      "저희는 후자를 선택했고, 그래서",
-      "이름도 바로 찐청소입니다.",
+      "겉만 훑는 청소와 달리 구석까지|파고드는 청소는 시간부터 다릅니다.",
+      "저희는 후자를 선택했고,|그래서 이름도 바로 찐청소입니다.",
     ],
   },
 ];
@@ -67,7 +75,9 @@ export default function AboutPage() {
           <span className="block">믿을 수 있는 위생관리 전문기업,</span>
           <span className="block mt-1 sm:mt-2">찐청소는 제대로 합니다</span>
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-[18px] text-gray-100">{siteConfig.description}</p>
+        <p className="mx-auto mt-4 max-w-xl text-[18px] text-gray-100">
+          {withMobileBreaks("입주청소, 특수청소, 바닥시공까지 !!|책임지고 제대로 관리합니다")}
+        </p>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16">
@@ -88,14 +98,11 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading eyebrow="찐청소 소개" title="말 대신, 세 가지로 증명합니다" />
-        <p className="mx-auto max-w-2xl text-center text-[15px] sm:text-base leading-relaxed text-gray-600 break-keep">
-          세상에 &quot;꼼꼼하게 해드립니다&quot;라고 말 안 하는 청소업체는 없습니다.
-          <br />
-          문제는 그 말이 진짜인지, 확인할 방법이 없다는 거죠.
-          <br />
-          <br />
-          저희는 그래서 말 대신 세 가지로 증명합니다.
-        </p>
+        <div className="mx-auto max-w-2xl space-y-3 text-center text-[15px] sm:text-base leading-relaxed text-gray-600 break-keep">
+          <p>{withMobileBreaks('세상에 "꼼꼼하게 해드립니다"라고|말 안 하는 청소업체는 없습니다.')}</p>
+          <p>{withMobileBreaks("문제는 그 말이 진짜인지,|확인할 방법이 없다는 거죠.")}</p>
+          <p>저희는 그래서 말 대신 세 가지로 증명합니다.</p>
+        </div>
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {proofPoints.map((point, idx) => (
@@ -111,17 +118,11 @@ export default function AboutPage() {
                   {point.title}
                 </h3>
               </div>
-              <p className="mt-3 text-[14.5px] leading-[1.7] text-gray-600 break-keep md:hidden">
-                {point.body.join(" ")}
-              </p>
-              <p className="mt-3 hidden text-sm leading-[1.7] text-gray-600 break-keep md:block">
-                {point.body.map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < point.body.length - 1 && <br />}
-                  </span>
+              <div className="mt-3 space-y-2 text-[14.5px] sm:text-sm leading-[1.7] text-gray-600 break-keep">
+                {point.body.map((para, i) => (
+                  <p key={i}>{withMobileBreaks(para)}</p>
                 ))}
-              </p>
+              </div>
             </div>
           ))}
         </div>
