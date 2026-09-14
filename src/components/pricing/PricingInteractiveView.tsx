@@ -308,11 +308,15 @@ export default function PricingInteractiveView() {
                             </span>
                             <span className="leading-snug">{withMobileBreaks(faq.q)}</span>
                           </span>
-                          <ChevronDown
-                            className={`h-4 w-4 shrink-0 text-gray-400 transition-transform duration-200 ${
-                              isOpen ? "rotate-180 text-brand" : ""
+                          <span
+                            className={`flex h-8 w-8 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
+                              isOpen
+                                ? "rotate-180 border-brand bg-brand text-white shadow-sm shadow-brand/30"
+                                : "border-gray-200 bg-gray-50 text-gray-400"
                             }`}
-                          />
+                          >
+                            <ChevronDown className="h-4 w-4" strokeWidth={2.4} />
+                          </span>
                         </button>
 
                         {isOpen && (
