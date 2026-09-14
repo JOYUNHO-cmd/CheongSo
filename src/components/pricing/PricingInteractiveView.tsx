@@ -409,7 +409,7 @@ export default function PricingInteractiveView() {
               </div>
               <h3 className="font-bold text-sm sm:text-base text-gray-950 mt-3">3. 전화 또는 문자 전송</h3>
               <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-                {siteConfig.phone} 또는 문자로 사진 전송 시 빠른 확인
+                아래 전화 혹은 문자로 사진 전송 시 빠른 확인
               </p>
             </div>
           </div>
