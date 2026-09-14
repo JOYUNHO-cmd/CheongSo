@@ -6,28 +6,40 @@ import { siteConfig } from "@/lib/site-config";
 
 const QUOTE_EMAIL = "Danger3662@naver.com";
 
-export default function QuoteForm() {
-  const [summary, setSummary] = useState("");
+type Status = "idle" | "sending" | "sent" | "error";
 
-  function prepare(e: FormEvent<HTMLFormElement>) {
+export default function QuoteForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const d = new FormData(e.currentTarget);
-    setSummary(
-      `찐청소 견적 문의\n서비스: ${d.get("service")}\n지역: ${d.get("region")}\n면적: ${d.get("area") || "확인 필요"}\n희망 일정: ${d.get("schedule") || "협의"}\n요청 내용: ${d.get("notes") || "상담 시 협의"}`
-    );
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service: d.get("service"),
+          region: d.get("region"),
+          area: d.get("area"),
+          schedule: d.get("schedule"),
+          notes: d.get("notes"),
+        }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  const mailtoHref = summary
-    ? `mailto:${QUOTE_EMAIL}?subject=${encodeURIComponent("[찐청소] 견적 문의")}&body=${encodeURIComponent(summary)}`
-    : undefined;
-
   return (
-    <form onSubmit={prepare} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
+    <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
       <div className="rounded-xl bg-brand-light/40 p-4 text-sm leading-6 text-brand-dark">
         <p className="text-lg font-bold">이메일로 견적 문의하기</p>
         <p className="mt-2">
-          아래 내용을 작성하고 &quot;이메일 보내기&quot;를 누르면 이메일 앱이 열리면서 {QUOTE_EMAIL} 앞으로
-          문의 내용이 미리 채워집니다. 내용을 확인하고 보내기만 하시면 문의가 완료돼요.
+          아래 내용을 작성하고 보내주시면 {QUOTE_EMAIL} 앞으로 바로 문의가 접수됩니다.
         </p>
         <p className="mt-3 text-xs text-brand-dark/70">
           급하신 경우 전화로도 연락 주세요:{" "}
@@ -85,21 +97,23 @@ export default function QuoteForm() {
         />
       </label>
 
-      <button className="rounded-full bg-brand px-6 py-3 font-bold text-white hover:bg-brand-dark" type="submit">
-        견적 문의 내용 작성하기
+      <button
+        className="rounded-full bg-brand px-6 py-3 font-bold text-white hover:bg-brand-dark disabled:opacity-60"
+        type="submit"
+        disabled={status === "sending"}
+      >
+        {status === "sending" ? "보내는 중..." : "이메일 보내기 (견적 문의 발송)"}
       </button>
 
-      {summary && (
-        <section aria-live="polite" className="rounded-xl border border-brand-light p-4">
-          <h3 className="font-bold text-brand-dark">문의 내용 미리보기</h3>
-          <pre className="my-4 whitespace-pre-wrap break-words font-sans text-sm leading-7">{summary}</pre>
-          <a
-            href={mailtoHref}
-            className="inline-block rounded-full bg-brand px-6 py-3 text-sm font-bold text-white hover:bg-brand-dark"
-          >
-            이메일 보내기 (견적 문의 발송)
-          </a>
-        </section>
+      {status === "sent" && (
+        <p role="status" className="rounded-xl bg-green-50 p-4 text-sm font-bold text-green-700">
+          문의가 접수되었습니다. 빠르게 연락드릴게요!
+        </p>
+      )}
+      {status === "error" && (
+        <p role="status" className="rounded-xl bg-red-50 p-4 text-sm font-bold text-red-700">
+          메일 발송에 실패했습니다. 잠시 후 다시 시도하시거나 전화로 연락해 주세요.
+        </p>
       )}
     </form>
   );
