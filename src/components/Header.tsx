@@ -287,6 +287,7 @@ export default function Header() {
                       key={cat.slug}
                       className="group/item relative text-center"
                       onPointerEnter={(e) => handlePointerEnterNav(e, cat.slug)}
+                      onMouseLeave={handleMouseLeaveNav}
                     >
                       <Link
                         href={`/services#${cat.slug}`}
@@ -359,7 +360,7 @@ export default function Header() {
             {/* [PC 전용: 7열 전체 펼침 그리드 - 1024px 이상] */}
             <div className="hidden lg:block mx-auto max-w-7xl px-1.5 md:px-2 lg:px-4 xl:px-6 pt-3 md:pt-4 lg:pt-5 xl:pt-6 pb-6 md:pb-6 lg:pb-8 xl:pb-10">
               <div
-                className="grid w-full"
+                className="grid w-full items-start"
                 style={{ gridTemplateColumns: `repeat(${serviceCategories.length}, minmax(0, 1fr))` }}
               >
                 {serviceCategories.map((cat) => {
@@ -368,7 +369,8 @@ export default function Header() {
                     <div
                       key={cat.slug}
                       className="px-0.5 md:px-0.5 lg:px-1 xl:px-2"
-                      onMouseEnter={() => setActiveCategory(cat.slug)}
+                      onMouseEnter={() => handleMouseEnterNav(cat.slug)}
+                      onMouseLeave={handleMouseLeaveNav}
                     >
                       <ul className="flex flex-col gap-1.5 md:gap-2 lg:gap-2.5 xl:gap-3 text-center">
                         {cat.items.map((item) => (
@@ -414,7 +416,7 @@ export default function Header() {
         }}
       />
 
-      {/* 5. 모바일 및 태블릿 전용 미니멀 계층형 메뉴 드로어 (한스클린 레퍼런스 스타일) */}
+      {/* 5. 모바일 및 태블릿 전용 미니멀 계층형 메뉴 드로어 */}
       <div
         id="mobile-menu-overlay"
         className={`fixed inset-0 z-[99999999] ${mobileMenuOpen ? "flex is-open" : "hidden"} flex-col bg-white overflow-hidden`}

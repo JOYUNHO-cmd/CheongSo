@@ -121,18 +121,7 @@ details > summary {
   pointer-events: auto !important;
 }
 
-/* PC & 태블릿 GNB 서브메뉴창 열림/닫힘 상태 안전 제어 (터치 기기 호버 고착 방지) */
-@media (hover: hover) and (pointer: fine) {
-  #main-navigation-bar:hover #full-service-dropdown {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    max-height: 850px !important;
-    transform: translateY(0) !important;
-    display: block !important;
-  }
-}
-
+/* PC & 태블릿 GNB 서브메뉴창 열림/닫힘 상태 제어 — dropdownOpen 상태 하나로만 결정 */
 #full-service-dropdown.is-open {
   opacity: 1 !important;
   visibility: visible !important;
