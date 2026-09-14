@@ -48,7 +48,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "눈에 보이지 않는 유해물질과 냄새까지 세심하게 관리합니다",
     descLine1: "눈에 보이지 않는 유해물질과",
     descLine2: "냄새까지 세심하게 관리합니다",
-    items: ["새집증후군 시공", "소독&방역", "냄새악취제거"],
+    items: ["새집증후군 시공", "소독&방역", "냄새악취제거", "곰팡이제거"],
   },
   {
     slug: "special",
