@@ -124,10 +124,7 @@ export default function Home() {
             description={
               <>
                 <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
-                  저희가 아닌, 실제로 청소를 맡기신
-                </span>{" "}
-                <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
-                  고객님들의 이야기입니다
+                  가짜가 아닌 진짜 고객님들 후기입니다
                 </span>
               </>
             }
