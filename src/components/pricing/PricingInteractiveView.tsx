@@ -233,7 +233,7 @@ export default function PricingInteractiveView() {
                   {cat.pricingItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start justify-between gap-4 px-4 sm:px-5 py-4 bg-white"
+                      className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4 px-4 sm:px-5 py-4 bg-white"
                     >
                       <div className="min-w-0">
                         <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
@@ -241,7 +241,7 @@ export default function PricingInteractiveView() {
                           <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">{item.note}</p>
                         )}
                       </div>
-                      <div className="shrink-0 whitespace-nowrap text-right text-lg sm:text-xl font-black text-brand-dark tracking-tight">
+                      <div className="shrink-0 text-lg sm:text-xl font-black text-brand-dark tracking-tight sm:whitespace-nowrap sm:text-right">
                         {item.price}
                       </div>
                     </div>
