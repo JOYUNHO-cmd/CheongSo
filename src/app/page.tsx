@@ -228,7 +228,7 @@ export default function Home() {
         <div className="mx-auto max-w-2xl">
           <SectionHeading
             title="상담 전에 정리하면, 청소가 한결 쉬워집니다"
-            description={`공간과 필요한 서비스를 정리한 뒤 ${siteConfig.phone}로 전화해 주세요`}
+            description="공간과 필요한 서비스를 정리한 뒤 이메일로 견적을 문의해 주세요"
           />
           <QuoteForm />
         </div>
