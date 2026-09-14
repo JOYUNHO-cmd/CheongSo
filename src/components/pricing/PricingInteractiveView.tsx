@@ -62,7 +62,7 @@ export default function PricingInteractiveView() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white">
-              왜 찐청소 견적은
+              <span className="text-3xl sm:text-inherit">왜</span> 찐청소 견적은
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
               투명하고 신뢰할 수 있을까요?
