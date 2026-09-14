@@ -6,7 +6,9 @@ import { Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
 import { servicePath } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 import Logo from "@/components/Logo";
+import KakaoIcon from "@/components/icons/KakaoIcon";
 
 // 상단 주요 안내 메뉴
 const mainNavLinks = [
@@ -27,49 +29,26 @@ export default function Header() {
 
   const leaveTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // 모바일 메뉴 열기
+  // 모바일 메뉴 열기/닫기 (오버레이의 표시 여부는 오직 mobileMenuOpen 상태 하나로만 결정)
   const openMenu = useCallback(() => {
     setMobileMenuOpen(true);
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = "hidden";
-      const overlay = document.getElementById("mobile-menu-overlay");
-      if (overlay) {
-        overlay.classList.add("is-open");
-        overlay.classList.remove("hidden");
-        overlay.style.display = "flex";
-        overlay.style.pointerEvents = "auto";
-      }
-    }
   }, []);
 
-  // 모바일 메뉴 닫기
   const closeMenu = useCallback(() => {
     setMobileMenuOpen(false);
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = "";
-      const overlay = document.getElementById("mobile-menu-overlay");
-      if (overlay) {
-        overlay.classList.remove("is-open");
-        overlay.classList.add("hidden");
-        overlay.style.display = "none";
-        overlay.style.pointerEvents = "none";
-      }
-    }
   }, []);
 
-  // 모바일 메뉴 버튼 직접 DOM 리스너 백업 (터치 반응성 100% 보장)
+  // mobileMenuOpen 전환 시점에만 정확히 한 번씩 body 스크롤 잠금/해제
   useEffect(() => {
-    const btn = document.getElementById("mobile-all-menu-btn");
-    if (!btn) return;
-    const handleTap = (e: Event) => {
-      e.stopPropagation();
-      openMenu();
-    };
-    btn.addEventListener("click", handleTap);
+    if (mobileMenuOpen) {
+      lockBodyScroll();
+    } else {
+      unlockBodyScroll();
+    }
     return () => {
-      btn.removeEventListener("click", handleTap);
+      if (mobileMenuOpen) unlockBodyScroll();
     };
-  }, [openMenu]);
+  }, [mobileMenuOpen]);
 
   // 전역 편의 함수 등록 (어느 버튼에서나 window.openServiceMenu() 호출 가능)
   useEffect(() => {
@@ -96,9 +75,6 @@ export default function Header() {
       window.removeEventListener("open-service-menu", handleOpen);
       window.removeEventListener("close-service-menu", handleClose);
       window.removeEventListener("keydown", handleKeyDown);
-      if (typeof document !== "undefined") {
-        document.body.style.overflow = "";
-      }
       if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
     };
   }, [openMenu, closeMenu]);
@@ -119,7 +95,15 @@ export default function Header() {
     };
   }, [dropdownOpen]);
 
-  // PC & 태블릿: 마우스 진입 시 즉시 7열 전체 드롭다운 펼침
+  // PC & 태블릿: 마우스(만) 진입 시 즉시 7열 전체 드롭다운 펼침
+  // 터치 기기는 탭 직전에 합성 pointerenter를 먼저 쏘는 "고스트 호버"가 있어,
+  // 실제 마우스(pointerType === "mouse")가 아니면 무시해야 첫 탭에서 바로
+  // 네비게이션되지 않고 의도한 대로 서브메뉴가 먼저 펼쳐진다.
+  const handlePointerEnterNav = (e: React.PointerEvent, catSlug?: string) => {
+    if (e.pointerType !== "mouse") return;
+    handleMouseEnterNav(catSlug);
+  };
+
   const handleMouseEnterNav = (catSlug?: string) => {
     if (leaveTimerRef.current) {
       clearTimeout(leaveTimerRef.current);
@@ -235,21 +219,14 @@ export default function Header() {
 
               {/* PC/태블릿 카카오톡 실시간 상담 바로가기 버튼 (태블릿 화면 맞춤 축소) */}
               <a
-                href={siteConfig.kakaoUrl || "https://open.kakao.com/o/srNJGmpg"}
+                href={siteConfig.kakaoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group hidden whitespace-nowrap rounded-full bg-[#FEE500] px-2.5 py-1 md:px-2 md:py-1 md:gap-1 lg:px-3.5 lg:py-1.5 lg:gap-2 xl:px-4.5 xl:py-2 xl:gap-2 text-[#191919] shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#fed900] hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center select-none"
                 aria-label="카카오톡 1:1 실시간 상담 바로가기 (새 창 열림)"
               >
                 <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
-                  <svg
-                    className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-[#381E1F]"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M12 3C6.48 3 2 6.51 2 10.84c0 2.77 1.85 5.21 4.66 6.58l-1.18 4.33c-.1.37.29.69.63.52l5.16-2.62c.24.02.49.03.73.03 5.52 0 10-3.51 10-7.84C22 6.51 17.52 3 12 3z" />
-                  </svg>
+                  <KakaoIcon className="h-3.5 w-3.5 md:h-3.5 md:w-3.5 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-[#381E1F]" />
                 </span>
                 <div className="text-left leading-none">
                   <span className="block text-[8px] md:text-[8px] lg:text-[10px] xl:text-[11px] font-bold text-[#6a5300] uppercase tracking-wider mb-0.5">
@@ -294,7 +271,7 @@ export default function Header() {
         <div
           id="main-navigation-bar"
           className="relative hidden md:block border-b border-gray-200 bg-white group/gnb"
-          onMouseEnter={() => handleMouseEnterNav()}
+          onPointerEnter={(e) => handlePointerEnterNav(e)}
           onMouseLeave={handleMouseLeaveNav}
         >
           <div className="mx-auto max-w-7xl px-2 sm:px-4 xl:px-6">
@@ -309,7 +286,7 @@ export default function Header() {
                     <div
                       key={cat.slug}
                       className="group/item relative text-center"
-                      onMouseEnter={() => handleMouseEnterNav(cat.slug)}
+                      onPointerEnter={(e) => handlePointerEnterNav(e, cat.slug)}
                     >
                       <Link
                         href={`/services#${cat.slug}`}
@@ -604,14 +581,12 @@ export default function Header() {
             </button>
 
             <a
-              href={siteConfig.kakaoUrl || "https://open.kakao.com/o/srNJGmpg"}
+              href={siteConfig.kakaoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center justify-center gap-1 rounded-xl border border-amber-300 bg-[#FEE500]/30 py-2 px-1 text-[11px] sm:text-xs font-bold text-[#381E1F] shadow-2xs hover:bg-[#FEE500] transition-colors active:scale-98"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-[#381E1F]">
-                <path d="M12 3C6.48 3 2 6.51 2 10.84c0 2.77 1.85 5.21 4.66 6.58l-1.18 4.33c-.1.37.29.69.63.52l5.16-2.62c.24.02.49.03.73.03 5.52 0 10-3.51 10-7.84C22 6.51 17.52 3 12 3z" />
-              </svg>
+              <KakaoIcon className="h-4 w-4 text-[#381E1F]" />
               <span>카톡상담</span>
             </a>
 
@@ -620,9 +595,7 @@ export default function Header() {
                 href={`tel:${siteConfig.phoneRaw}`}
                 className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-[11px] sm:text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
+                <Phone className="h-4 w-4 text-brand" strokeWidth={2} aria-hidden="true" />
                 <span>전화상담</span>
               </a>
             ) : (

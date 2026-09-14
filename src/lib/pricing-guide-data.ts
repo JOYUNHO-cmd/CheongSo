@@ -1,3 +1,5 @@
+import { serviceCategories } from "@/lib/services-data";
+
 export type PricingItem = {
   name: string;
   price: string;
@@ -15,7 +17,6 @@ export type CategoryPricingSection = {
   categoryNumber: string;
   title: string;
   badge: string;
-  icon: string;
   tagline: string;
   services: string[];
   pricingItems: PricingItem[];
@@ -23,15 +24,20 @@ export type CategoryPricingSection = {
   trustTip?: string;
 };
 
-export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
-  {
-    id: "easy",
-    categoryNumber: "01",
-    title: "간단청소",
+type PricingContent = {
+  badge: string;
+  tagline: string;
+  pricingItems: PricingItem[];
+  faqs: PricingFaq[];
+  trustTip?: string;
+};
+
+// 카테고리 번호/제목/서비스 목록은 src/lib/services-data.ts가 유일한 기준(single source of truth)이며,
+// 여기서는 가격 페이지 전용 콘텐츠(배지, 소개, 가격표, FAQ, 신뢰 팁)만 slug로 매핑합니다.
+const PRICING_CONTENT: Record<string, PricingContent> = {
+  easy: {
     badge: "생활 맞춤 케어",
-    icon: "Broom",
     tagline: "혼자 하기 번거롭고 까다로운 생활 공간을 군더더기 없이 가볍고 말끔하게 정리합니다",
-    services: ["원룸청소", "부분청소", "외창청소"],
     pricingItems: [
       {
         name: "원룸청소",
@@ -66,14 +72,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "사전 전송 팁: 전체 창호 혹은 심한 오염 부위 사진을 문자로 먼저 보내주시면 더욱 빠르고 정밀한 견적을 받으실 수 있습니다",
   },
-  {
-    id: "moving",
-    categoryNumber: "02",
-    title: "이사·입주청소",
+  moving: {
     badge: "새로운 시작의 첫걸음",
-    icon: "House",
     tagline: "새집의 첫인상을 결정하는 정밀 위생 케어, 투명한 팀 구성과 검증된 매뉴얼로 작업합니다",
-    services: ["입주청소", "이사청소", "거주청소", "신축청소", "준공청소", "인테리어청소", "프리미엄청소"],
     pricingItems: [
       {
         name: "입주·이사·신축청소 (표준팀)",
@@ -127,14 +128,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "안심 검수 약속: 구석구석 서랍장과 걸레받이, 배수구 탈거 청소 후 고객님 직접 검수 완료 시에만 철수합니다",
   },
-  {
-    id: "commercial",
-    categoryNumber: "03",
-    title: "사업장청소",
+  commercial: {
     badge: "기업 & 매장 전문 관리",
-    icon: "Building2",
     tagline: "업무와 영업에 지장 없는 야간·주말 유연 시공, 정확한 현장 파악 후 합리적인 맞춤 견적을 드립니다",
-    services: ["사무실청소", "관공서청소", "학교청소", "공장청소", "주방청소", "후드청소"],
     pricingItems: [
       {
         name: "사무실 · 관공서 청소",
@@ -183,14 +179,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "법인/사업자 혜택: 세금계산서 100% 발행, 작업 전후 시공 보고서 및 필요 시 정기관리 할인 혜택을 제공합니다",
   },
-  {
-    id: "hygiene",
-    categoryNumber: "04",
-    title: "위생·방역케어",
+  hygiene: {
     badge: "공기 & 유해물질 케어",
-    icon: "ShieldCheck",
     tagline: "눈에 보이지 않는 포름알데히드, 세균, 악취의 근본 뿌리를 찾아 전문 약품과 과학적 공법으로 박멸합니다",
-    services: ["새집증후군 시공", "소독&방역", "냄새악취제거"],
     pricingItems: [
       {
         name: "새집증후군 시공 (20평 이하)",
@@ -231,14 +222,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "시험성적서 보유 약품: 인체에 무해하고 반려동물에게 안전한 정품 환경부/식약처 인증 약품만을 정량 사용합니다",
   },
-  {
-    id: "special",
-    categoryNumber: "05",
-    title: "특수청소",
+  special: {
     badge: "위기 극복 긴급 솔루션",
-    icon: "AlertTriangle",
     tagline: "일반 청소로 해결 불가능한 특수 재난과 극한 현장, 풍부한 베테랑 경험으로 완벽하게 정상화합니다",
-    services: ["화재청소", "침수청소", "쓰레기집청소", "유품정리", "고독사청소", "폐기물처리"],
     pricingItems: [
       {
         name: "화재청소 (20평 기준)",
@@ -289,14 +275,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "100% 비밀 보장: 이웃의 시선이 신경 쓰이시는 쓰레기집/고독사 현장은 비표시 차량 및 불투명 포장재로 조용히 작업합니다",
   },
-  {
-    id: "exterior",
-    categoryNumber: "06",
-    title: "외부·공간청소",
+  exterior: {
     badge: "외벽 & 대형 공간 케어",
-    icon: "Building",
     tagline: "건물 외벽 로프 시공부터 축제·행사장, 최고급 대리석 석재 복원까지 전문 장비로 완성합니다",
-    services: ["외벽청소", "행사장청소", "석재청소"],
     pricingItems: [
       {
         name: "외벽청소 (빌딩·상가)",
@@ -327,14 +308,9 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "안전 인증 보장: 외벽 로프 작업자 전원 안전보험 가입 및 고소작업 필수 안전보호구를 엄격히 준수합니다",
   },
-  {
-    id: "floor",
-    categoryNumber: "07",
-    title: "바닥시공",
+  floor: {
     badge: "바닥 코팅 & 복원 케어",
-    icon: "Layers",
     tagline: "오염 침투를 차단하고 광택과 내구성을 극대화하는 전문 기계 세척과 고급 수지 코팅",
-    services: ["바닥본드제거", "바닥왁스코팅", "마루코팅", "나노코팅", "바닥청소"],
     pricingItems: [
       {
         name: "바닥 왁스코팅 (새 타일 기준)",
@@ -389,4 +365,12 @@ export const PRICING_GUIDE_DATA: CategoryPricingSection[] = [
     ],
     trustTip: "품질 보증 약속: 공업용 저가 왁스가 아닌 고광택 내구성 보증 프리미엄 수지 왁스를 2코팅 이상 기본 시공합니다",
   },
-];
+};
+
+export const PRICING_GUIDE_DATA: CategoryPricingSection[] = serviceCategories.map((cat) => ({
+  id: cat.slug,
+  categoryNumber: cat.number,
+  title: cat.title,
+  services: cat.items,
+  ...PRICING_CONTENT[cat.slug],
+}));

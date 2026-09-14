@@ -26,6 +26,7 @@ import {
 import { chatFaq, choose, getPrompt, summaryText, type Choice } from "./chat-flow";
 import Logo from "@/components/Logo";
 import { siteConfig } from "@/lib/site-config";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 import "./chatbot.css";
 
 const chatContact = { phone: siteConfig.phoneRaw, displayPhone: siteConfig.phone };
@@ -82,12 +83,13 @@ export default function ConsultationBot() {
   const handleBack = useCallback(() => {
     setCopied(false);
     setCopyError(false);
-    setView((v) => {
-      if (v === "faq") return "chat";
+    if (view === "faq") {
+      setView("chat");
+    } else {
       setAnswers((a) => a.slice(0, -1));
-      return "chat";
-    });
-  }, []);
+      setView("chat");
+    }
+  }, [view]);
 
   const handleReset = useCallback(() => {
     setCopied(false);
@@ -111,33 +113,17 @@ export default function ConsultationBot() {
     setOpen((prev) => (typeof forcedState === "boolean" ? forcedState : !prev));
   }, []);
 
-  // Lock body scroll when open
+  // Lock body scroll when open (ref-counted so Header's mobile drawer can be open at the same time)
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      lockBodyScroll();
     } else {
-      document.body.style.overflow = "";
+      unlockBodyScroll();
     }
     return () => {
-      document.body.style.overflow = "";
+      if (open) unlockBodyScroll();
     };
   }, [open]);
-
-  // Direct DOM click listener backup for launcher buttons to guarantee responsiveness
-  useEffect(() => {
-    const handleTrigger = (e: Event) => {
-      e.stopPropagation();
-      setOpen(true);
-    };
-    const launcherBtn = document.getElementById("jjin-chat-launcher-btn");
-    const bubbleBtn = document.getElementById("jjin-launcher-bubble-btn");
-    launcherBtn?.addEventListener("click", handleTrigger);
-    bubbleBtn?.addEventListener("click", handleTrigger);
-    return () => {
-      launcherBtn?.removeEventListener("click", handleTrigger);
-      bubbleBtn?.removeEventListener("click", handleTrigger);
-    };
-  }, []);
 
   // Expose global control APIs for Header and other triggers
   useEffect(() => {

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Phone } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import KakaoIcon from "@/components/icons/KakaoIcon";
 
 /**
  * 모바일 전용 좌측 플로팅 빠른 상담 도크 (전화걸기 & 카톡문의)
@@ -58,14 +59,7 @@ export default function MobileQuickContact() {
           className="group pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#FEE500] text-[#381E1F] shadow-md transition-all duration-200 hover:scale-110 hover:bg-[#fed900] hover:shadow-lg active:scale-90 cursor-pointer"
           aria-label="카카오톡 1:1 실시간 상담 바로가기 (새 창 열림)"
         >
-          <svg
-            className="h-5 w-5 text-[#381E1F] animate-kakao-ring transition-transform duration-200 group-hover:scale-110"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M12 3C6.48 3 2 6.51 2 10.84c0 2.77 1.85 5.21 4.66 6.58l-1.18 4.33c-.1.37.29.69.63.52l5.16-2.62c.24.02.49.03.73.03 5.52 0 10-3.51 10-7.84C22 6.51 17.52 3 12 3z" />
-          </svg>
+          <KakaoIcon className="h-5 w-5 text-[#381E1F] animate-kakao-ring transition-transform duration-200 group-hover:scale-110" />
         </a>
       )}
     </aside>
