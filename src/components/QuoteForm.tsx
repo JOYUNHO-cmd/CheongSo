@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
 import { siteConfig } from "@/lib/site-config";
-
-const QUOTE_EMAIL = "Danger3662@naver.com";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -38,15 +37,14 @@ export default function QuoteForm() {
     <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
       <div className="rounded-xl bg-brand-light/40 p-4 text-sm leading-6 text-brand-dark">
         <p className="text-lg font-bold">이메일로 견적 문의하기</p>
-        <p className="mt-2">
-          아래 내용을 작성하고 보내주시면 {QUOTE_EMAIL} 앞으로 바로 문의가 접수됩니다.
-        </p>
-        <p className="mt-3 text-xs text-brand-dark/70">
-          급하신 경우 전화로도 연락 주세요:{" "}
-          <a className="font-bold underline" href={`tel:${siteConfig.phoneRaw}`}>
-            {siteConfig.phone}
-          </a>
-        </p>
+        <p className="mt-2">아래 내용을 작성해서 보내주시면 바로 문의가 접수됩니다.</p>
+        <a
+          href={`tel:${siteConfig.phoneRaw}`}
+          className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 text-sm sm:text-base font-black text-white shadow-sm transition-transform hover:scale-[1.02] active:scale-95"
+        >
+          <Phone className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" strokeWidth={2.6} />
+          <span>급하신 경우 전화 {siteConfig.phone} (빠른 연결)</span>
+        </a>
       </div>
 
       <label className="grid gap-2 text-sm font-bold">
