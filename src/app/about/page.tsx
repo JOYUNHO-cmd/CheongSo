@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import { siteConfig } from "@/lib/site-config";
 
@@ -48,6 +49,22 @@ export default function AboutPage() {
           <span className="block mt-1 sm:mt-2">찐청소는 제대로 합니다</span>
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-[18px] text-gray-100">{siteConfig.description}</p>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16">
+        <div className="relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden rounded-3xl shadow-md">
+          <Image
+            src="/images/about/team-briefing.webp"
+            alt="현장 투입 전, 팀원들과 작업 범위를 브리핑하는 찐청소"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            priority
+          />
+        </div>
+        <p className="mt-3 text-center text-xs sm:text-sm text-gray-500">
+          매 현장마다, 꼼꼼한 브리핑부터 시작합니다
+        </p>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-16">
