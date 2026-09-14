@@ -28,6 +28,18 @@ export default function Header() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const leaveTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const mobileCategoryRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  // 모바일 메뉴에서 대분류를 펼쳤을 때, 하단 고정 바에 가려지지 않도록 자동으로 스크롤
+  useEffect(() => {
+    if (!openMobileCategory) return;
+    const el = mobileCategoryRefs.current[openMobileCategory];
+    if (!el) return;
+    const timer = setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [openMobileCategory]);
 
   // 모바일 메뉴 열기/닫기 (오버레이의 표시 여부는 오직 mobileMenuOpen 상태 하나로만 결정)
   const openMenu = useCallback(() => {
@@ -461,6 +473,9 @@ export default function Header() {
               <div
                 key={cat.slug}
                 id={`mobile-service-cat-${idx}`}
+                ref={(el) => {
+                  mobileCategoryRefs.current[cat.slug] = el;
+                }}
                 className="group py-0.5"
               >
                 {/* 대분류 헤더 - 터치/클릭 시 100% 즉시 토글 */}
