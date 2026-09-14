@@ -154,11 +154,10 @@ export default function AboutPage() {
 
           <div>
             <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep md:text-left">
-              &quot;진짜였으면 좋겠다는 마음, 그거 하나로 시작했습니다.&quot;
+              안녕하세요, 찐청소 대표 조윤호입니다
             </p>
 
             <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep md:mx-0 md:max-w-none">
-              <p>안녕하세요, 찐청소 대표 조윤호입니다.</p>
               <p>
                 저는 이미 청소로 밥벌이를 오래 해온 사람입니다.
                 <br />
