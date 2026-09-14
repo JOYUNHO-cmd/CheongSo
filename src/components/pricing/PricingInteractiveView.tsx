@@ -348,10 +348,19 @@ export default function PricingInteractiveView() {
             <span>투명 견적 무료 상담</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-brand-dark">
-            정확한 견적을 가장 빠르게 받는 3단계 꿀팁
+            정확한 견적을
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            빠르게 받는 3단계 꿀팁
           </h2>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-            아래 3가지만 준비해서 연락주시면 5분 내로 가장 합리적이고 군더더기 없는 견적을 받아보실 수 있습니다
+            아래 3가지만 준비해서 연락주시면
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            5분 내로 가장 합리적이고 심플한
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            견적을 받아보실 수 있습니다
           </p>
 
           <div className="grid gap-4 sm:grid-cols-3 pt-4 text-left">
