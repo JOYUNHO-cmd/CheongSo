@@ -33,8 +33,8 @@ const proofPoints = [
   {
     title: `"찐"이라 부르는 이유`,
     body: [
-      "겉만 훑는 청소와 구석까지 파고드는",
-      "청소는 시간부터 다릅니다.",
+      "겉만 훑는 청소와 달리 구석까지",
+      "파고드는 청소는 시간부터 다릅니다.",
       "저희는 후자를 선택했고, 그래서",
       "이름도 바로 찐청소입니다.",
     ],
@@ -107,7 +107,9 @@ export default function AboutPage() {
                 <span className="text-2xl font-black text-brand/30 tabular-nums">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold text-brand-dark break-keep">{point.title}</h3>
+                <h3 className="text-lg sm:text-xl md:whitespace-nowrap md:text-[15px] lg:text-lg xl:text-xl font-bold text-brand-dark break-keep">
+                  {point.title}
+                </h3>
               </div>
               <p className="mt-3 text-[14.5px] leading-[1.7] text-gray-600 break-keep md:hidden">
                 {point.body.join(" ")}
