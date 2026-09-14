@@ -62,13 +62,9 @@ export default function PricingInteractiveView() {
   return (
     <div className="space-y-12">
       {/* 1. 안심 약속 3대 원칙 (신뢰성 강조 배너) */}
-      <section className="rounded-3xl bg-gradient-to-br from-[#002a52] via-brand-dark to-[#004e8a] p-6 sm:p-9 text-white shadow-xl">
+      <section className="rounded-3xl bg-gradient-to-br from-[#002a52] via-brand-dark to-[#004e8a] p-6 sm:p-9 text-white">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3.5 py-1 text-xs sm:text-sm font-bold text-teal-200 backdrop-blur-sm border border-white/20">
-              <Sparkles className="h-4 w-4 text-amber-300 shrink-0" />
-              <span>찐청소 가격 정직 선언</span>
-            </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white">
               왜 찐청소 견적은 투명하고 신뢰할 수 있을까요?
             </h2>
