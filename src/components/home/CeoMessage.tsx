@@ -29,13 +29,19 @@ export default function CeoMessage() {
                 청소를 오래 해오면서 느낀 게 하나 있습니다.
                 <br className="md:hidden" />
                 <span className="hidden md:inline"> </span>
-                <strong className="font-black text-brand-dark">&quot;제대로 하는 곳&quot;</strong>은 생각보다 많지 않다는 것.
+                <strong className="font-black text-brand-dark">&quot;제대로 하는 곳&quot;</strong>은
+                <br className="hidden md:block" />
+                <span className="md:hidden"> </span>
+                생각보다 많지 않다는 것.
               </p>
               <p>
                 말은 쉽고, 사진은 예쁘게 찍힙니다.
                 <br className="md:hidden" />
                 <span className="hidden md:inline"> </span>
-                하지만 손님이 없을 때 구석까지 닦았는지는
+                하지만 손님이 없을 때
+                <br className="hidden md:block" />
+                <span className="md:hidden"> </span>
+                구석까지 닦았는지는
                 <br className="md:hidden" />
                 <span className="hidden md:inline"> </span>
                 아무도 모릅니다.
