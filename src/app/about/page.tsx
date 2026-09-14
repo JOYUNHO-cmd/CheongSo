@@ -69,7 +69,7 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading eyebrow="찐청소 소개" title="말 대신, 세 가지로 증명합니다" />
-        <p className="mx-auto max-w-2xl text-center text-[15px] sm:text-base leading-relaxed text-gray-600 keep-all">
+        <p className="mx-auto max-w-2xl text-center text-[15px] sm:text-base leading-relaxed text-gray-600 break-keep">
           세상에 &quot;꼼꼼하게 해드립니다&quot;라고 말 안 하는 청소업체는 없습니다.
           <br />
           문제는 그 말이 진짜인지, 확인할 방법이 없다는 거죠.
@@ -80,12 +80,17 @@ export default function AboutPage() {
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {proofPoints.map((point, idx) => (
-            <div key={point.title} className="rounded-2xl border border-gray-100 bg-white p-5 lg:p-6 shadow-sm">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand-light text-xs font-black text-brand">
-                {idx + 1}
-              </span>
-              <h3 className="mt-3 text-lg font-bold text-brand-dark">{point.title}</h3>
-              <p className="mt-2 text-[13px] sm:text-sm leading-relaxed text-gray-500 keep-all">{point.body}</p>
+            <div
+              key={point.title}
+              className="rounded-2xl border border-gray-100 border-l-4 border-l-brand bg-white p-6 shadow-sm"
+            >
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-2xl font-black text-brand/30 tabular-nums">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-brand-dark break-keep">{point.title}</h3>
+              </div>
+              <p className="mt-3 text-[14.5px] sm:text-sm leading-[1.7] text-gray-600 break-keep">{point.body}</p>
             </div>
           ))}
         </div>
@@ -94,7 +99,7 @@ export default function AboutPage() {
           <p className="text-lg sm:text-xl font-black text-brand-dark leading-relaxed">
             찐찐찐찐 찐이야~♪ 가짜는 가라, 제대로 하는 찐 청소!
           </p>
-          <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed keep-all">
+          <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed break-keep">
             대충이 아닌 꼼꼼함으로, 말이 아닌 결과로 보여드립니다.
           </p>
           <p className="mt-4 text-base sm:text-lg font-bold text-gray-900">
@@ -106,11 +111,11 @@ export default function AboutPage() {
       <section className="mx-auto max-w-4xl px-6 py-16">
         <SectionHeading eyebrow="대표 인사말" title="대표의 말" />
         <div className="rounded-3xl border border-gray-100 bg-white px-6 py-10 sm:px-12 sm:py-14 shadow-sm">
-          <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug keep-all">
+          <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep">
             &quot;진짜였으면 좋겠다는 마음, 그거 하나로 시작했습니다.&quot;
           </p>
 
-          <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 keep-all">
+          <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep">
             <p>안녕하세요, 찐청소 대표 조윤호입니다.</p>
             <p>
               저는 이미 청소로 밥벌이를 오래 해온 사람입니다.
@@ -151,7 +156,7 @@ export default function AboutPage() {
           {values.map((value) => (
             <div key={value.title} className="rounded-2xl border border-gray-100 bg-white p-5 lg:p-6 shadow-sm">
               <h3 className="text-lg font-bold text-brand-dark">{value.title}</h3>
-              <p className="mt-2 text-[12.5px] sm:text-[13px] md:text-[12px] lg:text-[13.5px] leading-relaxed tracking-tight text-gray-500 keep-all">
+              <p className="mt-2 text-[12.5px] sm:text-[13px] md:text-[12px] lg:text-[13.5px] leading-relaxed tracking-tight text-gray-500 break-keep">
                 <span className="block">{value.line1}</span>
                 <span className="block mt-0.5">{value.line2}</span>
               </p>
