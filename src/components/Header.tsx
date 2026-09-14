@@ -14,8 +14,8 @@ import KakaoIcon from "@/components/icons/KakaoIcon";
 const mainNavLinks = [
   { label: "회사소개", href: "/about" },
   { label: "가격안내", href: "/pricing" },
-  { label: "고객후기", href: "/reviews" },
-  { label: "문의하기", href: "/contact" },
+  { label: "찐현장사진들", href: "/reviews" },
+  { label: "견적문의", href: "/contact" },
 ];
 
 export default function Header() {
@@ -186,7 +186,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[11.5px] lg:text-[14.5px] xl:px-3.5 xl:py-2 xl:text-[16px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
+                    className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
