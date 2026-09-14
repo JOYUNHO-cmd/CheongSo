@@ -27,12 +27,8 @@ export default function CeoMessage() {
               </p>
               <p>
                 청소를 오래 해오면서 느낀 게 하나 있습니다.
-                <br className="md:hidden" />
-                <span className="hidden md:inline"> </span>
-                <strong className="font-black text-brand-dark">&quot;제대로 하는 곳&quot;</strong>은
-                <br className="hidden md:block" />
-                <span className="md:hidden"> </span>
-                생각보다 많지 않다는 것.
+                <br />
+                <strong className="font-black text-brand-dark">&quot;제대로 하는 곳&quot;</strong>은 생각보다 많지 않다는 것.
               </p>
               <p>
                 말은 쉽고, 사진은 예쁘게 찍힙니다.
@@ -48,8 +44,7 @@ export default function CeoMessage() {
               </p>
               <p>
                 저는 그 순간에 진짜이고 싶었습니다.
-                <br className="md:hidden" />
-                <span className="hidden md:inline"> </span>
+                <br />
                 그래서 이름도, <strong className="font-black text-brand-dark">찐청소</strong>입니다.
               </p>
               <p className="font-bold text-gray-800">보이지 않는 곳도, 보이는 곳처럼.</p>
