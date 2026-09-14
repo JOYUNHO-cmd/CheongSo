@@ -278,7 +278,6 @@ export default function ConsultationBot() {
             </button>
             <div className="jjin-chat-heading">
               <BrandImage />
-              <span>선택형 자동상담</span>
             </div>
             <button
               type="button"
