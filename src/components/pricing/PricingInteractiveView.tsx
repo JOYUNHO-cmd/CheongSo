@@ -258,7 +258,7 @@ export default function PricingInteractiveView() {
                           </p>
                         )}
                       </div>
-                      <div className="shrink-0 text-lg sm:text-xl font-black text-brand-dark tracking-tight sm:whitespace-nowrap sm:text-right">
+                      <div className="shrink-0 whitespace-nowrap text-[15px] sm:text-xl font-black text-brand-dark tracking-tight sm:text-right">
                         {item.price}
                       </div>
                     </div>
