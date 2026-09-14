@@ -46,7 +46,7 @@ function getCategoryIcon(id: string): LucideIcon {
 }
 
 export default function PricingInteractiveView() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeCategory, setActiveCategory] = useState<string>(PRICING_GUIDE_DATA[0].id);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const displayedData = activeCategory === "all" 
@@ -196,35 +196,23 @@ export default function PricingInteractiveView() {
               id={cat.id}
               className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-9 shadow-xs transition-all hover:border-teal-200 hover:shadow-md"
             >
-              {/* 카테고리 헤더 */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-6">
-                <div className="flex items-center gap-3.5">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100 text-brand shadow-2xs">
-                    <CatIcon size={24} strokeWidth={2.1} />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="rounded-md bg-brand-dark px-2 py-0.5 text-xs font-black text-white">
-                        {cat.categoryNumber}
-                      </span>
-                      <span className="rounded-full bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 text-xs font-bold text-brand-dark">
-                        {cat.badge}
-                      </span>
-                    </div>
-                    <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight mt-1">
-                      {cat.title}
-                    </h2>
-                  </div>
+              {/* 카테고리 헤더 (간결하게: 아이콘 + 뱃지 + 제목만) */}
+              <div className="flex items-center gap-3.5 border-b border-gray-100 pb-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-50 border border-teal-100 text-brand shadow-2xs">
+                  <CatIcon size={24} strokeWidth={2.1} />
                 </div>
-                <div className="flex flex-wrap gap-1.5 sm:justify-end">
-                  {cat.services.map((srv) => (
-                    <span
-                      key={srv}
-                      className="rounded-lg bg-slate-50 border border-slate-200/80 px-2.5 py-1 text-xs font-semibold text-slate-700"
-                    >
-                      #{srv}
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-md bg-brand-dark px-2 py-0.5 text-xs font-black text-white">
+                      {cat.categoryNumber}
                     </span>
-                  ))}
+                    <span className="rounded-full bg-teal-50 border border-teal-200/80 px-2.5 py-0.5 text-xs font-bold text-brand-dark">
+                      {cat.badge}
+                    </span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight mt-1">
+                    {cat.title}
+                  </h2>
                 </div>
               </div>
 
@@ -233,49 +221,38 @@ export default function PricingInteractiveView() {
                 {cat.tagline}
               </div>
 
-              {/* 비용 상세 안내 카드 리스트 (가독성 최적화: 불필요한 레이블 제거 및 금액 강조) */}
+              {/* 비용 안내 — 메뉴판처럼 항목·가격을 한 줄에 나란히 */}
               <div className="mt-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <Coins className="h-5 w-5 text-brand shrink-0" strokeWidth={2.2} />
-                  <h3 className="text-base sm:text-lg font-black text-gray-900">
-                    {cat.title} 세부 작업별 예상 비용 기준
-                  </h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <Coins className="h-4 w-4 text-brand shrink-0" strokeWidth={2.2} />
+                  <h3 className="text-sm font-bold text-gray-500">예상 비용</h3>
                 </div>
 
-                <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="divide-y divide-gray-100 rounded-2xl border border-gray-200 overflow-hidden">
                   {cat.pricingItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className={`relative flex flex-col justify-between rounded-2xl p-5 sm:p-6 transition-all ${
-                        item.highlight
-                          ? "border-2 border-brand bg-gradient-to-b from-teal-50/60 to-white shadow-xs ring-1 ring-brand/20"
-                          : "border border-gray-200 bg-white hover:border-gray-300 hover:shadow-xs"
+                      className={`flex items-start justify-between gap-4 px-4 sm:px-5 py-4 ${
+                        item.highlight ? "bg-teal-50/50" : "bg-white"
                       }`}
                     >
-                      {item.highlight && (
-                        <div className="absolute -top-3 right-4 inline-flex items-center gap-1 rounded-full bg-brand px-2.5 py-0.5 text-[11px] font-black text-white shadow-xs">
-                          <CheckCircle2 className="h-3 w-3" strokeWidth={2.5} />
-                          <span>대표 추천 항목</span>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <h4 className="text-[15px] sm:text-base font-bold text-gray-900">{item.name}</h4>
+                          {item.highlight && (
+                            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-brand px-2 py-0.5 text-[10px] font-black text-white">
+                              <CheckCircle2 className="h-2.5 w-2.5" strokeWidth={2.5} />
+                              추천
+                            </span>
+                          )}
                         </div>
-                      )}
-                      <div>
-                        <h4 className="text-base sm:text-[17px] font-bold text-gray-950 leading-snug">
-                          {item.name}
-                        </h4>
-                        <div className="mt-3">
-                          <div className="text-lg sm:text-2xl font-black text-brand-dark tracking-tight">
-                            {item.price}
-                          </div>
-                        </div>
+                        {item.note && (
+                          <p className="mt-1 text-xs sm:text-[13px] text-gray-500 leading-relaxed">{item.note}</p>
+                        )}
                       </div>
-
-                      {item.note && (
-                        <div className="mt-4 pt-3 border-t border-gray-100">
-                          <p className="text-[13px] sm:text-sm text-gray-600 leading-relaxed font-normal">
-                            {item.note}
-                          </p>
-                        </div>
-                      )}
+                      <div className="shrink-0 whitespace-nowrap text-right text-base sm:text-lg font-black text-brand-dark tracking-tight">
+                        {item.price}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -299,9 +276,7 @@ export default function PricingInteractiveView() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shrink-0">
                     <HelpCircle className="h-4 w-4" strokeWidth={2.2} />
                   </div>
-                  <h3 className="text-base sm:text-lg font-black text-gray-900">
-                    {cat.title} 가격 궁금증 &amp; 견적 산정 이유
-                  </h3>
+                  <h3 className="text-base sm:text-lg font-black text-gray-900">자주 묻는 질문</h3>
                 </div>
 
                 <div className="space-y-3">
