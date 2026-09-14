@@ -10,15 +10,34 @@ export const metadata: Metadata = {
 const proofPoints = [
   {
     title: "15년, 안 봐도 압니다",
-    body: "현장을 15년 봐온 눈으로, 사진 한 장 안 보내도 대략적인 오염 상태를 짐작합니다. 짐작이 틀릴 것 같은 경우엔 방문 확인을 먼저 권해드립니다 — 대충 견적 내고 나중에 말 바꾸는 일은 없습니다.",
+    body: [
+      "현장을 15년 봐온 눈으로,",
+      "사진 한장 안 보내도 대략적인",
+      "오염 상태를 짐작합니다.",
+      "짐작이 틀릴 것 같은 경우엔",
+      "무료방문견적을 진행합니다.",
+      "대충 견적 내고 나중에",
+      "말바꾸는 일은 없습니다.",
+    ],
   },
   {
     title: "가격은 숨기지 않습니다",
-    body: "평당 얼마, 어떤 조건에서 얼마가 올라가는지 미리 다 알려드립니다. 현장에서 사정이 다르면 그 자리에서 다시 설명드리고, 동의 없이는 금액을 올리지 않습니다.",
+    body: [
+      "어떤 조건에서든 가격이 어떻게",
+      "산정되는지 현장에 맞춰 설명합니다.",
+      "그리고 변수가 생길시에 고객님께",
+      "설명드리고, 동의 없이는 금액을",
+      "추가하는 행위를 하지 않습니다.",
+    ],
   },
   {
     title: `"찐"이라 부르는 이유`,
-    body: "겉만 훑는 청소와 구석까지 파고드는 청소는 시간부터 다릅니다. 저희는 후자를 택했고, 그래서 이름도 찐청소입니다.",
+    body: [
+      "겉만 훑는 청소와 구석까지 파고드는",
+      "청소는 시간부터 다릅니다.",
+      "저희는 후자를 선택했고, 그래서",
+      "이름도 바로 찐청소입니다.",
+    ],
   },
 ];
 
@@ -90,7 +109,17 @@ export default function AboutPage() {
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-brand-dark break-keep">{point.title}</h3>
               </div>
-              <p className="mt-3 text-[14.5px] sm:text-sm leading-[1.7] text-gray-600 break-keep">{point.body}</p>
+              <p className="mt-3 text-[14.5px] leading-[1.7] text-gray-600 break-keep md:hidden">
+                {point.body.join(" ")}
+              </p>
+              <p className="mt-3 hidden text-sm leading-[1.7] text-gray-600 break-keep md:block">
+                {point.body.map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < point.body.length - 1 && <br />}
+                  </span>
+                ))}
+              </p>
             </div>
           ))}
         </div>
