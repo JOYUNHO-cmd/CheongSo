@@ -184,7 +184,7 @@ export default function PricingInteractiveView() {
               {selectedCategory.services.map((srv) => (
                 <span
                   key={srv}
-                  className="rounded-full border border-teal-200 bg-white px-3.5 py-1.5 text-sm font-bold text-brand-dark shadow-2xs"
+                  className="rounded-full border border-teal-200 bg-white px-5 py-2.5 text-base sm:text-lg font-bold text-brand-dark shadow-2xs"
                 >
                   {srv}
                 </span>
@@ -233,8 +233,8 @@ export default function PricingInteractiveView() {
               {/* 비용 안내 — 메뉴판처럼 항목·가격을 한 줄에 나란히 */}
               <div className="mt-8">
                 <div className="flex items-center gap-2 mb-3">
-                  <Coins className="h-4 w-4 text-brand shrink-0" strokeWidth={2.2} />
-                  <h3 className="text-sm font-bold text-gray-500">예상 비용</h3>
+                  <Coins className="h-5 w-5 sm:h-6 sm:w-6 text-brand shrink-0" strokeWidth={2.2} />
+                  <h3 className="text-lg sm:text-xl font-black text-gray-900">예상 비용</h3>
                 </div>
 
                 <div className="divide-y divide-gray-100 rounded-2xl border border-gray-200 overflow-hidden">
@@ -247,7 +247,7 @@ export default function PricingInteractiveView() {
                     >
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <h4 className="text-[15px] sm:text-base font-bold text-gray-900">{item.name}</h4>
+                          <h4 className="text-base sm:text-lg font-bold text-gray-900">{item.name}</h4>
                           {item.highlight && (
                             <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-brand px-2 py-0.5 text-[10px] font-black text-white">
                               <CheckCircle2 className="h-2.5 w-2.5" strokeWidth={2.5} />
@@ -256,10 +256,10 @@ export default function PricingInteractiveView() {
                           )}
                         </div>
                         {item.note && (
-                          <p className="mt-1 text-xs sm:text-[13px] text-gray-500 leading-relaxed">{item.note}</p>
+                          <p className="mt-1.5 text-sm sm:text-[15px] text-gray-600 leading-relaxed">{item.note}</p>
                         )}
                       </div>
-                      <div className="shrink-0 whitespace-nowrap text-right text-base sm:text-lg font-black text-brand-dark tracking-tight">
+                      <div className="shrink-0 whitespace-nowrap text-right text-lg sm:text-xl font-black text-brand-dark tracking-tight">
                         {item.price}
                       </div>
                     </div>
