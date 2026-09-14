@@ -19,7 +19,7 @@ export default function ProcessSteps() {
               src={step.img}
               alt={step.label}
               width={1400}
-              height={933}
+              height={788}
               className="h-auto w-full"
               sizes="(min-width: 896px) 850px, 100vw"
             />
