@@ -62,10 +62,16 @@ export default function PricingInteractiveView() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-white">
-              왜 찐청소 견적은 투명하고 신뢰할 수 있을까요?
+              왜 찐청소 견적은
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              투명하고 신뢰할 수 있을까요?
             </h2>
             <p className="text-sm sm:text-base text-gray-200 leading-relaxed max-w-2xl">
-              무책임한 저가 미끼 견적 후 현장 강제 추가금? 찐청소에서는 절대 없습니다
+              무책임한 저가 미끼 견적 후 현장 강제 추가금?
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              찐청소에서는 절대 없습니다
             </p>
           </div>
 
@@ -94,21 +100,30 @@ export default function PricingInteractiveView() {
           <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
             <h3 className="font-bold text-sm sm:text-base text-white">동의 없는 추가금 0원</h3>
             <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-              현장 특이사항 발생 시 사전 설명 후 동의하셔야만 진행합니다
+              현장 특이사항 발생 시 사전 설명 후
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              동의하셔야만 진행합니다
             </p>
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
             <h3 className="font-bold text-sm sm:text-base text-white">무료 현장 방문 견적</h3>
             <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-              사업장·특수·외벽 등 복합 현장은 100% 무료로 방문 진단합니다
+              사업장·특수·외벽 등 복합 현장은
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              100% 무료로 방문 진단합니다
             </p>
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
             <h3 className="font-bold text-sm sm:text-base text-white">고객 동행 당일 검수</h3>
             <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
-              구석구석 꼼꼼하게 직접 눈으로 확인 후 만족하셔야 결제합니다
+              구석구석 꼼꼼하게 직접 눈으로 확인 후
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              만족하셔야 결제합니다
             </p>
           </div>
         </div>
