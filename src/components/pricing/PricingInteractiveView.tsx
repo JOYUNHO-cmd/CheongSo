@@ -49,9 +49,11 @@ export default function PricingInteractiveView() {
   const [activeCategory, setActiveCategory] = useState<string>(PRICING_GUIDE_DATA[0].id);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
-  const displayedData = activeCategory === "all" 
-    ? PRICING_GUIDE_DATA 
+  const displayedData = activeCategory === "all"
+    ? PRICING_GUIDE_DATA
     : PRICING_GUIDE_DATA.filter((cat) => cat.id === activeCategory);
+
+  const selectedCategory = PRICING_GUIDE_DATA.find((cat) => cat.id === activeCategory);
 
   const toggleFaq = (faqId: string) => {
     setOpenFaq((prev) => (prev === faqId ? null : faqId));
@@ -135,23 +137,20 @@ export default function PricingInteractiveView() {
         </div>
       </section>
 
-      {/* 2. 카테고리 빠른 필터 탭 바 — 카드마다 소속 서비스명을 함께 보여줘 한눈에 파악 가능 */}
-      <div className="sticky top-20 z-20 -mx-4 sm:mx-0 px-4 sm:px-0 py-3 bg-white/95 backdrop-blur-md border-y sm:border sm:rounded-2xl border-gray-200 shadow-xs">
-        <div className="flex items-stretch gap-2.5 overflow-x-auto no-scrollbar py-1">
+      {/* 2. 메뉴판형 대분류 선택 — 큰 서비스를 누르면 바로 아래에 작은 서비스가 한눈에 펼쳐짐 */}
+      <div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
           <button
             type="button"
             onClick={() => setActiveCategory("all")}
-            className={`shrink-0 w-[104px] sm:w-28 flex flex-col items-center justify-center gap-1.5 rounded-xl px-2.5 py-3 text-center transition-all cursor-pointer ${
+            className={`flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-center transition-all cursor-pointer ${
               activeCategory === "all"
-                ? "bg-brand text-white shadow-md ring-2 ring-brand/30"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 border border-gray-200/60"
+                ? "border-brand bg-brand text-white shadow-md"
+                : "border-gray-200 bg-white text-gray-700 hover:border-brand/40 hover:bg-teal-50/40"
             }`}
           >
-            <LayoutGrid size={18} strokeWidth={2.2} className="shrink-0" />
-            <span className="text-xs font-extrabold">전체 보기</span>
-            <span className={`text-[10px] font-medium ${activeCategory === "all" ? "text-white/80" : "text-gray-400"}`}>
-              7개 분야
-            </span>
+            <LayoutGrid size={22} strokeWidth={2.2} />
+            <span className="text-sm font-extrabold">전체 보기</span>
           </button>
           {PRICING_GUIDE_DATA.map((cat) => {
             const CatIcon = getCategoryIcon(cat.id);
@@ -162,27 +161,37 @@ export default function PricingInteractiveView() {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`shrink-0 w-36 sm:w-40 flex flex-col items-start gap-1 rounded-xl px-3.5 py-2.5 text-left transition-all cursor-pointer ${
+                className={`flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-center transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-brand text-white shadow-md ring-2 ring-brand/30"
-                    : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200/60"
+                    ? "border-brand bg-brand text-white shadow-md"
+                    : "border-gray-200 bg-white text-gray-700 hover:border-brand/40 hover:bg-teal-50/40"
                 }`}
               >
-                <span className="flex items-center gap-1.5">
-                  <CatIcon size={16} strokeWidth={2.2} className="shrink-0" />
-                  <span className="text-xs sm:text-[13px] font-extrabold whitespace-nowrap">{cat.title}</span>
-                </span>
-                <span
-                  className={`text-[10.5px] leading-snug line-clamp-2 break-keep ${
-                    isSelected ? "text-white/85" : "text-gray-500"
-                  }`}
-                >
-                  {cat.services.join(" · ")}
-                </span>
+                <CatIcon size={22} strokeWidth={2.2} />
+                <span className="text-sm font-extrabold">{cat.title}</span>
               </button>
             );
           })}
         </div>
+
+        {/* 선택한 분야에 포함된 작은 서비스들을 칩으로 한눈에 노출 */}
+        {selectedCategory && (
+          <div className="mt-4 rounded-2xl border border-teal-100 bg-teal-50/50 p-4 sm:p-5">
+            <p className="mb-2.5 text-xs font-bold text-brand-dark/70">
+              {selectedCategory.title} 안에 포함된 서비스
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {selectedCategory.services.map((srv) => (
+                <span
+                  key={srv}
+                  className="rounded-full border border-teal-200 bg-white px-3.5 py-1.5 text-sm font-bold text-brand-dark shadow-2xs"
+                >
+                  {srv}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* 3. 각 카테고리별 정밀 가격표 & 심층 Q&A 아코디언 */}
