@@ -154,35 +154,79 @@ export default function AboutPage() {
 
           <div>
             <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep md:text-left">
-              안녕하세요, 찐청소 대표 조윤호입니다
+              안녕하세요, 찐청소
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> </span>
+              대표 조윤호입니다
             </p>
 
             <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep md:mx-0 md:max-w-none">
               <p>
-                저는 이미 청소로 밥벌이를 오래 해온 사람입니다.
-                <br />
-                그런데도 두 번째로 이 일을 다시 시작한 이유는 하나입니다.
-                <br />
-                <strong className="font-black text-brand-dark">&quot;진짜 제대로 하는 곳&quot;</strong>이 생각보다 많지 않다는 걸, 현장에서 계속 느꼈기 때문입니다.
+                저는 이미 청소로 밥벌이를
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                오래 해온 사람입니다.
               </p>
               <p>
-                번지르르한 말은 쉽습니다. 사진도 예쁘게 찍을 수 있습니다.
-                <br />
-                하지만 정작 손님이 없을 때, 구석까지 진짜로 닦았는지는 아무도 모릅니다.
-                <br />
+                그런데도 두 번째로 이 일을
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                다시 시작한 이유는 하나입니다.
+              </p>
+              <p>
+                <strong className="font-black text-brand-dark">&quot;진짜 제대로 하는 곳&quot;</strong>이
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                생각보다 많지 않다는 걸,
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                현장에서 계속 느꼈기 때문입니다.
+              </p>
+              <p>
+                번지르르한 말은 쉽습니다.
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                사진도 예쁘게 찍을 수 있습니다.
+              </p>
+              <p>
+                하지만 정작 손님이 없을 때,
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                구석까지 진짜로 닦았는지는
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                아무도 모릅니다.
+              </p>
+              <p>
                 저는 그{" "}
                 <strong className="font-black text-brand-dark">&quot;아무도 모르는 순간&quot;</strong>에
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
                 제대로 하는 사람이고 싶었습니다.
-                <br />
+              </p>
+              <p>
                 그래서 이름도 <strong className="font-black text-brand-dark">찐청소</strong>입니다.
               </p>
               <p>
-                화려한 말보다, 끝나고 난 뒤의 공간이 모든 걸 말해준다고 믿습니다.
-                <br />
-                <strong className="font-black text-brand-dark">찐청소</strong>는 앞으로도 그 하나만 보고
-                가겠습니다.
-                <br />
-                보이지 않는 곳도 보이는 곳처럼, 대충이 아닌 진짜로.
+                화려한 말보다, 끝나고 난
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                뒤의 공간이 모든 걸
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                말해준다고 믿습니다.
+              </p>
+              <p>
+                <strong className="font-black text-brand-dark">찐청소</strong>는 앞으로도
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                그 하나만 보고 가겠습니다.
+              </p>
+              <p>
+                보이지 않는 곳도 보이는 곳처럼,
+                <br className="sm:hidden" />
+                <span className="hidden sm:inline"> </span>
+                대충이 아닌 진짜로.
               </p>
               <p>읽어주셔서 감사합니다.</p>
             </div>
