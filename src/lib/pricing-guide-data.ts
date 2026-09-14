@@ -30,6 +30,8 @@ export type CategoryPricingSection = {
   pricingItems: PricingItem[];
   faqs: PricingFaq[];
   trustTip?: string;
+  /** PC/태블릿은 trustTip을 그대로 사용하고, 모바일 화면에서만 이 값(줄바꿈은 "|"로 구분)을 대신 표시 */
+  mobileTrustTip?: string;
 };
 
 type PricingContent = {
@@ -38,6 +40,7 @@ type PricingContent = {
   pricingItems: PricingItem[];
   faqs: PricingFaq[];
   trustTip?: string;
+  mobileTrustTip?: string;
 };
 
 // 카테고리 번호/제목/서비스 목록은 src/lib/services-data.ts가 유일한 기준(single source of truth)이며,
@@ -252,43 +255,45 @@ const PRICING_CONTENT: Record<string, PricingContent> = {
   },
   special: {
     badge: "위기 극복 긴급 솔루션",
-    tagline: "일반 청소로 해결 불가능한 특수 재난과 극한 현장, 풍부한 베테랑 경험으로 완벽하게 정상화합니다",
+    tagline: "일반 청소로 해결 불가능한 특수 재난과|극한 현장, 풍부한 베테랑 경험으로|완벽하게 정상화합니다",
     pricingItems: [
       {
         name: "화재청소 (20평 기준)",
         price: "평균 230만 ~ 500만원",
         note: "벽체/천장 그을음 박리 세척, 유독성 냄새 오존 중화 탈취 (2026년 업계 기준)",
+        mobileNote: "벽체/천장 그을음 박리 세척, 유독성 냄새|오존 중화 탈취 (업계 평균 기준)",
         highlight: true,
       },
       {
         name: "침수청소",
         price: "40만 ~ 250만원 선",
-        note: "오염수 강제 배수, 건조, 곰팡이 억제, 장판/단열재 철거 여부 반영",
+        note: "오염수 강제 배수, 건조, 곰팡이 억제,|장판/단열재 철거 여부 반영",
       },
       {
         name: "쓰레기집청소 (원룸~투룸)",
         price: "50만 ~ 150만원",
-        note: "단순 폐기물 수거부터 바닥 원상복구 및 비밀보장",
+        note: "단순 폐기물 수거부터|바닥 원상복구 및 비밀보장",
       },
       {
         name: "쓰레기집청소 (쓰리룸 이상)",
         price: "100만 ~ 300만원 이상",
-        note: "적재 톤수 및 부패물/벌레 발생 여부에 따른 차등",
+        note: "적재 톤수 및 부패물/벌레|발생 여부에 따른 차등",
       },
       {
         name: "고독사청소 / 특수방역",
         price: "방 1개 60만원 / 30평 이하 전체 약 150만원",
-        note: "생화학 오염 제거, 혈흔·체액 분해, 특수 살균 및 강력 탈취 포함",
+        note: "생화학 오염 제거, 혈흔·체액 분해,|특수 살균 및 강력 탈취 포함",
       },
       {
         name: "유품정리",
         price: "현장 방문 또는 사진 확인 견적",
-        note: "보관 유품 정성 분류 + 미사용 물품 일괄 폐기 반출",
+        note: "보관 유품 정성 분류 +|미사용 물품 일괄 폐기 반출",
       },
       {
         name: "폐기물 처리 (1톤 트럭 기준)",
         price: "반차 30만원부터 / 한차 50만원부터",
         note: "폐기물 종류(일반 목재/가전/특수폐기물)와 반출 환경별 상이",
+        mobileNote: "폐기물 종류(일반 목재/가전/특수폐기물)|그리고 작업 환경에 따라 달라집니다",
       },
     ],
     faqs: [
@@ -302,6 +307,7 @@ const PRICING_CONTENT: Record<string, PricingContent> = {
       },
     ],
     trustTip: "100% 비밀 보장: 이웃의 시선이 신경 쓰이시는 쓰레기집/고독사 현장은 비표시 차량 및 불투명 포장재로 조용히 작업합니다",
+    mobileTrustTip: "100% 비밀 보장: 이웃의 시선이 신경|쓰이시는 쓰레기집/고독사 현장은|비표시 차량 및 불투명 포장재로|아주 조용히 작업합니다",
   },
   exterior: {
     badge: "외벽 & 대형 공간 케어",

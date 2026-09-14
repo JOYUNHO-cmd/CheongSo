@@ -292,7 +292,7 @@ export default function PricingInteractiveView() {
                     <Lightbulb className="h-4 w-4" strokeWidth={2.2} />
                   </div>
                   <div className="text-xs sm:text-sm font-medium text-amber-950 leading-relaxed pt-0.5">
-                    {cat.trustTip}
+                    {cat.trustTip && responsiveText(cat.trustTip, cat.mobileTrustTip)}
                   </div>
                 </div>
               )}
