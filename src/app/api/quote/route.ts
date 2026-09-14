@@ -1,5 +1,3 @@
-import nodemailer from "nodemailer";
-
 export const runtime = "nodejs";
 
 type QuoteRequest = {
@@ -18,19 +16,14 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "서비스와 지역은 필수입니다" }, { status: 400 });
   }
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.naver.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.NAVER_EMAIL_USER,
-      pass: process.env.NAVER_EMAIL_PASSWORD,
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
     },
-  });
-
-  try {
-    await transporter.sendMail({
-      from: `"찐청소 견적 문의" <${process.env.NAVER_EMAIL_USER}>`,
+    body: JSON.stringify({
+      from: "찐청소 견적 문의 <onboarding@resend.dev>",
       to: process.env.QUOTE_EMAIL_TO,
       subject: `[찐청소] 견적 문의 - ${service}`,
       text: [
@@ -41,9 +34,11 @@ export async function POST(request: Request) {
         `희망 일정: ${schedule || "협의"}`,
         `요청 내용: ${notes || "상담 시 협의"}`,
       ].join("\n"),
-    });
-  } catch (error) {
-    console.error("[quote email] send failed", error);
+    }),
+  });
+
+  if (!res.ok) {
+    console.error("[quote email] resend failed", res.status, await res.text());
     return Response.json({ ok: false, error: "메일 발송에 실패했습니다" }, { status: 502 });
   }
 
