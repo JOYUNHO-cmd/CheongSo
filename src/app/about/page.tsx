@@ -139,44 +139,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 py-16">
+      <section className="mx-auto max-w-5xl px-6 py-16">
         <SectionHeading eyebrow="대표 인사말" title="대표의 말" />
-        <div className="rounded-3xl border border-gray-100 bg-white px-6 py-10 sm:px-12 sm:py-14 shadow-sm">
-          <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep">
-            &quot;진짜였으면 좋겠다는 마음, 그거 하나로 시작했습니다.&quot;
-          </p>
-
-          <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep">
-            <p>안녕하세요, 찐청소 대표 조윤호입니다.</p>
-            <p>
-              저는 이미 청소로 밥벌이를 오래 해온 사람입니다.
-              <br />
-              그런데도 두 번째로 이 일을 다시 시작한 이유는 하나입니다.
-              <br />
-              &quot;진짜 제대로 하는 곳&quot;이 생각보다 많지 않다는 걸, 현장에서 계속 느꼈기 때문입니다.
-            </p>
-            <p>
-              번지르르한 말은 쉽습니다. 사진도 예쁘게 찍을 수 있습니다.
-              <br />
-              하지만 정작 손님이 없을 때, 구석까지 진짜로 닦았는지는 아무도 모릅니다.
-              <br />
-              저는 그 &quot;아무도 모르는 순간&quot;에 제대로 하는 사람이고 싶었습니다. 그래서 이름도 찐청소입니다.
-            </p>
-            <p>
-              화려한 말보다, 끝나고 난 뒤의 공간이 모든 걸 말해준다고 믿습니다.
-              <br />
-              찐청소는 앞으로도 그 하나만 보고 가겠습니다.
-              <br />
-              보이지 않는 곳도 보이는 곳처럼, 대충이 아닌 진짜로.
-            </p>
-            <p>읽어주셔서 감사합니다.</p>
+        <div className="grid gap-8 rounded-3xl border border-gray-100 bg-white p-6 shadow-sm sm:p-10 md:grid-cols-[280px_1fr] md:items-start md:gap-10 lg:grid-cols-[320px_1fr]">
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[280px] overflow-hidden rounded-2xl shadow-md md:max-w-none">
+            <Image
+              src="/images/about/ceo-greeting.webp"
+              alt="현장에서 직접 작업 중인 찐청소 대표 조윤호"
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 320px, 280px"
+            />
           </div>
 
-          <div className="mx-auto mt-10 flex max-w-xl items-center justify-end gap-3 border-t border-gray-100 pt-6">
-            <span className="text-sm font-bold text-gray-500">대표이사</span>
-            <span className="font-signature text-[34px] sm:text-[40px] leading-none text-brand-dark">
-              조윤호
-            </span>
+          <div>
+            <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep md:text-left">
+              &quot;진짜였으면 좋겠다는 마음, 그거 하나로 시작했습니다.&quot;
+            </p>
+
+            <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep md:mx-0 md:max-w-none">
+              <p>안녕하세요, 찐청소 대표 조윤호입니다.</p>
+              <p>
+                저는 이미 청소로 밥벌이를 오래 해온 사람입니다.
+                <br />
+                그런데도 두 번째로 이 일을 다시 시작한 이유는 하나입니다.
+                <br />
+                &quot;진짜 제대로 하는 곳&quot;이 생각보다 많지 않다는 걸, 현장에서 계속 느꼈기 때문입니다.
+              </p>
+              <p>
+                번지르르한 말은 쉽습니다. 사진도 예쁘게 찍을 수 있습니다.
+                <br />
+                하지만 정작 손님이 없을 때, 구석까지 진짜로 닦았는지는 아무도 모릅니다.
+                <br />
+                저는 그 &quot;아무도 모르는 순간&quot;에 제대로 하는 사람이고 싶었습니다. 그래서 이름도 찐청소입니다.
+              </p>
+              <p>
+                화려한 말보다, 끝나고 난 뒤의 공간이 모든 걸 말해준다고 믿습니다.
+                <br />
+                찐청소는 앞으로도 그 하나만 보고 가겠습니다.
+                <br />
+                보이지 않는 곳도 보이는 곳처럼, 대충이 아닌 진짜로.
+              </p>
+              <p>읽어주셔서 감사합니다.</p>
+            </div>
+
+            <div className="mx-auto mt-10 flex max-w-xl items-center justify-end gap-3 border-t border-gray-100 pt-6 md:mx-0 md:max-w-none">
+              <span className="text-sm font-bold text-gray-500">대표이사</span>
+              <span className="font-signature text-[34px] sm:text-[40px] leading-none text-brand-dark">
+                조윤호
+              </span>
+            </div>
           </div>
         </div>
       </section>
