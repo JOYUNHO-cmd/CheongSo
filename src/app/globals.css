@@ -137,6 +137,16 @@ details > summary {
   pointer-events: auto !important;
 }
 
+/* PC & 태블릿 GNB 서브메뉴창 열림/닫힘 상태 제어 — dropdownOpen 상태 하나로만 결정 */
+#full-service-dropdown.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  max-height: 850px !important;
+  transform: translateY(0) !important;
+  display: block !important;
+}
+
 /* 모바일 좌측 퀵 상담 버튼 생동감 애니메이션 (전화 & 카톡 흔들림 링 모션) */
 @keyframes mobile-wiggle-ring {
   0%, 100% { transform: rotate(0deg); }

@@ -23,6 +23,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileCategory, setOpenMobileCategory] = useState<string>("moving");
 
+  // PC & 태블릿 메가 드롭다운 상태
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
+  const leaveTimerRef = useRef<NodeJS.Timeout | null>(null);
   const mobileCategoryRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   // 모바일 메뉴에서 대분류를 펼쳤을 때, 하단 고정 바에 가려지지 않도록 자동으로 스크롤
@@ -71,6 +76,8 @@ export default function Header() {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        setDropdownOpen(false);
+        setActiveCategory(null);
         closeMenu();
       }
     };
@@ -80,8 +87,70 @@ export default function Header() {
       window.removeEventListener("open-service-menu", handleOpen);
       window.removeEventListener("close-service-menu", handleClose);
       window.removeEventListener("keydown", handleKeyDown);
+      if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
     };
   }, [openMenu, closeMenu]);
+
+  // 네비게이션 드롭다운 열려있을 때만 외부 클릭 감지
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      const navBar = document.getElementById("main-navigation-bar");
+      if (navBar && !navBar.contains(event.target as Node)) {
+        setDropdownOpen(false);
+        setActiveCategory(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
+  // PC & 태블릿: 마우스(만) 진입 시 즉시 7열 전체 드롭다운 펼침
+  // 터치 기기는 탭 직전에 합성 pointerenter를 먼저 쏘는 "고스트 호버"가 있어,
+  // 실제 마우스(pointerType === "mouse")가 아니면 무시해야 첫 탭에서 바로
+  // 네비게이션되지 않고 의도한 대로 서브메뉴가 먼저 펼쳐진다.
+  const handlePointerEnterNav = (e: React.PointerEvent, catSlug?: string) => {
+    if (e.pointerType !== "mouse") return;
+    handleMouseEnterNav(catSlug);
+  };
+
+  const handleMouseEnterNav = (catSlug?: string) => {
+    if (leaveTimerRef.current) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+    if (catSlug) {
+      setActiveCategory(catSlug);
+    }
+    setDropdownOpen(true);
+  };
+
+  // PC & 태블릿: 마우스 이탈 시 부드럽게 닫힘
+  const handleMouseLeaveNav = () => {
+    if (leaveTimerRef.current) clearTimeout(leaveTimerRef.current);
+    leaveTimerRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+      setActiveCategory(null);
+    }, 280);
+  };
+
+  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글
+  const handleCategoryClick = (e: React.MouseEvent, catSlug: string) => {
+    if (!dropdownOpen || activeCategory !== catSlug) {
+      e.preventDefault();
+      if (leaveTimerRef.current) {
+        clearTimeout(leaveTimerRef.current);
+        leaveTimerRef.current = null;
+      }
+      setDropdownOpen(true);
+      setActiveCategory(catSlug);
+    } else {
+      setDropdownOpen(false);
+      setActiveCategory(null);
+    }
+  };
 
   return (
     <>
@@ -108,7 +177,11 @@ export default function Header() {
               <Link
                 href="/"
                 className="flex items-center gap-2 sm:gap-2.5 shrink-0"
-                onClick={closeMenu}
+                onClick={() => {
+                  setDropdownOpen(false);
+                  setActiveCategory(null);
+                  closeMenu();
+                }}
               >
                 {/* [모바일 전용] "진짜 청소" 텍스트 (사용자 지정: font-weight: bold, line-height: 40px, font-size: 38px) */}
                 <span className="md:hidden inline-flex items-center font-brush font-bold text-[38px] leading-[40px] text-gray-900 whitespace-nowrap select-none -rotate-2 tracking-tight">
@@ -206,23 +279,135 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 3. [PC & 태블릿 전용] 7개 전문 청소 카테고리 상시 노출 (클릭/호버 시 하위 메뉴 없음, 단순 표시용) */}
-        <div id="main-navigation-bar" className="relative hidden md:block border-b border-gray-200 bg-white">
+        {/* 3. [PC & 태블릿 전용] 7개 전문 청소 카테고리 상시 노출 & 마우스 호버 시 7열 자동 펼침 네비게이션 */}
+        <div
+          id="main-navigation-bar"
+          className="relative hidden md:block border-b border-gray-200 bg-white group/gnb"
+          onPointerEnter={(e) => handlePointerEnterNav(e)}
+          onMouseLeave={handleMouseLeaveNav}
+        >
           <div className="mx-auto max-w-7xl px-2 sm:px-4 xl:px-6">
             <nav>
               <div
                 className="grid w-full items-center"
                 style={{ gridTemplateColumns: `repeat(${serviceCategories.length}, minmax(0, 1fr))` }}
               >
-                {serviceCategories.map((cat) => (
-                  <div key={cat.slug} className="text-center">
-                    <span className="block py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight text-gray-900 select-none">
-                      {cat.title}
-                    </span>
-                  </div>
-                ))}
+                {serviceCategories.map((cat) => {
+                  const isHovered = activeCategory === cat.slug;
+                  return (
+                    <div
+                      key={cat.slug}
+                      className="group/item relative text-center"
+                      onPointerEnter={(e) => handlePointerEnterNav(e, cat.slug)}
+                    >
+                      <Link
+                        href={`/services#${cat.slug}`}
+                        onClick={(e) => handleCategoryClick(e, cat.slug)}
+                        className={`block py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
+                          isHovered ? "text-brand" : "text-gray-900 group-hover/item:text-brand"
+                        }`}
+                      >
+                        {cat.title}
+                      </Link>
+
+                      {/* 마우스 호버 밑줄 */}
+                      <span
+                        className={`absolute bottom-0 left-1 right-1 sm:left-2 sm:right-2 xl:left-3 xl:right-3 h-[2.5px] xl:h-[3px] bg-brand rounded-t-sm transition-all duration-150 ${
+                          isHovered
+                            ? "opacity-100 scale-x-100"
+                            : "opacity-0 scale-x-75 group-hover/item:opacity-100 group-hover/item:scale-x-100"
+                        }`}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </nav>
+          </div>
+
+          {/* [PC & 태블릿 전용] 서브메뉴 패널 */}
+          <div
+            id="full-service-dropdown"
+            className={`absolute inset-x-0 top-full bg-white shadow-2xl border-t border-gray-100 border-b border-gray-200 z-50 transition-all duration-200 ease-out origin-top overflow-hidden ${
+              dropdownOpen
+                ? "is-open opacity-100 translate-y-0 pointer-events-auto visible max-h-[850px]"
+                : "opacity-0 -translate-y-1 pointer-events-none invisible max-h-0"
+            }`}
+            onMouseEnter={() => {
+              if (leaveTimerRef.current) {
+                clearTimeout(leaveTimerRef.current);
+                leaveTimerRef.current = null;
+              }
+            }}
+            onMouseLeave={handleMouseLeaveNav}
+          >
+            {/* [태블릿 전용: 큰서비스 마우스 호버 시 나오는 작은서비스들이 한 줄로 표시 - 768px ~ 1023px] */}
+            <div className="hidden md:block lg:hidden bg-slate-50/90 border-b border-gray-200 py-2.5 px-3">
+              {(() => {
+                const currentCat = serviceCategories.find((c) => c.slug === activeCategory) || serviceCategories[0];
+                return (
+                  <div className="mx-auto max-w-7xl flex items-center justify-center gap-1.5 overflow-x-auto whitespace-nowrap scrollbar-none py-0.5">
+                    <span className="shrink-0 text-[11px] font-extrabold text-brand bg-teal-50 border border-brand/40 px-2.5 py-1 rounded-full mr-1 shadow-2xs">
+                      {currentCat.title}
+                    </span>
+                    {currentCat.items.map((item) => (
+                      <Link
+                        key={item}
+                        href={servicePath(item)}
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          setActiveCategory(null);
+                        }}
+                        className="inline-flex items-center text-[11.5px] font-semibold text-gray-700 hover:text-brand hover:bg-white px-2 py-1 rounded-md transition-all shrink-0 border border-transparent hover:border-gray-200 hover:shadow-2xs cursor-pointer"
+                      >
+                        {item}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* [PC 전용: 7열 전체 펼침 그리드 - 1024px 이상] */}
+            <div className="hidden lg:block mx-auto max-w-7xl px-1.5 md:px-2 lg:px-4 xl:px-6 pt-3 md:pt-4 lg:pt-5 xl:pt-6 pb-6 md:pb-6 lg:pb-8 xl:pb-10">
+              <div
+                className="grid w-full items-start"
+                style={{ gridTemplateColumns: `repeat(${serviceCategories.length}, minmax(0, 1fr))` }}
+              >
+                {serviceCategories.map((cat) => {
+                  const isHovered = activeCategory === cat.slug;
+                  return (
+                    <div
+                      key={cat.slug}
+                      className="px-0.5 md:px-0.5 lg:px-1 xl:px-2"
+                      onMouseEnter={() => handleMouseEnterNav(cat.slug)}
+                      onMouseLeave={handleMouseLeaveNav}
+                    >
+                      <ul className="flex flex-col gap-1.5 md:gap-2 lg:gap-2.5 xl:gap-3 text-center">
+                        {cat.items.map((item) => (
+                          <li key={item}>
+                            <Link
+                              href={servicePath(item)}
+                              onClick={() => {
+                                setDropdownOpen(false);
+                                setActiveCategory(null);
+                              }}
+                              className={`block text-[11px] md:text-[11.5px] md:tracking-tighter lg:text-[13px] lg:tracking-tight xl:text-[15px] xl:tracking-tight whitespace-nowrap transition-all py-0.5 md:py-1 px-0.5 md:px-0.5 lg:px-1 rounded cursor-pointer ${
+                                isHovered
+                                  ? "text-gray-900 font-semibold hover:text-brand hover:bg-teal-50/70"
+                                  : "text-gray-700 font-normal hover:text-brand hover:font-bold hover:bg-teal-50/50"
+                              }`}
+                            >
+                              {item}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </header>
