@@ -149,6 +149,24 @@ export default function Home() {
       {/* 대표 인사말 요약 (모바일 전용) */}
       <CeoMessage />
 
+      {/* 자격증 */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <SectionHeading
+              title="청소의 이론을 이해하고 현장에 적용합니다"
+              description={
+                <>
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                </>
+              }
+            />
+          </div>
+          <Certifications />
+        </div>
+      </section>
+
       {/* 5단계 진행 과정 */}
       <section className="bg-white py-16 md:py-24">
         <div className="mb-12 text-center">
@@ -171,24 +189,6 @@ export default function Home() {
           <SectionHeading title="맡기기 전부터 마무리까지, 네 가지 기준" />
         </div>
         <TrustFeatures />
-      </section>
-
-      {/* 자격증 */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 text-center">
-            <SectionHeading
-              title="청소를 공부하고, 현장에 적용합니다"
-              description={
-                <>
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
-                </>
-              }
-            />
-          </div>
-          <Certifications />
-        </div>
       </section>
 
       {/* 투명 견적 안내 */}
