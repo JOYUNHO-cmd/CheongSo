@@ -1,3 +1,27 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site-url";
-export default function robots(): MetadataRoute.Robots { return { rules: { userAgent: "*", allow: "/" }, sitemap: absoluteUrl("/sitemap.xml") }; }
+
+// 검색엔진뿐 아니라 AI 답변엔진(GEO/AEO) 크롤러도 명시적으로 허용합니다.
+const aiCrawlers = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "ClaudeBot",
+  "Claude-Web",
+  "anthropic-ai",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Google-Extended",
+  "Applebot-Extended",
+  "Amazonbot",
+];
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      { userAgent: "*", allow: "/" },
+      ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
+    ],
+    sitemap: absoluteUrl("/sitemap.xml"),
+  };
+}
