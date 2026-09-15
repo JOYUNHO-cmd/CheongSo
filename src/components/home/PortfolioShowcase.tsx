@@ -17,7 +17,8 @@ type PortfolioItem = {
 };
 
 const items = portfolioHighlights as PortfolioItem[];
-const GROUP_SIZE = 3;
+const MOBILE_GROUP_SIZE = 4;
+const DESKTOP_GROUP_SIZE = 3;
 
 function shuffled<T>(list: T[]) {
   const copy = [...list];
@@ -71,6 +72,14 @@ export default function PortfolioShowcase() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPortfolioItems(shuffled(items));
   }, []);
+  const [groupSize, setGroupSize] = useState(DESKTOP_GROUP_SIZE);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setGroupSize(mq.matches ? MOBILE_GROUP_SIZE : DESKTOP_GROUP_SIZE);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
   const [start, setStart] = useState(0);
   const [moving, setMoving] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -80,21 +89,21 @@ export default function PortfolioShowcase() {
   const stopped = hovered || focused || !!openItem;
 
   useEffect(() => {
-    if (stopped || portfolioItems.length <= GROUP_SIZE) return;
+    if (stopped || portfolioItems.length <= groupSize) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
     }, 1500);
     return () => window.clearInterval(timer);
-  }, [stopped, portfolioItems.length]);
+  }, [stopped, portfolioItems.length, groupSize]);
 
   useEffect(() => {
     if (!moving) return;
     const timer = window.setTimeout(() => {
-      setStart(value => (value + GROUP_SIZE) % portfolioItems.length);
+      setStart(value => (value + groupSize) % portfolioItems.length);
       setMoving(false);
     }, 650);
     return () => window.clearTimeout(timer);
-  }, [moving, portfolioItems.length]);
+  }, [moving, portfolioItems.length, groupSize]);
 
   useEffect(() => {
     if (openItem) dialog.current?.showModal();
@@ -107,8 +116,8 @@ export default function PortfolioShowcase() {
         <div className={`portfolio-curtain-track${moving ? " is-moving" : ""}`}>
           {[0, 1].map(panel => (
             <div key={panel} className="portfolio-curtain-panel" aria-hidden={panel === 1} inert={panel === 1}>
-              {Array.from({ length: Math.min(GROUP_SIZE, portfolioItems.length) }, (_, index) => {
-                const position = (start + panel * GROUP_SIZE + index) % portfolioItems.length;
+              {Array.from({ length: Math.min(groupSize, portfolioItems.length) }, (_, index) => {
+                const position = (start + panel * groupSize + index) % portfolioItems.length;
                 const item = portfolioItems[position];
                 return <Card key={index} item={item} onOpen={setOpenItem} />;
               })}
