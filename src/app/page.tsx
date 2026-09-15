@@ -11,6 +11,7 @@ import ProcessSteps from "@/components/home/ProcessSteps";
 import CeoMessage from "@/components/home/CeoMessage";
 import TrustFeatures from "@/components/home/TrustFeatures";
 import Certifications from "@/components/home/Certifications";
+import SafetyCertifications from "@/components/home/SafetyCertifications";
 import PricingTransparency from "@/components/home/PricingTransparency";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
@@ -164,6 +165,24 @@ export default function Home() {
             />
           </div>
           <Certifications />
+        </div>
+      </section>
+
+      {/* 사용 약품 안전성 입증 자료 & 사용 장비 */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <SectionHeading
+              title="인체에 안전한 약품만 사용합니다"
+              description={
+                <>
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">공기질을 개선하고 인체에 무독성임을 입증하는 공인 시험 자료입니다.</span>{" "}
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                </>
+              }
+            />
+          </div>
+          <SafetyCertifications />
         </div>
       </section>
 
