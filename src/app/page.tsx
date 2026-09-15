@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* 고객 후기 */}
-      <section className="bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
+      <section id="reviews" className="scroll-mt-20 bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
             title="직접 이용해본 고객님들의 찐후기"

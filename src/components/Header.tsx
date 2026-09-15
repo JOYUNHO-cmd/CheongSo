@@ -15,6 +15,7 @@ const mainNavLinks = [
   { label: "회사소개", href: "/about" },
   { label: "가격안내", href: "/pricing" },
   { label: "찐현장사진들", href: "/#portfolio" },
+  { label: "찐후기", href: "/#reviews" },
   { label: "견적문의", href: "/contact" },
 ];
 
