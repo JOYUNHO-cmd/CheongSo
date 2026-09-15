@@ -16,11 +16,15 @@ const aiCrawlers = [
   "Amazonbot",
 ];
 
+// 네이버 검색로봇(예티)도 명시적으로 허용합니다.
+const naverCrawlers = ["Yeti", "NaverBot"];
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: "*", allow: "/" },
       ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
+      ...naverCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
   };

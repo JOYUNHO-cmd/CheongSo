@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -16,16 +15,16 @@
   --color-brand-dark: var(--brand-dark);
   --color-brand-light: var(--brand-light);
   --font-sans: var(--font-noto-sans-kr);
-  --font-brush: 'Nanum Brush Script', 'Nanum Pen Script', cursive;
-  --font-signature: 'Nanum Pen Script', 'Nanum Brush Script', cursive;
+  --font-brush: var(--font-brush-script), var(--font-pen-script), cursive;
+  --font-signature: var(--font-pen-script), var(--font-brush-script), cursive;
 }
 
 .font-brush {
-  font-family: 'Nanum Brush Script', 'Nanum Pen Script', cursive, sans-serif;
+  font-family: var(--font-brush-script), var(--font-pen-script), cursive, sans-serif;
 }
 
 .font-signature {
-  font-family: 'Nanum Pen Script', 'Nanum Brush Script', cursive, sans-serif;
+  font-family: var(--font-pen-script), var(--font-brush-script), cursive, sans-serif;
 }
 
 body {
