@@ -136,10 +136,9 @@ export default function Header() {
     }, 280);
   };
 
-  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글
-  const handleCategoryClick = (e: React.MouseEvent, catSlug: string) => {
+  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글 (페이지 이동 없이 드롭다운만 여닫음)
+  const handleCategoryClick = (catSlug: string) => {
     if (!dropdownOpen || activeCategory !== catSlug) {
-      e.preventDefault();
       if (leaveTimerRef.current) {
         clearTimeout(leaveTimerRef.current);
         leaveTimerRef.current = null;
@@ -300,15 +299,15 @@ export default function Header() {
                       className="group/item relative text-center"
                       onPointerEnter={(e) => handlePointerEnterNav(e, cat.slug)}
                     >
-                      <Link
-                        href={`/services#${cat.slug}`}
-                        onClick={(e) => handleCategoryClick(e, cat.slug)}
-                        className={`block py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
+                      <button
+                        type="button"
+                        onClick={() => handleCategoryClick(cat.slug)}
+                        className={`block w-full py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
                           isHovered ? "text-brand" : "text-gray-900 group-hover/item:text-brand"
                         }`}
                       >
                         {cat.title}
-                      </Link>
+                      </button>
 
                       {/* 마우스 호버 밑줄 */}
                       <span
