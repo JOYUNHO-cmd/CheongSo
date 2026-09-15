@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
 
 const toc = [
-  ["quickfacts", "핵심 정보 한눈에"],
+  ["quickfacts", "핵심 정보 보기"],
   ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "청소 범위"],
