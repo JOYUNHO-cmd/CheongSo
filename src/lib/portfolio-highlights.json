@@ -420,6 +420,50 @@
     "category": "commercial"
   },
   {
+    "id": "office-04",
+    "categoryLabel": "사무실청소",
+    "title": "군포 트리아츠빌딩 사무실 청소",
+    "before": "office-04-before.webp",
+    "after": "office-04-after.webp",
+    "beforeWidth": 960,
+    "beforeHeight": 720,
+    "afterWidth": 960,
+    "afterHeight": 720
+  },
+  {
+    "id": "office-05",
+    "categoryLabel": "사무실청소",
+    "title": "사무실 라운지·바닥 시공 후 청소",
+    "before": "office-05-before.webp",
+    "after": "office-05-after.webp",
+    "beforeWidth": 960,
+    "beforeHeight": 720,
+    "afterWidth": 960,
+    "afterHeight": 720
+  },
+  {
+    "id": "office-06",
+    "categoryLabel": "사무실청소",
+    "title": "사무실 파티션 구역 청소",
+    "before": "office-06-before.webp",
+    "after": "office-06-after.webp",
+    "beforeWidth": 960,
+    "beforeHeight": 720,
+    "afterWidth": 960,
+    "afterHeight": 720
+  },
+  {
+    "id": "office-07",
+    "categoryLabel": "사무실청소",
+    "title": "사무실 내 화장실 청소",
+    "before": "office-07-before.webp",
+    "after": "office-07-after.webp",
+    "beforeWidth": 960,
+    "beforeHeight": 720,
+    "afterWidth": 960,
+    "afterHeight": 720
+  },
+  {
     "id": "sheet-removal-01",
     "categoryLabel": "시트지제거",
     "title": "LG하이엠 시트지제거 청소",
