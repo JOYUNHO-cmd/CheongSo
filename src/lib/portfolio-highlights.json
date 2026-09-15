@@ -385,6 +385,17 @@
     "afterHeight": 853
   },
   {
+    "id": "office-04",
+    "categoryLabel": "사무실청소",
+    "title": "군포 트리아츠빌딩 사무실 청소",
+    "before": "office-04-before.webp",
+    "after": "office-04-after.webp",
+    "beforeWidth": 960,
+    "beforeHeight": 720,
+    "afterWidth": 960,
+    "afterHeight": 720
+  },
+  {
     "id": "sheet-removal-01",
     "categoryLabel": "시트지제거",
     "title": "LG하이엠 시트지제거 청소",
