@@ -208,15 +208,16 @@ export default function OfficeCleaningLanding() {
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
         <aside>
           <nav aria-label="목차" className="rounded-2xl bg-gray-50 p-5 md:sticky md:top-36">
-            <p className="mb-3 font-bold text-brand-dark">이 페이지에서</p>
+            <p className="mb-3 font-bold text-brand-dark">한눈에 보기</p>
             <ol className="space-y-3 text-sm">
               {toc.map(([id, title]) => (
                 <li key={id}><a href={`#${id}`} className="hover:text-brand hover:underline">{title}</a></li>
               ))}
             </ol>
             <div className="mt-6 border-t border-gray-200 pt-5">
-              <a href="tel:010-9882-8882" className="block rounded-xl bg-brand px-4 py-3 text-center text-sm font-bold text-white hover:bg-brand-dark">
-                전화 상담 010-9882-8882
+              <a href="tel:010-9882-8882" className="block rounded-xl bg-brand px-4 py-3 text-center font-bold leading-tight text-white hover:bg-brand-dark">
+                <span className="block text-sm">전화상담</span>
+                <span className="block text-base">010.9882.8882</span>
               </a>
             </div>
           </nav>
