@@ -101,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* 시공 전/후 포트폴리오 */}
-      <section className="bg-white py-16">
+      <section id="portfolio" className="scroll-mt-20 bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
             title="직접 찐으로 뛴 현장 보여드립니다"
