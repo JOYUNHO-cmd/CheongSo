@@ -92,7 +92,7 @@ export default function PortfolioShowcase() {
     if (stopped || portfolioItems.length <= groupSize) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
-    }, 1500);
+    }, 1000);
     return () => window.clearInterval(timer);
   }, [stopped, portfolioItems.length, groupSize]);
 

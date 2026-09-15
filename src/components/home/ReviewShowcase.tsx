@@ -37,7 +37,7 @@ export default function ReviewShowcase() {
     if (stopped || reviews.length <= 4) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
-    }, 1500);
+    }, 1000);
     return () => window.clearInterval(timer);
   }, [stopped, reviews.length]);
   useEffect(() => {
