@@ -3,7 +3,7 @@ import { Noto_Sans_KR, Nanum_Brush_Script, Nanum_Pen_Script } from "next/font/go
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ConsultationBot from "@/components/consultation/ConsultationBot";
+import ConsultationBotLoader from "@/components/consultation/ConsultationBotLoader";
 import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl, absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
@@ -100,7 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <ConsultationBot />
+        <ConsultationBotLoader />
         <MobileQuickContact />
       </body>
     </html>
