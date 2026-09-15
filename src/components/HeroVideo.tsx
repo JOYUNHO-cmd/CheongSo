@@ -8,8 +8,12 @@ interface HeroVideoProps {
   className?: string;
 }
 
+const HD_SOURCES = ["/videos/hero-hd.mp4", "/videos/hero-web.mp4", "/videos/hero.mp4"];
+// 모바일은 영상이 2개 동시 로드되므로, 상대적으로 가벼운 파일을 우선 시도해 데이터 사용량을 줄임
+const MOBILE_SOURCES = ["/videos/hero.mp4", "/videos/hero-web.mp4", "/videos/hero-hd.mp4"];
+
 // 배경 영상 1개를 담당하는 내부 컴포넌트 (모바일 좌/우 분할, PC 풀스크린에서 공용)
-function BackgroundVideo({ objectPositionClass }: { objectPositionClass: string }) {
+function BackgroundVideo({ objectPositionClass, sources }: { objectPositionClass: string; sources: string[] }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -54,10 +58,9 @@ function BackgroundVideo({ objectPositionClass }: { objectPositionClass: string 
       preload="auto"
       onPlaying={() => setIsPlaying(true)}
     >
-      {/* 고화질 원본을 최우선으로 시도 */}
-      <source src="/videos/hero-hd.mp4" type="video/mp4" />
-      <source src="/videos/hero-web.mp4" type="video/mp4" />
-      <source src="/videos/hero.mp4" type="video/mp4" />
+      {sources.map((src) => (
+        <source key={src} src={src} type="video/mp4" />
+      ))}
     </video>
   );
 }
@@ -133,16 +136,16 @@ export default function HeroVideo({ mode = "background", className = "" }: HeroV
       {/* 모바일: 화면이 좌/우로 갈리는 특성에 맞춰 왼쪽은 왼쪽 가장자리로, 오른쪽은 오른쪽 가장자리로 더 치우치게 크롭 */}
       <div className="grid h-full w-full grid-cols-2 md:hidden">
         <div className="relative h-full w-full overflow-hidden">
-          <BackgroundVideo objectPositionClass="object-[20%_35%]" />
+          <BackgroundVideo objectPositionClass="object-[20%_35%]" sources={MOBILE_SOURCES} />
         </div>
         <div className="relative h-full w-full overflow-hidden">
-          <BackgroundVideo objectPositionClass="object-[80%_35%]" />
+          <BackgroundVideo objectPositionClass="object-[80%_35%]" sources={MOBILE_SOURCES} />
         </div>
       </div>
 
       {/* PC/태블릿: 기존 방식대로 풀스크린 단일 영상 */}
       <div className="relative hidden h-full w-full md:block">
-        <BackgroundVideo objectPositionClass={className || "object-[center_35%]"} />
+        <BackgroundVideo objectPositionClass={className || "object-[center_35%]"} sources={HD_SOURCES} />
       </div>
     </>
   );
