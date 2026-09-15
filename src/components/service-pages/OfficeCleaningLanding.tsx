@@ -105,6 +105,7 @@ const faqItems: [string, string][] = [
 ];
 
 const caseIds = ["office-03", "office-02", "office-01"] as const;
+const extraCaseIds = ["office-05", "office-06", "office-07"] as const;
 const path = "/사무실청소/";
 
 function CtaButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -115,6 +116,26 @@ function CtaButton({ children, className = "" }: { children: React.ReactNode; cl
     >
       {children}
     </Link>
+  );
+}
+
+type PortfolioItem = { id: string; title: string; before: string; after: string; beforeWidth: number; beforeHeight: number; afterWidth: number; afterHeight: number };
+
+function CaseFigure({ item }: { item: PortfolioItem }) {
+  return (
+    <figure className="overflow-hidden rounded-2xl border border-gray-100">
+      <div className="grid grid-cols-2">
+        <div className="relative">
+          <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
+          <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+        </div>
+        <div className="relative">
+          <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
+          <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+        </div>
+      </div>
+      <figcaption className="px-4 py-3 text-sm font-bold text-brand-dark">{item.title}</figcaption>
+    </figure>
   );
 }
 
@@ -129,6 +150,9 @@ function SectionTitle({ id, kicker, title }: { id: string; kicker: string; title
 
 export default function OfficeCleaningLanding() {
   const cases = caseIds
+    .map(id => portfolio.find(p => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => !!p);
+  const extraCases = extraCaseIds
     .map(id => portfolio.find(p => p.id === id))
     .filter((p): p is NonNullable<typeof p> => !!p);
 
@@ -317,23 +341,19 @@ export default function OfficeCleaningLanding() {
             <p className="mt-4">찐청소 홈페이지의 사무실 현장 사례를 함께 소개합니다.</p>
 
             <div className="mt-6 space-y-8">
-              {cases.map(item => (
-                <figure key={item.id} className="overflow-hidden rounded-2xl border border-gray-100">
-                  <div className="grid grid-cols-2">
-                    <div className="relative">
-                      <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
-                      <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
-                    </div>
-                    <div className="relative">
-                      <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
-                      <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
-                    </div>
-                  </div>
-                  <figcaption className="px-4 py-3 text-sm font-bold text-brand-dark">{item.title}</figcaption>
-                </figure>
-              ))}
+              {cases.map(item => <CaseFigure key={item.id} item={item} />)}
             </div>
             <p className="mt-5 text-[15px] text-gray-500">부분공사 후 분진 청소는 일상적인 사무실 관리와 작업 조건이 다릅니다. 사진과 함께 실제 작업 내용을 구분해 안내합니다.</p>
+
+            {extraCases.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-lg font-bold text-brand-dark">현장에서 직접 찍은 전후 사진 더 보기</h3>
+                <div className="mt-5 space-y-8">
+                  {extraCases.map(item => <CaseFigure key={item.id} item={item} />)}
+                </div>
+              </div>
+            )}
+
             <Link href="#cases" className="mt-4 inline-block font-bold text-brand">사무실청소 현장 사진 보기 →</Link>
           </section>
 
