@@ -64,10 +64,13 @@ export const metadata: Metadata = {
     "geo.region": "KR",
     "geo.placename": "대한민국",
   },
-  // 네이버 서치어드바이저에서 발급받은 소유 확인 코드를 NAVER_SITE_VERIFICATION 환경변수로 설정하면 자동 반영됩니다.
-  ...(process.env.NAVER_SITE_VERIFICATION
-    ? { verification: { other: { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION } } }
-    : {}),
+  verification: {
+    google: "sClb7-Z59NfZqApNmnWpUSVUk55Opm6GqRAsWr161VU",
+    // 네이버 서치어드바이저에서 발급받은 소유 확인 코드를 NAVER_SITE_VERIFICATION 환경변수로 설정하면 자동 반영됩니다.
+    ...(process.env.NAVER_SITE_VERIFICATION
+      ? { other: { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 const organizationStructuredData = {
