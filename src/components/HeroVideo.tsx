@@ -8,9 +8,9 @@ interface HeroVideoProps {
   className?: string;
 }
 
-const HD_SOURCES = ["/videos/hero-hd.mp4", "/videos/hero-web.mp4", "/videos/hero.mp4"];
+const HD_SOURCES = ["/videos/hero-hd.mp4", "/videos/hero-web.mp4"];
 // 모바일은 영상이 2개 동시 로드되므로, 상대적으로 가벼운 파일을 우선 시도해 데이터 사용량을 줄임
-const MOBILE_SOURCES = ["/videos/hero.mp4", "/videos/hero-web.mp4", "/videos/hero-hd.mp4"];
+const MOBILE_SOURCES = ["/videos/hero-web.mp4", "/videos/hero-hd.mp4"];
 
 // 배경 영상 1개를 담당하는 내부 컴포넌트 (모바일 좌/우 분할, PC 풀스크린에서 공용)
 function BackgroundVideo({ objectPositionClass, sources }: { objectPositionClass: string; sources: string[] }) {
@@ -115,7 +115,6 @@ export default function HeroVideo({ mode = "background", className = "" }: HeroV
         >
           <source src="/videos/hero-web.mp4" type="video/mp4" />
           <source src="/videos/hero-hd.mp4" type="video/mp4" />
-          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
 
         {/* 세련된 현장 시공 라이브 뱃지 */}
