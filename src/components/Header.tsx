@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
@@ -14,11 +15,14 @@ import KakaoIcon from "@/components/icons/KakaoIcon";
 const mainNavLinks = [
   { label: "회사소개", href: "/about" },
   { label: "가격안내", href: "/pricing" },
-  { label: "찐현장사진들", href: "/reviews" },
+  { label: "찐현장사진들", href: "/#portfolio" },
+  { label: "찐후기", href: "/#reviews" },
   { label: "견적문의", href: "/contact" },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   // 모바일 메뉴 드로어 열림 상태
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileCategory, setOpenMobileCategory] = useState<string>("moving");
@@ -136,10 +140,9 @@ export default function Header() {
     }, 280);
   };
 
-  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글
-  const handleCategoryClick = (e: React.MouseEvent, catSlug: string) => {
+  // PC & 태블릿: 카테고리 클릭/터치 시 메뉴창 토글 (페이지 이동 없이 드롭다운만 여닫음)
+  const handleCategoryClick = (catSlug: string) => {
     if (!dropdownOpen || activeCategory !== catSlug) {
-      e.preventDefault();
       if (leaveTimerRef.current) {
         clearTimeout(leaveTimerRef.current);
         leaveTimerRef.current = null;
@@ -150,6 +153,17 @@ export default function Header() {
       setDropdownOpen(false);
       setActiveCategory(null);
     }
+  };
+
+  // 같은 페이지(홈) 안의 #섹션으로 이동하는 메뉴는 상단이 아닌 화면 중앙에 오도록 직접 스크롤 처리
+  const handleAnchorNavClick = (e: React.MouseEvent, href: string) => {
+    if (!href.includes("#")) return;
+    const [path, hash] = href.split("#");
+    const targetPath = path || "/";
+    if (pathname !== targetPath) return;
+    e.preventDefault();
+    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.history.replaceState(null, "", `${targetPath}#${hash}`);
   };
 
   return (
@@ -181,6 +195,10 @@ export default function Header() {
                   setDropdownOpen(false);
                   setActiveCategory(null);
                   closeMenu();
+                  if (pathname === "/") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (window.location.hash) window.history.replaceState(null, "", "/");
+                  }
                 }}
               >
                 {/* [모바일 전용] "진짜 청소" 텍스트 (사용자 지정: font-weight: bold, line-height: 40px, font-size: 38px) */}
@@ -198,6 +216,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={(e) => handleAnchorNavClick(e, link.href)}
                     className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
                   >
                     {link.label}
@@ -300,15 +319,15 @@ export default function Header() {
                       className="group/item relative text-center"
                       onPointerEnter={(e) => handlePointerEnterNav(e, cat.slug)}
                     >
-                      <Link
-                        href={`/services#${cat.slug}`}
-                        onClick={(e) => handleCategoryClick(e, cat.slug)}
-                        className={`block py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
+                      <button
+                        type="button"
+                        onClick={() => handleCategoryClick(cat.slug)}
+                        className={`block w-full py-2 md:py-2 lg:py-3.5 xl:py-4 px-0.5 md:px-1 xl:px-2 text-[12.5px] md:text-[12px] lg:text-[14px] xl:text-[17px] font-extrabold whitespace-nowrap tracking-tight transition-colors cursor-pointer ${
                           isHovered ? "text-brand" : "text-gray-900 group-hover/item:text-brand"
                         }`}
                       >
                         {cat.title}
-                      </Link>
+                      </button>
 
                       {/* 마우스 호버 밑줄 */}
                       <span
@@ -441,7 +460,13 @@ export default function Header() {
         <div className="flex items-center justify-between px-3 sm:px-4 py-1.5 sm:py-2.5 border-b border-gray-200 shrink-0 bg-white">
           <Link
             href="/"
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu();
+              if (pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (window.location.hash) window.history.replaceState(null, "", "/");
+              }
+            }}
             className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer"
           >
             {/* 날리는 붓글씨 서체 "제대로 합니다" (상단 바 맞춤 최고 크기) */}

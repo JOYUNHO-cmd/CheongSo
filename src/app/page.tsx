@@ -4,12 +4,14 @@ import ServiceCategoryGrid from "@/components/ServiceCategoryGrid";
 import QuoteForm from "@/components/QuoteForm";
 import HeroVideo from "@/components/HeroVideo";
 import PortfolioShowcase from "@/components/home/PortfolioShowcase";
+import HashScrollCenter from "@/components/home/HashScrollCenter";
 import ReviewShowcase from "@/components/home/ReviewShowcase";
 import TrustConcerns from "@/components/home/TrustConcerns";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import CeoMessage from "@/components/home/CeoMessage";
 import TrustFeatures from "@/components/home/TrustFeatures";
 import Certifications from "@/components/home/Certifications";
+import SafetyCertifications from "@/components/home/SafetyCertifications";
 import PricingTransparency from "@/components/home/PricingTransparency";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
@@ -26,6 +28,7 @@ const stats = [
 export default function Home() {
   return (
     <>
+      <HashScrollCenter />
       {/* 히어로 포스터 이미지를 최우선으로 미리 불러와 LCP(최대 콘텐츠풀 페인트)를 앞당김 */}
       <link rel="preload" href="/videos/hero-poster.jpg" as="image" fetchPriority="high" />
       {/* 히어로: 모바일 뷰포트 72% 이상 및 PC 92%를 시원하게 채우는 웅장한 비디오 쇼케이스 */}
@@ -101,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* 시공 전/후 포트폴리오 */}
-      <section className="bg-white py-16">
+      <section id="portfolio" className="scroll-mt-20 bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
             title="직접 찐으로 뛴 현장 보여드립니다"
@@ -122,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* 고객 후기 */}
-      <section className="bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
+      <section id="reviews" className="scroll-mt-20 bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <SectionHeading
             title="직접 이용해본 고객님들의 찐후기"
@@ -147,6 +150,42 @@ export default function Home() {
       {/* 대표 인사말 요약 (모바일 전용) */}
       <CeoMessage />
 
+      {/* 자격증 */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <SectionHeading
+              title="청소의 이론을 이해하고 현장에 적용합니다"
+              description={
+                <>
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                </>
+              }
+            />
+          </div>
+          <Certifications />
+        </div>
+      </section>
+
+      {/* 사용 약품 안전성 입증 자료 & 사용 장비 */}
+      <section className="bg-gray-50 py-16 md:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="mb-10 text-center">
+            <SectionHeading
+              title="인체에 안전한 약품만 사용합니다"
+              description={
+                <>
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">공기질을 개선하고 인체에 무독성임을 입증하는 공인 시험 자료입니다.</span>{" "}
+                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                </>
+              }
+            />
+          </div>
+          <SafetyCertifications />
+        </div>
+      </section>
+
       {/* 5단계 진행 과정 */}
       <section className="bg-white py-16 md:py-24">
         <div className="mb-12 text-center">
@@ -169,24 +208,6 @@ export default function Home() {
           <SectionHeading title="맡기기 전부터 마무리까지, 네 가지 기준" />
         </div>
         <TrustFeatures />
-      </section>
-
-      {/* 자격증 */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 text-center">
-            <SectionHeading
-              title="청소를 공부하고, 현장에 적용합니다"
-              description={
-                <>
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
-                </>
-              }
-            />
-          </div>
-          <Certifications />
-        </div>
       </section>
 
       {/* 투명 견적 안내 */}

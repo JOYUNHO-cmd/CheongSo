@@ -129,18 +129,6 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-
-        <div className="mt-14 rounded-2xl bg-brand-light/60 px-6 py-10 text-center">
-          <p className="text-lg sm:text-xl font-black text-brand-dark leading-relaxed">
-            찐찐찐찐 찐이야~♪ 가짜는 가라, 제대로 하는 찐 청소!
-          </p>
-          <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed break-keep">
-            대충이 아닌 꼼꼼함으로, 말이 아닌 결과로 보여드립니다.
-          </p>
-          <p className="mt-4 text-base sm:text-lg font-bold text-gray-900">
-            청소는 제대로. 신뢰는 확실하게. 찐청소입니다.
-          </p>
-        </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">

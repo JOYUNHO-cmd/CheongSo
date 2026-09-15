@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import portfolioHighlights from "@/lib/portfolio-highlights.json";
+import { serviceCategories } from "@/lib/services-data";
 
 type PortfolioItem = {
   id: string;
@@ -14,10 +15,15 @@ type PortfolioItem = {
   beforeHeight: number;
   afterWidth: number;
   afterHeight: number;
+  category: string;
 };
 
 const items = portfolioHighlights as PortfolioItem[];
-const GROUP_SIZE = 3;
+const MOBILE_GROUP_SIZE = 4;
+const DESKTOP_GROUP_SIZE = 3;
+
+// 사진이 1장이라도 있는 큰 카테고리만 필터 탭으로 노출
+const filterCategories = serviceCategories.filter((cat) => items.some((item) => item.category === cat.slug));
 
 function shuffled<T>(list: T[]) {
   const copy = [...list];
@@ -71,6 +77,17 @@ export default function PortfolioShowcase() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPortfolioItems(shuffled(items));
   }, []);
+  const [groupSize, setGroupSize] = useState(DESKTOP_GROUP_SIZE);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setGroupSize(mq.matches ? MOBILE_GROUP_SIZE : DESKTOP_GROUP_SIZE);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const displayedItems = activeFilter === "all" ? portfolioItems : portfolioItems.filter((item) => item.category === activeFilter);
+
   const [start, setStart] = useState(0);
   const [moving, setMoving] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -79,22 +96,28 @@ export default function PortfolioShowcase() {
   const dialog = useRef<HTMLDialogElement>(null);
   const stopped = hovered || focused || !!openItem;
 
+  function selectFilter(slug: string) {
+    setActiveFilter(slug);
+    setStart(0);
+    setMoving(false);
+  }
+
   useEffect(() => {
-    if (stopped || portfolioItems.length <= GROUP_SIZE) return;
+    if (stopped || displayedItems.length <= groupSize) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
-    }, 1500);
+    }, 1000);
     return () => window.clearInterval(timer);
-  }, [stopped, portfolioItems.length]);
+  }, [stopped, displayedItems.length, groupSize]);
 
   useEffect(() => {
     if (!moving) return;
     const timer = window.setTimeout(() => {
-      setStart(value => (value + GROUP_SIZE) % portfolioItems.length);
+      setStart(value => (value + groupSize) % displayedItems.length);
       setMoving(false);
     }, 650);
     return () => window.clearTimeout(timer);
-  }, [moving, portfolioItems.length]);
+  }, [moving, displayedItems.length, groupSize]);
 
   useEffect(() => {
     if (openItem) dialog.current?.showModal();
@@ -103,13 +126,38 @@ export default function PortfolioShowcase() {
 
   return (
     <section aria-label="시공 전/후 현장 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
+      {/* 큰 카테고리 필터 — 선택한 분야의 시공 사진만 모아 봅니다 */}
+      <div className="mb-5 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap no-scrollbar sm:flex-wrap sm:justify-center sm:gap-2">
+        <button
+          type="button"
+          onClick={() => selectFilter("all")}
+          className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-extrabold transition-all sm:text-sm ${
+            activeFilter === "all" ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+          }`}
+        >
+          전체
+        </button>
+        {filterCategories.map((cat) => (
+          <button
+            key={cat.slug}
+            type="button"
+            onClick={() => selectFilter(cat.slug)}
+            className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-extrabold transition-all sm:text-sm ${
+              activeFilter === cat.slug ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+            }`}
+          >
+            {cat.title}
+          </button>
+        ))}
+      </div>
+
       <div className="portfolio-curtain-window" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
         <div className={`portfolio-curtain-track${moving ? " is-moving" : ""}`}>
           {[0, 1].map(panel => (
             <div key={panel} className="portfolio-curtain-panel" aria-hidden={panel === 1} inert={panel === 1}>
-              {Array.from({ length: Math.min(GROUP_SIZE, portfolioItems.length) }, (_, index) => {
-                const position = (start + panel * GROUP_SIZE + index) % portfolioItems.length;
-                const item = portfolioItems[position];
+              {Array.from({ length: Math.min(groupSize, displayedItems.length) }, (_, index) => {
+                const position = (start + panel * groupSize + index) % displayedItems.length;
+                const item = displayedItems[position];
                 return <Card key={index} item={item} onOpen={setOpenItem} />;
               })}
             </div>
@@ -117,17 +165,17 @@ export default function PortfolioShowcase() {
         </div>
       </div>
       <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">사진을 누르면 크게 볼 수 있어요</p>
-      <dialog ref={dialog} onClose={() => setOpenItem(null)} aria-label="시공 전/후 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
+      <dialog ref={dialog} onClose={() => { setOpenItem(null); setHovered(false); setFocused(false); }} aria-label="시공 전/후 크게 보기" className="m-auto h-fit w-[95vw] max-w-[1300px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {openItem && (
-          <div className="flex max-w-4xl flex-col items-center gap-4">
-            <div className="grid w-full grid-cols-2 gap-2 md:gap-4">
+          <div className="flex w-full flex-col items-center gap-4">
+            <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
               <div className="relative aspect-square overflow-hidden rounded-xl">
-                <Image src={`/images/portfolio-v2/${openItem.before}`} alt={`${openItem.title} 시공 전`} fill className="object-cover" sizes="90vw" />
+                <Image src={`/images/portfolio-v2/${openItem.before}`} alt={`${openItem.title} 시공 전`} fill className="object-cover" sizes="(min-width: 640px) 45vw, 90vw" />
                 <Badge label="전" variant="before" />
               </div>
               <div className="relative aspect-square overflow-hidden rounded-xl">
-                <Image src={`/images/portfolio-v2/${openItem.after}`} alt={`${openItem.title} 시공 후`} fill className="object-cover" sizes="90vw" />
+                <Image src={`/images/portfolio-v2/${openItem.after}`} alt={`${openItem.title} 시공 후`} fill className="object-cover" sizes="(min-width: 640px) 45vw, 90vw" />
                 <Badge label="후" variant="after" />
               </div>
             </div>
