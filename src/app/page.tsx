@@ -4,6 +4,7 @@ import ServiceCategoryGrid from "@/components/ServiceCategoryGrid";
 import QuoteForm from "@/components/QuoteForm";
 import HeroVideo from "@/components/HeroVideo";
 import PortfolioShowcase from "@/components/home/PortfolioShowcase";
+import HashScrollCenter from "@/components/home/HashScrollCenter";
 import ReviewShowcase from "@/components/home/ReviewShowcase";
 import TrustConcerns from "@/components/home/TrustConcerns";
 import ProcessSteps from "@/components/home/ProcessSteps";
@@ -26,6 +27,7 @@ const stats = [
 export default function Home() {
   return (
     <>
+      <HashScrollCenter />
       {/* 히어로 포스터 이미지를 최우선으로 미리 불러와 LCP(최대 콘텐츠풀 페인트)를 앞당김 */}
       <link rel="preload" href="/videos/hero-poster.jpg" as="image" fetchPriority="high" />
       {/* 히어로: 모바일 뷰포트 72% 이상 및 PC 92%를 시원하게 채우는 웅장한 비디오 쇼케이스 */}

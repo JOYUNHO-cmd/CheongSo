@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Phone } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
@@ -20,6 +21,8 @@ const mainNavLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   // 모바일 메뉴 드로어 열림 상태
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMobileCategory, setOpenMobileCategory] = useState<string>("moving");
@@ -152,6 +155,17 @@ export default function Header() {
     }
   };
 
+  // 같은 페이지(홈) 안의 #섹션으로 이동하는 메뉴는 상단이 아닌 화면 중앙에 오도록 직접 스크롤 처리
+  const handleAnchorNavClick = (e: React.MouseEvent, href: string) => {
+    if (!href.includes("#")) return;
+    const [path, hash] = href.split("#");
+    const targetPath = path || "/";
+    if (pathname !== targetPath) return;
+    e.preventDefault();
+    document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.history.replaceState(null, "", `${targetPath}#${hash}`);
+  };
+
   return (
     <>
       <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -198,6 +212,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={(e) => handleAnchorNavClick(e, link.href)}
                     className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
                   >
                     {link.label}
