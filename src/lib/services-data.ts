@@ -21,7 +21,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "혼자하기 번거로운 생활 공간을 가볍게 정리해 드립니다",
     descLine1: "혼자하기 번거로운 생활 공간을",
     descLine2: "가볍게 정리해 드립니다",
-    items: ["원룸청소", "부분청소", "외창청소", "정기청소"],
+    items: ["원룸청소", "부분청소", "외창청소"],
   },
   {
     slug: "moving",
@@ -39,7 +39,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "사무실, 관공서, 학교, 공장등 다양한 사업장을 관리합니다",
     descLine1: "사무실, 관공서, 학교, 공장등",
     descLine2: "다양한 사업장을 관리합니다",
-    items: ["사무실청소", "관공서청소", "학교청소", "공장청소", "주방청소", "후드청소", "사업장정기청소"],
+    items: ["사무실청소", "관공서청소", "학교청소", "공장청소", "주방청소", "후드청소", "정기청소"],
   },
   {
     slug: "hygiene",
