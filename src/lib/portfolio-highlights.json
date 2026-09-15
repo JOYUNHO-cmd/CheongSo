@@ -8,7 +8,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "restoration-02",
@@ -19,7 +20,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "mold-01",
@@ -30,7 +32,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "hygiene"
   },
   {
     "id": "mold-02",
@@ -41,7 +44,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "hygiene"
   },
   {
     "id": "mold-03",
@@ -52,7 +56,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "hygiene"
   },
   {
     "id": "government-01",
@@ -63,7 +68,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "government-02",
@@ -74,7 +80,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 480
+    "afterHeight": 480,
+    "category": "commercial"
   },
   {
     "id": "government-03",
@@ -85,7 +92,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "etc-01",
@@ -96,7 +104,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "etc-02",
@@ -107,7 +116,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "etc-03",
@@ -118,7 +128,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "store-01",
@@ -129,7 +140,8 @@
     "beforeWidth": 640,
     "beforeHeight": 1138,
     "afterWidth": 640,
-    "afterHeight": 1138
+    "afterHeight": 1138,
+    "category": "commercial"
   },
   {
     "id": "store-02",
@@ -140,7 +152,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 1138
+    "afterHeight": 1138,
+    "category": "commercial"
   },
   {
     "id": "store-03",
@@ -151,7 +164,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "floor-wood-01",
@@ -162,7 +176,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-wood-02",
@@ -173,7 +188,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-wood-03",
@@ -184,7 +200,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-adhesive-01",
@@ -195,7 +212,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-adhesive-02",
@@ -206,7 +224,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-adhesive-03",
@@ -217,7 +236,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-poultice-01",
@@ -228,7 +248,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-poultice-02",
@@ -239,7 +260,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-poultice-03",
@@ -250,7 +272,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-wax-01",
@@ -261,7 +284,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-wax-02",
@@ -272,7 +296,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-wax-03",
@@ -283,7 +308,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-pebble-01",
@@ -294,7 +320,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "floor-pebble-02",
@@ -305,7 +332,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "floor-pebble-03",
@@ -316,7 +344,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "floor-tile-01",
@@ -327,7 +356,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "floor-tile-02",
@@ -338,7 +368,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 640
+    "afterHeight": 640,
+    "category": "floor"
   },
   {
     "id": "floor-tile-03",
@@ -349,7 +380,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "floor"
   },
   {
     "id": "office-01",
@@ -360,7 +392,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "office-02",
@@ -371,7 +404,8 @@
     "beforeWidth": 640,
     "beforeHeight": 640,
     "afterWidth": 640,
-    "afterHeight": 640
+    "afterHeight": 640,
+    "category": "commercial"
   },
   {
     "id": "office-03",
@@ -382,7 +416,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "sheet-removal-01",
@@ -393,7 +428,8 @@
     "beforeWidth": 640,
     "beforeHeight": 640,
     "afterWidth": 640,
-    "afterHeight": 480
+    "afterHeight": 480,
+    "category": "commercial"
   },
   {
     "id": "sheet-removal-02",
@@ -404,7 +440,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "sheet-removal-03",
@@ -415,7 +452,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "new-construction-01",
@@ -426,7 +464,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "new-construction-02",
@@ -437,7 +476,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "new-construction-03",
@@ -448,7 +488,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "awning-01",
@@ -459,7 +500,8 @@
     "beforeWidth": 640,
     "beforeHeight": 480,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "exterior-wall-01",
@@ -470,7 +512,8 @@
     "beforeWidth": 640,
     "beforeHeight": 480,
     "afterWidth": 640,
-    "afterHeight": 480
+    "afterHeight": 480,
+    "category": "exterior"
   },
   {
     "id": "exterior-wall-02",
@@ -481,7 +524,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "exterior"
   },
   {
     "id": "exterior-wall-03",
@@ -492,7 +536,8 @@
     "beforeWidth": 640,
     "beforeHeight": 480,
     "afterWidth": 640,
-    "afterHeight": 960
+    "afterHeight": 960,
+    "category": "exterior"
   },
   {
     "id": "interior-01",
@@ -503,7 +548,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "interior-02",
@@ -514,7 +560,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "interior-03",
@@ -525,7 +572,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "move-in-01",
@@ -536,7 +584,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "move-in-02",
@@ -547,7 +596,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "move-in-03",
@@ -558,7 +608,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "moving"
   },
   {
     "id": "kitchen-01",
@@ -569,7 +620,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "kitchen-02",
@@ -580,7 +632,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "kitchen-03",
@@ -591,7 +644,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "flood-01",
@@ -602,7 +656,8 @@
     "beforeWidth": 640,
     "beforeHeight": 1138,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "flood-02",
@@ -613,7 +668,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "flood-03",
@@ -624,7 +680,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "special-01",
@@ -635,7 +692,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "special-02",
@@ -646,7 +704,8 @@
     "beforeWidth": 640,
     "beforeHeight": 1138,
     "afterWidth": 640,
-    "afterHeight": 1138
+    "afterHeight": 1138,
+    "category": "special"
   },
   {
     "id": "special-03",
@@ -657,7 +716,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "fire-01",
@@ -668,7 +728,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 800
+    "afterHeight": 800,
+    "category": "special"
   },
   {
     "id": "fire-02",
@@ -679,7 +740,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "fire-03",
@@ -690,7 +752,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "special"
   },
   {
     "id": "hood-01",
@@ -701,7 +764,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "hood-02",
@@ -712,7 +776,8 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   },
   {
     "id": "hood-03",
@@ -723,6 +788,7 @@
     "beforeWidth": 640,
     "beforeHeight": 853,
     "afterWidth": 640,
-    "afterHeight": 853
+    "afterHeight": 853,
+    "category": "commercial"
   }
 ]
