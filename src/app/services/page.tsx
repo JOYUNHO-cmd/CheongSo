@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { serviceCategories, itemAnchor } from "@/lib/services-data";
-import { servicePath } from "@/lib/service-profiles";
+import { servicePath, serviceProfiles } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `33개 전체 서비스 안내 | ${siteConfig.name}`,
-  description: "간단청소부터 특수청소, 바닥시공까지 찐청소의 33가지 전문 관리 서비스를 한눈에 확인하세요.",
-};
+const totalServiceCount = serviceProfiles.length;
+
+export const metadata = buildMetadata({
+  title: `${totalServiceCount}개 전체 서비스 안내`,
+  description: `간단청소부터 특수청소, 바닥시공까지 찐청소의 ${totalServiceCount}가지 전문 관리 서비스를 한눈에 확인하세요.`,
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -16,10 +19,10 @@ export default function ServicesPage() {
       {/* 1. 상단 타이틀 */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
         <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-gray-900 mb-3">
-          찐청소 33가지 전문 서비스 안내
+          찐청소 {totalServiceCount}가지 전문 서비스 안내
         </h1>
         <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-          고객님의 공간과 상황에 딱 맞춘 7개 분야 33개 전문 청소·시공 솔루션입니다.
+          고객님의 공간과 상황에 딱 맞춘 7개 분야 {totalServiceCount}개 전문 청소·시공 솔루션입니다.
           원하시는 서비스를 선택하시면 상세 작업 범위와 예상 비용을 확인하실 수 있습니다
         </p>
 
@@ -59,7 +62,7 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      {/* 3. 7개 분야별 33개 서비스 카드 리스트 */}
+      {/* 3. 7개 분야별 전체 서비스 카드 리스트 */}
       <div className="space-y-8 sm:space-y-12">
         {serviceCategories.map((cat, idx) => (
           <section
@@ -91,7 +94,7 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            {/* 33개 세부 서비스 그리드 (모바일 2열, 태블릿 3열, PC 4열) */}
+            {/* 세부 서비스 그리드 (모바일 2열, 태블릿 3열, PC 4열) */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
               {cat.items.map((item, i) => (
                 <Link

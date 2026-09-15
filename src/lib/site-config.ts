@@ -18,6 +18,6 @@ export const siteConfig = {
   },
   address: "",
   businessNumber: "862-57-00848",
-  ceo: "",
+  ceo: "조윤호",
   copyright: "Copyright ⓒ JJIN CHEONGSO. All Rights Reserved.",
 };

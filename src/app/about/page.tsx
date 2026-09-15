@@ -1,11 +1,13 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import { siteConfig } from "@/lib/site-config";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `회사소개 | ${siteConfig.name}`,
-};
+export const metadata = buildMetadata({
+  title: "회사소개",
+  description: "15년 현장 경력의 찐청소 대표가 직접 전하는 회사 소개. 투명한 견적과 꼼꼼한 작업으로 신뢰를 지키는 이유를 확인하세요.",
+  path: "/about",
+});
 
 // "|" 구분자를 모바일 화면 전용 줄바꿈으로 변환 (PC/태블릿은 자연스럽게 한 줄로 흐름)
 function withMobileBreaks(text: string) {

@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
-import { siteConfig } from "@/lib/site-config";
 import PricingInteractiveView from "@/components/pricing/PricingInteractiveView";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: `가격안내 | ${siteConfig.name}`,
+export const metadata = buildMetadata({
+  title: "가격안내",
   description: "찐청소의 7대 전문 청소 분야별 투명한 가격 기준표와 산정 이유, 신뢰 보장 가이드를 확인하세요",
-};
+  path: "/pricing",
+});
 
 export default function PricingPage() {
   return (

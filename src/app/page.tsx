@@ -13,9 +13,12 @@ import Certifications from "@/components/home/Certifications";
 import PricingTransparency from "@/components/home/PricingTransparency";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
+import { serviceProfiles } from "@/lib/service-profiles";
+
+const totalServiceCount = serviceProfiles.length;
 
 const stats = [
-  { label: "필요에 맞는 서비스", value: "33가지" },
+  { label: "필요에 맞는 서비스", value: `${totalServiceCount}가지` },
   { label: "작업 전 범위 확인", value: "꼼꼼히" },
   { label: "마무리까지 함께", value: "차근차근" },
 ];
@@ -202,13 +205,13 @@ export default function Home() {
         />
         <ServiceCategoryGrid />
 
-        {/* 모바일 전용 33개 세부 서비스 한눈에 보기 바로가기 */}
+        {/* 모바일 전용 전체 세부 서비스 한눈에 보기 바로가기 */}
         <div className="mt-8 flex justify-center md:hidden">
           <Link
             href="/services"
             className="flex items-center gap-2 rounded-2xl bg-brand px-6 py-3.5 text-sm font-extrabold text-white shadow-md active:scale-95 hover:bg-brand-dark cursor-pointer touch-manipulation select-none"
           >
-            <span>📋 33개 전체 서비스 세부목록 보기</span>
+            <span>📋 {totalServiceCount}개 전체 서비스 세부목록 보기</span>
             <svg className="h-4 w-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

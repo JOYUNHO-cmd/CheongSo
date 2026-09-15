@@ -15,8 +15,26 @@ export default function FaqAccordion() {
     setOpenQuestion(null);
   }
 
+  // 화면에는 선택된 카테고리만 보이지만, 검색엔진·AI가 전체 질문을 인식하도록
+  // 모든 카테고리의 Q&A를 구조화 데이터(FAQPage)로 함께 제공합니다.
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqCategories.flatMap((cat) =>
+      cat.qas.map((qa) => ({
+        "@type": "Question",
+        name: qa.q,
+        acceptedAnswer: { "@type": "Answer", text: qa.a },
+      }))
+    ),
+  };
+
   return (
     <div className="mx-auto max-w-3xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData).replace(/</g, "\\u003c") }}
+      />
       <div className="flex flex-wrap items-center justify-center gap-2">
         {faqCategories.map((cat) => (
           <button
