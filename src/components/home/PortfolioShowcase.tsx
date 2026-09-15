@@ -126,10 +126,10 @@ export default function PortfolioShowcase() {
         </div>
       </div>
       <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">사진을 누르면 크게 볼 수 있어요</p>
-      <dialog ref={dialog} onClose={() => setOpenItem(null)} aria-label="시공 전/후 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
+      <dialog ref={dialog} onClose={() => setOpenItem(null)} aria-label="시공 전/후 크게 보기" className="m-auto h-fit w-[95vw] max-w-3xl max-h-[90dvh] rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {openItem && (
-          <div className="flex max-w-4xl flex-col items-center gap-4">
+          <div className="flex w-full flex-col items-center gap-4">
             <div className="grid w-full grid-cols-2 gap-2 md:gap-4">
               <div className="relative aspect-square overflow-hidden rounded-xl">
                 <Image src={`/images/portfolio-v2/${openItem.before}`} alt={`${openItem.title} 시공 전`} fill className="object-cover" sizes="90vw" />
