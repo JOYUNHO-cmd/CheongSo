@@ -11,6 +11,7 @@ export const metadata = buildMetadata({
   title: `${totalServiceCount}개 전체 서비스 안내`,
   description: `간단청소부터 특수청소, 바닥시공까지 찐청소의 ${totalServiceCount}가지 전문 관리 서비스를 한눈에 확인하세요.`,
   path: "/services",
+  keywords: [...serviceCategories.map((c) => c.title), "청소 서비스 종류", "찐청소 서비스"],
 });
 
 export default function ServicesPage() {

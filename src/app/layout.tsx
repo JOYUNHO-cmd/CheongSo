@@ -7,6 +7,10 @@ import ConsultationBot from "@/components/consultation/ConsultationBot";
 import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl, absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
+import phaseRegions from "@/lib/phase-regions.json";
+
+// 실제로 인프라가 갖춰진 서비스 지역(시/도)만 지역 검색 최적화용 데이터에 반영합니다.
+const servedProvinces = [...new Set(phaseRegions.regions.map((r) => r.province))];
 
 const notoSansKr = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
@@ -36,6 +40,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: defaultTitle,
   description: siteConfig.description,
+  keywords: ["찐청소", "청소업체", "입주청소", "이사청소", "특수청소", "바닥시공", "전국청소", "청소 견적", "위생관리"],
+  authors: [{ name: siteConfig.name, url: siteUrl }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -51,6 +59,10 @@ export const metadata: Metadata = {
     title: defaultTitle,
     description: siteConfig.description,
     images: [defaultOgImage.url],
+  },
+  other: {
+    "geo.region": "KR",
+    "geo.placename": "대한민국",
   },
   // 네이버 서치어드바이저에서 발급받은 소유 확인 코드를 NAVER_SITE_VERIFICATION 환경변수로 설정하면 자동 반영됩니다.
   ...(process.env.NAVER_SITE_VERIFICATION
@@ -69,7 +81,8 @@ const organizationStructuredData = {
   description: siteConfig.description,
   telephone: siteConfig.phoneRaw,
   priceRange: "$$",
-  areaServed: { "@type": "Country", name: "대한민국" },
+  areaServed: servedProvinces.map((province) => ({ "@type": "AdministrativeArea", name: province })),
+  founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
   sameAs: [siteConfig.kakaoUrl].filter(Boolean),
 };
 
