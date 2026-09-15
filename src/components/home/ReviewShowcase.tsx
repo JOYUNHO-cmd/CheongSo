@@ -28,12 +28,11 @@ export default function ReviewShowcase() {
   }, []);
   const [start, setStart] = useState(0);
   const [moving, setMoving] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [openFile, setOpenFile] = useState<string | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const stopped = paused || hovered || focused || !!openFile;
+  const stopped = hovered || focused || !!openFile;
   useEffect(() => {
     if (stopped || reviews.length <= 4) return;
     const timer = window.setInterval(() => {
@@ -53,11 +52,6 @@ export default function ReviewShowcase() {
     if (openFile) dialog.current?.showModal();
     else dialog.current?.close();
   }, [openFile]);
-  function next() {
-    if (moving) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setStart(value => (value + 4) % reviews.length);
-    else setMoving(true);
-  }
   const selected = reviews.find(item => item.file === openFile);
   return (
     <section aria-label="고객 후기 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
@@ -77,10 +71,7 @@ export default function ReviewShowcase() {
           ))}
         </div>
       </div>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
-        <p className="text-gray-500">선택하면 크게 읽을 수 있어요</p>
-        <div className="flex gap-2"><button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} className="rounded-full border border-gray-200 px-4 py-2">{paused ? "자동 넘김 재개" : "자동 넘김 멈춤"}</button><button type="button" disabled={moving} onClick={next} className="rounded-full bg-brand-dark px-4 py-2 text-white disabled:opacity-50">다음 후기 ↑</button></div>
-      </div>
+      <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">선택하면 크게 읽을 수 있어요</p>
       <dialog ref={dialog} onClose={() => setOpenFile(null)} aria-label="고객 후기 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {selected && <Image src={`/images/reviews-v2/${selected.file}`} alt="실제 고객 후기 원문" width={selected.width} height={selected.height} className="h-auto max-w-full" sizes="90vw" />}

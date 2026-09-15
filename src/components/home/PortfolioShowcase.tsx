@@ -19,6 +19,15 @@ type PortfolioItem = {
 const items = portfolioHighlights as PortfolioItem[];
 const GROUP_SIZE = 3;
 
+function shuffled<T>(list: T[]) {
+  const copy = [...list];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 function Badge({ label, variant }: { label: string; variant: "before" | "after" }) {
   return (
     <span
@@ -56,42 +65,41 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
 }
 
 export default function PortfolioShowcase() {
+  const [portfolioItems, setPortfolioItems] = useState(items);
+  useEffect(() => {
+    // 하이드레이션 이후에 섞어야 서버·클라이언트 초기 마크업이 일치합니다.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPortfolioItems(shuffled(items));
+  }, []);
   const [start, setStart] = useState(0);
   const [moving, setMoving] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const stopped = paused || hovered || focused || !!openItem;
+  const stopped = hovered || focused || !!openItem;
 
   useEffect(() => {
-    if (stopped || items.length <= GROUP_SIZE) return;
+    if (stopped || portfolioItems.length <= GROUP_SIZE) return;
     const timer = window.setInterval(() => {
       if (!document.hidden && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) setMoving(true);
     }, 1500);
     return () => window.clearInterval(timer);
-  }, [stopped]);
+  }, [stopped, portfolioItems.length]);
 
   useEffect(() => {
     if (!moving) return;
     const timer = window.setTimeout(() => {
-      setStart(value => (value + GROUP_SIZE) % items.length);
+      setStart(value => (value + GROUP_SIZE) % portfolioItems.length);
       setMoving(false);
     }, 650);
     return () => window.clearTimeout(timer);
-  }, [moving]);
+  }, [moving, portfolioItems.length]);
 
   useEffect(() => {
     if (openItem) dialog.current?.showModal();
     else dialog.current?.close();
   }, [openItem]);
-
-  function next() {
-    if (moving) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setStart(value => (value + GROUP_SIZE) % items.length);
-    else setMoving(true);
-  }
 
   return (
     <section aria-label="시공 전/후 현장 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
@@ -99,19 +107,16 @@ export default function PortfolioShowcase() {
         <div className={`portfolio-curtain-track${moving ? " is-moving" : ""}`}>
           {[0, 1].map(panel => (
             <div key={panel} className="portfolio-curtain-panel" aria-hidden={panel === 1} inert={panel === 1}>
-              {Array.from({ length: Math.min(GROUP_SIZE, items.length) }, (_, index) => {
-                const position = (start + panel * GROUP_SIZE + index) % items.length;
-                const item = items[position];
+              {Array.from({ length: Math.min(GROUP_SIZE, portfolioItems.length) }, (_, index) => {
+                const position = (start + panel * GROUP_SIZE + index) % portfolioItems.length;
+                const item = portfolioItems[position];
                 return <Card key={index} item={item} onOpen={setOpenItem} />;
               })}
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm">
-        <p className="text-gray-500">사진을 누르면 크게 볼 수 있어요</p>
-        <div className="flex gap-2"><button type="button" aria-pressed={paused} onClick={() => setPaused(value => !value)} className="rounded-full border border-gray-200 px-4 py-2">{paused ? "자동 넘김 재개" : "자동 넘김 멈춤"}</button><button type="button" disabled={moving} onClick={next} className="rounded-full bg-brand-dark px-4 py-2 text-white disabled:opacity-50">다음 현장 ↑</button></div>
-      </div>
+      <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">사진을 누르면 크게 볼 수 있어요</p>
       <dialog ref={dialog} onClose={() => setOpenItem(null)} aria-label="시공 전/후 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {openItem && (
