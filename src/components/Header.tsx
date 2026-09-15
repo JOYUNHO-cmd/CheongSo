@@ -195,6 +195,10 @@ export default function Header() {
                   setDropdownOpen(false);
                   setActiveCategory(null);
                   closeMenu();
+                  if (pathname === "/") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (window.location.hash) window.history.replaceState(null, "", "/");
+                  }
                 }}
               >
                 {/* [모바일 전용] "진짜 청소" 텍스트 (사용자 지정: font-weight: bold, line-height: 40px, font-size: 38px) */}
@@ -456,7 +460,13 @@ export default function Header() {
         <div className="flex items-center justify-between px-3 sm:px-4 py-1.5 sm:py-2.5 border-b border-gray-200 shrink-0 bg-white">
           <Link
             href="/"
-            onClick={closeMenu}
+            onClick={() => {
+              closeMenu();
+              if (pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (window.location.hash) window.history.replaceState(null, "", "/");
+              }
+            }}
             className="flex items-center gap-1.5 sm:gap-2 shrink-0 cursor-pointer"
           >
             {/* 날리는 붓글씨 서체 "제대로 합니다" (상단 바 맞춤 최고 크기) */}
