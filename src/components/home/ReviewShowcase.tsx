@@ -72,7 +72,7 @@ export default function ReviewShowcase() {
         </div>
       </div>
       <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">선택하면 크게 읽을 수 있어요</p>
-      <dialog ref={dialog} onClose={() => setOpenFile(null)} aria-label="고객 후기 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
+      <dialog ref={dialog} onClose={() => { setOpenFile(null); setHovered(false); setFocused(false); }} aria-label="고객 후기 크게 보기" className="m-auto max-h-[90dvh] max-w-[95vw] rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {selected && <Image src={`/images/reviews-v2/${selected.file}`} alt="실제 고객 후기 원문" width={selected.width} height={selected.height} className="h-auto max-w-full" sizes="90vw" />}
       </dialog>
