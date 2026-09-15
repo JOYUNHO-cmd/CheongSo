@@ -261,7 +261,7 @@ export default function OfficeCleaningLanding() {
           {/* 약품 안전성 - "약품"이 언급되는 견적 기준 앞에 배치해 신뢰를 먼저 확인시킵니다 */}
           <section id="safety" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">냄새 제거에 사용하는 탈취제(에코솝·EcoSorb)는 해외 공인 시험기관의 검증을 거친 제품입니다. 사무실처럼 사람이 계속 머무는 공간이라 저희도 이 부분을 가장 신경 씁니다.</p>
+            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 사무실처럼 사람이 계속 머무는 공간이라 저희도 이 부분을 가장 신경 씁니다.</p>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
               <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
