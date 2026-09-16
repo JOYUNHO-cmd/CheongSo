@@ -5,6 +5,7 @@ import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLand
 import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLanding";
 import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
+import LegacyItemsCleaningLanding from "@/components/service-pages/LegacyItemsCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -35,6 +36,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "쓰레기집청소 비용·폐기물 처리·비대면 청소 안내 | 찐청소",
     description: "찐청소 쓰레기집청소는 수거·폐기물 처리·소독·냄새 제거까지 기본으로 포함합니다. 요청 시 비대면 진행이 가능하며 상세한 청소 전후 사진을 보내드립니다. 작업 범위와 비용, 예약 절차를 확인하세요.",
     component: () => <TrashHouseCleaningLanding />,
+  },
+  "유품정리": {
+    title: "유품정리 비용·폐기물 처리·비대면 진행 안내 | 찐청소",
+    description: "찐청소 유품정리는 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 포함합니다. 보관할 유품과 처리할 물품을 먼저 확인하며, 요청 시 비대면 진행과 상세한 전후 사진 전달이 가능합니다.",
+    component: () => <LegacyItemsCleaningLanding />,
   },
 };
 
