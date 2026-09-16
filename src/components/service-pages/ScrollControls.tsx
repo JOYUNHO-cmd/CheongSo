@@ -1,55 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ChevronUp, ChevronDown, ArrowUp } from "lucide-react";
-
-// 랜딩페이지 옆에 고정되는 위/아래 스크롤 버튼. 화면 끝에 도달하면 해당 방향 버튼이 흐려집니다.
-export function ScrollSideNav() {
-  const [atTop, setAtTop] = useState(true);
-  const [atBottom, setAtBottom] = useState(false);
-
-  useEffect(() => {
-    const update = () => {
-      setAtTop(window.scrollY < 80);
-      setAtBottom(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 80);
-    };
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
-  const scrollByViewport = (direction: 1 | -1) => {
-    window.scrollBy({ top: direction * window.innerHeight * 0.7, behavior: "smooth" });
-  };
-
-  return (
-    <div className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-gray-200 bg-white/80 shadow-lg backdrop-blur-sm sm:right-5 sm:rounded-full sm:border-r sm:bg-white/95">
-      <button
-        type="button"
-        onClick={() => scrollByViewport(-1)}
-        disabled={atTop}
-        aria-label="위로 스크롤"
-        className="flex h-8 w-5 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
-      >
-        <ChevronUp className="h-3.5 w-3.5 sm:h-5 sm:w-5" strokeWidth={2.5} />
-      </button>
-      <div className="h-px bg-gray-100" />
-      <button
-        type="button"
-        onClick={() => scrollByViewport(1)}
-        disabled={atBottom}
-        aria-label="아래로 스크롤"
-        className="flex h-8 w-5 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
-      >
-        <ChevronDown className="h-3.5 w-3.5 sm:h-5 sm:w-5" strokeWidth={2.5} />
-      </button>
-    </div>
-  );
-}
+import { ArrowUp } from "lucide-react";
 
 // 랜딩페이지 맨 아래에서 처음 상태(맨 위)로 되돌아가는 버튼
 export function BackToTopButton() {

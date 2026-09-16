@@ -5,7 +5,7 @@ import { serviceProfiles, servicePath, type ServiceProfile } from "@/lib/service
 import { regionalPages, regionalPath, type RegionalPage } from "@/lib/regional-pages";
 import { absoluteUrl } from "@/lib/site-url";
 import portfolio from "@/lib/portfolio-highlights.json";
-import { ScrollSideNav, BackToTopButton } from "@/components/service-pages/ScrollControls";
+import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const portfolioGroups: Record<string, string> = {
   "입주청소": "move-in", "신축청소": "new-construction", "준공청소": "new-construction",
@@ -43,7 +43,6 @@ export default function ServiceLanding({ service, regional }: { service: Service
 
   return <article>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
-    <ScrollSideNav />
     <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
       <div className="mx-auto max-w-5xl">
         <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80"><Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><Link href={servicePath(service.name)}>{service.name}</Link>{regional && <><span>/</span><span>{regional.region.replaceAll("-", " ")}</span></>}</nav>

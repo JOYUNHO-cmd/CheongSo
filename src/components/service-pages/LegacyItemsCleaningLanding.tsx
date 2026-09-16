@@ -3,7 +3,7 @@ import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
-import { ScrollSideNav, BackToTopButton } from "@/components/service-pages/ScrollControls";
+import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
@@ -159,7 +159,6 @@ export default function LegacyItemsCleaningLanding() {
   return (
     <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
-      <ScrollSideNav />
 
       {/* 히어로 */}
       <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
