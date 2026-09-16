@@ -17,13 +17,13 @@ export type PortfolioItem = { id: string; title: string; before: string; after: 
 export function CaseFigure({ item }: { item: PortfolioItem }) {
   return (
     <figure className="overflow-hidden rounded-2xl border border-gray-100">
-      <div className="grid grid-cols-2">
-        <div className="relative">
-          <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
+      <div className="grid grid-cols-2 bg-gray-100">
+        <div className="relative flex h-56 items-center justify-center overflow-hidden sm:h-72">
+          <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="h-full w-full object-contain" sizes="(min-width: 768px) 340px, 50vw" />
           <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
         </div>
-        <div className="relative">
-          <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="aspect-[4/3] w-full object-cover" sizes="(min-width: 768px) 340px, 50vw" />
+        <div className="relative flex h-56 items-center justify-center overflow-hidden sm:h-72">
+          <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="h-full w-full object-contain" sizes="(min-width: 768px) 340px, 50vw" />
           <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
         </div>
       </div>

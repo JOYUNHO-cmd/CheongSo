@@ -224,9 +224,11 @@ export default function WasteDisposalLanding() {
                   {item.photoPairs && (
                     <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
                       {item.photoPairs.map((pair, pairIndex) => (
-                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
-                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-contain" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
                           ))}
                         </div>
                       ))}
@@ -236,13 +238,13 @@ export default function WasteDisposalLanding() {
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                       {item.beforeAfter.map(pair => (
                         <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
-                          <div className="grid grid-cols-2">
-                            <div className="relative">
-                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                          <div className="grid grid-cols-2 bg-gray-50">
+                            <div className="relative flex h-44 items-center justify-center overflow-hidden sm:h-56">
+                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 전`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 170px, 50vw" />
                               <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
                             </div>
-                            <div className="relative">
-                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                            <div className="relative flex h-44 items-center justify-center overflow-hidden sm:h-56">
+                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 후`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 170px, 50vw" />
                               <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
                             </div>
                           </div>

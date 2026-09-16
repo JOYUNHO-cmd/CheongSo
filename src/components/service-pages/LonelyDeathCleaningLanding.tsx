@@ -243,21 +243,23 @@ export default function LonelyDeathCleaningLanding() {
                     {hasPhotos && (
                       <div className="space-y-3">
                         {item.photoPairs?.map((pair, pairIndex) => (
-                          <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                             {pair.map(photo => (
-                              <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 300px, 90vw" />
+                              <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg bg-white">
+                                <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-contain" sizes="(min-width: 768px) 300px, 90vw" />
+                              </div>
                             ))}
                           </div>
                         ))}
                         {item.beforeAfter?.map(pair => (
                           <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
-                            <div className="grid grid-cols-2">
-                              <div className="relative">
-                                <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
+                            <div className="grid grid-cols-2 bg-gray-50">
+                              <div className="relative flex h-32 items-center justify-center overflow-hidden">
+                                <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 150px, 45vw" />
                                 <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
                               </div>
-                              <div className="relative">
-                                <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
+                              <div className="relative flex h-32 items-center justify-center overflow-hidden">
+                                <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 150px, 45vw" />
                                 <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
                               </div>
                             </div>

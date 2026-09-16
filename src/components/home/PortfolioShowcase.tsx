@@ -54,12 +54,12 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
       className="group flex min-h-0 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
     >
       <div className="grid min-h-0 flex-1 grid-cols-2">
-        <div className="relative min-h-0 overflow-hidden bg-gray-100">
-          <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="h-full w-full object-cover" sizes="(min-width: 768px) 20vw, 45vw" />
+        <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-gray-100">
+          <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} width={item.beforeWidth} height={item.beforeHeight} className="h-full w-full object-contain" sizes="(min-width: 768px) 20vw, 45vw" />
           <Badge label="전" variant="before" />
         </div>
-        <div className="relative min-h-0 overflow-hidden bg-gray-100">
-          <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="h-full w-full object-cover" sizes="(min-width: 768px) 20vw, 45vw" />
+        <div className="relative flex min-h-0 items-center justify-center overflow-hidden bg-gray-100">
+          <Image src={`/images/portfolio-v2/${item.after}`} alt={`${item.title} 시공 후`} width={item.afterWidth} height={item.afterHeight} className="h-full w-full object-contain" sizes="(min-width: 768px) 20vw, 45vw" />
           <Badge label="후" variant="after" />
         </div>
       </div>
@@ -170,12 +170,12 @@ export default function PortfolioShowcase() {
         {openItem && (
           <div className="flex w-full flex-col items-center gap-4">
             <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
-              <div className="relative aspect-square overflow-hidden rounded-xl">
-                <Image src={`/images/portfolio-v2/${openItem.before}`} alt={`${openItem.title} 시공 전`} fill className="object-cover" sizes="(min-width: 640px) 45vw, 90vw" />
+              <div className="relative flex max-h-[65dvh] items-center justify-center overflow-hidden rounded-xl bg-gray-100">
+                <Image src={`/images/portfolio-v2/${openItem.before}`} alt={`${openItem.title} 시공 전`} width={openItem.beforeWidth} height={openItem.beforeHeight} className="max-h-[65dvh] w-auto max-w-full object-contain" sizes="(min-width: 640px) 45vw, 90vw" />
                 <Badge label="전" variant="before" />
               </div>
-              <div className="relative aspect-square overflow-hidden rounded-xl">
-                <Image src={`/images/portfolio-v2/${openItem.after}`} alt={`${openItem.title} 시공 후`} fill className="object-cover" sizes="(min-width: 640px) 45vw, 90vw" />
+              <div className="relative flex max-h-[65dvh] items-center justify-center overflow-hidden rounded-xl bg-gray-100">
+                <Image src={`/images/portfolio-v2/${openItem.after}`} alt={`${openItem.title} 시공 후`} width={openItem.afterWidth} height={openItem.afterHeight} className="max-h-[65dvh] w-auto max-w-full object-contain" sizes="(min-width: 640px) 45vw, 90vw" />
                 <Badge label="후" variant="after" />
               </div>
             </div>
