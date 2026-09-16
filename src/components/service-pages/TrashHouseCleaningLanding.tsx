@@ -54,7 +54,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     note: "가구와 가전 등 큰 물품도 반출을 원하시면 미리 알려주세요. 크기와 수량, 이동 조건을 견적에 반영합니다.",
     photoPairs: [
       ["trash-waste-01.webp", "trash-waste-02.webp"],
-      ["trash-waste-03.webp"],
+      ["trash-waste-04.webp", "trash-waste-03.webp"],
     ],
   },
   {
