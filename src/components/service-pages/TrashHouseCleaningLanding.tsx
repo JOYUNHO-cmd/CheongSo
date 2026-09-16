@@ -7,9 +7,6 @@ import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/componen
 import { CaseGallery } from "@/components/service-pages/CaseGallery";
 import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
-// 가로 사진은 세로 박스에서 작아 보이므로 중앙 기준으로 꽉 채워 보여줍니다.
-const LANDSCAPE_PHOTOS = new Set(["trash-waste-01.webp", "trash-waste-02.webp"]);
-
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
   ["estimate", "비용·견적 기준"],
@@ -245,7 +242,7 @@ export default function TrashHouseCleaningLanding() {
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
                             <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
-                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className={`h-full w-full ${LANDSCAPE_PHOTOS.has(photo) ? "object-cover object-center" : "object-contain"}`} sizes="(min-width: 768px) 220px, 45vw" />
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
                             </div>
                           ))}
                         </div>
