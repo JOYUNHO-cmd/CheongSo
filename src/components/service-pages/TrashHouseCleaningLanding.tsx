@@ -185,7 +185,7 @@ export default function TrashHouseCleaningLanding() {
       <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
         <div className="absolute inset-0">
           <Image src="/images/hero-bg/trash-hero.webp" alt="" fill priority className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/80" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/78 to-brand/60" />
         </div>
         <div className="relative mx-auto max-w-5xl">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
