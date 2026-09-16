@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLanding from "@/components/ServiceLanding";
 import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLanding";
+import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -17,6 +18,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "사무실청소 비용·범위·정기청소 견적 안내 | 찐청소",
     description: "찐청소 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부를 기본으로 합니다. 필요한 인원과 장비·약품을 기준으로 산정하는 청소 비용, 정기청소 견적과 예약 절차를 안내합니다.",
     component: () => <OfficeCleaningLanding />,
+  },
+  "화재청소": {
+    title: "화재청소·화재복원 비용과 진행 절차 | 찐청소",
+    description: "찐청소는 화재 잔여물 수거와 피해 부분 철거부터 화재청소, 그을음·냄새 제거, 복원 인테리어와 준공청소까지 진행합니다. 현장별 작업 범위와 견적 기준, 복원 절차를 확인하세요.",
+    component: () => <FireCleaningLanding />,
   },
 };
 
