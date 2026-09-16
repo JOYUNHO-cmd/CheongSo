@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -208,6 +209,29 @@ export default function LegacyItemsCleaningLanding() {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* 냄새 제거 약품 안전성 - "소독과 냄새 제거" 바로 뒤에 배치해 신뢰를 확인시킵니다 */}
+          <section id="safety" className="scroll-mt-36">
+            <h2 className="text-xl font-black text-brand-dark">소독·냄새 제거에 사용하는 약품, 안전한가요?</h2>
+            <p className="mt-4">소독과 냄새 제거에 사용하는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 고인이 지내시던 공간을 가족이 다시 편안하게 사용하실 수 있도록, 저희도 이 부분을 가장 신경 씁니다.</p>
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
+              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
+              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
+              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
+            </ul>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <figure className="overflow-hidden rounded-xl border border-gray-200">
+                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
+                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
+              </figure>
+              <figure className="overflow-hidden rounded-xl border border-gray-200">
+                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
+                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
+              </figure>
+            </div>
+            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
           </section>
 
           {/* 3. 추가비용 */}
