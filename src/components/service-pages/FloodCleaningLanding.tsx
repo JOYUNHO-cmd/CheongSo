@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -35,11 +36,12 @@ const estimateChecklist = [
   "출입·주차·장비 반입 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photos?: string[] }[] = [
   {
     title: "남은 물과 토사·오염물",
     body: "남아 있는 물과 흙, 오염물의 양과 상태를 확인합니다. 물을 먼저 빼야 하는 현장인지, 배수 후 남은 오염을 정리하는 단계인지에 따라 작업을 준비합니다.",
     note: "별도 배수나 잔여물 반출이 필요한 경우에는 견적에 포함되는 범위를 구분해 안내합니다.",
+    photos: ["flood-work-01.webp", "flood-work-02.webp", "flood-work-03.webp"],
   },
   {
     title: "바닥과 걸레받이",
@@ -206,6 +208,13 @@ export default function FloodCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photos && (
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                      {item.photos.map(photo => (
+                        <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 피해 사진`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 210px, 45vw" />
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
