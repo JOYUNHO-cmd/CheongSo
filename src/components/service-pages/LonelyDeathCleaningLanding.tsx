@@ -253,13 +253,13 @@ export default function LonelyDeathCleaningLanding() {
                         ))}
                         {item.beforeAfter?.map(pair => (
                           <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
-                            <div className="grid grid-cols-2 bg-gray-50">
-                              <div className="relative flex h-32 items-center justify-center overflow-hidden">
-                                <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 150px, 45vw" />
+                            <div className="grid grid-cols-2">
+                              <div className="relative">
+                                <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
                                 <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
                               </div>
-                              <div className="relative flex h-32 items-center justify-center overflow-hidden">
-                                <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="h-full w-full object-contain" sizes="(min-width: 768px) 150px, 45vw" />
+                              <div className="relative">
+                                <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
                                 <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
                               </div>
                             </div>
