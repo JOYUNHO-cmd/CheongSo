@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -43,31 +44,36 @@ const estimateChecklist = [
   "작업 시간과 장비 반입 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "새 타일 시공을 위한 본드제거",
     body: "기존 바닥재를 걷어낸 뒤 남은 접착제와 바탕면 상태를 확인합니다. 새 타일 시공에 필요한 제거 범위를 협의한 후 작업하고, 마무리 세척을 진행합니다.",
     note: "후속 시공팀이 정해져 있다면 요구하는 바탕면 상태와 시공 일정을 함께 알려주세요.",
+    photoPairs: [["floor-site-work-01.webp", "floor-site-result-01.webp"]],
   },
   {
     title: "기존 바닥 재사용을 위한 본드제거",
     body: "기존 바닥을 그대로 사용할 경우에는 바닥 소재와 표면 상태를 먼저 확인합니다.",
     note: "접착제를 제거한 뒤에도 잔여 오염과 세척 상태를 더 꼼꼼하게 살펴 마무리합니다. 다만 기존의 긁힘·변색·손상은 본드 오염과 구분해 안내합니다.",
+    photoPairs: [["floor-stairs-before.webp", "floor-stairs-work.webp"]],
   },
   {
     title: "데코타일·카펫 철거 후 접착제 제거",
     body: "데코타일이나 카펫을 제거한 뒤 남은 본드의 두께와 분포, 잔여물 상태를 확인합니다.",
     note: "바닥재 철거가 끝났는지, 일부가 남아 있는지 상담 시 알려주세요. 바닥재를 걷어내는 작업과 남은 본드를 제거하는 작업은 구분합니다.",
+    photoPairs: [["floor-carpet-01.webp"]],
   },
   {
     title: "모서리와 집기 주변",
     body: "벽면 가장자리와 기둥 주변, 문턱 등 접착제가 남은 위치를 확인합니다. 장비 접근이 어려운 부분은 세부 작업량을 견적에 반영합니다.",
     note: "집기 아래까지 작업해야 한다면 이동 필요 여부와 작업 범위를 사전에 협의합니다.",
+    photoPairs: [["floor-corner-01.webp", "floor-corner-02.webp"]],
   },
   {
     title: "마무리 세척",
     body: "마무리 세척은 두 작업 유형 모두 기본으로 진행합니다.",
     note: "본드제거 후 작업 구역의 잔여물을 정리하고 세척합니다. 특히 기존 바닥을 재사용하는 경우에는 남은 접착제와 오염을 더 세심하게 확인합니다.",
+    photoPairs: [["floor-cleanup-01.webp", "floor-cleanup-02.webp"]],
   },
 ];
 
@@ -212,6 +218,19 @@ export default function FloorAdhesiveRemovalLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
