@@ -7,6 +7,7 @@ import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLandin
 import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
 import LegacyItemsCleaningLanding from "@/components/service-pages/LegacyItemsCleaningLanding";
 import LonelyDeathCleaningLanding from "@/components/service-pages/LonelyDeathCleaningLanding";
+import WasteDisposalLanding from "@/components/service-pages/WasteDisposalLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -47,6 +48,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "고독사청소 비용·유품정리·특수청소 안내 | 찐청소",
     description: "찐청소 고독사청소는 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 포함합니다. 비대면 진행과 상세 전후 사진 전달이 가능하며, 필요한 철거·복원은 별도 견적으로 진행합니다.",
     component: () => <LonelyDeathCleaningLanding />,
+  },
+  "폐기물처리": {
+    title: "폐기물처리 비용·가구 수거·이사폐기물 안내 | 찐청소",
+    description: "찐청소는 폐기물을 직접 수집·운반하고 협업 처리업체와 연계해 처리합니다. 품목과 물량, 반출 조건에 따른 비용을 확인하세요. 반출 후 청소와 비대면 진행이 가능하며 상세한 전후 사진을 보내드립니다.",
+    component: () => <WasteDisposalLanding />,
   },
 };
 
