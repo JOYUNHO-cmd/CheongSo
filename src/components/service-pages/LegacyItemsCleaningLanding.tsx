@@ -69,6 +69,10 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "공간 청소",
     body: "물품 정리 후 바닥과 주방, 욕실 등 협의한 구역을 청소합니다. 가구에 가려져 있던 자리와 구석의 오염도 확인합니다.",
     note: "수납장이나 가전 내부 등 세부 작업 범위는 상담 시 정합니다. 마감재의 변색·손상은 청소로 제거할 수 있는 오염과 구분해 안내합니다.",
+    beforeAfter: [
+      { label: "주방 정리 1", before: "legacy-kitchen1-before.webp", after: "legacy-kitchen1-after.webp" },
+      { label: "주방 정리 2", before: "legacy-kitchen2-before.webp", after: "legacy-kitchen2-after.webp" },
+    ],
   },
   {
     title: "소독과 냄새 제거",
