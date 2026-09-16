@@ -38,7 +38,7 @@ const estimateChecklist = [
   "층수와 승강기, 주차·반출 동선",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "보관 물품과 정리 대상 분류",
     body: "남겨둘 가구와 생활용품, 중요한 서류, 찾아야 할 물건을 알려주세요. 보관할 물건과 처리할 대상을 구분한 뒤 작업합니다.",
@@ -58,6 +58,10 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "주방과 싱크대",
     body: "음식물과 생활 쓰레기를 정리하고 싱크대·작업대·바닥 등 협의한 구역을 청소합니다.",
     note: "냉장고 내부의 식품 정리와 세척, 수납장 내부, 식기 세척이 필요하다면 상담할 때 알려주세요. 구체적인 작업 범위를 미리 정합니다.",
+    beforeAfter: [
+      { label: "냉장고 내부", before: "trash-fridge-before.webp", after: "trash-fridge-after.webp" },
+      { label: "주방 작업대", before: "trash-kitchen-before.webp", after: "trash-kitchen-after.webp" },
+    ],
   },
   {
     title: "욕실과 세면 공간",
@@ -217,6 +221,25 @@ export default function TrashHouseCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.beforeAfter && (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {item.beforeAfter.map(pair => (
+                        <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
+                          <div className="grid grid-cols-2">
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 청소 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+                            </div>
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 청소 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+                            </div>
+                          </div>
+                          <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
