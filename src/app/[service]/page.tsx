@@ -8,6 +8,7 @@ import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseClea
 import LegacyItemsCleaningLanding from "@/components/service-pages/LegacyItemsCleaningLanding";
 import LonelyDeathCleaningLanding from "@/components/service-pages/LonelyDeathCleaningLanding";
 import WasteDisposalLanding from "@/components/service-pages/WasteDisposalLanding";
+import FloorAdhesiveRemovalLanding from "@/components/service-pages/FloorAdhesiveRemovalLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -53,6 +54,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "폐기물처리 비용·가구 수거·이사폐기물 안내 | 찐청소",
     description: "찐청소는 폐기물을 직접 수집·운반하고 협업 처리업체와 연계해 처리합니다. 품목과 물량, 반출 조건에 따른 비용을 확인하세요. 반출 후 청소와 비대면 진행이 가능하며 상세한 전후 사진을 보내드립니다.",
     component: () => <WasteDisposalLanding />,
+  },
+  "바닥본드제거": {
+    title: "바닥본드제거 비용·데코타일·카펫 접착제 제거 | 찐청소",
+    description: "찐청소는 새 타일 시공 전 본드제거와 기존 바닥 재사용을 위한 접착제 제거를 진행합니다. 사용 목적과 바닥 상태에 따른 비용을 확인하세요. 마무리 세척은 기본 포함이며, 바닥재 철거는 기본 비용에서 제외됩니다.",
+    component: () => <FloorAdhesiveRemovalLanding />,
   },
 };
 
