@@ -36,7 +36,7 @@ const estimateChecklist = [
   "물품 정리 후 청소할 구역과 오염 상태",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "사진·편지와 기념품",
     body: "사진과 앨범, 편지, 기념품처럼 남겨두고 싶은 물건을 알려주세요. 정확한 위치를 모르시면 특징과 예상 위치를 말씀해 주세요.",
@@ -51,11 +51,21 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "의류와 생활용품",
     body: "보관할 의류와 생활용품, 처리할 물품을 구분합니다. 남겨둘 방이나 수납장을 지정할 수도 있습니다.",
     note: "기부나 별도 전달을 원하시면 가능 여부와 방법을 따로 확인합니다.",
+    beforeAfter: [
+      { label: "옷방 정리", before: "legacy-clothes-before.webp", after: "legacy-clothes-after.webp" },
+    ],
   },
   {
     title: "가구·가전 수거와 폐기물 처리",
     body: "협의한 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다.",
     note: "큰 가구나 가전은 크기와 수량, 분해 필요 여부와 반출 동선을 확인해 견적에 반영합니다. 남겨둘 물품은 작업 전에 명확하게 구분합니다.",
+    photoPairs: [
+      ["legacy-furniture-01.webp", "legacy-furniture-02.webp"],
+      ["legacy-corridor-01.webp", "legacy-corridor-02.webp"],
+    ],
+    beforeAfter: [
+      { label: "방 정리", before: "legacy-room-before.webp", after: "legacy-room-after.webp" },
+    ],
   },
   {
     title: "공간 청소",
@@ -206,6 +216,36 @@ export default function LegacyItemsCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.beforeAfter && (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {item.beforeAfter.map(pair => (
+                        <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
+                          <div className="grid grid-cols-2">
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 정리 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+                            </div>
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 정리 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+                            </div>
+                          </div>
+                          <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
