@@ -53,6 +53,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     note: "기부나 별도 전달을 원하시면 가능 여부와 방법을 따로 확인합니다.",
     beforeAfter: [
       { label: "옷방 정리", before: "legacy-clothes-before.webp", after: "legacy-clothes-after.webp" },
+      { label: "방 정리", before: "legacy-room-before.webp", after: "legacy-room-after.webp" },
     ],
   },
   {
@@ -62,9 +63,6 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     photoPairs: [
       ["legacy-furniture-01.webp", "legacy-furniture-02.webp"],
       ["legacy-corridor-01.webp", "legacy-corridor-02.webp"],
-    ],
-    beforeAfter: [
-      { label: "방 정리", before: "legacy-room-before.webp", after: "legacy-room-after.webp" },
     ],
   },
   {
