@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -21,7 +22,7 @@ const estimateTable: [string, string][] = [
   ["준공청소", "공사 후 청소할 공간과 잔여 오염"],
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photos?: string[] }[] = [
   {
     title: "화재 잔여물 수거와 피해 부분 철거",
     body: "현장에 남은 잔여물과 손상된 부분을 확인합니다. 보관할 물품, 수거할 잔여물, 철거할 부분을 구분하고 이후 청소와 복구가 진행될 수 있도록 작업 범위를 정합니다.",
@@ -31,6 +32,7 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "화재청소와 그을음 제거",
     body: "천장과 벽면, 바닥, 창틀 등 오염된 구역을 확인하고 소재에 맞춰 청소합니다. 표면에 묻은 그을음과 분진, 틈새에 남은 오염도 함께 살핍니다.",
     note: "청소로 개선할 부분과 손상으로 인해 교체가 필요한 부분은 구분해 안내합니다.",
+    photos: ["fire-work-01.webp", "fire-work-02.webp", "fire-work-03.webp", "fire-work-04.webp"],
   },
   {
     title: "화재 냄새 제거",
@@ -152,6 +154,13 @@ export default function FireCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photos && (
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                      {item.photos.map(photo => (
+                        <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 작업 사진`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 160px, 45vw" />
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
