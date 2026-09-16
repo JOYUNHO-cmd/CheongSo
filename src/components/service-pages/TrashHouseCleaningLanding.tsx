@@ -38,18 +38,24 @@ const estimateChecklist = [
   "층수와 승강기, 주차·반출 동선",
 ];
 
-const scopeItems: { title: string; body: string; note?: string; photos?: string[]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "보관 물품과 정리 대상 분류",
     body: "남겨둘 가구와 생활용품, 중요한 서류, 찾아야 할 물건을 알려주세요. 보관할 물건과 처리할 대상을 구분한 뒤 작업합니다.",
     note: "물건의 위치가 정확히 기억나지 않으면 특징과 예상 위치를 말씀해 주세요. 처리 여부가 모호한 물품은 어떻게 확인할지 사전에 정합니다.",
-    photos: ["trash-storage-01.webp", "trash-storage-02.webp"],
+    photoPairs: [
+      ["trash-storage-01.webp", "trash-storage-02.webp"],
+      ["trash-storage-03.webp", "trash-storage-04.webp"],
+    ],
   },
   {
     title: "쓰레기 수거와 폐기물 처리",
     body: "협의한 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다. 물품의 종류와 양, 반출 동선을 확인해 작업을 준비합니다.",
     note: "가구와 가전 등 큰 물품도 반출을 원하시면 미리 알려주세요. 크기와 수량, 이동 조건을 견적에 반영합니다.",
-    photos: ["trash-waste-01.webp", "trash-waste-02.webp", "trash-waste-03.webp"],
+    photoPairs: [
+      ["trash-waste-01.webp", "trash-waste-02.webp"],
+      ["trash-waste-03.webp"],
+    ],
   },
   {
     title: "방과 거실·바닥",
@@ -231,10 +237,14 @@ export default function TrashHouseCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
-                  {item.photos && (
-                    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
-                      {item.photos.map(photo => (
-                        <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                          ))}
+                        </div>
                       ))}
                     </div>
                   )}
