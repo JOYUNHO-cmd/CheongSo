@@ -27,15 +27,15 @@ export function ScrollSideNav() {
   };
 
   return (
-    <div className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col overflow-hidden rounded-full border border-gray-200 bg-white/95 shadow-lg backdrop-blur-sm sm:flex">
+    <div className="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col overflow-hidden rounded-l-2xl border border-r-0 border-gray-200 bg-white/80 shadow-lg backdrop-blur-sm sm:right-5 sm:rounded-full sm:border-r sm:bg-white/95">
       <button
         type="button"
         onClick={() => scrollByViewport(-1)}
         disabled={atTop}
         aria-label="위로 스크롤"
-        className="flex h-10 w-10 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
+        className="flex h-8 w-5 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
       >
-        <ChevronUp className="h-5 w-5" strokeWidth={2.5} />
+        <ChevronUp className="h-3.5 w-3.5 sm:h-5 sm:w-5" strokeWidth={2.5} />
       </button>
       <div className="h-px bg-gray-100" />
       <button
@@ -43,9 +43,9 @@ export function ScrollSideNav() {
         onClick={() => scrollByViewport(1)}
         disabled={atBottom}
         aria-label="아래로 스크롤"
-        className="flex h-10 w-10 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
+        className="flex h-8 w-5 items-center justify-center text-brand-dark transition-colors hover:bg-brand-light disabled:text-gray-300 disabled:hover:bg-transparent sm:h-11 sm:w-11"
       >
-        <ChevronDown className="h-5 w-5" strokeWidth={2.5} />
+        <ChevronDown className="h-3.5 w-3.5 sm:h-5 sm:w-5" strokeWidth={2.5} />
       </button>
     </div>
   );
