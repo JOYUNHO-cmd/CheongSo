@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { safetyDocuments, equipmentClips } from "@/lib/safety-certifications-data";
+import { safetyDocuments } from "@/lib/safety-certifications-data";
 
 export default function SafetyCertifications() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -30,20 +30,6 @@ export default function SafetyCertifications() {
             </div>
           </button>
         ))}
-      </div>
-
-      <div className="mt-10">
-        <p className="mb-4 text-center text-sm font-extrabold text-brand-dark sm:text-base">공기질 정화에 사용되는 장비</p>
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-          {equipmentClips.map((clip, idx) => (
-            <div key={idx} className="overflow-hidden rounded-2xl border border-gray-200 bg-gray-950 shadow-sm">
-              <div className="relative aspect-video">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={clip.src} alt={clip.title} className="h-full w-full object-cover" loading="lazy" />
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       {openIdx !== null && (

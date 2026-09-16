@@ -23,16 +23,3 @@ export const safetyDocuments: SafetyDocument[] = [
     height: 1245,
   },
 ];
-
-export type EquipmentClip = {
-  title: string;
-  src: string;
-  width: number;
-  height: number;
-};
-
-// 현장에서 실제 사용 중인 공기질 관리 장비 작동 모습
-export const equipmentClips: EquipmentClip[] = [
-  { title: "찐청소 사용 장비", src: "/images/certifications/equipment-01.webp", width: 420, height: 237 },
-  { title: "찐청소 사용 장비", src: "/images/certifications/equipment-02.webp", width: 420, height: 236 },
-];
