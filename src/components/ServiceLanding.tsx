@@ -5,6 +5,7 @@ import { serviceProfiles, servicePath, type ServiceProfile } from "@/lib/service
 import { regionalPages, regionalPath, type RegionalPage } from "@/lib/regional-pages";
 import { absoluteUrl } from "@/lib/site-url";
 import portfolio from "@/lib/portfolio-highlights.json";
+import { ScrollSideNav, BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const portfolioGroups: Record<string, string> = {
   "입주청소": "move-in", "신축청소": "new-construction", "준공청소": "new-construction",
@@ -42,6 +43,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
 
   return <article>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
+    <ScrollSideNav />
     <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
       <div className="mx-auto max-w-5xl">
         <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80"><Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><Link href={servicePath(service.name)}>{service.name}</Link>{regional && <><span>/</span><span>{regional.region.replaceAll("-", " ")}</span></>}</nav>
@@ -83,6 +85,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
         <section id="faq" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{service.name} 자주 묻는 질문</h2>{faqItems.map(([q, a]) => <details key={q} className="mt-4 rounded-xl border border-gray-200 p-4"><summary className="cursor-pointer font-bold">{q}</summary><p className="mt-3">{a}</p></details>)}</section>
         <section id="related" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">필요한 관리, 함께 살펴보세요</h2><div className="mt-5 flex flex-wrap gap-3">{serviceProfiles.filter(s => s.category === service.category && s.slug !== service.slug).map(s => <Link className="rounded-full bg-brand-light px-4 py-2 text-sm font-bold text-brand-dark" key={s.slug} href={servicePath(s.name)}>{s.name} →</Link>)}</div>{!regional && regionalPages.filter(p => p.service === service.slug).map(p => <p className="mt-5" key={p.region}><Link href={regionalPath(p)} className="font-bold text-brand">{p.heading} 지역 안내 →</Link></p>)}</section>
         <div className="rounded-2xl bg-brand-dark p-7 text-white"><p className="text-xl font-bold">청소가 필요한 곳, 구체적으로 알려주세요</p><p className="mt-3 text-white/80">어떤 공간인지, 어디가 고민인지부터 정리하면 상담이 한결 쉬워집니다</p><Link href="/contact/" className="mt-5 inline-block rounded-full bg-white px-5 py-2 font-bold text-brand-dark">상담 내용 정리하기 →</Link></div>
+        <BackToTopButton />
       </div>
     </div>
   </article>;
