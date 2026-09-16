@@ -118,7 +118,11 @@ const faqItems: [string, string][] = [
   ["청소 전후 사진이 홈페이지에도 올라가나요?", "고객님께 작업 결과를 전달하는 사진과 홈페이지·홍보용 사진 사용은 별개입니다. 촬영과 공개에 관한 요청 사항은 상담할 때 말씀해 주세요."],
 ];
 
-const caseIds = ["special-02", "special-01"] as const;
+const caseIds = [
+  "special-02", "special-01", "special-04", "special-05", "special-06", "special-07",
+  "special-08", "special-09", "special-10", "special-11", "special-12", "special-13",
+  "special-14", "special-15", "special-16", "special-17", "special-18", "special-19",
+] as const;
 const path = "/쓰레기집청소/";
 
 export default function TrashHouseCleaningLanding() {
