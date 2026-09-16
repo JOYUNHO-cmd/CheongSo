@@ -51,9 +51,9 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
     <button
       type="button"
       onClick={() => onOpen(item)}
-      className="group flex min-h-0 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
+      className="group grid min-h-0 grid-rows-[1fr_auto] overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
     >
-      <div className="grid min-h-0 flex-1 grid-cols-2">
+      <div className="grid min-h-0 grid-cols-2">
         <div className="relative overflow-hidden bg-gray-100">
           <Image src={`/images/portfolio-v2/${item.before}`} alt={`${item.title} 시공 전`} fill className="object-cover" sizes="(min-width: 768px) 20vw, 45vw" />
           <Badge label="전" variant="before" />
