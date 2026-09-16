@@ -37,26 +37,46 @@ const estimateChecklist = [
   "철거·복원이 필요한 부분",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "보관 유품과 중요 물품 확인",
     body: "보관할 사진과 기념품, 찾아야 할 서류·귀중품을 먼저 알려주세요. 남겨둘 유품과 처리할 물품, 추가 확인이 필요한 대상을 구분합니다.",
     note: "처리 여부가 모호한 물건은 누구에게 어떤 방식으로 확인할지 사전에 정합니다. 오염된 유품은 상태에 따라 보관·전달 방법도 함께 협의합니다.",
+    photoPairs: [
+      ["lonely-items-01.webp", "lonely-items-02.webp"],
+      ["lonely-items-03.webp", "lonely-items-04.webp"],
+    ],
   },
   {
     title: "수거와 폐기물 처리",
     body: "협의한 물품의 수거와 폐기물 처리는 기본 견적에 포함됩니다. 가구와 침구, 생활용품 등의 종류와 양, 오염 상태를 확인해 작업을 준비합니다.",
     note: "의뢰인이 처리하기로 확인한 대상을 기준으로 진행하며, 보관할 유품이 섞이지 않도록 분류 기준을 먼저 정합니다.",
+    beforeAfter: [
+      { label: "물품 수거", before: "lonely-collect-before.webp", after: "lonely-collect-after.webp" },
+    ],
+    photoPairs: [
+      ["lonely-collect-work-01.webp", "lonely-collect-work-02.webp"],
+    ],
   },
   {
     title: "바닥과 주변 오염 제거",
     body: "오염된 위치와 주변 범위를 확인하고 소재에 맞춰 청소합니다. 이음새와 틈새처럼 추가 확인이 필요한 부분도 살핍니다.",
     note: "마감재 안쪽을 확인하기 위해 분해나 철거가 필요한 경우에는 작업 범위와 비용을 별도로 협의합니다.",
+    beforeAfter: [
+      { label: "바닥 오염 제거", before: "lonely-floor-before.webp", after: "lonely-floor-after.webp" },
+    ],
+    photoPairs: [
+      ["lonely-floor-work-01.webp", "lonely-floor-work-02.webp"],
+    ],
   },
   {
     title: "소독",
     body: "소독은 기본 작업에 포함됩니다. 현장의 오염을 제거하고, 소재와 상태에 맞춰 소독을 진행합니다.",
     note: "작업 구역과 사용 조건에 따라 필요한 절차를 정하고, 작업 후 확인할 사항을 안내합니다.",
+    photoPairs: [
+      ["lonely-disinfect-01.webp", "lonely-disinfect-02.webp"],
+      ["lonely-disinfect-03.webp", "lonely-disinfect-04.webp"],
+    ],
   },
   {
     title: "냄새 제거",
@@ -67,6 +87,12 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "철거와 복원 — 별도 견적",
     body: "오염이나 손상으로 인해 제거·교체가 필요한 부분은 철거와 복원까지 진행할 수 있습니다.",
     note: "철거할 구역과 복원 범위, 자재와 마감 방식을 협의하고 청소 비용과 구분해 견적을 안내합니다. 모든 현장에 철거를 적용하는 것은 아닙니다.",
+    beforeAfter: [
+      { label: "바닥 철거", before: "lonely-demo-before.webp", after: "lonely-demo-after.webp" },
+    ],
+    photoPairs: [
+      ["lonely-demo-work-01.webp", "lonely-demo-work-02.webp"],
+    ],
   },
 ];
 
@@ -206,6 +232,36 @@ export default function LonelyDeathCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.beforeAfter && (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {item.beforeAfter.map(pair => (
+                        <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
+                          <div className="grid grid-cols-2">
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+                            </div>
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+                            </div>
+                          </div>
+                          <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
