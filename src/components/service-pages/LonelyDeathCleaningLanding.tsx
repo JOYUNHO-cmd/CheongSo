@@ -227,43 +227,44 @@ export default function LonelyDeathCleaningLanding() {
             <p>유품과 처리할 물품을 구분한 뒤, 협의한 구역의 오염을 제거하고 소독·냄새 제거까지 진행합니다.</p>
 
             <div className="mt-6 space-y-6">
-              {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
-                  <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
-                  {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
-                      {item.photoPairs.map((pair, pairIndex) => (
-                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                          {pair.map(photo => (
-                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
-                          ))}
-                        </div>
-                      ))}
+              {scopeItems.map(item => {
+                const hasPhotos = item.photoPairs || item.beforeAfter;
+                return (
+                  <div key={item.title} className={`rounded-xl border border-gray-100 p-5 ${hasPhotos ? "grid gap-5 md:grid-cols-[1fr_300px]" : ""}`}>
+                    <div>
+                      <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
+                      <p className="mt-2">{item.body}</p>
+                      {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
                     </div>
-                  )}
-                  {item.beforeAfter && (
-                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                      {item.beforeAfter.map(pair => (
-                        <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
-                          <div className="grid grid-cols-2">
-                            <div className="relative">
-                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
-                              <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
-                            </div>
-                            <div className="relative">
-                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
-                              <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
-                            </div>
+                    {hasPhotos && (
+                      <div className="space-y-3">
+                        {item.photoPairs?.map((pair, pairIndex) => (
+                          <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                            {pair.map(photo => (
+                              <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 300px, 90vw" />
+                            ))}
                           </div>
-                          <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
-                        </figure>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
+                        ))}
+                        {item.beforeAfter?.map(pair => (
+                          <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
+                            <div className="grid grid-cols-2">
+                              <div className="relative">
+                                <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 작업 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
+                                <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+                              </div>
+                              <div className="relative">
+                                <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 작업 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 150px, 45vw" />
+                                <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+                              </div>
+                            </div>
+                            <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
