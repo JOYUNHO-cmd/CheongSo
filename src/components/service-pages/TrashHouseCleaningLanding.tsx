@@ -38,21 +38,27 @@ const estimateChecklist = [
   "층수와 승강기, 주차·반출 동선",
 ];
 
-const scopeItems: { title: string; body: string; note?: string; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
+const scopeItems: { title: string; body: string; note?: string; photos?: string[]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "보관 물품과 정리 대상 분류",
     body: "남겨둘 가구와 생활용품, 중요한 서류, 찾아야 할 물건을 알려주세요. 보관할 물건과 처리할 대상을 구분한 뒤 작업합니다.",
     note: "물건의 위치가 정확히 기억나지 않으면 특징과 예상 위치를 말씀해 주세요. 처리 여부가 모호한 물품은 어떻게 확인할지 사전에 정합니다.",
+    photos: ["trash-storage-01.webp", "trash-storage-02.webp"],
   },
   {
     title: "쓰레기 수거와 폐기물 처리",
     body: "협의한 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다. 물품의 종류와 양, 반출 동선을 확인해 작업을 준비합니다.",
     note: "가구와 가전 등 큰 물품도 반출을 원하시면 미리 알려주세요. 크기와 수량, 이동 조건을 견적에 반영합니다.",
+    photos: ["trash-waste-01.webp", "trash-waste-02.webp", "trash-waste-03.webp"],
   },
   {
     title: "방과 거실·바닥",
     body: "물품을 정리한 뒤 바닥과 모서리, 걸레받이 등 협의한 구역의 오염을 청소합니다. 물건에 가려져 있던 부분도 확인합니다.",
     note: "변색이나 긁힘, 마감재 손상은 청소로 제거할 수 있는 오염과 구분해 안내합니다.",
+    beforeAfter: [
+      { label: "방 바닥", before: "trash-room-before.webp", after: "trash-room-after.webp" },
+      { label: "발코니 바닥", before: "trash-balcony-before.webp", after: "trash-balcony-after.webp" },
+    ],
   },
   {
     title: "주방과 싱크대",
@@ -67,6 +73,10 @@ const scopeItems: { title: string; body: string; note?: string; beforeAfter?: { 
     title: "욕실과 세면 공간",
     body: "변기와 세면대, 바닥 등 협의한 구역을 오염 상태에 맞춰 청소합니다.",
     note: "배수구 주변의 오염을 닦는 작업과 배관 막힘이나 설비 고장을 해결하는 작업은 구분해 확인합니다.",
+    beforeAfter: [
+      { label: "변기와 바닥", before: "trash-bath-before.webp", after: "trash-bath-after.webp" },
+      { label: "세면대와 욕조", before: "trash-bath2-before.webp", after: "trash-bath2-after.webp" },
+    ],
   },
   {
     title: "소독과 냄새 제거",
@@ -221,6 +231,13 @@ export default function TrashHouseCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photos && (
+                    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                      {item.photos.map(photo => (
+                        <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                      ))}
+                    </div>
+                  )}
                   {item.beforeAfter && (
                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                       {item.beforeAfter.map(pair => (
