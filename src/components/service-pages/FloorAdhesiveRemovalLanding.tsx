@@ -49,7 +49,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "새 타일 시공을 위한 본드제거",
     body: "기존 바닥재를 걷어낸 뒤 남은 접착제와 바탕면 상태를 확인합니다. 새 타일 시공에 필요한 제거 범위를 협의한 후 작업하고, 마무리 세척을 진행합니다.",
     note: "후속 시공팀이 정해져 있다면 요구하는 바탕면 상태와 시공 일정을 함께 알려주세요.",
-    photoPairs: [["floor-site-work-01.webp", "floor-site-result-01.webp"]],
+    photoPairs: [["floor-site-work-01.webp", "floor-site-result-01.webp"], ["floor-residue-01.webp"]],
   },
   {
     title: "기존 바닥 재사용을 위한 본드제거",
@@ -73,7 +73,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "마무리 세척",
     body: "마무리 세척은 두 작업 유형 모두 기본으로 진행합니다.",
     note: "본드제거 후 작업 구역의 잔여물을 정리하고 세척합니다. 특히 기존 바닥을 재사용하는 경우에는 남은 접착제와 오염을 더 세심하게 확인합니다.",
-    photoPairs: [["floor-cleanup-01.webp", "floor-cleanup-02.webp"]],
+    photoPairs: [["floor-cleanup-01.webp", "floor-cleanup-02.webp"], ["floor-cleanup-03.webp", "floor-cleanup-04.webp"]],
   },
 ];
 
