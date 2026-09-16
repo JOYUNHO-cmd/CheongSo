@@ -25,7 +25,7 @@ export default function Header() {
 
   // 모바일 메뉴 드로어 열림 상태
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openMobileCategory, setOpenMobileCategory] = useState<string>("moving");
+  const [openMobileCategory, setOpenMobileCategory] = useState<string>("");
 
   // PC & 태블릿 메가 드롭다운 상태
   const [dropdownOpen, setDropdownOpen] = useState(false);
