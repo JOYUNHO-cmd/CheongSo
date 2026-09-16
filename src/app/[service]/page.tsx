@@ -36,8 +36,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <FloodCleaningLanding />,
   },
   "쓰레기집청소": {
-    title: "쓰레기집청소 비용·폐기물 처리·비대면 청소 안내 | 찐청소",
-    description: "찐청소 쓰레기집청소는 수거·폐기물 처리·소독·냄새 제거까지 기본으로 포함합니다. 요청 시 비대면 진행이 가능하며 상세한 청소 전후 사진을 보내드립니다. 작업 범위와 비용, 예약 절차를 확인하세요.",
+    title: "쓰레기집청소 비용·폐기물 처리·비대면 진행 | 찐청소",
+    description: "미리 치우지 않아도 상담할 수 있습니다. 찐청소는 쓰레기 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 진행합니다. 보관할 물품을 먼저 확인하며, 비대면 진행과 상세한 전후 사진 전달이 가능합니다.",
     component: () => <TrashHouseCleaningLanding />,
   },
   "유품정리": {

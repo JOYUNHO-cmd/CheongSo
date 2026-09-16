@@ -21,28 +21,30 @@ const toc = [
 ] as const;
 
 const quickFacts: [string, string][] = [
-  ["기본 포함", "쓰레기 수거·폐기물 처리·청소·소독·냄새 제거"],
-  ["견적 기준", "필요한 인원·장비·약품, 폐기물의 양과 반출·처리 조건"],
-  ["비대면 진행", "요청 시 가능, 출입과 물품 확인 방법 사전 협의"],
-  ["결과 확인", "상세한 청소 전후 사진 촬영·전달"],
-  ["작업 시간", "물품의 양, 분류 작업, 오염 상태에 따라 안내"],
-  ["예약 문의", `${siteConfig.phone} / 홈페이지 견적 문의`],
+  ["어디까지 포함되나요?", "협의한 대상의 수거·폐기물 처리·청소·소독·냄새 제거"],
+  ["미리 치워야 하나요?", "상담 전 정리할 필요 없이 현재 상태로 문의"],
+  ["남겨둘 물건은요?", "보관할 물품과 처리할 대상을 작업 전 구분"],
+  ["집에 없어도 되나요?", "요청 시 비대면 진행 가능"],
+  ["결과는 어떻게 보나요?", "상세한 청소 전후 사진 촬영·전달"],
+  ["비용은 어떻게 정하나요?", "물품의 양·분류 작업·오염·반출 조건을 확인해 산정"],
+  ["문의", `${siteConfig.phone} / 홈페이지 견적 문의`],
 ];
 
 const estimateChecklist = [
   "쓰레기와 물품의 종류·양",
-  "보관할 물품과 분류에 필요한 작업",
-  "바닥·주방·욕실 등의 오염 상태",
-  "필요한 인원과 장비·약품",
-  "가구·가전 등 대형 물품의 반출 여부",
-  "층수와 승강기, 주차·반출 동선",
+  "보관할 물건을 찾고 분류하는 데 필요한 작업",
+  "주방·욕실·바닥 등의 오염 상태",
+  "가구·가전의 크기와 반출 수량",
+  "층수와 승강기, 차량까지의 운반 거리",
+  "필요한 작업 인원과 장비·약품",
+  "협의한 공간별 청소 범위",
 ];
 
 const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
-    title: "보관 물품과 정리 대상 분류",
-    body: "남겨둘 가구와 생활용품, 중요한 서류, 찾아야 할 물건을 알려주세요. 보관할 물건과 처리할 대상을 구분한 뒤 작업합니다.",
-    note: "물건의 위치가 정확히 기억나지 않으면 특징과 예상 위치를 말씀해 주세요. 처리 여부가 모호한 물품은 어떻게 확인할지 사전에 정합니다.",
+    title: "남겨둘 물건부터 확인합니다",
+    body: "집 안에 있는 물건을 모두 버리는 것은 아닙니다. 필요한 서류와 개인 물품, 남겨둘 가구가 있다면 알려주세요.",
+    note: "물건이 어디 있는지 정확히 모르셔도 특징과 예상 위치를 말씀해 주시면 확인할 범위를 협의할 수 있습니다. 발견이나 복구를 보장하는 것은 아니지만, 처리 기준을 정하는 데 중요한 정보입니다. 버릴지 판단하기 어려운 물건이 나왔을 때 누구에게 어떻게 확인할지도 작업 전에 정합니다.",
     photoPairs: [
       ["trash-storage-01.webp", "trash-storage-02.webp"],
       ["trash-storage-03.webp", "trash-storage-04.webp"],
@@ -50,35 +52,35 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
   },
   {
     title: "쓰레기 수거와 폐기물 처리",
-    body: "협의한 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다. 물품의 종류와 양, 반출 동선을 확인해 작업을 준비합니다.",
-    note: "가구와 가전 등 큰 물품도 반출을 원하시면 미리 알려주세요. 크기와 수량, 이동 조건을 견적에 반영합니다.",
+    body: "협의한 처리 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다.",
+    note: "가구와 가전 등 큰 물품도 처리할 예정이라면 종류와 수량을 알려주세요. 반출 동선과 분해 필요 여부를 함께 확인합니다.",
     photoPairs: [
       ["trash-waste-01.webp", "trash-waste-02.webp"],
       ["trash-waste-04.webp", "trash-waste-03.webp"],
     ],
   },
   {
-    title: "방과 거실·바닥",
-    body: "물품을 정리한 뒤 바닥과 모서리, 걸레받이 등 협의한 구역의 오염을 청소합니다. 물건에 가려져 있던 부분도 확인합니다.",
-    note: "변색이나 긁힘, 마감재 손상은 청소로 제거할 수 있는 오염과 구분해 안내합니다.",
+    title: "방과 거실·바닥 청소",
+    body: "물품을 반출한 뒤 바닥과 모서리, 걸레받이 등 협의한 구역을 청소합니다. 물건에 가려져 있던 자리의 오염도 확인합니다.",
+    note: "바닥의 변색이나 긁힘, 마감재 손상은 청소로 제거할 수 있는 오염과 구분해 설명합니다.",
     beforeAfter: [
       { label: "방 바닥", before: "trash-room-before.webp", after: "trash-room-after.webp" },
       { label: "발코니 바닥", before: "trash-balcony-before.webp", after: "trash-balcony-after.webp" },
     ],
   },
   {
-    title: "주방과 싱크대",
+    title: "주방과 싱크대 청소",
     body: "음식물과 생활 쓰레기를 정리하고 싱크대·작업대·바닥 등 협의한 구역을 청소합니다.",
-    note: "냉장고 내부의 식품 정리와 세척, 수납장 내부, 식기 세척이 필요하다면 상담할 때 알려주세요. 구체적인 작업 범위를 미리 정합니다.",
+    note: "냉장고 속 음식물 처리와 내부 세척, 수납장 내부, 식기 세척이 필요하다면 미리 알려주세요. 겉으로 보이지 않는 부분까지 확인해야 작업량을 정확히 안내할 수 있습니다.",
     beforeAfter: [
       { label: "냉장고 내부", before: "trash-fridge-before.webp", after: "trash-fridge-after.webp" },
       { label: "주방 작업대", before: "trash-kitchen-before.webp", after: "trash-kitchen-after.webp" },
     ],
   },
   {
-    title: "욕실과 세면 공간",
+    title: "욕실과 세면 공간 청소",
     body: "변기와 세면대, 바닥 등 협의한 구역을 오염 상태에 맞춰 청소합니다.",
-    note: "배수구 주변의 오염을 닦는 작업과 배관 막힘이나 설비 고장을 해결하는 작업은 구분해 확인합니다.",
+    note: "배수구 주변 청소와 배관 막힘·설비 고장을 해결하는 작업은 별개이므로, 물이 잘 내려가지 않거나 고장 난 시설이 있다면 함께 알려주세요.",
     beforeAfter: [
       { label: "변기와 바닥", before: "trash-bath-before.webp", after: "trash-bath-after.webp" },
       { label: "세면대와 욕조", before: "trash-bath2-before.webp", after: "trash-bath2-after.webp" },
@@ -86,25 +88,42 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
   },
   {
     title: "소독과 냄새 제거",
-    body: "소독과 냄새 제거는 기본 비용에 포함됩니다. 쓰레기와 오염원을 정리하고 공간을 청소한 뒤, 현장 상태에 맞춰 소독과 냄새 제거를 진행합니다. 소재 안쪽에 오염이 스며들었거나 손상된 부분이 있다면 추가로 확인할 사항을 설명합니다.",
-    note: "해충이 있는 경우에는 상담 시 알려주세요. 해충 방제는 소독과 구분해 필요한 작업과 제공 범위를 확인합니다.",
+    body: "소독과 냄새 제거는 추가 옵션이 아닌 기본 포함 작업입니다.",
+    note: "쓰레기와 오염원을 정리하고 공간을 청소한 뒤, 현장 상태에 맞춰 진행합니다. 소재 안쪽에 오염이 스며들었거나 손상된 부분이 있다면 추가로 확인할 사항을 설명합니다. 벌레가 보인다면 상담할 때 알려주세요. 해충 방제는 소독과 구분해 필요한 작업과 제공 범위를 확인합니다.",
   },
 ];
 
-const extraCostItems = [
-  "사진에 보이지 않던 공간에도 물품이 쌓여 있는 경우",
-  "대형 가구·가전의 반출이 추가되는 경우",
-  "보관 물품을 찾고 분류하는 작업이 늘어나는 경우",
-  "냉장고·수납장 내부 등 청소 구역이 추가되는 경우",
-  "사전에 확인되지 않은 특수 오염이 발견된 경우",
-  "승강기 이용 제한 등 반출 조건이 변경된 경우",
+const extraCostItems: [string, string][] = [
+  ["사진에 없던 방·베란다에도 물품이 있는 경우", "추가 물량과 작업 구역을 확인합니다."],
+  ["수납장·상자 안에 처리할 물품이 많은 경우", "분류·반출량을 확인합니다."],
+  ["가구·가전 처리가 추가되는 경우", "크기·수량·분해 여부를 확인합니다."],
+  ["찾아야 할 물건이나 세부 분류가 늘어나는 경우", "추가 작업 시간을 확인합니다."],
+  ["냉장고 내부 등 청소 구역이 추가되는 경우", "오염 상태와 청소 범위를 확인합니다."],
+  ["승강기 이용 등 현장 조건이 변경되는 경우", "운반 인원과 동선을 확인합니다."],
 ];
 
 const processSteps: [string, string][] = [
-  ["상담과 현장 상태 확인", "위치와 면적, 물품의 양과 오염 상태, 요청 사항을 확인합니다. 사진이 준비되지 않았다면 현재 상황부터 설명해 주세요."],
-  ["보관·처리 대상과 견적 협의", "남겨둘 물건과 정리할 대상, 청소할 구역을 정합니다. 필요한 인원과 장비·약품, 반출·처리 조건을 반영해 견적을 안내합니다."],
-  ["청소 전 사진 촬영과 작업 진행", "작업 전 상태를 자세히 촬영하고, 협의한 기준에 따라 물품을 분류·수거합니다. 폐기물 처리와 공간 청소, 소독·냄새 제거를 진행합니다."],
-  ["청소 후 사진 전달과 결과 확인", "작업 후에도 구역별 상태를 자세히 촬영해 보내드립니다. 보관 물품과 작업 결과, 남은 확인 사항을 안내합니다."],
+  ["상담: 현재 상태부터 알려주세요", "위치와 대략적인 면적, 물품의 양과 오염 상태를 확인합니다. 사진이 준비되지 않았다면 알고 계신 내용부터 설명해 주세요."],
+  ["보관·처리 기준 확인", "남겨둘 물건과 처리할 대상, 손대지 않을 구역을 정합니다. 판단이 어려운 물품의 확인 방법도 협의합니다."],
+  ["견적과 진행 방식 협의", "포함 작업과 비용, 예상 시간을 안내합니다. 비대면을 원하시면 출입 방법과 연락 담당자, 결과 확인 방법을 함께 정합니다."],
+  ["분류·수거와 청소 진행", "작업 전 사진을 촬영하고 협의한 기준으로 물품을 분류·수거합니다. 폐기물 처리 후 공간을 청소하고 소독·냄새 제거를 진행합니다. 물품을 치운 뒤 추가 오염이나 손상이 확인되면 상태를 안내합니다."],
+  ["사진 전달과 마무리 확인", "작업 후에도 구역별 사진을 자세히 촬영해 보내드립니다. 보관 물품의 위치와 작업 결과, 남은 확인 사항을 설명합니다."],
+];
+
+const caseExamples = ["광주 쓰레기집 청소", "광교 쓰레기집 청소"];
+
+const resultChecklist = [
+  "협의한 물품이 반출된 공간",
+  "보관할 물품의 위치",
+  "주방·욕실·바닥 등 청소한 구역",
+  "기존 손상이나 추가 확인이 필요한 부분",
+];
+
+const remoteSteps = [
+  "처리할 물품과 남겨둘 물건을 사진이나 설명으로 확인합니다.",
+  "출입 방법과 작업 중 연락할 방법을 정합니다.",
+  "처리 여부가 애매한 물품의 확인 기준을 협의합니다.",
+  "작업 후 상세한 전후 사진을 전달하고 결과를 안내합니다.",
 ];
 
 const reservationChecklist = [
@@ -116,27 +135,36 @@ const reservationChecklist = [
   "비대면 진행 희망 여부",
 ];
 
+const checkupItems = [
+  "처리하기로 한 물품이 반출됐는지",
+  "보관할 물품이 어디에 있는지",
+  "협의한 주방·욕실·바닥 청소가 진행됐는지",
+  "소독·냄새 제거 작업과 남은 확인 사항은 무엇인지",
+  "청소로 제거되지 않는 기존 손상이 있는지",
+];
+
 const prepItems = [
-  "보관할 가구와 생활용품을 알려주세요.",
-  "중요한 서류와 귀중품은 가능하면 따로 보관해 주세요.",
-  "찾아야 할 물건은 특징과 예상 위치를 알려주세요.",
-  "냉장고·수납장 내부 정리가 필요한지 말씀해 주세요.",
-  "반려동물의 작업 중 머무를 장소를 준비해 주세요.",
-  "주차·승강기 이용 조건을 확인해 주세요.",
-  "비대면 진행 시 출입 방법과 연락 가능한 번호를 정해 주세요.",
+  "남겨둘 물건과 가구",
+  "찾아야 할 서류·개인 물품의 특징과 예상 위치",
+  "처리할 대형 가구·가전",
+  "냉장고·수납장 내부 작업 필요 여부",
+  "출입 방법과 주차·승강기 조건",
+  "비대면 진행 시 연락 가능한 담당자",
+  "퇴실 등 완료가 필요한 일정",
 ];
 
 const faqItems: [string, string][] = [
-  ["쓰레기집청소 비용은 평당 얼마인가요?", "찐청소는 평수만으로 견적을 정하지 않습니다. 물품의 양과 분류 작업, 오염 상태, 반출 동선을 확인하고 필요한 인원·장비·약품과 폐기물 처리 조건을 기준으로 산정합니다."],
-  ["쓰레기 수거와 폐기물 처리도 포함되나요?", "네. 협의한 대상의 수거와 폐기물 처리는 기본 견적에 포함됩니다. 물품의 종류와 양, 반출 조건을 확인해 전체 비용을 안내합니다."],
-  ["소독과 냄새 제거는 추가 비용인가요?", "아니요. 소독과 냄새 제거도 기본에 포함됩니다. 현장 상태에 맞춰 청소와 함께 진행합니다."],
-  ["원룸처럼 작은 공간도 상담할 수 있나요?", "네. 공간 크기와 함께 쌓인 물품과 오염 상태를 알려주세요. 작은 공간도 작업량에 차이가 있어 현장 조건을 확인해 안내합니다."],
-  ["집을 어느 정도 치워놓아야 하나요?", "상담을 위해 미리 치워두실 필요는 없습니다. 현재 상태를 알려주시고, 보관할 물건과 정리할 대상을 말씀해 주세요."],
-  ["물건을 전부 버리는 건가요?", "아닙니다. 보관할 물건과 처리할 대상을 먼저 협의합니다. 판단이 어려운 물건이 나왔을 때 확인할 방법도 사전에 정합니다."],
-  ["현장에 없어도 맡길 수 있나요?", "네. 원하시면 비대면으로 진행할 수 있습니다. 출입 방법과 보관할 물건, 작업 중 연락 방법을 미리 협의합니다."],
-  ["비대면으로 맡기면 결과는 어떻게 확인하나요?", "청소 전후 사진을 자세히 촬영해 보내드립니다. 사진을 확인하신 뒤 궁금한 부분이나 추가로 확인할 위치를 말씀해 주세요."],
-  ["이웃에게 알려지지 않게 진행할 수 있나요?", "방문 시간과 반출 과정에 대한 요청을 미리 알려주시면 조율 가능한 부분을 확인합니다. 다만 공용 공간을 이용한 반출 등이 있어 주변에 전혀 보이지 않는다고 보장하기는 어렵습니다."],
-  ["청소 전후 사진이 홈페이지에도 올라가나요?", "고객님께 작업 결과를 전달하는 사진과 홈페이지·홍보용 사진 사용은 별개입니다. 촬영과 공개에 관한 요청 사항은 상담할 때 말씀해 주세요."],
+  ["견적을 받으려면 먼저 치워야 하나요?", "아니요. 현재 상태 그대로 상담하실 수 있습니다. 직접 정리하기 전에 물품의 양과 공간 상태를 알려주시면 필요한 작업을 안내합니다."],
+  ["쓰레기집청소 비용은 어떻게 정하나요?", "필요한 인원과 장비·약품, 물품의 양과 분류 작업, 반출·처리 조건을 확인해 산정합니다. 같은 면적도 현장 상태에 따라 작업량이 달라집니다."],
+  ["처음 견적에 어디까지 포함되나요?", "협의한 대상의 수거·폐기물 처리와 공간 청소, 소독·냄새 제거가 기본으로 포함됩니다. 냉장고·수납장 내부 등 세부 구역은 상담 시 명확하게 정합니다."],
+  ["남겨둘 물건이 섞여 있어도 되나요?", "네. 보관할 물건의 종류와 특징, 예상 위치를 알려주세요. 처리할 대상과 구분하고, 판단이 어려운 물품을 확인할 방법을 먼저 협의합니다."],
+  ["냉장고에 음식물이 남아 있어도 상담할 수 있나요?", "네. 음식물의 양과 냉장고 상태, 내부 세척까지 필요한지 알려주세요. 처리와 청소 범위를 견적에 반영할 수 있도록 확인합니다."],
+  ["집에 없어도 청소를 맡길 수 있나요?", "네. 비대면 진행이 가능합니다. 출입 방법과 보관 물품, 작업 중 연락 방법을 사전에 정합니다."],
+  ["비대면으로 맡기면 결과는 어떻게 확인하나요?", "청소 전후 사진을 자세히 촬영해 보내드립니다. 보관 물품과 작업 결과를 안내하고, 추가로 확인하고 싶은 부분이 있으면 함께 확인합니다."],
+  ["이웃에게 알려지지 않게 진행할 수 있나요?", "방문 시간과 반출 과정에 대한 요청을 미리 알려주세요. 조율 가능한 부분을 확인하되, 공용 공간을 이용하는 작업이 있어 주변에 전혀 보이지 않는다고 보장하지는 않습니다."],
+  ["소독과 냄새 제거는 추가 비용인가요?", "아니요. 기본 작업에 포함됩니다. 다만 협의하지 않은 구역이나 추가 오염 등 작업 범위가 달라지는 경우에는 변경 내용을 먼저 안내합니다."],
+  ["퇴실일까지 마칠 수 있나요?", "현장 상태와 물품의 양, 가능한 작업 일정을 확인해야 합니다. 퇴실일과 집을 인도해야 하는 시간을 미리 알려주시면 완료 가능 여부를 안내합니다."],
+  ["전후 사진이 홈페이지에도 올라가나요?", "고객님께 결과를 전달하는 사진과 홈페이지·홍보용 사진 사용은 별개입니다. 사진 공개에 관한 요청 사항은 상담할 때 말씀해 주세요."],
 ];
 
 const caseIds = [
@@ -157,7 +185,7 @@ export default function TrashHouseCleaningLanding() {
       "@type": "Service",
       name: "쓰레기집청소",
       serviceType: "쓰레기집청소·폐기물 처리",
-      description: "찐청소 쓰레기집청소는 수거·폐기물 처리·소독·냄새 제거까지 기본으로 포함합니다. 요청 시 비대면 진행이 가능하며 상세한 청소 전후 사진을 보내드립니다. 작업 범위와 비용, 예약 절차를 확인하세요.",
+      description: "미리 치우지 않아도 상담할 수 있습니다. 찐청소는 쓰레기 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 진행합니다. 보관할 물품을 먼저 확인하며, 비대면 진행과 상세한 전후 사진 전달이 가능합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -194,9 +222,9 @@ export default function TrashHouseCleaningLanding() {
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">쓰레기집청소 비용과 서비스 안내</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>물건과 쓰레기가 쌓여 어디부터 정리해야 할지 모르겠다면, 현재 상태 그대로 상담해 주세요. 상담을 받기 위해 먼저 집을 치워두실 필요는 없습니다.</p>
-            <p>찐청소는 쓰레기 수거와 폐기물 처리부터 공간 청소, 소독·냄새 제거까지 기본으로 진행합니다. 보관할 물건과 정리할 대상을 먼저 확인하고, 필요한 작업과 비용을 안내합니다.</p>
-            <p>원하시면 비대면으로 맡기실 수 있습니다. 청소 전후 사진을 자세히 촬영해 보내드려 현장에 계시지 않아도 작업 결과를 확인하실 수 있습니다.</p>
+            <p>어디부터 정리해야 할지 모르겠다면, 현재 상태 그대로 알려주세요. 상담 전에 미리 치우거나 쓰레기를 모아두실 필요는 없습니다.</p>
+            <p>찐청소는 남겨둘 물건과 정리할 대상을 먼저 확인하고, 수거·폐기물 처리부터 청소·소독·냄새 제거까지 진행합니다. 필요한 작업과 포함 비용을 설명한 뒤 일정을 협의합니다.</p>
+            <p>현장에 함께하기 어려우시면 비대면으로 맡기실 수 있습니다. 상세한 청소 전후 사진으로 작업 결과를 확인하실 수 있도록 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">쓰레기집청소 견적 문의하기 →</CtaButton>
         </div>
@@ -216,23 +244,25 @@ export default function TrashHouseCleaningLanding() {
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="쓰레기집청소 비용과 견적 산정 기준" />
-            <p>쓰레기집청소 비용에는 협의한 대상의 수거·폐기물 처리와 청소, 소독·냄새 제거가 포함됩니다.</p>
-            <p className="mt-4">견적은 필요한 인원과 장비·약품, 폐기물의 종류와 양, 반출 조건을 확인해 산정합니다.</p>
-            <p className="mt-4">같은 원룸이라도 바닥에 생활 쓰레기가 놓인 공간과 가구 높이까지 물건이 쌓인 공간은 작업량이 다릅니다. 보관할 물건을 찾아 분류해야 하거나, 승강기 없이 계단으로 반출해야 한다면 필요한 시간과 인원도 달라집니다.</p>
-            <p className="mt-4">평수만 듣고 계산하기에는, 현장에서 확인할 일이 꽤 많습니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">견적 상담에서는 다음 내용을 확인합니다.</p>
+            <p>찐청소 쓰레기집청소 견적에는 수거·폐기물 처리·청소·소독·냄새 제거가 기본으로 포함됩니다.</p>
+            <p className="mt-4">비용은 필요한 인원과 장비·약품, 폐기물의 종류와 양, 분류·반출 조건을 확인해 산정합니다.</p>
+            <p className="mt-4">같은 원룸이라도 쓰레기가 봉투에 모여 있는 곳과 보관할 물건이 섞여 있는 곳은 작업량이 다릅니다. 승강기가 없는 위층에서 반출하거나, 큰 가구를 분해해야 하는 경우에도 필요한 인원과 시간이 달라집니다.</p>
+            <p className="mt-4">집은 같은 평수여도 해야 할 일까지 같지는 않으니까요.</p>
+            <h3 className="mt-6 font-bold text-brand-dark">견적을 정할 때 확인하는 내용</h3>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">소독과 냄새 제거를 별도 옵션으로 추가하는 방식이 아닙니다. 기본 작업에 포함해 현장에 필요한 전체 견적을 안내합니다.</p>
+            <h3 className="mt-6 font-bold text-brand-dark">처음 견적에서 어디까지 포함되는지 설명합니다</h3>
+            <p className="mt-2">쓰레기만 반출하는 것과 반출 후 공간을 청소하는 것은 작업 내용이 다릅니다.</p>
+            <p className="mt-2 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">찐청소는 청소·소독·냄새 제거까지 포함한 전체 작업을 기준으로 안내합니다. 다만 냉장고 내부나 수납장 안쪽 등 세부 구역은 상담 시 포함 여부를 명확하게 정합니다.</p>
           </section>
 
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="쓰레기집청소 기본 범위와 확인 항목" />
-            <p>물품을 수거하는 것부터 반출 후 청소, 소독·냄새 제거까지 진행합니다. 작업 전에는 보관할 물건과 처리할 대상, 공간별 청소 범위를 협의합니다.</p>
+            <p>먼저 남겨둘 물건과 처리할 대상을 구분하고, 반출 후 공간 청소와 소독·냄새 제거까지 진행합니다.</p>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
@@ -303,22 +333,25 @@ export default function TrashHouseCleaningLanding() {
           {/* 3. 추가비용 */}
           <section id="extra" className="scroll-mt-36">
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>사전에 협의한 것보다 반출량이 늘어나거나 작업 범위가 추가되면 견적이 달라질 수 있습니다.</p>
+            <p>처음 협의한 물량이나 작업 범위, 반출 조건이 달라지면 견적이 변경될 수 있습니다.</p>
             <ul className="mt-5 space-y-2.5">
-              {extraCostItems.map(item => (
-                <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
+              {extraCostItems.map(([title, detail]) => (
+                <li key={title} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
-                  {item}
+                  <span>
+                    <span className="font-bold text-brand-dark">{title}</span>
+                    <span className="block text-[15px] text-gray-500">{detail}</span>
+                  </span>
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">수거·폐기물 처리·소독·냄새 제거 자체를 별도 옵션으로 추가하는 것은 아닙니다. 협의한 작업량이나 조건이 변경되는 경우, 이유와 비용을 먼저 안내하고 조율합니다.</p>
+            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">수거·폐기물 처리·소독·냄새 제거 자체를 현장에서 별도 옵션으로 추가하는 방식은 아닙니다. 변경이 필요한 경우에는 이유와 작업 내용, 비용을 먼저 설명하고 협의합니다. 상담 시 사진에 담기지 않은 공간이나 물품도 알려주세요.</p>
           </section>
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="쓰레기집청소 진행 순서와 소요 시간" />
-            <p>상담 → 보관·처리 대상 확인 → 견적 협의 → 분류·수거·폐기물 처리 → 청소·소독·냄새 제거 → 전후 사진 전달·마무리 확인 순서로 진행합니다.</p>
+            <p>상담 → 보관·처리 기준 확인 → 견적·진행 방식 협의 → 분류·수거·폐기물 처리 → 청소·소독·냄새 제거 → 전후 사진 전달·결과 확인 순서로 진행합니다.</p>
 
             <ol className="mt-6 space-y-4">
               {processSteps.map(([title, body], i) => (
@@ -331,20 +364,36 @@ export default function TrashHouseCleaningLanding() {
                 </li>
               ))}
             </ol>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 물품의 양과 분류 난이도, 반출 동선, 오염 상태에 따라 달라집니다. 하루 안에 가능한지는 상담과 현장 확인을 통해 안내합니다.</p>
+            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">소요 시간은 물품의 양과 분류 난이도, 반출 동선, 오염 상태에 따라 달라집니다. 퇴실일이나 작업 완료가 필요한 시간이 있다면 상담할 때 알려주세요.</p>
           </section>
 
           {/* 5. 전후사진/사례 */}
           {cases.length > 0 && (
             <section id="cases" className="scroll-mt-36">
               <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 실제 사례" />
-              <p>작업 사례를 보실 때는 물품이 비워진 모습과 함께 반출 후 어디까지 청소했는지도 확인해 보세요.</p>
-              <p className="mt-4">찐청소 홈페이지 &quot;찐현장사진들&quot;에 등록된 쓰레기집청소 현장만 모아 보여드립니다.</p>
+              <p>전후 사진을 볼 때는 물건이 비워졌는지뿐 아니라 반출 후 어디까지 청소했는지도 함께 확인해 보세요.</p>
+              <p className="mt-4">찐청소 홈페이지에 등록된 관련 사례입니다.</p>
+              <ul className="mt-3 space-y-2.5">
+                {caseExamples.map(item => (
+                  <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
               <div className="mt-6">
                 <CaseGallery items={cases} />
               </div>
-              <p className="mt-5 text-[15px] text-gray-500">실제 작업한 구역과 정리·청소 내용을 함께 살펴보시면 맡기려는 공간에 어떤 작업이 필요한지 이해하는 데 도움이 됩니다.</p>
-              <p className="mt-3 text-[15px] text-gray-500">작업을 맡겨주신 고객님께는 상세한 청소 전후 사진을 보내드립니다. 현장에 계시지 않아도 결과를 확인하실 수 있습니다.</p>
+              <p className="mt-5">작업을 맡겨주신 고객님께는 상세한 전후 사진을 전달합니다.</p>
+              <ul className="mt-3 space-y-2.5">
+                {resultChecklist.map(item => (
+                  <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-[15px] text-gray-500">소독·냄새 제거의 진행 내용은 사진과 함께 설명합니다. 냄새 상태는 사진만으로 확인하기 어려우므로, 작업 후 확인할 사항도 별도로 안내합니다.</p>
               <Link href="#cases" className="mt-4 inline-block font-bold text-brand">쓰레기집청소 현장 사진 보기 →</Link>
             </section>
           )}
@@ -353,7 +402,7 @@ export default function TrashHouseCleaningLanding() {
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
             <p>현장 위치와 희망 날짜를 알려주시면 방문 가능 여부와 일정을 확인합니다.</p>
-            <p className="mt-4">이사나 퇴실 날짜가 정해져 있다면 함께 말씀해 주세요. 정리와 청소를 언제까지 마쳐야 하는지 확인해 일정을 조율합니다.</p>
+            <p className="mt-4">이사나 퇴실 날짜가 정해져 있다면 정리를 마쳐야 하는 시점도 함께 말씀해 주세요.</p>
             <p className="mt-5 font-bold text-brand-dark">상담할 때 다음 정보를 알려주시면 도움이 됩니다.</p>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
@@ -362,26 +411,45 @@ export default function TrashHouseCleaningLanding() {
             </ul>
 
             <div className="mt-6 rounded-xl bg-gray-50 p-5">
-              <h3 className="font-bold text-brand-dark">비대면 진행 안내</h3>
-              <p className="mt-2 text-[15.5px]">원하시면 비대면으로 진행할 수 있습니다. 출입 방법과 보관 물품, 작업 중 확인이 필요한 경우의 연락 방법을 미리 협의합니다.</p>
-              <p className="mt-2 text-[15.5px]">현장에 계속 머무르기 어려우셔도 괜찮습니다. 전후 사진을 자세히 보내드리고, 작업 결과를 확인하실 수 있도록 안내합니다.</p>
-              <p className="mt-2 text-[15px] text-gray-500">방문 시간이나 반출 과정에서 신경 쓰이는 부분도 미리 말씀해 주세요. 현장 조건 안에서 조율할 수 있는 방법을 확인하겠습니다.</p>
+              <h3 className="font-bold text-brand-dark">비대면으로 맡기는 방법</h3>
+              <ol className="mt-3 space-y-2.5 text-[15.5px]">
+                {remoteSteps.map((step, i) => (
+                  <li key={step} className="flex gap-3">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-light text-[13px] font-black text-brand-dark">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-3 text-[15px] text-gray-500">작업 중 연락을 바로 받기 어렵다면 미리 알려주세요. 확인이 필요한 상황을 어떻게 처리할지 사전에 정하겠습니다.</p>
+            </div>
+
+            <div className="mt-4 rounded-xl bg-gray-50 p-5">
+              <h3 className="font-bold text-brand-dark">방문과 반출 과정에 대한 요청</h3>
+              <p className="mt-2 text-[15.5px]">방문 시간이나 반출 동선 등 신경 쓰이는 부분이 있다면 말씀해 주세요. 현장 조건 안에서 조율할 수 있는 방법을 확인합니다.</p>
+              <p className="mt-2 text-[15px] text-gray-500">다만 공용 공간을 이용한 반출 등이 있어 주변에 전혀 보이지 않는다고 보장하지는 않습니다.</p>
             </div>
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="청소 완료 후 검수 및 사후 처리 기준" />
-            <p>작업이 끝나면 협의한 처리 대상과 청소 범위를 기준으로 결과를 확인합니다.</p>
-            <p className="mt-4">보관하기로 한 물품의 위치와 청소 상태, 손상이나 접근 제한으로 작업하지 못한 부분이 있는지 안내합니다.</p>
-            <p className="mt-4">비대면 고객님은 전달받은 전후 사진을 확인하신 뒤 궁금한 부분이나 추가로 확인할 위치를 말씀해 주세요.</p>
-            <p className="mt-4 text-[15px] text-gray-500">작업 후 확인이 필요한 사항은 위치와 사진, 발견한 상태를 전달해 주시면 기존 작업 범위와 현장 상태를 확인해 처리 방법을 안내합니다. 사후 접수 기간과 보완 조건은 계약 시 확인해 주세요.</p>
+            <p>완료 여부는 처음 협의한 처리 대상과 청소 범위를 기준으로 확인합니다.</p>
+            <ul className="mt-5 space-y-2.5">
+              {checkupItems.map(item => (
+                <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4">비대면 고객님은 전달받은 사진을 보신 뒤 궁금한 부분이나 추가로 확인할 위치를 말씀해 주세요.</p>
+            <p className="mt-4 text-[15px] text-gray-500">작업 후 확인이 필요한 사항은 위치와 사진, 발견한 상태를 전달해 주시면 기존 작업 내용과 현장 상태를 확인해 안내합니다. 사후 접수 기간과 보완 조건은 계약 시 확인해 주세요.</p>
           </section>
 
           {/* 8. 준비사항 */}
           <section id="prep" className="scroll-mt-36">
-            <SectionTitle id="prep-title" kicker="08" title="작업 전 준비사항" />
-            <p>상담 전에 집을 먼저 치워두실 필요는 없습니다. 대신 남겨야 할 물건을 알려주시면 작업에 도움이 됩니다.</p>
+            <SectionTitle id="prep-title" kicker="08" title="쓰레기집청소 전 준비사항" />
+            <p>직접 쓰레기를 모으거나 무거운 물건을 옮겨두실 필요가 있는지는 상담 후 안내받아 주세요. 우선 아래 정보만 알려주셔도 도움이 됩니다.</p>
             <ul className="mt-5 space-y-2.5">
               {prepItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -390,7 +458,7 @@ export default function TrashHouseCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">직접 물건을 옮기기 어렵다면 무리해서 준비하지 마시고 현재 상태를 알려주세요.</p>
+            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진을 보내실 때는 방·주방·욕실 등 전체 모습과 물품이 쌓인 구역이 보이면 좋습니다. 촬영을 위해 물건을 무리하게 옮기지는 마세요. 귀중품과 중요한 서류는 가능하면 따로 보관하고, 반려동물이 있다면 작업 중 머무를 장소를 준비해 주세요.</p>
           </section>
 
           {/* 9. FAQ */}
@@ -410,8 +478,9 @@ export default function TrashHouseCleaningLanding() {
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
               <p className="text-xl font-bold">쓰레기집청소 견적 문의</p>
-              <p className="mt-3 text-white/80">집 상태를 어떻게 설명해야 할지 고민되시면, 정리가 필요한 공간과 가장 걱정되는 부분부터 말씀해 주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 수거·폐기물 처리·청소·소독·냄새 제거까지 포함한 견적을 안내합니다. 원하시면 비대면으로 진행하고, 상세한 전후 사진으로 작업 결과를 전달해드립니다.</p>
+              <p className="mt-3 text-white/80">무엇부터 설명해야 할지 모르겠다면, 현장 위치와 가장 걱정되는 부분부터 말씀해 주세요.</p>
+              <p className="mt-2 text-white/80">찐청소가 남겨둘 물건과 정리할 대상, 필요한 청소 범위를 확인하고 수거·폐기물 처리·청소·소독·냄새 제거까지 포함한 비용을 안내합니다.</p>
+              <p className="mt-2 text-white/80">원하시면 비대면으로 진행하고, 상세한 전후 사진으로 결과를 전달해드립니다.</p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <CtaButton>쓰레기집청소 견적 문의하기 →</CtaButton>
                 <a href="tel:010-9882-8882" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3.5 text-base font-bold text-white hover:bg-white/10">
