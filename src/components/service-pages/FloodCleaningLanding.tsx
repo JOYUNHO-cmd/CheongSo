@@ -214,7 +214,7 @@ export default function FloodCleaningLanding() {
                     <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                       {item.photos.map(photo => (
                         <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg bg-gray-100 sm:h-48">
-                          <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 피해 사진`} width={960} height={720} className="h-full w-full object-contain" sizes="(min-width: 768px) 210px, 45vw" />
+                          <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 피해 사진`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 210px, 45vw" />
                         </div>
                       ))}
                     </div>
