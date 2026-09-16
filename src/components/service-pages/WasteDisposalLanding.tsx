@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -37,21 +38,27 @@ const estimateChecklist = [
   "품목별 처리 비용",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
   {
     title: "가구와 생활 집기",
     body: "장롱·침대·매트리스·소파·책상·의자 등 처리할 물품의 종류와 수량을 알려주세요.",
     note: "큰 물품은 대략적인 크기와 현재 놓인 위치, 분해 여부를 확인합니다. 서랍이나 수납공간 안에 남겨둘 물건이 있는지도 살펴주세요.",
+    photoPairs: [["waste-site-01.webp", "waste-site-02.webp"]],
   },
   {
     title: "이사 후 남은 물품",
     body: "이사 후 남겨진 가구와 생활용품은 전체 모습과 주요 품목을 알려주세요.",
     note: "이삿짐과 처리할 물건이 섞이지 않도록 대상을 구분하고, 집을 비워야 하는 날짜도 함께 말씀해 주세요.",
+    photoPairs: [["waste-bags-01.webp"]],
   },
   {
     title: "사무실과 매장 집기",
     body: "책상·의자·수납장·진열대 등 정리할 집기의 종류와 수량을 확인합니다.",
     note: "건물 내 작업 시간과 승강기 예약, 주차·상차 위치도 견적에 반영합니다. 서류나 저장장치가 있는 전자기기는 일반 집기와 구분해 알려주세요.",
+    beforeAfter: [
+      { label: "사무실 집기 반출", before: "waste-office-before.webp", after: "waste-office-after.webp" },
+      { label: "매장 집기 반출", before: "waste-store-before.webp", after: "waste-store-after.webp" },
+    ],
   },
   {
     title: "가전과 전자제품",
@@ -214,6 +221,36 @@ export default function WasteDisposalLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <Image key={photo} src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="aspect-[4/3] w-full rounded-lg object-cover" sizes="(min-width: 768px) 220px, 45vw" />
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.beforeAfter && (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                      {item.beforeAfter.map(pair => (
+                        <figure key={pair.label} className="overflow-hidden rounded-xl border border-gray-100">
+                          <div className="grid grid-cols-2">
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.before}`} alt={`${pair.label} 전`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand-dark/85 px-2.5 py-1 text-[11px] font-bold text-white">전</span>
+                            </div>
+                            <div className="relative">
+                              <Image src={`/images/portfolio-v2/${pair.after}`} alt={`${pair.label} 후`} width={480} height={480} className="aspect-square w-full object-cover" sizes="(min-width: 768px) 170px, 50vw" />
+                              <span className="absolute left-2 top-2 rounded-full bg-brand/90 px-2.5 py-1 text-[11px] font-bold text-white">후</span>
+                            </div>
+                          </div>
+                          <figcaption className="px-3 py-2 text-sm font-bold text-brand-dark">{pair.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
