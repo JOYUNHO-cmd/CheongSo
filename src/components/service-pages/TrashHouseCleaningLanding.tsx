@@ -3,7 +3,8 @@ import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
-import { CtaButton, CaseFigure, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
+import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
+import { CaseGallery } from "@/components/service-pages/CaseGallery";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
@@ -277,9 +278,9 @@ export default function TrashHouseCleaningLanding() {
             <section id="cases" className="scroll-mt-36">
               <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 실제 사례" />
               <p>작업 사례를 보실 때는 물품이 비워진 모습과 함께 반출 후 어디까지 청소했는지도 확인해 보세요.</p>
-              <p className="mt-4">찐청소 홈페이지에 등록된 관련 사례입니다.</p>
-              <div className="mt-6 space-y-8">
-                {cases.map(item => <CaseFigure key={item.id} item={item} />)}
+              <p className="mt-4">찐청소 홈페이지 &quot;찐현장사진들&quot;에 등록된 쓰레기집청소 현장만 모아 보여드립니다.</p>
+              <div className="mt-6">
+                <CaseGallery items={cases} />
               </div>
               <p className="mt-5 text-[15px] text-gray-500">실제 작업한 구역과 정리·청소 내용을 함께 살펴보시면 맡기려는 공간에 어떤 작업이 필요한지 이해하는 데 도움이 됩니다.</p>
               <p className="mt-3 text-[15px] text-gray-500">작업을 맡겨주신 고객님께는 상세한 청소 전후 사진을 보내드립니다. 현장에 계시지 않아도 결과를 확인하실 수 있습니다.</p>
