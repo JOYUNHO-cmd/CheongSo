@@ -104,13 +104,13 @@ body {
   .portfolio-curtain-track.is-moving { transition: none; }
 }
 
-.case-curtain-window { height: 260px; overflow: hidden; }
+.case-curtain-window { height: 210px; overflow: hidden; }
 .case-curtain-track { height: 100%; transform: translateY(0); }
 .case-curtain-track.is-moving { transform: translateY(-100%); transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1); }
-.case-curtain-panel { height: 100%; display: grid; grid-template-columns: 1fr; gap: 16px; padding-bottom: 16px; }
+.case-curtain-panel { height: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-bottom: 16px; }
 @media (min-width: 640px) {
   .case-curtain-window { height: 280px; }
-  .case-curtain-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-curtain-panel { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .case-curtain-track.is-moving { transition: none; }

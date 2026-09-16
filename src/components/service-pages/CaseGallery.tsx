@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { PortfolioItem } from "@/components/service-pages/shared";
 
-const MOBILE_GROUP_SIZE = 1;
-const DESKTOP_GROUP_SIZE = 2;
+const GROUP_SIZE = 2;
 
 function Badge({ label, variant }: { label: string; variant: "before" | "after" }) {
   return (
@@ -45,15 +44,7 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
 
 // 메인페이지 "찐현장사진들"과 동일한 커튼 전환 방식으로, 해당 서비스 사례만 모아 보여줍니다.
 export function CaseGallery({ items }: { items: PortfolioItem[] }) {
-  const [groupSize, setGroupSize] = useState(DESKTOP_GROUP_SIZE);
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 639px)");
-    const update = () => setGroupSize(mq.matches ? MOBILE_GROUP_SIZE : DESKTOP_GROUP_SIZE);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
+  const groupSize = GROUP_SIZE;
   const [start, setStart] = useState(0);
   const [moving, setMoving] = useState(false);
   const [hovered, setHovered] = useState(false);
