@@ -4,6 +4,7 @@ import ServiceLanding from "@/components/ServiceLanding";
 import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLanding";
 import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLanding";
+import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -29,6 +30,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "침수청소 비용·건조·소독·복원 안내 | 찐청소",
     description: "찐청소 침수청소는 건조·소독·냄새 제거까지 기본 비용에 포함됩니다. 필요한 인원과 장비·약품에 따른 견적 기준, 작업 범위와 진행 절차를 확인하세요. 철거와 복원 인테리어는 별도 견적으로 진행합니다.",
     component: () => <FloodCleaningLanding />,
+  },
+  "쓰레기집청소": {
+    title: "쓰레기집청소 비용·폐기물 처리·비대면 청소 안내 | 찐청소",
+    description: "찐청소 쓰레기집청소는 수거·폐기물 처리·소독·냄새 제거까지 기본으로 포함합니다. 요청 시 비대면 진행이 가능하며 상세한 청소 전후 사진을 보내드립니다. 작업 범위와 비용, 예약 절차를 확인하세요.",
+    component: () => <TrashHouseCleaningLanding />,
   },
 };
 
