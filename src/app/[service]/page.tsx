@@ -57,7 +57,7 @@ const customLandingPages: Record<string, { title: string; description: string; c
   },
   "바닥본드제거": {
     title: "바닥본드제거 비용·데코타일·카펫 접착제 제거 | 찐청소",
-    description: "찐청소는 새 타일 시공 전 본드제거와 기존 바닥 재사용을 위한 접착제 제거를 진행합니다. 사용 목적과 바닥 상태에 따른 비용을 확인하세요. 마무리 세척은 기본 포함이며, 바닥재 철거는 기본 비용에서 제외됩니다.",
+    description: "바닥본드제거는 새 타일 시공용인지 기존 바닥 재사용용인지에 따라 작업 범위와 비용이 달라집니다. 찐청소는 마무리 세척을 기본으로 진행하며, 바닥재 철거는 별도 비용으로 안내합니다.",
     component: () => <FloorAdhesiveRemovalLanding />,
   },
 };
