@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLanding from "@/components/ServiceLanding";
 import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLanding";
+import GovernmentCleaningLanding from "@/components/service-pages/GovernmentCleaningLanding";
 import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLanding";
 import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
@@ -29,6 +30,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
     description: "찐청소 사무실청소의 기본 범위와 견적 기준을 확인하세요. 집기와 바닥 코팅을 제외한 내부 청소부터 정기청소까지, 현장 상태와 필요한 인원·작업 시간에 맞춰 안내합니다.",
     component: () => <OfficeCleaningLanding />,
+  },
+  "관공서청소": {
+    title: "관공서청소 비용·청소 범위·정기관리 안내 | 찐청소",
+    description: "찐청소 관공서청소의 견적 기준과 작업 범위를 안내합니다. 민원실·사무공간·복도·화장실 등 요청 구역을 확인하고, 기관 운영시간과 출입 조건에 맞춰 일회성 청소와 정기관리를 상담합니다.",
+    component: () => <GovernmentCleaningLanding />,
   },
   "화재청소": {
     title: "화재청소·화재복원 비용과 작업 범위 | 찐청소",
