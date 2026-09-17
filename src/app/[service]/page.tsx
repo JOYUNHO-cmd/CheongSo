@@ -46,8 +46,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <LegacyItemsCleaningLanding />,
   },
   "고독사청소": {
-    title: "고독사청소 비용·유품정리·특수청소 안내 | 찐청소",
-    description: "찐청소 고독사청소는 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 포함합니다. 비대면 진행과 상세 전후 사진 전달이 가능하며, 필요한 철거·복원은 별도 견적으로 진행합니다.",
+    title: "고독사청소 비용·유품정리·냄새 제거 안내 | 찐청소",
+    description: "고독사 현장 청소와 유품정리를 안내합니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 비대면 진행과 상세한 전후 사진 전달이 가능하며, 철거·복원은 별도 견적으로 상담합니다.",
     component: () => <LonelyDeathCleaningLanding />,
   },
   "폐기물처리": {
