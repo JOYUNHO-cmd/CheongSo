@@ -31,8 +31,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <FireCleaningLanding />,
   },
   "침수청소": {
-    title: "침수청소 비용·건조·소독·복원 안내 | 찐청소",
-    description: "찐청소 침수청소는 건조·소독·냄새 제거까지 기본 비용에 포함됩니다. 필요한 인원과 장비·약품에 따른 견적 기준, 작업 범위와 진행 절차를 확인하세요. 철거와 복원 인테리어는 별도 견적으로 진행합니다.",
+    title: "침수청소 비용·건조·소독·침수복구 안내 | 찐청소",
+    description: "침수 후 남은 오염부터 건조·소독·냄새 제거까지, 찐청소의 기본 작업에 포함됩니다. 현장별 견적 기준과 진행 순서를 확인하세요. 필요한 철거와 복원도 별도 견적으로 연결해 진행합니다.",
     component: () => <FloodCleaningLanding />,
   },
   "쓰레기집청소": {
