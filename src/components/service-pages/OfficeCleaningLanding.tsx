@@ -68,7 +68,6 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "시스템박스와 배전반",
     body: "바닥 시스템박스와 배전반처럼 놓치기 쉬운 곳의 분진도 확인 대상입니다.",
     note: "전기설비가 있는 구역은 일반 바닥과 구분하여 안전한 작업 가능 여부를 먼저 확인합니다. 내부 분진 청소는 필요한 안전조치와 담당 범위를 확인한 뒤 진행하며, 전기 점검·수리 작업은 포함하지 않습니다.",
-    photoPairs: [["office-systembox-01.webp", "office-panel-01.webp"], ["office-systembox-02.webp", "office-panel-02.webp"]],
   },
   {
     title: "사무실 내부 화장실·탕비 공간",
@@ -302,12 +301,21 @@ export default function OfficeCleaningLanding() {
                     </div>
                   )}
                   {item.title === "시스템박스와 배전반" && (
-                    <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-                      {["office-systembox-03.webp", "office-systembox-04.webp", "office-panel-03.webp", "office-panel-04.webp"].map(photo => (
-                        <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
-                          <Image src={`/images/portfolio-v2/${photo}`} alt="시스템박스·배전반 실제 현장 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
-                        </div>
-                      ))}
+                    <div className="mt-4 space-y-2.5">
+                      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                        {["office-panel-01.webp", "office-panel-02.webp", "office-panel-03.webp", "office-panel-04.webp"].map(photo => (
+                          <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                            <Image src={`/images/portfolio-v2/${photo}`} alt="배전반 실제 현장 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                          </div>
+                        ))}
+                      </div>
+                      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                        {["office-systembox-01.webp", "office-systembox-02.webp", "office-systembox-03.webp", "office-systembox-04.webp"].map(photo => (
+                          <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                            <Image src={`/images/portfolio-v2/${photo}`} alt="시스템박스 실제 현장 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
