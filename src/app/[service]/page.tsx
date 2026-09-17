@@ -9,6 +9,7 @@ import LegacyItemsCleaningLanding from "@/components/service-pages/LegacyItemsCl
 import LonelyDeathCleaningLanding from "@/components/service-pages/LonelyDeathCleaningLanding";
 import WasteDisposalLanding from "@/components/service-pages/WasteDisposalLanding";
 import FloorAdhesiveRemovalLanding from "@/components/service-pages/FloorAdhesiveRemovalLanding";
+import FloorWaxCoatingLanding from "@/components/service-pages/FloorWaxCoatingLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -59,6 +60,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "바닥본드제거 비용·데코타일·카펫 접착제 제거 | 찐청소",
     description: "바닥본드제거는 새 타일 시공용인지 기존 바닥 재사용용인지에 따라 작업 범위와 비용이 달라집니다. 찐청소는 마무리 세척을 기본으로 진행하며, 바닥재 철거는 별도 비용으로 안내합니다.",
     component: () => <FloorAdhesiveRemovalLanding />,
+  },
+  "바닥왁스코팅": {
+    title: "바닥왁스코팅 비용·박리·건조 시간 안내 | 찐청소",
+    description: "사무실·학원·상가 바닥왁스코팅, 바닥 재질과 기존 코팅 상태부터 확인하세요. 찐청소가 세척·박리 필요 여부, 견적 기준, 건조와 사용 재개 일정, 작업 후 관리 방법을 안내합니다.",
+    component: () => <FloorWaxCoatingLanding />,
   },
 };
 
