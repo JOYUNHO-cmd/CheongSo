@@ -39,36 +39,42 @@ const estimateChecklist = [
   "장비 반입 동선과 현장 작업 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "바닥과 모서리",
     body: "바닥 재질과 오염 상태에 맞춰 먼지와 오염을 제거합니다. 통로뿐 아니라 벽 쪽 가장자리, 모서리, 집기 주변의 접근 가능한 바닥도 살펴봅니다.",
     note: "바닥 세척은 기본 범위에 포함되지만, 왁스나 코팅제를 도포하는 작업은 포함되지 않습니다.",
+    photoPairs: [["office-corner-01.webp", "office-corner-02.webp"], ["office-corner-03.webp", "office-corner-04.webp"]],
   },
   {
     title: "내부 유리와 창틀",
     body: "내부에서 접근 가능한 유리와 창틀의 먼지, 손자국, 오염을 청소합니다.",
     note: "외벽 유리나 외부 고소작업이 필요한 구간은 내부 청소와 구분합니다.",
+    photoPairs: [["office-window-01.webp", "office-window-02.webp"], ["office-window-03.webp", "office-window-04.webp"]],
   },
   {
     title: "벽면·문·몰딩",
     body: "표면 재질과 상태를 살펴 먼지와 제거 가능한 오염을 정리합니다.",
     note: "벽지나 도장면은 바닥처럼 강하게 문지르거나 물을 많이 사용할 수 없는 경우가 있습니다. 청소로 제거할 오염과 변색·손상처럼 보수가 필요한 부분을 구분해 안내합니다.",
+    photoPairs: [["office-wall-01.webp", "office-wall-02.webp"], ["office-wall-03.webp", "office-wall-04.webp"]],
   },
   {
     title: "디퓨저와 손이 잘 닿지 않는 구역",
     body: "디퓨저 등 환기구 부위와 높은 곳의 먼지도 확인합니다.",
     note: "환기구 주변 청소와 공조설비 내부 분해·덕트 청소는 서로 다른 작업입니다. 높이와 구조에 따라 접근 방법과 작업 범위를 정합니다.",
+    photoPairs: [["office-diffuser-01.webp", "office-diffuser-02.webp"], ["office-diffuser-03.webp", "office-diffuser-04.webp"]],
   },
   {
     title: "시스템박스와 배전반",
     body: "바닥 시스템박스와 배전반처럼 놓치기 쉬운 곳의 분진도 확인 대상입니다.",
     note: "전기설비가 있는 구역은 일반 바닥과 구분하여 안전한 작업 가능 여부를 먼저 확인합니다. 내부 분진 청소는 필요한 안전조치와 담당 범위를 확인한 뒤 진행하며, 전기 점검·수리 작업은 포함하지 않습니다.",
+    photoPairs: [["office-systembox-01.webp", "office-panel-01.webp"], ["office-systembox-02.webp", "office-panel-02.webp"]],
   },
   {
     title: "사무실 내부 화장실·탕비 공간",
     body: "사무실 전용 화장실과 탕비 공간이 있다면 바닥과 벽면 등 내부 청소 범위에 반영합니다.",
     note: "건물 공용 화장실·복도는 사무실 전용 공간과 구분하고, 냉장고·정수기·커피머신 등 집기와 기기 청소는 기본 범위에서 제외합니다.",
+    photoPairs: [["office-restroom-01.webp", "office-restroom-02.webp"], ["office-restroom-03.webp", "office-restroom-04.webp"]],
   },
 ];
 
@@ -282,6 +288,28 @@ export default function OfficeCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {item.title === "시스템박스와 배전반" && (
+                    <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+                      {["office-systembox-03.webp", "office-systembox-04.webp", "office-panel-03.webp", "office-panel-04.webp"].map(photo => (
+                        <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                          <Image src={`/images/portfolio-v2/${photo}`} alt="시스템박스·배전반 실제 현장 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
