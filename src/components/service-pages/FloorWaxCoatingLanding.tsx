@@ -253,10 +253,10 @@ export default function FloorWaxCoatingLanding() {
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">비어 있는 넓은 공간보다 집기 많은 작은 공간이 더 복잡할 수 있습니다</h3>
             <p className="mt-2">넓어도 바닥이 비어 있으면 작업 동선이 단순할 수 있습니다. 반대로 책상과 수납장이 많은 공간은 이동할 물건과 작업할 구역을 나누는 데 시간이 필요합니다. 평수는 참고하되, 실제 작업 조건을 함께 봐야 하는 이유입니다.</p>
-            <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
               {["wax-furniture-01.webp", "wax-furniture-02.webp", "wax-furniture-03.webp", "wax-furniture-04.webp"].map(photo => (
                 <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
-                  <Image src={`/images/portfolio-v2/${photo}`} alt="집기 이동 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 90vw" />
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="집기 이동 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
                 </div>
               ))}
             </div>
