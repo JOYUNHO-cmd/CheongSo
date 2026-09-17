@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -49,21 +50,24 @@ const includedCheckItems = [
   "작업 후 사용·관리 안내",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "바닥 세척",
     body: "바닥의 먼지와 오염을 제거하는 작업입니다. 세척으로 정리할 수 있는 상태인지, 코팅까지 필요한지 확인합니다.",
     note: "코팅은 오염을 닦는 작업을 대신하지 않습니다. 새 코팅 전에 필요한 세척과 바탕 준비 범위를 맞춰야 합니다.",
+    photoPairs: [["wax-warehouse-01.webp", "wax-warehouse-02.webp"], ["wax-warehouse-03.webp", "wax-warehouse-04.webp"]],
   },
   {
     title: "기존 왁스 박리",
     body: "박리는 기존 왁스층을 제거하는 작업입니다. 기존 코팅의 들뜸, 오염 축적, 새 제품과의 적합성 등을 보고 필요 여부를 판단합니다.",
     note: "모든 현장에 전체 박리가 필요한 것도 아니고, 모든 바닥에 바로 덧바를 수 있는 것도 아닙니다. 박리 필요 여부와 견적 포함 범위를 먼저 확인해 주세요.",
+    photoPairs: [["wax-strip-01.webp", "wax-strip-02.webp"], ["wax-strip-03.webp", "wax-strip-04.webp"]],
   },
   {
     title: "바닥왁스코팅",
     body: "작업 대상에 적합한 제품으로 바닥 표면에 코팅층을 형성하는 작업입니다. 제품과 바닥 조건에 따라 외관과 표면 관리에 도움을 줄 수 있습니다.",
     note: "다만 깨진 타일, 들뜬 바닥, 깊은 흠집을 수리하는 작업은 아닙니다. 코팅으로 기대할 수 있는 변화와 별도 보수가 필요한 부분을 구분해 안내합니다.",
+    photoPairs: [["wax-eqfloor-01.webp", "wax-eqfloor-02.webp"]],
   },
   {
     title: "데코타일·기존 코팅 바닥",
@@ -249,6 +253,13 @@ export default function FloorWaxCoatingLanding() {
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">비어 있는 넓은 공간보다 집기 많은 작은 공간이 더 복잡할 수 있습니다</h3>
             <p className="mt-2">넓어도 바닥이 비어 있으면 작업 동선이 단순할 수 있습니다. 반대로 책상과 수납장이 많은 공간은 이동할 물건과 작업할 구역을 나누는 데 시간이 필요합니다. 평수는 참고하되, 실제 작업 조건을 함께 봐야 하는 이유입니다.</p>
+            <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
+              {["wax-furniture-01.webp", "wax-furniture-02.webp", "wax-furniture-03.webp"].map(photo => (
+                <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="집기 이동 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 90vw" />
+                </div>
+              ))}
+            </div>
             <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
@@ -280,6 +291,19 @@ export default function FloorWaxCoatingLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
