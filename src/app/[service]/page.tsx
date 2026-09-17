@@ -12,6 +12,7 @@ import FloorAdhesiveRemovalLanding from "@/components/service-pages/FloorAdhesiv
 import FloorWaxCoatingLanding from "@/components/service-pages/FloorWaxCoatingLanding";
 import FloorWoodCoatingLanding from "@/components/service-pages/FloorWoodCoatingLanding";
 import NanoCoatingLanding from "@/components/service-pages/NanoCoatingLanding";
+import FloorCleaningLanding from "@/components/service-pages/FloorCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -77,6 +78,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "포세린타일 나노코팅 비용·바닥 청소·관리 안내 | 찐청소",
     description: "찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 기존 오염과 표면 상태를 확인해 세척·코팅 범위, 비용, 건조와 사용 재개 일정을 안내합니다. 유리·수전·상판 등 다른 부위는 시공하지 않습니다.",
     component: () => <NanoCoatingLanding />,
+  },
+  "바닥청소": {
+    title: "바닥청소 비용·타일 세척·작업 범위 안내 | 찐청소",
+    description: "닦아도 남는 바닥 찌든 때와 얼룩, 재질과 오염 상태부터 확인하세요. 찐청소가 바닥청소 범위와 견적 기준, 집기 이동과 작업 일정을 안내합니다. 코팅·본드 제거·보수는 필요한 경우 별도로 상담합니다.",
+    component: () => <FloorCleaningLanding />,
   },
 };
 
