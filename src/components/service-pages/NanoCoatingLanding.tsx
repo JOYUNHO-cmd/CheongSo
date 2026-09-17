@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -49,21 +50,24 @@ const includedCheckItems = [
   "줄눈 관련 작업 여부",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "포세린타일이라고 모두 같은 표면은 아닙니다",
     body: "같은 포세린타일이라도 제품별 질감과 표면 처리가 다를 수 있습니다. 타일 제조사의 관리 기준과 적용할 코팅 제품의 적합성을 확인해야 합니다.",
     note: "모든 포세린타일에 나노코팅이 꼭 필요하다고 안내하지 않습니다. 세척으로 해결할 수 있는 상태인지, 추가 코팅을 권하지 않는 제품인지부터 구분합니다.",
+    photoPairs: [["nano-entry-01.webp", "nano-entry-02.webp"], ["nano-entry-03.webp", "nano-entry-04.webp"]],
   },
   {
     title: "기존 오염 확인과 세척",
     body: "코팅은 이미 생긴 얼룩을 지우는 작업을 대신하지 않습니다. 기존 오염을 어디까지 제거할 수 있는지 확인하고, 필요한 세척과 표면 정리 범위를 협의합니다.",
     note: "닦아도 남는 흔적이라고 해서 모두 타일 안으로 스며든 오염인 것은 아닙니다. 표면 잔여물인지, 오염인지, 자재 손상인지 확인하는 과정이 필요합니다.",
+    photoPairs: [["nano-clean-01.webp", "nano-clean-02.webp"], ["nano-clean-03.webp", "nano-clean-04.webp"]],
   },
   {
     title: "포세린타일 바닥 나노코팅",
     body: "적용 가능한 바닥에 제품 기준에 맞춰 코팅을 진행합니다. 코팅은 표면의 오염 관리를 돕기 위한 선택지가 될 수 있지만, 실제 효과와 관리 조건은 타일과 제품에 따라 달라집니다.",
     note: "‘나노’라는 이름만으로 방수·항균·미끄럼 방지·흠집 방지 성능이 모두 보장되는 것은 아닙니다. 필요한 성능이 있다면 해당 제품의 자료와 적용 조건을 따로 확인해야 합니다.",
+    photoPairs: [["nano-result-01.webp", "nano-result-02.webp"], ["nano-result-03.webp", "nano-result-04.webp"]],
   },
   {
     title: "무광 느낌과 색감 확인",
@@ -294,6 +298,19 @@ export default function NanoCoatingLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
