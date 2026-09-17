@@ -10,6 +10,7 @@ import LonelyDeathCleaningLanding from "@/components/service-pages/LonelyDeathCl
 import WasteDisposalLanding from "@/components/service-pages/WasteDisposalLanding";
 import FloorAdhesiveRemovalLanding from "@/components/service-pages/FloorAdhesiveRemovalLanding";
 import FloorWaxCoatingLanding from "@/components/service-pages/FloorWaxCoatingLanding";
+import FloorWoodCoatingLanding from "@/components/service-pages/FloorWoodCoatingLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -65,6 +66,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "바닥왁스코팅 비용·박리·건조 시간 안내 | 찐청소",
     description: "사무실·학원·상가 바닥왁스코팅, 바닥 재질과 기존 코팅 상태부터 확인하세요. 찐청소가 세척·박리 필요 여부, 견적 기준, 건조와 사용 재개 일정, 작업 후 관리 방법을 안내합니다.",
     component: () => <FloorWaxCoatingLanding />,
+  },
+  "마루코팅": {
+    title: "마루코팅 비용·시공 가능 여부·관리 안내 | 찐청소",
+    description: "마루코팅 전, 마루 종류와 기존 마감 상태부터 확인하세요. 찐청소가 시공 가능 여부, 세척과 코팅 범위, 견적 기준, 건조·가구 반입 일정과 작업 후 관리 방법을 안내합니다.",
+    component: () => <FloorWoodCoatingLanding />,
   },
 };
 
