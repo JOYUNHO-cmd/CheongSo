@@ -26,8 +26,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <OfficeCleaningLanding />,
   },
   "화재청소": {
-    title: "화재청소·화재복원 비용과 진행 절차 | 찐청소",
-    description: "찐청소는 화재 잔여물 수거와 피해 부분 철거부터 화재청소, 그을음·냄새 제거, 복원 인테리어와 준공청소까지 진행합니다. 현장별 작업 범위와 견적 기준, 복원 절차를 확인하세요.",
+    title: "화재청소·화재복원 비용과 작업 범위 | 찐청소",
+    description: "화재 잔여물 수거와 철거부터 그을음·냄새 제거, 복원 인테리어와 준공청소까지. 찐청소의 화재청소 견적 기준과 진행 절차를 확인하고 현장에 필요한 작업을 상담하세요.",
     component: () => <FireCleaningLanding />,
   },
   "침수청소": {
