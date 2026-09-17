@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -49,16 +50,18 @@ const includedCheckItems = [
   "자갈 보수나 별도 마감",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "자갈 사이의 먼지와 이물질",
     body: "표면과 틈새에 남은 먼지·이물질을 확인하고, 현장에 맞는 제거 방법을 정합니다. 틈이 드러난 바닥인지, 충전이나 코팅으로 표면이 마감된 바닥인지도 함께 살펴봅니다.",
     note: "겉면의 색이 밝아졌다는 이유만으로 보이지 않는 모든 부분까지 완전히 세척되었다고 단정하지 않습니다. 접근할 수 있는 범위와 확인이 어려운 부분을 구분합니다.",
+    photoPairs: [["pebble-dust-01.webp", "pebble-dust-02.webp"], ["pebble-dust-03.webp", "pebble-dust-04.webp"]],
   },
   {
     title: "찌든 때와 동선 오염",
     body: "출입구와 계산대 앞, 통행이 많은 구역의 오염을 확인합니다. 반복해서 밟힌 오염과 자재 자체의 마모·변색은 구분해야 합니다.",
     note: "청소로 달라질 수 있는 부분과 남을 수 있는 흔적을 상담합니다.",
+    photoPairs: [["pebble-traffic-01.webp", "pebble-traffic-02.webp"], ["pebble-traffic-03.webp", "pebble-traffic-04.webp"]],
   },
   {
     title: "음료·음식물·기름 오염",
@@ -69,6 +72,7 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "가장자리와 집기 주변",
     body: "벽면과 만나는 가장자리, 테이블·진열장 주변 등 필요한 구역을 협의합니다. 집기를 옮겨야 접근할 수 있는 부분은 이동 여부와 담당 범위를 먼저 정합니다.",
     note: "고정 집기 아래나 접근할 수 없는 구역까지 자동으로 청소되는 것은 아닙니다.",
+    photoPairs: [["pebble-furniture-01.webp", "pebble-furniture-02.webp"], ["pebble-furniture-03.webp", "pebble-furniture-04.webp"]],
   },
   {
     title: "자갈 탈락과 손상 확인",
@@ -280,6 +284,19 @@ export default function PebbleFloorCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -333,6 +350,15 @@ export default function PebbleFloorCleaningLanding() {
                 </li>
               ))}
             </ol>
+
+            <p className="mt-6 font-bold text-brand-dark">바닥 세척 작업 사례</p>
+            <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+              {["pebble-clean-01.webp", "pebble-clean-02.webp", "pebble-clean-03.webp", "pebble-clean-04.webp"].map(photo => (
+                <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="콩자갈 바닥 세척 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                </div>
+              ))}
+            </div>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
             <p className="mt-2">면적과 오염 정도, 집기 이동, 세척 방법과 환기 조건에 따라 달라집니다. 표면 청소에 걸리는 시간과 건조에 필요한 시간은 구분해야 합니다.</p>
