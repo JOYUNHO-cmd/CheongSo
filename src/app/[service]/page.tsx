@@ -26,8 +26,8 @@ type Props = { params: Promise<{ service: string }> };
 // 상세 콘텐츠를 직접 작성한 서비스는 여기서 커스텀 메타데이터/컴포넌트로 분기합니다.
 const customLandingPages: Record<string, { title: string; description: string; component: () => React.ReactElement }> = {
   "사무실청소": {
-    title: "사무실청소 비용·범위·정기청소 견적 안내 | 찐청소",
-    description: "찐청소 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부를 기본으로 합니다. 필요한 인원과 장비·약품을 기준으로 산정하는 청소 비용, 정기청소 견적과 예약 절차를 안내합니다.",
+    title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
+    description: "찐청소 사무실청소의 기본 범위와 견적 기준을 확인하세요. 집기와 바닥 코팅을 제외한 내부 청소부터 정기청소까지, 현장 상태와 필요한 인원·작업 시간에 맞춰 안내합니다.",
     component: () => <OfficeCleaningLanding />,
   },
   "화재청소": {
