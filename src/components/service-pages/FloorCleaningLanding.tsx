@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -48,16 +49,18 @@ const includedCheckItems = [
   "자재 손상 보수",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "데코타일 등 기존 코팅이 있는 바닥",
     body: "표면 오염인지, 기존 코팅층에 남은 흔적인지 먼저 확인합니다. 세척으로 정리할 수 있는 부분과 박리 등 추가 작업이 필요한 부분을 구분합니다.",
     note: "검게 보이는 자국이라도 모두 같은 오염은 아닙니다. 마모나 변색처럼 청소 후에도 남을 수 있는 흔적이 있는지 함께 살펴봅니다.",
+    photoPairs: [["floorclean-decotile-01.webp", "floorclean-decotile-02.webp"], ["floorclean-decotile-03.webp", "floorclean-decotile-04.webp"]],
   },
   {
     title: "포세린타일 등 타일 바닥",
     body: "타일 제품과 표면 질감, 오염 상태를 확인합니다. 물걸레질 후 남는 얼룩이 생활 오염인지, 세정제나 시공 잔여물인지도 구분할 필요가 있습니다.",
     note: "타일 표면 세척과 줄눈 세척은 작업 범위를 따로 확인합니다. 줄눈 보수·재시공이나 타일 코팅이 자동으로 포함되는 것은 아닙니다.",
+    photoPairs: [["floorclean-porcelain-01.webp", "floorclean-porcelain-02.webp"], ["floorclean-porcelain-03.webp", "floorclean-porcelain-04.webp"]],
   },
   {
     title: "마루·석재 등 별도 확인이 필요한 바닥",
@@ -279,6 +282,19 @@ export default function FloorCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -291,6 +307,22 @@ export default function FloorCleaningLanding() {
                 </li>
               ))}
             </ul>
+            <p className="mt-5 font-bold text-brand-dark">페인트 오염 제거 사례</p>
+            <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+              {["floorclean-paint-01.webp", "floorclean-paint-02.webp", "floorclean-paint-03.webp", "floorclean-paint-04.webp"].map(photo => (
+                <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="바닥 페인트 오염 제거 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 font-bold text-brand-dark">테이프·특수 오염 제거 사례</p>
+            <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+              {["floorclean-tape-01.webp", "floorclean-tape-02.webp", "floorclean-tape-03.webp", "floorclean-tape-04.webp"].map(photo => (
+                <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="바닥 테이프·특수 오염 제거 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                </div>
+              ))}
+            </div>
             <p className="mt-5 text-[15px] text-gray-500">필요한 항목이 있다면 진행 가능 여부와 견적 포함 범위를 별도로 확인해 주세요.</p>
           </section>
 
