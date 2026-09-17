@@ -324,7 +324,7 @@ export default function FloorWoodCoatingLanding() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-[15px] text-gray-500">위 항목은 마루코팅에 자동으로 포함되는 것으로 보지 않으며, 진행 가능 여부와 비용을 따로 확인해야 합니다.</p>
+            <p className="mt-5 text-[15px] text-gray-500">박리(기존 왁스를 벗겨내는 작업)가 필요한 경우, 진행 가능 여부와 비용을 따로 확인해야 합니다.</p>
           </section>
 
           {/* 3. 추가비용 */}
