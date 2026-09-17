@@ -75,7 +75,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "오염과 손상을 막고 바닥에 새 생명을 불어넣습니다",
     descLine1: "오염과 손상을 막고 바닥에",
     descLine2: "새 생명을 불어넣습니다",
-    items: ["바닥본드제거", "바닥왁스코팅", "마루코팅", "나노코팅", "바닥청소"],
+    items: ["바닥본드제거", "바닥왁스코팅", "마루코팅", "나노코팅", "콩자갈청소", "바닥청소"],
   },
 ];
 
