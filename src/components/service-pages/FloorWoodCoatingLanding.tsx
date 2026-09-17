@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import portfolio from "@/lib/portfolio-highlights.json";
@@ -50,21 +51,24 @@ const includedCheckItems = [
   "작업 후 사용·관리 안내",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "강마루·강화마루",
     body: "강마루와 강화마루는 이름이 비슷해도 같은 바닥으로 보고 작업해서는 안 됩니다. 같은 종류 안에서도 제품별 표면 처리가 다를 수 있습니다.",
     note: "추가 코팅이 적합한지, 기존 표면에 영향을 줄 수 있는지, 제조사에서 별도로 안내하는 관리 기준이 있는지 확인합니다. 마루 종류를 정확히 모르셔도 괜찮습니다. 사진이나 시공 내역이 있다면 상담에 활용할 수 있습니다.",
+    photoPairs: [["wood-strand-01.webp", "wood-strand-02.webp"], ["wood-strand-03.webp", "wood-strand-04.webp"]],
   },
   {
     title: "원목·합판 계열 마루",
     body: "나무가 보이는 바닥이라고 해서 모두 같은 마감인 것은 아닙니다. 기존에 도장, 오일, 왁스 등 어떤 방식으로 관리했는지에 따라 적용 가능한 제품과 준비 작업이 달라질 수 있습니다.",
     note: "기존 제품이나 시공 내역을 아는 범위에서 알려주세요. 표면 상태를 확인하지 않고 덧바르는 방식으로 안내하지 않습니다.",
+    photoPairs: [["wood-solid-01.webp", "wood-solid-02.webp"], ["wood-solid-03.webp", "wood-solid-04.webp"]],
   },
   {
     title: "코팅 전 세척과 표면 정리",
     body: "코팅 전에 먼지와 오염, 기존 관리제 잔여물 등 확인이 필요한 부분을 살펴봅니다. 마루 재질과 마감에 맞는 준비 작업을 협의합니다.",
     note: "코팅은 오염을 닦는 작업을 대신하지 않습니다. 표면이 칙칙한 원인이 오염인지, 기존 마감의 변화인지부터 구분해야 합니다.",
+    photoPairs: [["wood-clean-01.webp", "wood-clean-02.webp"], ["wood-clean-03.webp", "wood-clean-04.webp"]],
   },
   {
     title: "마루코팅과 흠집 보수는 다릅니다",
@@ -288,6 +292,19 @@ export default function FloorWoodCoatingLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -300,6 +317,13 @@ export default function FloorWoodCoatingLanding() {
                 </li>
               ))}
             </ul>
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+              {["wood-strip-01.webp", "wood-strip-02.webp", "wood-strip-03.webp", "wood-strip-04.webp"].map(photo => (
+                <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
+                  <Image src={`/images/portfolio-v2/${photo}`} alt="기존 코팅층 제거 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                </div>
+              ))}
+            </div>
             <p className="mt-5 text-[15px] text-gray-500">위 항목은 마루코팅에 자동으로 포함되는 것으로 보지 않으며, 진행 가능 여부와 비용을 따로 확인해야 합니다.</p>
           </section>
 
