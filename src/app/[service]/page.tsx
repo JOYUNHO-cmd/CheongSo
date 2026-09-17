@@ -41,8 +41,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <TrashHouseCleaningLanding />,
   },
   "유품정리": {
-    title: "유품정리 비용·폐기물 처리·비대면 진행 안내 | 찐청소",
-    description: "찐청소 유품정리는 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 포함합니다. 보관할 유품과 처리할 물품을 먼저 확인하며, 요청 시 비대면 진행과 상세한 전후 사진 전달이 가능합니다.",
+    title: "유품정리 비용·처리 범위·비대면 진행 안내 | 찐청소",
+    description: "남길 유품과 정리할 물건을 구분하는 것부터 시작합니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
     component: () => <LegacyItemsCleaningLanding />,
   },
   "고독사청소": {
