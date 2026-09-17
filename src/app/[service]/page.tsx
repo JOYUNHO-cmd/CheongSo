@@ -51,8 +51,8 @@ const customLandingPages: Record<string, { title: string; description: string; c
     component: () => <LonelyDeathCleaningLanding />,
   },
   "폐기물처리": {
-    title: "폐기물처리 비용·가구 수거·이사폐기물 안내 | 찐청소",
-    description: "찐청소는 폐기물을 직접 수집·운반하고 협업 처리업체와 연계해 처리합니다. 품목과 물량, 반출 조건에 따른 비용을 확인하세요. 반출 후 청소와 비대면 진행이 가능하며 상세한 전후 사진을 보내드립니다.",
+    title: "폐기물처리 비용·수거·운반·비대면 안내 | 찐청소",
+    description: "폐기물처리, 물건 사진과 위치부터 알려주세요. 찐청소가 직접 수집·운반하고 협력 처리업체와 연계합니다. 품목별 가능 여부와 비용을 안내하며, 비대면 진행과 작업 전후 사진 전달, 별도 청소 상담이 가능합니다.",
     component: () => <WasteDisposalLanding />,
   },
   "바닥본드제거": {
