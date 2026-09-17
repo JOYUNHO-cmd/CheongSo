@@ -11,6 +11,7 @@ import WasteDisposalLanding from "@/components/service-pages/WasteDisposalLandin
 import FloorAdhesiveRemovalLanding from "@/components/service-pages/FloorAdhesiveRemovalLanding";
 import FloorWaxCoatingLanding from "@/components/service-pages/FloorWaxCoatingLanding";
 import FloorWoodCoatingLanding from "@/components/service-pages/FloorWoodCoatingLanding";
+import NanoCoatingLanding from "@/components/service-pages/NanoCoatingLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { absoluteUrl } from "@/lib/site-url";
@@ -71,6 +72,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "마루코팅 비용·시공 가능 여부·관리 안내 | 찐청소",
     description: "마루코팅 전, 마루 종류와 기존 마감 상태부터 확인하세요. 찐청소가 시공 가능 여부, 세척과 코팅 범위, 견적 기준, 건조·가구 반입 일정과 작업 후 관리 방법을 안내합니다.",
     component: () => <FloorWoodCoatingLanding />,
+  },
+  "나노코팅": {
+    title: "포세린타일 나노코팅 비용·바닥 청소·관리 안내 | 찐청소",
+    description: "찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 기존 오염과 표면 상태를 확인해 세척·코팅 범위, 비용, 건조와 사용 재개 일정을 안내합니다. 유리·수전·상판 등 다른 부위는 시공하지 않습니다.",
+    component: () => <NanoCoatingLanding />,
   },
 };
 
