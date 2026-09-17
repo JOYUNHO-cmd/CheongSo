@@ -67,7 +67,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "바닥왁스코팅",
     body: "작업 대상에 적합한 제품으로 바닥 표면에 코팅층을 형성하는 작업입니다. 제품과 바닥 조건에 따라 외관과 표면 관리에 도움을 줄 수 있습니다.",
     note: "다만 깨진 타일, 들뜬 바닥, 깊은 흠집을 수리하는 작업은 아닙니다. 코팅으로 기대할 수 있는 변화와 별도 보수가 필요한 부분을 구분해 안내합니다.",
-    photoPairs: [["wax-eqfloor-01.webp", "wax-eqfloor-02.webp"]],
+    photoPairs: [["wax-eqfloor-01.webp", "wax-eqfloor-02.webp"], ["wax-eqfloor-03.webp", "wax-eqfloor-04.webp"]],
   },
   {
     title: "데코타일·기존 코팅 바닥",
@@ -253,8 +253,8 @@ export default function FloorWaxCoatingLanding() {
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">비어 있는 넓은 공간보다 집기 많은 작은 공간이 더 복잡할 수 있습니다</h3>
             <p className="mt-2">넓어도 바닥이 비어 있으면 작업 동선이 단순할 수 있습니다. 반대로 책상과 수납장이 많은 공간은 이동할 물건과 작업할 구역을 나누는 데 시간이 필요합니다. 평수는 참고하되, 실제 작업 조건을 함께 봐야 하는 이유입니다.</p>
-            <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
-              {["wax-furniture-01.webp", "wax-furniture-02.webp", "wax-furniture-03.webp"].map(photo => (
+            <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              {["wax-furniture-01.webp", "wax-furniture-02.webp", "wax-furniture-03.webp", "wax-furniture-04.webp"].map(photo => (
                 <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
                   <Image src={`/images/portfolio-v2/${photo}`} alt="집기 이동 작업 사진" width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 90vw" />
                 </div>
