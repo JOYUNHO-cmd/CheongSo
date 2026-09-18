@@ -4,6 +4,7 @@ import ServiceLanding from "@/components/ServiceLanding";
 import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLanding";
 import GovernmentCleaningLanding from "@/components/service-pages/GovernmentCleaningLanding";
 import SchoolCleaningLanding from "@/components/service-pages/SchoolCleaningLanding";
+import FactoryCleaningLanding from "@/components/service-pages/FactoryCleaningLanding";
 import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLanding";
 import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
@@ -41,6 +42,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "학교청소 비용·교실 청소 범위·방학 대청소 안내 | 찐청소",
     description: "찐청소 학교청소의 비용 기준과 공간별 작업 범위를 안내합니다. 교실·복도·계단·화장실 청소부터 책걸상 작업과 바닥 코팅 구분까지, 학사 일정과 현장 상태에 맞춰 상담하세요.",
     component: () => <SchoolCleaningLanding />,
+  },
+  "공장청소": {
+    title: "공장청소 비용·바닥·유니트쿨러·기계설비청소 | 찐청소",
+    description: "공장 바닥의 기름때·분진부터 유니트쿨러 내부 세척과 기계설비청소까지. 찐청소가 설비 구조, 오염 상태, 생산 일정에 맞춰 작업 범위와 비용을 안내합니다.",
+    component: () => <FactoryCleaningLanding />,
   },
   "화재청소": {
     title: "화재청소·화재복원 비용과 작업 범위 | 찐청소",
