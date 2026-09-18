@@ -46,7 +46,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "민원실과 로비",
     body: "출입구 주변, 대기 공간의 바닥, 내부 유리, 창틀, 모서리 등 오염이 쌓이는 부분을 확인합니다. 민원 업무 중 작업한다면 출입구와 대기 동선을 고려해 구역을 나눕니다.",
     note: "안내데스크, 대기 의자 등 집기 자체의 청소는 별도 항목으로 구분해 요청 범위를 확인합니다.",
-    photoPairs: [["gov-lobby-01.webp"]],
+    photoPairs: [["gov-lobby-01.webp", "gov-lobby-02.webp"], ["gov-lobby-03.webp"]],
   },
   {
     title: "사무공간과 회의실",
@@ -58,12 +58,13 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "복도와 계단",
     body: "복도 바닥, 가장자리, 계단과 난간 등 공용 이동 구역을 확인합니다.",
     note: "층별 이동과 시설 이용에 필요한 통로를 고려해 작업 순서를 정하고, 물기가 남는 구간은 이용 동선과 구분하는 방식으로 진행합니다.",
-    photoPairs: [["gov-stairs-01.webp"]],
+    photoPairs: [["gov-stairs-01.webp", "gov-stairs-02.webp"], ["gov-stairs-03.webp"]],
   },
   {
     title: "화장실과 세면 공간",
     body: "바닥, 세면대, 변기, 칸막이 등 요청 범위에 포함된 시설의 오염을 확인하고 청소합니다.",
     note: "청소가 필요한 오염과 누수·파손·설비 이상은 구분합니다. 냄새가 있는 경우에도 표면 오염 때문인지, 배수나 설비 확인이 필요한 상태인지 살펴야 합니다.",
+    photoPairs: [["gov-restroom-01.webp", "gov-restroom-02.webp"], ["gov-restroom-03.webp", "gov-restroom-04.webp"]],
   },
   {
     title: "탕비실과 휴게 공간",
@@ -75,7 +76,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "높은 곳과 설비 주변",
     body: "디퓨저 등 환기구 주변이나 평소 손이 잘 닿지 않는 곳은 높이와 접근 조건을 확인합니다.",
     note: "설비 주변 청소와 설비 내부 분해·점검은 다른 작업입니다. 전기설비가 있는 구역은 안전한 작업 조건과 담당 범위를 먼저 확인합니다.",
-    photoPairs: [["gov-height-01.webp", "gov-height-02.webp"]],
+    photoPairs: [["gov-height-01.webp", "gov-height-02.webp"], ["gov-height-03.webp", "gov-height-04.webp"]],
   },
 ];
 
