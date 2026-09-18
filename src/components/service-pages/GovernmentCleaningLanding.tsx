@@ -69,7 +69,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "탕비실과 휴게 공간",
     body: "바닥, 싱크대 주변, 벽면 등 합의한 구역을 청소합니다.",
     note: "냉장고 내부, 커피머신, 정수기 등 기기 청소와 개인 물품 정리는 별도로 범위를 정합니다.",
-    photoPairs: [["gov-lounge-01.webp", "gov-lounge-02.webp"], ["gov-lounge-03.webp"]],
+    photoPairs: [["gov-lounge-01.webp", "gov-lounge-02.webp"], ["gov-lounge-03.webp", "gov-lounge-04.webp"]],
   },
   {
     title: "높은 곳과 설비 주변",
