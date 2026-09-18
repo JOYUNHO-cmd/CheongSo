@@ -52,7 +52,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "사무공간과 회의실",
     body: "바닥, 창틀, 내부 유리, 문, 몰딩 등 요청하신 내부 구역을 청소합니다.",
     note: "서류와 전산장비가 있는 공간은 접근 가능한 구역을 먼저 정합니다. 책상 위 서류 정리, 캐비닛 내부 정리, 전자기기 청소를 일반 공간 청소에 임의로 포함하지 않습니다.",
-    photoPairs: [["gov-office-01.webp", "gov-office-02.webp"], ["gov-office-03.webp", "gov-office-04.webp"]],
+    photoPairs: [["gov-office-01.webp", "gov-office-02.webp"], ["gov-office-03.webp"]],
   },
   {
     title: "복도와 계단",
