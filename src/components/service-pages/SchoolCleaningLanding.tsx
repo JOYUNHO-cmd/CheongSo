@@ -48,16 +48,18 @@ const deskChecklist = [
   "청소 후 기존 배치로 돌려놓는지",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "교실 바닥과 가장자리",
     body: "바닥 재질과 상태에 맞춰 먼지와 오염을 제거합니다. 출입문 주변, 벽 쪽 가장자리, 모서리 등 평소 손이 덜 닿는 구간도 살펴봅니다.",
     note: "책걸상 아래까지 작업하려면 이동이 필요한지 먼저 확인해야 합니다. 집기를 그대로 둔 상태의 청소와 이동 후 전체 바닥 청소는 작업량이 다릅니다.",
+    photoPairs: [["school-floor-01.webp", "school-floor-02.webp"], ["school-floor-03.webp", "school-floor-04.webp"]],
   },
   {
     title: "창틀과 내부 유리",
     body: "접근 가능한 창틀과 내부 유리의 먼지, 손자국, 오염을 청소합니다.",
     note: "외부 유리나 높은 위치의 창은 접근 조건을 확인해야 합니다. 외벽 작업과 창호 분해는 일반 내부 청소와 구분합니다.",
+    photoPairs: [["school-window-01.webp", "school-window-02.webp"], ["school-window-03.webp"]],
   },
   {
     title: "복도와 계단",
@@ -73,12 +75,19 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "특별실과 도서실",
     body: "과학실, 음악실, 컴퓨터실, 도서실 등은 일반 교실과 다른 물품이 놓여 있습니다. 공간의 바닥과 창틀 청소인지, 내부 집기까지 포함하는지 범위를 정합니다.",
     note: "실험기구·약품·악기·전산장비·도서는 임의로 이동하거나 청소하지 않도록 담당 범위를 확인합니다.",
+    photoPairs: [["school-special-01.webp", "school-special-02.webp"]],
   },
   {
     title: "교무실과 행정실",
     body: "바닥, 창틀, 내부 유리 등 요청한 구역을 청소합니다.",
     note: "중요 서류, 개인정보가 담긴 자료, 전산장비가 있는 곳은 접근 제한과 작업 범위를 먼저 정합니다.",
   },
+];
+
+const deskPhotoPairs: string[][] = [
+  ["school-desk-01.webp", "school-desk-02.webp"],
+  ["school-desk-03.webp", "school-desk-04.webp"],
+  ["school-desk-05.webp", "school-desk-06.webp"],
 ];
 
 const separateScopeItems = [
@@ -291,6 +300,19 @@ export default function SchoolCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
               <div className="rounded-xl border border-gray-100 p-5">
@@ -305,6 +327,17 @@ export default function SchoolCleaningLanding() {
                   ))}
                 </ul>
                 <p className="mt-3 text-[15px] text-gray-500">수납장도 외부 표면과 내부 청소를 구분합니다. 내부 작업이 필요하다면 교재와 개인 물품을 누가 정리할지 미리 맞춥니다.</p>
+                <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                  {deskPhotoPairs.map((pair, pairIndex) => (
+                    <div key={pair.join("-")} className="grid grid-cols-2 gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5">
+                      {pair.map(photo => (
+                        <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                          <Image src={`/images/portfolio-v2/${photo}`} alt={`책걸상과 수납장 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
