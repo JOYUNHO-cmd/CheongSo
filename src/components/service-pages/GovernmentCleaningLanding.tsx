@@ -41,21 +41,24 @@ const estimateChecklist = [
   "업무 중 작업인지, 비업무 시간 작업인지",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "민원실과 로비",
     body: "출입구 주변, 대기 공간의 바닥, 내부 유리, 창틀, 모서리 등 오염이 쌓이는 부분을 확인합니다. 민원 업무 중 작업한다면 출입구와 대기 동선을 고려해 구역을 나눕니다.",
     note: "안내데스크, 대기 의자 등 집기 자체의 청소는 별도 항목으로 구분해 요청 범위를 확인합니다.",
+    photoPairs: [["gov-lobby-01.webp"]],
   },
   {
     title: "사무공간과 회의실",
     body: "바닥, 창틀, 내부 유리, 문, 몰딩 등 요청하신 내부 구역을 청소합니다.",
     note: "서류와 전산장비가 있는 공간은 접근 가능한 구역을 먼저 정합니다. 책상 위 서류 정리, 캐비닛 내부 정리, 전자기기 청소를 일반 공간 청소에 임의로 포함하지 않습니다.",
+    photoPairs: [["gov-office-01.webp", "gov-office-02.webp"], ["gov-office-03.webp", "gov-office-04.webp"]],
   },
   {
     title: "복도와 계단",
     body: "복도 바닥, 가장자리, 계단과 난간 등 공용 이동 구역을 확인합니다.",
     note: "층별 이동과 시설 이용에 필요한 통로를 고려해 작업 순서를 정하고, 물기가 남는 구간은 이용 동선과 구분하는 방식으로 진행합니다.",
+    photoPairs: [["gov-stairs-01.webp"]],
   },
   {
     title: "화장실과 세면 공간",
@@ -66,11 +69,13 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "탕비실과 휴게 공간",
     body: "바닥, 싱크대 주변, 벽면 등 합의한 구역을 청소합니다.",
     note: "냉장고 내부, 커피머신, 정수기 등 기기 청소와 개인 물품 정리는 별도로 범위를 정합니다.",
+    photoPairs: [["gov-lounge-01.webp", "gov-lounge-02.webp"], ["gov-lounge-03.webp"]],
   },
   {
     title: "높은 곳과 설비 주변",
     body: "디퓨저 등 환기구 주변이나 평소 손이 잘 닿지 않는 곳은 높이와 접근 조건을 확인합니다.",
     note: "설비 주변 청소와 설비 내부 분해·점검은 다른 작업입니다. 전기설비가 있는 구역은 안전한 작업 조건과 담당 범위를 먼저 확인합니다.",
+    photoPairs: [["gov-height-01.webp", "gov-height-02.webp"]],
   },
 ];
 
@@ -282,6 +287,19 @@ export default function GovernmentCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
