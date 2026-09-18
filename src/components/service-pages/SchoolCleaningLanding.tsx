@@ -65,22 +65,25 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "복도와 계단",
     body: "복도 바닥, 벽 쪽 가장자리, 계단 모서리와 난간 등 요청 구역을 청소합니다.",
     note: "학생과 교직원이 이용하는 시간이라면 작업 구간과 이동 통로를 나누고, 물기가 남은 구간은 이용 동선과 구분합니다.",
+    photoPairs: [["school-hallway-01.webp", "school-hallway-02.webp"], ["school-hallway-03.webp", "school-hallway-04.webp"]],
   },
   {
     title: "화장실과 세면 공간",
     body: "변기, 세면대, 바닥, 칸막이 등 합의한 범위의 오염을 청소합니다.",
     note: "표면 오염과 설비 문제는 구분합니다. 누수, 파손, 배수 이상처럼 청소만으로 해결하기 어려운 부분은 별도 확인이 필요합니다.",
+    photoPairs: [["school-restroom-01.webp", "school-restroom-02.webp"], ["school-restroom-03.webp"]],
   },
   {
     title: "특별실과 도서실",
     body: "과학실, 음악실, 컴퓨터실, 도서실 등은 일반 교실과 다른 물품이 놓여 있습니다. 공간의 바닥과 창틀 청소인지, 내부 집기까지 포함하는지 범위를 정합니다.",
     note: "실험기구·약품·악기·전산장비·도서는 임의로 이동하거나 청소하지 않도록 담당 범위를 확인합니다.",
-    photoPairs: [["school-special-01.webp", "school-special-02.webp"]],
+    photoPairs: [["school-special-01.webp", "school-special-02.webp"], ["school-special-03.webp", "school-special-04.webp"]],
   },
   {
     title: "교무실과 행정실",
     body: "바닥, 창틀, 내부 유리 등 요청한 구역을 청소합니다.",
     note: "중요 서류, 개인정보가 담긴 자료, 전산장비가 있는 곳은 접근 제한과 작업 범위를 먼저 정합니다.",
+    photoPairs: [["school-office-01.webp", "school-office-02.webp"], ["school-office-03.webp"]],
   },
 ];
 
