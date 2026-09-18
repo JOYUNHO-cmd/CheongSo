@@ -87,7 +87,6 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
 const deskPhotoPairs: string[][] = [
   ["school-desk-01.webp", "school-desk-02.webp"],
   ["school-desk-03.webp", "school-desk-04.webp"],
-  ["school-desk-05.webp", "school-desk-06.webp"],
 ];
 
 const separateScopeItems = [
