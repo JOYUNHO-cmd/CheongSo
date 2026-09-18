@@ -5,6 +5,7 @@ import OfficeCleaningLanding from "@/components/service-pages/OfficeCleaningLand
 import GovernmentCleaningLanding from "@/components/service-pages/GovernmentCleaningLanding";
 import SchoolCleaningLanding from "@/components/service-pages/SchoolCleaningLanding";
 import FactoryCleaningLanding from "@/components/service-pages/FactoryCleaningLanding";
+import KitchenCleaningLanding from "@/components/service-pages/KitchenCleaningLanding";
 import FireCleaningLanding from "@/components/service-pages/FireCleaningLanding";
 import FloodCleaningLanding from "@/components/service-pages/FloodCleaningLanding";
 import TrashHouseCleaningLanding from "@/components/service-pages/TrashHouseCleaningLanding";
@@ -47,6 +48,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "공장청소 비용·바닥·유니트쿨러·기계설비청소 | 찐청소",
     description: "공장 바닥의 기름때·분진부터 유니트쿨러 내부 세척과 기계설비청소까지. 찐청소가 설비 구조, 오염 상태, 생산 일정에 맞춰 작업 범위와 비용을 안내합니다.",
     component: () => <FactoryCleaningLanding />,
+  },
+  "주방청소": {
+    title: "주방청소 비용·업소 기름때·청소 범위 안내 | 찐청소",
+    description: "찐청소 업소 주방청소의 비용과 작업 범위를 안내합니다. 바닥·벽면·조리 공간의 기름때, 후드와 주방기기의 세척 범위를 확인하고 영업 일정에 맞춰 견적을 상담하세요.",
+    component: () => <KitchenCleaningLanding />,
   },
   "화재청소": {
     title: "화재청소·화재복원 비용과 작업 범위 | 찐청소",
