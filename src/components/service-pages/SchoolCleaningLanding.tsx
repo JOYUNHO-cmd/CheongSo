@@ -53,7 +53,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "교실 바닥과 가장자리",
     body: "바닥 재질과 상태에 맞춰 먼지와 오염을 제거합니다. 출입문 주변, 벽 쪽 가장자리, 모서리 등 평소 손이 덜 닿는 구간도 살펴봅니다.",
     note: "책걸상 아래까지 작업하려면 이동이 필요한지 먼저 확인해야 합니다. 집기를 그대로 둔 상태의 청소와 이동 후 전체 바닥 청소는 작업량이 다릅니다.",
-    photoPairs: [["school-floor-01.webp", "school-floor-02.webp"], ["school-floor-03.webp", "school-floor-04.webp"]],
+    photoPairs: [["school-floor-01.webp", "school-floor-02.webp"], ["school-floor-03.webp"]],
   },
   {
     title: "창틀과 내부 유리",
