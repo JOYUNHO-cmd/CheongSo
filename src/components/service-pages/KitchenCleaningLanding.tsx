@@ -41,41 +41,48 @@ const estimateChecklist = [
   "물·전원 사용, 배수, 장비 반입 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "주방 바닥과 가장자리",
     body: "바닥 재질과 상태에 맞춰 기름때와 제거 가능한 오염을 청소합니다. 주요 통로뿐 아니라 벽 쪽 가장자리와 모서리, 접근 가능한 기기 주변도 살펴봅니다.",
     note: "기기를 옮기지 않고 닿을 수 있는 구간과 이동해야 청소할 수 있는 구간은 구분합니다.",
+    photoPairs: [["kitchen-floor-01.webp", "kitchen-floor-02.webp"], ["kitchen-floor-03.webp", "kitchen-floor-04.webp"]],
   },
   {
     title: "벽면과 조리 공간 주변",
     body: "조리 중 오염이 쌓인 벽면과 주변 표면을 확인합니다.",
     note: "타일, 금속, 도장면 등 표면 재질에 맞춰 작업 범위를 정하며, 오래된 변색이나 부식·손상은 제거할 오염과 구분합니다.",
+    photoPairs: [["kitchen-wall-01.webp", "kitchen-wall-02.webp"], ["kitchen-wall-03.webp", "kitchen-wall-04.webp"]],
   },
   {
     title: "조리대와 싱크대",
     body: "조리대와 싱크대는 상판, 외부 표면, 하부 등 필요한 부위를 나누어 요청 범위를 정합니다. 식기와 조리도구, 식재료가 놓여 있다면 작업 전에 보관 위치와 정리 담당을 맞춥니다.",
     note: "음식과 직접 닿는 면은 사용한 제품의 지침에 맞는 마무리와 사용 전 확인이 중요합니다.",
+    photoPairs: [["kitchen-counter-01.webp", "kitchen-counter-02.webp"], ["kitchen-counter-03.webp", "kitchen-counter-04.webp"]],
   },
   {
     title: "선반과 수납 공간",
     body: "선반 외부와 내부, 벽 쪽 틈 등 청소할 부위를 확인합니다.",
     note: "수납 공간 내부 청소가 필요하다면 내용물을 어디로 옮길지 먼저 정합니다. 식재료나 조리도구를 임의로 폐기하거나 재배치하지 않도록 범위를 맞춥니다.",
+    photoPairs: [["kitchen-shelf-01.webp", "kitchen-shelf-02.webp"], ["kitchen-shelf-03.webp", "kitchen-shelf-04.webp"]],
   },
   {
     title: "후드와 필터",
     body: "후드는 외부 표면, 필터, 내부 접근 부위 등 어떤 부분을 청소할지 구분해야 합니다. 후드·필터 세척을 원하시면 구조와 오염 상태를 확인해 수행 가능한 범위와 비용을 안내합니다.",
     note: "후드 청소가 배기 덕트 전체나 팬·모터 세척까지 뜻하는 것은 아닙니다. 덕트 내부와 분해 작업은 별도 확인 항목입니다.",
+    photoPairs: [["kitchen-hood-01.webp", "kitchen-hood-02.webp"], ["kitchen-hood-03.webp", "kitchen-hood-04.webp"]],
   },
   {
     title: "주방기기와 기기 주변",
     body: "가열기기, 냉장고 등은 외부 표면 청소와 내부·분해 세척을 구분합니다. 기기의 종류와 모델, 요청 부위, 물 사용 제한 등을 확인해 작업 가능 여부를 판단합니다.",
     note: "가스·전기·급배수에 연결된 기기의 이동이나 분리는 일반 공간 청소에 자동으로 포함되지 않습니다.",
+    photoPairs: [["kitchen-appliance-01.webp", "kitchen-appliance-02.webp"], ["kitchen-appliance-03.webp", "kitchen-appliance-04.webp"]],
   },
   {
     title: "배수구와 주변 구역",
     body: "배수구 주변의 표면 오염과 접근 가능한 부분의 작업 범위를 확인합니다. 배수구 표면 청소, 배관 내부 세척, 막힘 해결은 서로 다른 작업입니다.",
     note: "냄새가 난다고 해서 표면 청소만으로 모든 원인이 해결되는 것은 아닙니다. 그리스트랩 내부 청소와 잔여물 처리가 필요하다면 별도 항목으로 알려주세요.",
+    photoPairs: [["kitchen-drain-01.webp", "kitchen-drain-02.webp"], ["kitchen-drain-03.webp", "kitchen-drain-04.webp"]],
   },
 ];
 
@@ -293,6 +300,19 @@ export default function KitchenCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
