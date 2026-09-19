@@ -50,26 +50,30 @@ const machineChecklist = [
   "필요한 안전조치와 재가동 확인 절차",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "공장 바닥과 이동 통로",
     body: "바닥 재질과 오염 상태에 맞춰 먼지와 기름때 등 제거 가능한 오염을 청소합니다. 주요 통로뿐 아니라 벽 쪽 가장자리, 모서리, 접근 가능한 설비 주변도 확인합니다.",
     note: "바닥 세척과 코팅·도장 보수는 다른 작업입니다. 오염을 제거한 뒤에도 기존 마모나 변색, 벗겨짐은 남을 수 있습니다.",
+    photoPairs: [["factory-floor-01.webp", "factory-floor-02.webp"], ["factory-floor-03.webp", "factory-floor-04.webp"]],
   },
   {
     title: "기름때와 고착 오염",
     body: "기름때는 오염의 종류와 쌓인 정도, 바닥 상태를 확인해 작업 방법을 정합니다. 표면에 묻은 오염과 바닥에 스며든 흔적은 결과가 다를 수 있습니다. 필요한 경우 일부 구간을 먼저 확인해 예상 결과와 작업 범위를 안내합니다.",
     note: "계속 누유가 발생하는 곳은 청소와 별도로 원인에 대한 조치가 필요합니다.",
+    photoPairs: [["factory-oil-01.webp", "factory-oil-02.webp"], ["factory-oil-03.webp", "factory-oil-04.webp"]],
   },
   {
     title: "먼지와 분진이 쌓인 구역",
     body: "바닥과 가장자리, 설비 주변 등 요청 구역의 먼지와 분진을 확인합니다. 공장에서 발생한 분진을 모두 일반 먼지처럼 취급하지는 않습니다. 발생 공정과 성분, 현장 안전정보를 확인한 뒤 수행 가능한 작업인지 판단합니다.",
     note: "성분이 불분명하거나 별도 전문 대응이 필요한 잔여물은 일반 청소와 구분합니다.",
+    photoPairs: [["factory-dust-01.webp", "factory-dust-02.webp"], ["factory-dust-03.webp", "factory-dust-04.webp"]],
   },
   {
     title: "유니트쿨러 내부·외부 세척",
     body: "찐청소는 유니트쿨러 외부뿐 아니라 내부 세척도 진행합니다. 설비 구조와 오염 상태를 확인해 세부 세척 부위와 필요한 분해 범위를 정합니다. 설치 높이와 접근 조건, 주변 제품·자재의 보호 범위도 함께 살펴봅니다.",
     note: "작업 일정은 설비 정지 가능 시간과 사용 재개 일정을 고려해 조율합니다. 몇 대인지뿐 아니라 어디에 설치되어 있고 내부 상태가 어떤지를 알려주시면 견적 상담에 도움이 됩니다.",
+    photoPairs: [["factory-cooler-01.webp", "factory-cooler-02.webp"], ["factory-cooler-03.webp", "factory-cooler-04.webp"]],
   },
   {
     title: "기계설비청소",
@@ -90,6 +94,7 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "벽면·창틀·내부 유리와 부속 공간",
     body: "접근 가능한 높이와 표면 재질을 확인해 벽면, 창틀, 내부 유리의 오염을 청소합니다. 공장에 딸린 사무실·휴게실·화장실도 요청 범위에 포함해 상담할 수 있습니다.",
     note: "높은 천장 구조물과 외벽 유리 등은 접근 장비와 현장 조건을 별도로 검토합니다.",
+    photoPairs: [["factory-wall-01.webp", "factory-wall-02.webp"], ["factory-wall-03.webp"]],
   },
 ];
 
@@ -315,6 +320,19 @@ export default function FactoryCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                   {item.title === "기계설비청소" && (
                     <>
                       <p className="mt-3 font-bold text-brand-dark">작업 전 확인하는 내용</p>
