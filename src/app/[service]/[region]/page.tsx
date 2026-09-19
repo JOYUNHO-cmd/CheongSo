@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import ServiceLanding from "@/components/ServiceLanding";
 import { findService, normalizeSegment } from "@/lib/service-profiles";
 import { regionalPages, regionalPath } from "@/lib/regional-pages";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 export const dynamicParams = true;
 export function generateStaticParams() { return regionalPages.map(p => ({ service: p.service, region: p.region })); }
@@ -15,16 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const regionLabel = p.region.replaceAll("-", " ");
   const keywords = [p.heading, regionLabel, `${regionLabel} ${s?.name ?? ""}`.trim(), s?.name, siteConfig.name].filter((v): v is string => !!v);
   return {
-    title: p.title,
-    description: p.description,
-    keywords,
-    authors: [{ name: siteConfig.name }],
+    ...buildMetadata({ title: p.title, description: p.description, keywords, path: regionalPath(p) }),
     other: {
       "geo.placename": regionLabel,
       ...(p.publicationId ? { "cheongso-publication": p.publicationId } : {}),
     },
-    alternates: { canonical: absoluteUrl(regionalPath(p)) },
-    openGraph: { title: p.title, description: p.description, url: absoluteUrl(regionalPath(p)), locale: "ko_KR", type: "website" },
   };
 }
 export default async function Page({ params }: Props) { const p = await getPage(params); const s = findService(p.service); if (!s) notFound(); return <ServiceLanding service={s} regional={p} />; }

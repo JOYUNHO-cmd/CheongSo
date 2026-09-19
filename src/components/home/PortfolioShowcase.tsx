@@ -71,6 +71,15 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
 }
 
 export default function PortfolioShowcase() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
   const [portfolioItems, setPortfolioItems] = useState(items);
   useEffect(() => {
     // 하이드레이션 이후에 섞어야 서버·클라이언트 초기 마크업이 일치합니다.
@@ -94,7 +103,7 @@ export default function PortfolioShowcase() {
   const [focused, setFocused] = useState(false);
   const [openItem, setOpenItem] = useState<PortfolioItem | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const stopped = hovered || focused || !!openItem;
+  const stopped = !inView || hovered || focused || !!openItem;
 
   function selectFilter(slug: string) {
     setActiveFilter(slug);
@@ -125,7 +134,7 @@ export default function PortfolioShowcase() {
   }, [openItem]);
 
   return (
-    <section aria-label="시공 전/후 현장 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
+    <section ref={sectionRef} aria-label="시공 전/후 현장 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
       {/* 큰 카테고리 필터 — 선택한 분야의 시공 사진만 모아 봅니다 */}
       <div className="mb-5 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap no-scrollbar sm:flex-wrap sm:justify-center sm:gap-2">
         <button

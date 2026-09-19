@@ -16,6 +16,7 @@ import PricingTransparency from "@/components/home/PricingTransparency";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
 import { serviceProfiles } from "@/lib/service-profiles";
+import { absoluteUrl } from "@/lib/site-url";
 
 const totalServiceCount = serviceProfiles.length;
 
@@ -28,6 +29,16 @@ const stats = [
 export default function Home() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": absoluteUrl("/#website"),
+        name: siteConfig.name,
+        alternateName: siteConfig.nameEn,
+        url: absoluteUrl("/"),
+        inLanguage: "ko-KR",
+        publisher: { "@id": absoluteUrl("/#organization") },
+      }).replace(/</g, "\\u003c") }} />
       <HashScrollCenter />
       {/* 히어로 포스터 이미지를 최우선으로 미리 불러와 LCP(최대 콘텐츠풀 페인트)를 앞당김 */}
       <link rel="preload" href="/videos/hero-poster.jpg" as="image" fetchPriority="high" />
@@ -176,7 +187,7 @@ export default function Home() {
               title="인체에 안전한 약품만 사용합니다"
               description={
                 <>
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">공기질을 개선하고 인체에 무독성임을 입증하는 공인 시험 자료입니다.</span>{" "}
+                  <span className="block break-keep sm:inline">공기질을 개선하고 인체에 무독성임을 입증하는 공인 시험 자료입니다.</span>{" "}
                   <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
                 </>
               }

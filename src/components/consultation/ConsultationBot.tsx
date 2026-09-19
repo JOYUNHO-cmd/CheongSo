@@ -416,7 +416,7 @@ export default function ConsultationBot() {
                       </button>
                       <output className="jjin-chat-copy-status">
                         {emailStatus === "sent"
-                          ? "찐청소로 상담 내용을 보냈어요. 확인 후 연락드릴게요"
+                          ? "찐청소로 상담 내용을 보냈어요. 연락처와 일정은 전화 또는 카카오톡으로 알려주세요"
                           : emailStatus === "error"
                             ? "전송에 실패했어요. 잠시 후 다시 시도하거나 전화로 연락해 주세요"
                             : ""}

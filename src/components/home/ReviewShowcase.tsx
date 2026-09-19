@@ -20,6 +20,15 @@ function mixedReviews() {
 }
 
 export default function ReviewShowcase() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
   const [reviews, setReviews] = useState(reviewManifest);
   useEffect(() => {
     // Shuffle after hydration so the server and initial client markup agree.
@@ -32,7 +41,7 @@ export default function ReviewShowcase() {
   const [focused, setFocused] = useState(false);
   const [openFile, setOpenFile] = useState<string | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
-  const stopped = hovered || focused || !!openFile;
+  const stopped = !inView || hovered || focused || !!openFile;
   useEffect(() => {
     if (stopped || reviews.length <= 4) return;
     const timer = window.setInterval(() => {
@@ -54,7 +63,7 @@ export default function ReviewShowcase() {
   }, [openFile]);
   const selected = reviews.find(item => item.file === openFile);
   return (
-    <section aria-label="고객 후기 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
+    <section ref={sectionRef} aria-label="고객 후기 모아보기" aria-roledescription="캐러셀" className="mx-auto max-w-6xl px-6">
       <div className="review-curtain-window" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
         <div className={`review-curtain-track${moving ? " is-moving" : ""}`}>
           {[0, 1].map(panel => (

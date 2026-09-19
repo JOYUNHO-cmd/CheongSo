@@ -162,7 +162,7 @@ const contactChecklist = [
 ];
 
 const caseIds = ["floor-adhesive-02", "floor-adhesive-01", "floor-adhesive-03"] as const;
-const path = "/바닥본드제거/";
+const path = "/바닥-본드-제거/";
 
 export default function FloorAdhesiveRemovalLanding() {
   const cases = caseIds

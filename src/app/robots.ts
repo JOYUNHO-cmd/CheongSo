@@ -7,8 +7,8 @@ const aiCrawlers = [
   "ChatGPT-User",
   "OAI-SearchBot",
   "ClaudeBot",
-  "Claude-Web",
-  "anthropic-ai",
+  "Claude-SearchBot",
+  "Claude-User",
   "PerplexityBot",
   "Perplexity-User",
   "Google-Extended",
@@ -18,6 +18,7 @@ const aiCrawlers = [
 
 // 네이버 검색로봇(예티)도 명시적으로 허용합니다.
 const naverCrawlers = ["Yeti", "NaverBot"];
+const searchCrawlers = ["Googlebot", "Bingbot"];
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -25,6 +26,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/" },
       ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
       ...naverCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
+      ...searchCrawlers.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
   };

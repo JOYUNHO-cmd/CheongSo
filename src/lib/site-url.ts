@@ -1,3 +1,5 @@
-// 실제 연결된 대표 도메인. SITE_URL 환경변수가 설정되어 있으면 그 값을 우선합니다.
-export const siteUrl = (process.env.SITE_URL || "https://cheongso.co.kr").replace(/\/$/, "");
+// 실제 배포의 리디렉션 목적지와 canonical·사이트맵을 일치시킵니다.
+const configuredUrl = new URL(process.env.SITE_URL || "https://www.cheongso.co.kr");
+if (configuredUrl.hostname === "cheongso.co.kr") configuredUrl.hostname = "www.cheongso.co.kr";
+export const siteUrl = configuredUrl.origin;
 export const absoluteUrl = (path: string) => new URL(path, siteUrl).href;

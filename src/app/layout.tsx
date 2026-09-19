@@ -7,25 +7,14 @@ import ConsultationBotLoader from "@/components/consultation/ConsultationBotLoad
 import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl, absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
-import phaseRegions from "@/lib/phase-regions.json";
+import { defaultOgImage } from "@/lib/seo";
 
-// 실제로 인프라가 갖춰진 서비스 지역(시/도)만 지역 검색 최적화용 데이터에 반영합니다.
-const servedProvinces = [...new Set(phaseRegions.regions.map((r) => r.province))];
-
-// 히어로 타이틀 등 최초 화면(LCP)에 실제로 쓰이는 굵기(700/900)만 우선 프리로드합니다.
+// 한 패밀리 안에서 본문과 제목 굵기를 선택합니다. 분리하면 본문에도 700이 적용됩니다.
 const notoSansKr = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
-  weight: ["700", "900"],
+  weight: ["400", "500", "700", "900"],
   display: "swap",
-});
-// 본문 등 저빈도 굵기(400/500)는 렌더링 차단 경로에서 빼기 위해 프리로드하지 않습니다.
-const notoSansKrRegular = Noto_Sans_KR({
-  variable: "--font-noto-sans-kr-regular",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-  preload: false,
 });
 
 // 손글씨 로고/서명용 폰트를 next/font로 자체 호스팅해 렌더링 차단 요소(외부 @import)를 제거
@@ -45,13 +34,13 @@ const nanumPen = Nanum_Pen_Script({
   preload: false,
 });
 
-const defaultTitle = `${siteConfig.name} | ${siteConfig.tagline}`;
-const defaultOgImage = { url: absoluteUrl("/videos/hero-poster.jpg"), width: 1920, height: 1080, alt: siteConfig.name };
+const defaultTitle = `${siteConfig.name} | 입주·이사청소·사업장청소·특수청소·바닥시공`;
+const defaultDescription = "찐청소의 입주·이사청소, 사업장 정기청소, 특수청소와 바닥시공을 확인하세요. 서비스별 작업 범위·가격 기준·실제 현장 사진을 안내하며, 현장 상태와 필요한 작업을 확인해 견적을 상담합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: defaultTitle,
-  description: siteConfig.description,
+  description: defaultDescription,
   keywords: ["찐청소", "청소업체", "입주청소", "이사청소", "특수청소", "바닥시공", "전국청소", "청소 견적", "위생관리"],
   authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
@@ -62,14 +51,14 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     siteName: siteConfig.name,
     title: defaultTitle,
-    description: siteConfig.description,
+    description: defaultDescription,
     url: siteUrl,
     images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
     title: defaultTitle,
-    description: siteConfig.description,
+    description: defaultDescription,
     images: [defaultOgImage.url],
   },
   other: {
@@ -85,9 +74,12 @@ export const metadata: Metadata = {
   },
 };
 
+// 공개 주소가 없는 상태에서는 LocalBusiness 대신 확인된 회사 정보만 제공합니다.
+// 지역 페이지 작성용 목록은 실제 출동 가능 지역의 증거로 사용하지 않습니다.
 const organizationStructuredData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
+  "@id": absoluteUrl("/#organization"),
   name: siteConfig.name,
   alternateName: siteConfig.nameEn,
   url: siteUrl,
@@ -95,15 +87,13 @@ const organizationStructuredData = {
   image: defaultOgImage.url,
   description: siteConfig.description,
   telephone: siteConfig.phoneRaw,
-  priceRange: "$$",
-  areaServed: servedProvinces.map((province) => ({ "@type": "AdministrativeArea", name: province })),
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
   sameAs: [siteConfig.kakaoUrl].filter(Boolean),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className={`${notoSansKr.variable} ${notoSansKrRegular.variable} ${nanumBrush.variable} ${nanumPen.variable} h-full antialiased`}>
+    <html lang="ko" className={`${notoSansKr.variable} ${nanumBrush.variable} ${nanumPen.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

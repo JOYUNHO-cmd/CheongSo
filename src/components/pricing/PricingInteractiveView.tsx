@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { PRICING_GUIDE_DATA } from "@/lib/pricing-guide-data";
 import { siteConfig } from "@/lib/site-config";
+import { servicePath } from "@/lib/service-profiles";
 
 // 7대 분야별 Lucide 아이콘 매핑 (절제된 톤의 라인 아이콘으로 통일)
 const categoryIconMap: Record<string, LucideIcon> = {
@@ -60,10 +61,6 @@ export default function PricingInteractiveView() {
   const [activeCategory, setActiveCategory] = useState<string>(PRICING_GUIDE_DATA[0].id);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
-  const displayedData = activeCategory === "all"
-    ? PRICING_GUIDE_DATA
-    : PRICING_GUIDE_DATA.filter((cat) => cat.id === activeCategory);
-
   const selectedCategory = PRICING_GUIDE_DATA.find((cat) => cat.id === activeCategory);
 
   const toggleFaq = (faqId: string) => {
@@ -72,6 +69,7 @@ export default function PricingInteractiveView() {
 
   return (
     <div className="space-y-12">
+      <noscript><style>{`[data-pricing-category][hidden],[data-pricing-answer][hidden]{display:block}.pricing-category-filter{display:none}`}</style></noscript>
       {/* 1. 안심 약속 3대 원칙 (신뢰성 강조 배너) */}
       <section className="rounded-3xl bg-gradient-to-br from-[#002a52] via-brand-dark to-[#004e8a] p-6 sm:p-9 text-white">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -146,10 +144,11 @@ export default function PricingInteractiveView() {
 
       {/* 2. 메뉴판형 대분류 선택 — 큰 서비스를 누르면 바로 아래에 작은 서비스가 한눈에 펼쳐짐 */}
       <div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+        <div className="pricing-category-filter grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
           <button
             type="button"
             onClick={() => setActiveCategory("all")}
+            aria-pressed={activeCategory === "all"}
             className={`flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-center transition-all cursor-pointer ${
               activeCategory === "all"
                 ? "border-brand bg-brand text-white shadow-md"
@@ -168,6 +167,8 @@ export default function PricingInteractiveView() {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
+                aria-pressed={isSelected}
+                aria-controls={cat.id}
                 className={`flex flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-5 text-center transition-all cursor-pointer ${
                   isSelected
                     ? "border-brand bg-brand text-white shadow-md"
@@ -189,12 +190,13 @@ export default function PricingInteractiveView() {
             </p>
             <div className="flex flex-wrap gap-2">
               {selectedCategory.services.map((srv) => (
-                <span
+                <Link
                   key={srv}
+                  href={servicePath(srv)}
                   className="rounded-full border border-teal-200 bg-white px-5 py-2.5 text-base sm:text-lg font-bold text-brand-dark shadow-2xs"
                 >
                   {srv}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -203,13 +205,15 @@ export default function PricingInteractiveView() {
 
       {/* 3. 각 카테고리별 정밀 가격표 & 심층 Q&A 아코디언 */}
       <div className="space-y-14">
-        {displayedData.map((cat) => {
+        {PRICING_GUIDE_DATA.map((cat) => {
           const CatIcon = getCategoryIcon(cat.id);
 
           return (
             <article
               key={cat.id}
               id={cat.id}
+              data-pricing-category
+              hidden={activeCategory !== "all" && activeCategory !== cat.id}
               className="rounded-3xl border border-gray-200 bg-white p-6 sm:p-9 shadow-xs transition-all hover:border-teal-200 hover:shadow-md"
             >
               {/* 카테고리 헤더 (간결하게: 아이콘 + 뱃지 + 제목만) */}
@@ -300,6 +304,8 @@ export default function PricingInteractiveView() {
                         <button
                           type="button"
                           onClick={() => toggleFaq(faqKey)}
+                          aria-expanded={isOpen}
+                          aria-controls={`pricing-answer-${faqKey}`}
                           className="flex w-full items-center justify-between gap-4 p-4 sm:p-5 text-left font-bold text-sm sm:text-base text-gray-900 hover:bg-gray-50/80 transition-colors cursor-pointer"
                         >
                           <span className="flex items-center gap-3">
@@ -319,8 +325,7 @@ export default function PricingInteractiveView() {
                           </span>
                         </button>
 
-                        {isOpen && (
-                          <div className="border-t border-teal-100 bg-teal-50/40 p-4 sm:p-5 text-sm sm:text-[15px] leading-relaxed text-gray-800">
+                          <div id={`pricing-answer-${faqKey}`} data-pricing-answer hidden={!isOpen} className="border-t border-teal-100 bg-teal-50/40 p-4 sm:p-5 text-sm sm:text-[15px] leading-relaxed text-gray-800">
                             <div className="flex items-start gap-3">
                               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-xs font-black text-emerald-800 mt-0.5">
                                 A
@@ -330,7 +335,6 @@ export default function PricingInteractiveView() {
                               </div>
                             </div>
                           </div>
-                        )}
                       </div>
                     );
                   })}
@@ -434,4 +438,3 @@ export default function PricingInteractiveView() {
     </div>
   );
 }
-
