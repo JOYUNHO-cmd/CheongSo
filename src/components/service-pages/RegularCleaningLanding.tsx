@@ -46,7 +46,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "바닥과 주요 통로",
     body: "공간의 바닥 재질과 사용 상태에 맞춰 먼지와 일상적인 오염을 관리합니다. 출입구, 통로, 사람들이 자주 머무는 구역 등 사용 빈도가 높은 곳을 살펴봅니다.",
     note: "집기 아래나 좁은 구간은 접근 가능한 범위를 정하며, 가구 이동이 필요한 작업은 구분합니다.",
-    photoPairs: [["regular-floor-01.webp", "regular-floor-02.webp"]],
+    photoPairs: [["regular-floor-01.webp"], ["regular-floor-02.webp"]],
   },
   {
     title: "화장실과 세면 공간",
