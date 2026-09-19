@@ -41,31 +41,36 @@ const estimateChecklist = [
   "작업 가능한 시간과 현장 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "후드 본체 외부",
     body: "겉면과 가장자리 등 요청 부위의 기름때와 오염을 확인합니다.",
     note: "표면 재질과 기존 상태를 살펴 작업하며, 변색·부식·흠집은 제거할 오염과 구분합니다.",
+    photoPairs: [["hood2-outer-01.webp", "hood2-outer-02.webp"], ["hood2-outer-03.webp", "hood2-outer-04.webp"]],
   },
   {
     title: "후드 본체 내부",
     body: "후드 안쪽은 구조와 접근 조건에 따라 작업 범위가 달라집니다. 안전하게 접근할 수 있는 부위와 분해가 필요한 부위를 확인하고, 내부 세척을 어디까지 진행할지 견적 단계에서 정합니다.",
     note: "보이지 않는 모든 공간을 무조건 청소한다고 안내하지 않습니다.",
+    photoPairs: [["hood2-inner-01.webp", "hood2-inner-02.webp"], ["hood2-inner-03.webp", "hood2-inner-04.webp"]],
   },
   {
     title: "필터",
     body: "필터의 종류와 수량, 오염 상태, 탈착 가능 여부를 확인합니다. 세척 대상으로 정한 필터는 재질과 상태에 맞는 작업 방법을 검토합니다.",
     note: "파손이나 심한 변형이 있다면 세척과 교체 판단을 구분해야 합니다.",
+    photoPairs: [["hood2-filter-01.webp", "hood2-filter-02.webp"], ["hood2-filter-03.webp"]],
   },
   {
     title: "기름받이와 가장자리",
     body: "기름받이 등 오염이 모이는 부위는 구조와 접근 가능 여부를 확인해 작업 항목에 반영합니다.",
     note: "본체 겉면만 요청한 것인지, 이런 세부 부위까지 포함한 것인지 미리 정하면 완료 후 확인도 수월합니다.",
+    photoPairs: [["hood2-grease-01.webp", "hood2-grease-02.webp"]],
   },
   {
     title: "덕트는 후드와 별도 범위입니다",
     body: "후드 본체 청소가 연결된 배기 덕트 전체의 청소를 뜻하지는 않습니다. 덕트는 연결 경로와 길이, 점검구, 접근 조건 등에 따라 작업 가능 범위가 달라집니다.",
     note: "덕트 내부 청소를 원하시면 별도 요청 항목으로 알려주세요. 현장 정보를 확인해 수행 가능 여부부터 안내합니다.",
+    photoPairs: [["hood2-duct-01.webp", "hood2-duct-02.webp"], ["hood2-duct-03.webp"]],
   },
   {
     title: "팬·모터와 설비 분해 작업",
@@ -76,6 +81,7 @@ const scopeItems: { title: string; body: string; note?: string }[] = [
     title: "주방 전체 청소도 구분합니다",
     body: "후드청소가 바닥·벽면·조리대·주방기기 전체 청소까지 포함하는 것은 아닙니다. 작업 중 주변을 보호하고 발생한 오염을 정리하는 범위와, 기존 주방 오염을 제거하는 대청소 범위를 구분합니다.",
     note: "주방 전체 청소가 필요하면 함께 요청해 주세요.",
+    photoPairs: [["hood2-around-01.webp", "hood2-around-02.webp"], ["hood2-around-03.webp", "hood2-around-04.webp"]],
   },
 ];
 
@@ -281,6 +287,19 @@ export default function HoodCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
