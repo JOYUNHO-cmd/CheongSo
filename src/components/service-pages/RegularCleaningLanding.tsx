@@ -41,36 +41,42 @@ const estimateChecklist = [
   "주기적으로 추가할 집중 청소 항목",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "바닥과 주요 통로",
     body: "공간의 바닥 재질과 사용 상태에 맞춰 먼지와 일상적인 오염을 관리합니다. 출입구, 통로, 사람들이 자주 머무는 구역 등 사용 빈도가 높은 곳을 살펴봅니다.",
     note: "집기 아래나 좁은 구간은 접근 가능한 범위를 정하며, 가구 이동이 필요한 작업은 구분합니다.",
+    photoPairs: [["regular-floor-01.webp", "regular-floor-02.webp"]],
   },
   {
     title: "화장실과 세면 공간",
     body: "변기, 세면대, 바닥, 칸막이 등 관리할 항목을 정합니다. 이용 인원과 오염 상태에 맞춰 작업 시간을 배분합니다.",
     note: "누수·파손·배수 이상처럼 청소와 다른 조치가 필요한 부분은 구분합니다.",
+    photoPairs: [["regular-restroom-01.webp"]],
   },
   {
     title: "탕비실과 공용 공간",
     body: "싱크대 주변, 바닥, 공용 표면 등 요청 범위를 확인합니다.",
     note: "설거지, 냉장고 내부 정리, 개인 컵 세척, 식품 폐기는 별도 항목입니다. 탕비실 청소라는 이름만으로 모두 포함되는 것은 아닙니다.",
+    photoPairs: [["regular-pantry-01.webp"]],
   },
   {
     title: "출입문·내부 유리·창틀",
     body: "손자국이 자주 생기는 출입문과 내부 유리, 먼지가 쌓이는 창틀 등을 관리 항목으로 검토합니다.",
     note: "매회 작업할 곳과 일정 주기로 작업할 곳을 나누면 필요한 곳에 시간을 배분하기 좋습니다.",
+    photoPairs: [["regular-door-01.webp"]],
   },
   {
     title: "쓰레기통과 분리수거",
     body: "쓰레기통 비우기와 분리수거를 요청하시면 대상과 이동 위치를 확인합니다. 건물 내 지정 장소로 옮기는 작업과 외부 반출·처리는 다릅니다.",
     note: "종량제 봉투 준비, 배출 장소, 배출 가능 시간 등도 함께 정합니다. 대형 물품이나 사업장 특수 폐기물 처리는 일반적인 정기청소와 구분합니다.",
+    photoPairs: [["regular-trash-01.webp"]],
   },
   {
     title: "집기와 개인 물품",
     body: "책상·의자·수납장 등 집기 자체의 청소는 계약 범위에 명시한 경우에 진행합니다.",
     note: "개인 책상 위 서류 정리, 수납장 내부 정리, 전자기기 내부 청소까지 임의로 포함하지 않습니다. 닦아야 할 표면과 손대면 안 되는 물품을 구분해 두면 관리가 수월합니다.",
+    photoPairs: [["regular-furniture-01.webp"]],
   },
 ];
 
@@ -309,6 +315,19 @@ export default function RegularCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
