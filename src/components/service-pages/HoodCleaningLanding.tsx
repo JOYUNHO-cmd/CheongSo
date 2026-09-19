@@ -58,13 +58,13 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "필터",
     body: "필터의 종류와 수량, 오염 상태, 탈착 가능 여부를 확인합니다. 세척 대상으로 정한 필터는 재질과 상태에 맞는 작업 방법을 검토합니다.",
     note: "파손이나 심한 변형이 있다면 세척과 교체 판단을 구분해야 합니다.",
-    photoPairs: [["hood2-filter-01.webp", "hood2-filter-02.webp"], ["hood2-filter-03.webp"]],
+    photoPairs: [["hood2-filter-01.webp", "hood2-filter-02.webp"], ["hood2-filter-03.webp", "hood2-filter-04.webp"]],
   },
   {
     title: "기름받이와 가장자리",
     body: "기름받이 등 오염이 모이는 부위는 구조와 접근 가능 여부를 확인해 작업 항목에 반영합니다.",
     note: "본체 겉면만 요청한 것인지, 이런 세부 부위까지 포함한 것인지 미리 정하면 완료 후 확인도 수월합니다.",
-    photoPairs: [["hood2-grease-01.webp", "hood2-grease-02.webp"]],
+    photoPairs: [["hood2-grease-01.webp", "hood2-grease-02.webp"], ["hood2-grease-03.webp"]],
   },
   {
     title: "덕트는 후드와 별도 범위입니다",
