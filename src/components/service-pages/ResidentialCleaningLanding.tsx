@@ -40,36 +40,42 @@ const estimateChecklist = [
   "작업 가능한 시간과 현장 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "주방과 싱크대",
     body: "상판, 싱크대, 벽면, 바닥 등 작업할 표면의 기름때와 생활 오염을 확인합니다. 상판 위 조리도구와 식재료를 누가 옮길지, 후드·필터와 수납장 내부까지 청소할지 등을 구분합니다.",
     note: "설거지, 식품 정리·폐기, 냉장고 내부 정리, 가전 분해 세척은 일반 공간 청소에 자동으로 포함되지 않습니다.",
+    photoPairs: [["residential2-kitchen-01.webp", "residential2-kitchen-02.webp"], ["residential2-kitchen-03.webp", "residential2-kitchen-04.webp"]],
   },
   {
     title: "욕실과 세면 공간",
     body: "변기, 세면대, 거울, 바닥과 벽면 등 요청 부위의 물때와 오염을 살펴봅니다. 세면용품 이동, 욕실 수납장 내부, 환기구 커버, 배수구의 접근 가능한 부품 등을 확인합니다.",
     note: "배관 막힘 해결, 누수 수리, 실리콘 교체와 자재 보수는 별도 작업입니다.",
+    photoPairs: [["residential2-bathroom-01.webp", "residential2-bathroom-02.webp"], ["residential2-bathroom-03.webp", "residential2-bathroom-04.webp"]],
   },
   {
     title: "방·거실 바닥과 모서리",
     body: "접근 가능한 바닥, 문 주변, 걸레받이와 모서리 등의 먼지와 오염을 확인합니다. 작은 생활용품을 옮겨 작업할지, 가구 아래까지 접근할 수 있는지 확인합니다.",
     note: "침대·소파·옷장 등 무거운 가구의 이동과 가구 자체의 전문 세척은 별도로 검토합니다. 가구를 움직이지 않고 닿을 수 있는 구간과 이동해야 하는 구간을 분명하게 안내합니다.",
+    photoPairs: [["residential2-room-01.webp", "residential2-room-02.webp"], ["residential2-room-03.webp", "residential2-room-04.webp"]],
   },
   {
     title: "창틀과 유리",
     body: "창틀에 쌓인 먼지와 작업 대상으로 정한 유리 면을 살펴봅니다. 창가에 놓인 물건과 커튼 등 주변 조건, 방충망이나 창문 탈거 필요 여부를 확인합니다.",
     note: "접근이 어려운 외창, 외부 고소작업, 커튼·블라인드 전문 세척은 별도 항목입니다.",
+    photoPairs: [["residential2-window-01.webp", "residential2-window-02.webp"], ["residential2-window-03.webp", "residential2-window-04.webp"]],
   },
   {
     title: "수납장과 선반",
     body: "외부 표면과 내부 청소는 구분합니다. 내부 작업을 원하시면 내용물을 비울 수 있는지, 이동과 원위치 정리를 누가 맡을지 먼저 정합니다.",
     note: "서랍 속 개인 물품과 문서, 의류 등을 임의로 꺼내거나 폐기하지 않도록 작업 범위를 맞춥니다.",
+    photoPairs: [["residential2-shelf-01.webp", "residential2-shelf-02.webp"], ["residential2-shelf-03.webp", "residential2-shelf-04.webp"]],
   },
   {
     title: "베란다와 다용도실",
     body: "바닥, 문 주변, 창틀 등 요청 구역의 오염을 확인합니다. 세탁용품, 건조대, 화분 등 생활용품이 있다면 이동 가능한 범위를 정합니다.",
     note: "세탁기 내부·분해 세척이나 무거운 기기 이동, 배관·방수 보수는 일반 공간 청소와 구분합니다.",
+    photoPairs: [["residential2-veranda-01.webp", "residential2-veranda-02.webp"], ["residential2-veranda-03.webp", "residential2-veranda-04.webp"]],
   },
 ];
 
@@ -335,6 +341,19 @@ export default function ResidentialCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
