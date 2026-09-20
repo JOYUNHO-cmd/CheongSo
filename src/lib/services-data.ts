@@ -30,7 +30,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "이사, 입주, 신축&준공 시점에 필요한 전문 인력을 배치합니다",
     descLine1: "이사, 입주, 신축&준공 시점에",
     descLine2: "필요한 전문 인력을 배치합니다",
-    items: ["입주청소", "이사청소", "거주청소", "신축청소", "준공청소", "인테리어청소", "프리미엄청소"],
+    items: ["입주청소", "이사청소", "거주청소", "신축준공청소", "인테리어청소", "프리미엄청소"],
   },
   {
     slug: "commercial",

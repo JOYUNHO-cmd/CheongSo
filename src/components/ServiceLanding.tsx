@@ -8,7 +8,7 @@ import portfolio from "@/lib/portfolio-highlights.json";
 import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const portfolioGroups: Record<string, string> = {
-  "입주청소": "move-in", "신축청소": "new-construction", "준공청소": "new-construction",
+  "입주청소": "move-in", "신축준공청소": "new-construction",
   "인테리어청소": "interior", "사무실청소": "office", "관공서청소": "government",
   "주방청소": "kitchen", "후드청소": "hood", "침수청소": "flood", "화재청소": "fire",
   "외벽청소": "exterior-wall", "바닥본드제거": "floor-adhesive", "바닥왁스코팅": "floor-wax", "마루코팅": "floor-wood",
