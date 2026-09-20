@@ -956,6 +956,54 @@
     "category": "special"
   },
   {
+    "id": "school-01",
+    "categoryLabel": "학교청소",
+    "title": "용인 성서초 도서관 인테리어 청소",
+    "before": "school-01-before.webp",
+    "after": "school-01-after.webp",
+    "beforeWidth": 1650,
+    "beforeHeight": 2200,
+    "afterWidth": 1650,
+    "afterHeight": 2200,
+    "category": "commercial"
+  },
+  {
+    "id": "school-02",
+    "categoryLabel": "학교청소",
+    "title": "용인 독정초 부분 인테리어 분진 제거",
+    "before": "school-02-before.webp",
+    "after": "school-02-after.webp",
+    "beforeWidth": 1650,
+    "beforeHeight": 2200,
+    "afterWidth": 1650,
+    "afterHeight": 2200,
+    "category": "commercial"
+  },
+  {
+    "id": "school-03",
+    "categoryLabel": "학교청소",
+    "title": "수원 산의초 인테리어 청소",
+    "before": "school-03-before.webp",
+    "after": "school-03-after.webp",
+    "beforeWidth": 1650,
+    "beforeHeight": 2200,
+    "afterWidth": 1650,
+    "afterHeight": 2200,
+    "category": "commercial"
+  },
+  {
+    "id": "school-04",
+    "categoryLabel": "학교청소",
+    "title": "안산중 교실 바닥오염 제거",
+    "before": "school-04-before.webp",
+    "after": "school-04-after.webp",
+    "beforeWidth": 1650,
+    "beforeHeight": 2200,
+    "afterWidth": 1650,
+    "afterHeight": 2200,
+    "category": "commercial"
+  },
+  {
     "id": "fire-01",
     "categoryLabel": "화재청소",
     "title": "강서 화재 청소",

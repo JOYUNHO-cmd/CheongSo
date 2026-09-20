@@ -176,7 +176,7 @@ const contactChecklist = [
   "과업지시서와 필요한 계약·완료 자료",
 ];
 
-const caseIds = ["government-01", "government-03"] as const;
+const caseIds = ["school-01", "school-02", "school-03", "school-04"] as const;
 const path = "/학교청소/";
 
 export default function SchoolCleaningLanding() {
