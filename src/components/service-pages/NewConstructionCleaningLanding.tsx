@@ -43,45 +43,53 @@ const estimateChecklist = [
   "작업 횟수와 확보 가능한 일정",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "바닥과 모서리",
     body: "바닥 재질과 마감 상태를 확인해 분진과 제거 가능한 오염을 청소합니다. 가장자리와 문 주변, 모서리 등 먼지가 남기 쉬운 구간도 살펴봅니다.",
     note: "표면에 붙은 접착제·도료·시멘트계 잔여물은 일반 분진과 구분해 작업 가능 여부를 확인합니다.",
+    photoPairs: [["newc-floor-01.webp", "newc-floor-02.webp"], ["newc-floor-03.webp", "newc-floor-04.webp"]],
   },
   {
     title: "창틀과 유리",
     body: "창틀의 먼지와 마감 잔여물, 요청한 유리 면의 오염을 확인합니다. 내부와 외부 중 어느 면을 청소할지, 창호 탈거가 필요한지, 접근이 가능한지 등을 구분합니다.",
     note: "유리의 보호필름과 스티커도 제거 대상인지 먼저 확인합니다. 외부 고소작업은 별도 검토가 필요합니다.",
+    photoPairs: [["newc-window-01.webp", "newc-window-02.webp"], ["newc-window-03.webp", "newc-window-04.webp"]],
   },
   {
     title: "문·몰딩·수납 공간",
     body: "문과 문틀, 몰딩, 붙박이 수납 공간 등 요청 부위의 먼지와 오염을 확인합니다. 수납장 내부와 서랍·선반 탈거는 구조와 상태에 따라 작업 범위를 정합니다.",
     note: "새로 설치된 자재의 관리 지침이나 탈거 제한이 있다면 작업 전에 알려주세요.",
+    photoPairs: [["newc-door-01.webp", "newc-door-02.webp"], ["newc-door-03.webp", "newc-door-04.webp"]],
   },
   {
     title: "화장실과 세면 공간",
     body: "바닥, 벽면, 세면대, 변기 등 요청 구역의 공사 먼지와 표면 오염을 확인합니다. 시공된 줄눈·실리콘과 제거할 잔여물을 구분해 살펴보며, 정상적인 마감재를 청소 대상으로 오인하지 않도록 주의할 부분을 시공 담당자와 확인합니다.",
     note: "배관 내부 작업, 누수 수리, 마감 보수는 일반 청소와 별도입니다.",
+    photoPairs: [["newc-bathroom-01.webp", "newc-bathroom-02.webp"], ["newc-bathroom-03.webp", "newc-bathroom-04.webp"]],
   },
   {
     title: "계단·복도·출입구 등 공용부",
     body: "공용부가 포함된다면 층별 복도, 계단, 난간, 출입구 등의 작업 항목을 나누어 정합니다.",
     note: "전용 공간만 청소하는지, 공용부까지 포함하는지 견적 단계에서 명확히 확인합니다.",
+    photoPairs: [["newc-common-01.webp", "newc-common-02.webp"], ["newc-common-03.webp", "newc-common-04.webp"]],
   },
   {
     title: "보양재와 보호필름",
     body: "보양지, 테이프, 보호필름 등은 위치와 재질, 제거 시점을 먼저 확인합니다.",
     note: "공사가 남아 있어 유지해야 하는 보호재나 시공팀 확인이 필요한 부착물은 임의로 제거하지 않습니다. 보양재 제거와 제거 후 남은 접착 흔적 청소는 작업량이 다를 수 있어 구분해서 안내합니다.",
+    photoPairs: [["newc-protect-01.webp", "newc-protect-02.webp"], ["newc-protect-03.webp", "newc-protect-04.webp"]],
   },
   {
     title: "마감 잔여물과 특수 오염",
     body: "접착제, 도료 자국, 백시멘트 등으로 보이는 잔여물은 마감재와 오염의 종류를 확인합니다. 필요한 경우 일부 구간을 먼저 확인해 작업 방법과 예상 결과를 판단합니다.",
     note: "모든 잔여물이 손상 없이 완전히 제거된다고 일괄 안내하지는 않습니다.",
+    photoPairs: [["newc-residue-01.webp", "newc-residue-02.webp"], ["newc-residue-03.webp", "newc-residue-04.webp"]],
   },
   {
     title: "외벽·외부 유리·주차장",
     body: "건물 내부 청소에 외벽, 외부 유리, 주차장까지 자동으로 포함되는 것은 아닙니다. 필요한 면적과 높이, 접근 조건, 오염 상태를 확인해 별도 항목으로 검토합니다.",
+    photoPairs: [["newc-exterior-01.webp", "newc-exterior-02.webp"], ["newc-exterior-03.webp"]],
   },
 ];
 
@@ -304,6 +312,19 @@ export default function NewConstructionCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
