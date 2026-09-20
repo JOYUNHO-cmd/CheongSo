@@ -42,46 +42,54 @@ const estimateChecklist = [
   "작업 가능한 일정과 반입 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "바닥과 가장자리",
     body: "바닥 재질과 새 마감 상태를 확인해 분진과 제거 가능한 오염을 청소합니다. 벽 쪽 가장자리, 문 주변, 모서리 등 먼지가 남기 쉬운 구간도 살펴봅니다.",
     note: "접착제·도료·보호재 잔여물은 일반 먼지와 구분합니다. 바닥 코팅, 연마, 들뜸이나 흠집 보수는 별도 작업입니다.",
+    photoPairs: [["interior-floor-01.webp", "interior-floor-02.webp"], ["interior-floor-03.webp", "interior-floor-04.webp"]],
   },
   {
     title: "창틀과 유리",
     body: "창틀과 프레임에 남은 분진, 요청한 유리 면의 오염을 확인합니다. 창호 교체 후 보호필름이나 라벨이 남아 있다면 제거할 대상인지 먼저 확인합니다.",
     note: "유리의 어느 면까지 청소할지, 방충망과 창문 탈거가 필요한지도 범위에 반영합니다. 접근이 어려운 외창은 별도 검토가 필요합니다.",
+    photoPairs: [["interior-window-01.webp", "interior-window-02.webp"], ["interior-window-03.webp"]],
   },
   {
     title: "주방과 새 수납 공간",
     body: "싱크대, 상판, 수납장 등 요청 부위의 공사 먼지와 잔여물을 살펴봅니다. 수납장 내부와 서랍·선반 탈거는 구조와 상태에 따라 작업 여부를 정합니다.",
     note: "기존 주방을 그대로 사용한다면 생활 기름때 청소를 포함할지도 확인합니다. 가전 내부·분해 세척은 공간 청소와 구분합니다.",
+    photoPairs: [["interior-kitchen-01.webp", "interior-kitchen-02.webp"], ["interior-kitchen-03.webp", "interior-kitchen-04.webp"]],
   },
   {
     title: "욕실과 세면 공간",
     body: "바닥, 벽면, 세면대, 변기 등 합의한 부위의 분진과 표면 오염을 확인합니다. 새로 시공된 줄눈·실리콘과 제거할 잔여물을 구분하고, 청소를 시작해도 되는 상태인지 시공 담당자의 안내를 확인합니다.",
     note: "배관 작업, 누수 보수, 줄눈·실리콘 재시공은 별도입니다.",
+    photoPairs: [["interior-bathroom-01.webp", "interior-bathroom-02.webp"], ["interior-bathroom-03.webp", "interior-bathroom-04.webp"]],
   },
   {
     title: "문·몰딩·벽면",
     body: "문과 문틀, 몰딩 등 요청한 표면의 먼지와 오염을 확인합니다. 벽지, 도장면, 필름 마감 등은 재질과 시공 상태에 따라 가능한 작업이 다릅니다.",
     note: "모든 표면을 같은 방식으로 세척하지 않습니다. 새 마감재의 취급 제한과 관리 지침이 있다면 작업 전에 전달해 주세요.",
+    photoPairs: [["interior-door-01.webp", "interior-door-02.webp"], ["interior-door-03.webp", "interior-door-04.webp"]],
   },
   {
     title: "공사하지 않은 주변 공간",
     body: "부분공사라면 주변 방과 복도, 출입 동선 등 실제 분진이 남은 곳을 확인합니다.",
     note: "공사 구역 밖이라고 무조건 제외하거나, 집 전체를 무조건 청소해야 한다고 정하지 않습니다. 현재 상태와 고객님의 요청을 함께 확인해 범위를 정합니다.",
+    photoPairs: [["interior-area-01.webp", "interior-area-02.webp"], ["interior-area-03.webp", "interior-area-04.webp"]],
   },
   {
     title: "남아 있는 가구와 생활용품",
     body: "짐이 있는 현장은 공간 청소와 물품 자체의 청소를 구분해야 합니다. 가구 주변 바닥을 청소할지, 가구 표면까지 닦을지, 물건 이동이 필요한지 확인합니다.",
     note: "침구·의류·소파·가전 내부의 전문 세척이나 정리수납은 일반 공간 청소에 자동으로 포함되지 않습니다.",
+    photoPairs: [["interior-furniture-01.webp", "interior-furniture-02.webp"], ["interior-furniture-03.webp", "interior-furniture-04.webp"]],
   },
   {
     title: "보양재와 공사 잔여물",
     body: "보양지, 테이프, 보호필름은 제거 대상과 시점을 먼저 확인합니다. 추가 공사 때문에 유지해야 하는 보호재는 임의로 제거하지 않습니다.",
     note: "보양재를 걷는 작업, 접착 흔적을 제거하는 작업, 나온 잔여물을 반출하는 작업은 구분해 범위와 비용을 정합니다.",
+    photoPairs: [["interior-protect-01.webp", "interior-protect-02.webp"], ["interior-protect-03.webp", "interior-protect-04.webp"]],
   },
 ];
 
@@ -294,6 +302,19 @@ export default function InteriorCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
