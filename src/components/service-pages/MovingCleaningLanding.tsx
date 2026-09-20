@@ -40,31 +40,36 @@ const estimateChecklist = [
   "실제 확보할 수 있는 작업 시간",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "주방과 수납장",
     body: "싱크대, 상판, 벽면, 바닥 등 생활하면서 생긴 기름때와 오염을 확인합니다. 상·하부장 내부, 서랍과 선반, 후드·필터 등은 세척할 부위와 탈거 가능 여부를 확인하며, 내부 청소를 요청한 수납장은 내용물을 비울 수 있는지도 함께 정합니다.",
     note: "냉장고·오븐·식기세척기 등 가전 내부와 분해 세척, 가구 이동, 기기 수리는 별도입니다.",
+    photoPairs: [["moving-kitchen-01.webp", "moving-kitchen-02.webp"], ["moving-kitchen-03.webp", "moving-kitchen-04.webp"]],
   },
   {
     title: "욕실과 배수구",
     body: "변기, 세면대, 거울, 바닥, 벽면 등의 물때와 표면 오염을 살펴봅니다. 욕실 수납장 내부, 환기구 커버, 배수구의 접근 가능한 부품 등은 세부 작업 범위를 확인합니다.",
     note: "배관 막힘 해결, 누수 수리, 실리콘 교체와 자재 보수는 일반 청소와 다릅니다. 오래된 변색이나 부식을 물때로 오해하지 않도록 표면 상태도 함께 살펴봅니다.",
+    photoPairs: [["moving-bathroom-01.webp", "moving-bathroom-02.webp"], ["moving-bathroom-03.webp", "moving-bathroom-04.webp"]],
   },
   {
     title: "창틀과 유리",
     body: "창틀에 쌓인 먼지와 오염, 작업 대상으로 정한 유리 면을 확인합니다. 방충망, 창문 탈거, 유리 양면 등은 구조와 접근 조건에 따라 작업 여부를 정합니다.",
     note: "실내에서 접근하기 어려운 외창과 외부 고소작업은 별도 검토가 필요합니다.",
+    photoPairs: [["moving-window-01.webp", "moving-window-02.webp"], ["moving-window-03.webp", "moving-window-04.webp"]],
   },
   {
     title: "방·거실 바닥과 벽면",
     body: "바닥, 걸레받이, 문 주변과 모서리의 먼지와 제거 가능한 오염을 확인합니다. 가구가 빠진 뒤에는 평소 보이지 않았던 구간도 살펴보며, 스티커·접착제·도료 자국 등 별도 제거가 필요한 곳을 확인합니다.",
     note: "가구 뒤에 남은 자국이 모두 오염인 것은 아니므로 변색·눌림·마모와 구분합니다. 바닥 코팅, 연마, 도배, 도장, 손상 보수는 별도 작업입니다.",
+    photoPairs: [["moving-floor-01.webp", "moving-floor-02.webp"], ["moving-floor-03.webp", "moving-floor-04.webp"]],
   },
   {
     title: "베란다와 다용도실",
     body: "바닥과 문 주변, 창틀 등 요청 구역의 오염을 살펴봅니다. 수납 공간, 남아 있는 세탁기 주변, 배수구 접근 부위 등을 구분합니다.",
     note: "세탁기 내부·분해 세척, 무거운 기기 이동, 배관·방수 보수는 일반 공간 청소와 별도입니다.",
+    photoPairs: [["moving-veranda-01.webp", "moving-veranda-02.webp"], ["moving-veranda-03.webp", "moving-veranda-04.webp"]],
   },
   {
     title: "남겨진 가전과 가구",
@@ -273,6 +278,19 @@ export default function MovingCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
