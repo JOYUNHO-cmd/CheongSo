@@ -20,6 +20,7 @@ import FloorWoodCoatingLanding from "@/components/service-pages/FloorWoodCoating
 import NanoCoatingLanding from "@/components/service-pages/NanoCoatingLanding";
 import FloorCleaningLanding from "@/components/service-pages/FloorCleaningLanding";
 import PebbleFloorCleaningLanding from "@/components/service-pages/PebbleFloorCleaningLanding";
+import MoveInCleaningLanding from "@/components/service-pages/MoveInCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -31,6 +32,11 @@ type Props = { params: Promise<{ service: string }> };
 
 // 상세 콘텐츠를 직접 작성한 서비스는 여기서 커스텀 메타데이터/컴포넌트로 분기합니다.
 const customLandingPages: Record<string, { title: string; description: string; component: () => React.ReactElement }> = {
+  "입주청소": {
+    title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
+    description: "찐청소 입주청소의 비용과 공간별 청소 범위를 안내합니다. 면적·현장 상태에 따른 견적 기준, 추가 비용 조건, 작업 절차와 이삿짐 반입 전 준비사항을 확인하고 희망 일정으로 상담하세요.",
+    component: () => <MoveInCleaningLanding />,
+  },
   "사무실청소": {
     title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
     description: "찐청소 사무실청소의 기본 범위와 견적 기준을 확인하세요. 집기와 바닥 코팅을 제외한 내부 청소부터 정기청소까지, 현장 상태와 필요한 인원·작업 시간에 맞춰 안내합니다.",
