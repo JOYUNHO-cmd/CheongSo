@@ -21,6 +21,7 @@ import NanoCoatingLanding from "@/components/service-pages/NanoCoatingLanding";
 import FloorCleaningLanding from "@/components/service-pages/FloorCleaningLanding";
 import PebbleFloorCleaningLanding from "@/components/service-pages/PebbleFloorCleaningLanding";
 import MoveInCleaningLanding from "@/components/service-pages/MoveInCleaningLanding";
+import MovingCleaningLanding from "@/components/service-pages/MovingCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -36,6 +37,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
     description: "찐청소 입주청소의 비용과 공간별 청소 범위를 안내합니다. 면적·현장 상태에 따른 견적 기준, 추가 비용 조건, 작업 절차와 이삿짐 반입 전 준비사항을 확인하고 희망 일정으로 상담하세요.",
     component: () => <MoveInCleaningLanding />,
+  },
+  "이사청소": {
+    title: "이사청소 비용·청소 범위·당일 일정 안내 | 찐청소",
+    description: "찐청소 이사청소의 비용과 공간별 작업 범위를 안내합니다. 기존 주택의 주방 기름때·욕실 물때·창틀 먼지를 확인하고, 퇴거와 이삿짐 반입 일정에 맞춰 견적을 상담하세요.",
+    component: () => <MovingCleaningLanding />,
   },
   "사무실청소": {
     title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
