@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
-import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
+import { CtaButton, CaseFigure, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
 import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
@@ -40,7 +40,7 @@ const estimateChecklist = [
   "작업 가능한 시간과 현장 조건",
 ];
 
-const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
+const scopeItems: { title: string; body: string; note?: string }[] = [
   {
     title: "주방과 싱크대",
     body: "상판, 싱크대, 벽면, 바닥 등 작업할 표면의 기름때와 생활 오염을 확인합니다. 상판 위 조리도구와 식재료를 누가 옮길지, 후드·필터와 수납장 내부까지 청소할지 등을 구분합니다.",
@@ -55,7 +55,6 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "방·거실 바닥과 모서리",
     body: "접근 가능한 바닥, 문 주변, 걸레받이와 모서리 등의 먼지와 오염을 확인합니다. 작은 생활용품을 옮겨 작업할지, 가구 아래까지 접근할 수 있는지 확인합니다.",
     note: "침대·소파·옷장 등 무거운 가구의 이동과 가구 자체의 전문 세척은 별도로 검토합니다. 가구를 움직이지 않고 닿을 수 있는 구간과 이동해야 하는 구간을 분명하게 안내합니다.",
-    photoPairs: [["residential-room-01.webp", "residential-room-02.webp"], ["residential-living1-01.webp", "residential-living1-02.webp"], ["residential-living2-01.webp", "residential-living2-02.webp"]],
   },
   {
     title: "창틀과 유리",
@@ -71,7 +70,6 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "베란다와 다용도실",
     body: "바닥, 문 주변, 창틀 등 요청 구역의 오염을 확인합니다. 세탁용품, 건조대, 화분 등 생활용품이 있다면 이동 가능한 범위를 정합니다.",
     note: "세탁기 내부·분해 세척이나 무거운 기기 이동, 배관·방수 보수는 일반 공간 청소와 구분합니다.",
-    photoPairs: [["residential-utility-01.webp", "residential-utility-02.webp"], ["residential-veranda-01.webp", "residential-veranda-02.webp"]],
   },
 ];
 
@@ -110,6 +108,59 @@ const caseChecklist = [
   "접근 가능한 가구 주변 바닥",
   "청소 범위에 포함된 수납 공간",
   "처음 집중 청소를 요청한 곳",
+];
+
+const cases = [
+  {
+    id: "residential-room",
+    title: "방 정리·청소",
+    before: "residential-room-01.webp",
+    after: "residential-room-02.webp",
+    beforeWidth: 1650,
+    beforeHeight: 2200,
+    afterWidth: 1650,
+    afterHeight: 2200,
+  },
+  {
+    id: "residential-living1",
+    title: "거실 정리·청소",
+    before: "residential-living1-01.webp",
+    after: "residential-living1-02.webp",
+    beforeWidth: 1650,
+    beforeHeight: 2200,
+    afterWidth: 1650,
+    afterHeight: 2200,
+  },
+  {
+    id: "residential-living2",
+    title: "거실 바닥 청소",
+    before: "residential-living2-01.webp",
+    after: "residential-living2-02.webp",
+    beforeWidth: 1650,
+    beforeHeight: 2200,
+    afterWidth: 1650,
+    afterHeight: 2200,
+  },
+  {
+    id: "residential-utility",
+    title: "다용도실 청소",
+    before: "residential-utility-01.webp",
+    after: "residential-utility-02.webp",
+    beforeWidth: 1650,
+    beforeHeight: 2200,
+    afterWidth: 1650,
+    afterHeight: 2200,
+  },
+  {
+    id: "residential-veranda",
+    title: "베란다 청소",
+    before: "residential-veranda-01.webp",
+    after: "residential-veranda-02.webp",
+    beforeWidth: 1650,
+    beforeHeight: 2200,
+    afterWidth: 1650,
+    afterHeight: 2200,
+  },
 ];
 
 const reservationChecklist = [
@@ -284,19 +335,6 @@ export default function ResidentialCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
-                  {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
-                      {item.photoPairs.map((pair, pairIndex) => (
-                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                          {pair.map(photo => (
-                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
-                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
-                            </div>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -365,6 +403,10 @@ export default function ResidentialCleaningLanding() {
             </ul>
             <p className="mt-5 text-[15px] text-gray-500">정리된 모습과 실제 청소 결과는 구분해서 살펴보세요.</p>
             <p className="mt-2 text-[15px] text-gray-500">사진이 필요하면 촬영 구역과 전달 가능 여부를 미리 확인해 주세요. 가족사진, 문서, 개인 물품 등 촬영을 원하지 않는 대상도 함께 알려주세요.</p>
+
+            <div className="mt-6 space-y-8">
+              {cases.map(item => <CaseFigure key={item.id} item={item} />)}
+            </div>
           </section>
 
           {/* 6. 지역/예약 */}
