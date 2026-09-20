@@ -23,6 +23,7 @@ import PebbleFloorCleaningLanding from "@/components/service-pages/PebbleFloorCl
 import MoveInCleaningLanding from "@/components/service-pages/MoveInCleaningLanding";
 import MovingCleaningLanding from "@/components/service-pages/MovingCleaningLanding";
 import ResidentialCleaningLanding from "@/components/service-pages/ResidentialCleaningLanding";
+import NewConstructionCleaningLanding from "@/components/service-pages/NewConstructionCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -48,6 +49,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "거주청소 비용·살고 있는 집 청소 범위·예약 안내 | 찐청소",
     description: "짐과 가구가 있는 집의 거주청소를 안내합니다. 찐청소가 주방·욕실·창틀·바닥의 오염과 접근 조건을 확인하고, 물품 이동 범위와 필요한 인원·작업 시간을 반영해 견적을 상담합니다.",
     component: () => <ResidentialCleaningLanding />,
+  },
+  "신축청소": {
+    title: "신축청소 비용·준공청소 범위·공사 후 청소 안내 | 찐청소",
+    description: "찐청소 신축청소의 비용과 작업 범위를 안내합니다. 공사 분진·마감 잔여물·보양재의 상태를 확인하고, 건물 내부와 공용부 등 요청 구역을 공사·인계 일정에 맞춰 상담합니다.",
+    component: () => <NewConstructionCleaningLanding />,
   },
   "사무실청소": {
     title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
