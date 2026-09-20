@@ -25,6 +25,7 @@ import MovingCleaningLanding from "@/components/service-pages/MovingCleaningLand
 import ResidentialCleaningLanding from "@/components/service-pages/ResidentialCleaningLanding";
 import NewConstructionCleaningLanding from "@/components/service-pages/NewConstructionCleaningLanding";
 import CompletionCleaningLanding from "@/components/service-pages/CompletionCleaningLanding";
+import InteriorCleaningLanding from "@/components/service-pages/InteriorCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -60,6 +61,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "준공청소 비용·공사 후 청소 범위·견적 안내 | 찐청소",
     description: "찐청소 준공청소의 비용과 작업 범위를 안내합니다. 공사 분진·보양재·마감 잔여물을 확인하고, 전용 공간과 공용부의 청소를 공정 종료·검수·인계 일정에 맞춰 상담합니다.",
     component: () => <CompletionCleaningLanding />,
+  },
+  "인테리어청소": {
+    title: "인테리어청소 비용·리모델링 후 청소 범위 | 찐청소",
+    description: "찐청소 인테리어청소의 비용과 작업 범위를 안내합니다. 전체·부분 리모델링 후 분진과 마감 잔여물, 남아 있는 가구와 생활 오염을 확인하고 입주·영업 일정에 맞춰 상담합니다.",
+    component: () => <InteriorCleaningLanding />,
   },
   "사무실청소": {
     title: "사무실청소 비용·청소 범위·정기청소 안내 | 찐청소",
