@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
-import portfolio from "@/lib/portfolio-highlights.json";
 import { CtaButton, CaseFigure, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
 import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
@@ -174,14 +173,15 @@ const contactChecklist = [
   "전기·수도·주차·출입 조건",
 ];
 
-const caseIds = ["interior-01", "interior-02", "interior-03"] as const;
+const cases = [
+  { id: "interior-case-gym", title: "수원 헬스장 청소", before: "interior-case-gym-before.webp", after: "interior-case-gym-after.webp", beforeWidth: 1650, beforeHeight: 2200, afterWidth: 1650, afterHeight: 2200 },
+  { id: "interior-case-soccer", title: "박주호축구교실 청소", before: "interior-case-soccer-before.webp", after: "interior-case-soccer-after.webp", beforeWidth: 1650, beforeHeight: 2200, afterWidth: 1650, afterHeight: 2200 },
+  { id: "interior-case-lakeside", title: "에버랜드 필란드셋방 청소", before: "interior-case-lakeside-before.webp", after: "interior-case-lakeside-after.webp", beforeWidth: 1650, beforeHeight: 2200, afterWidth: 1650, afterHeight: 2200 },
+  { id: "interior-case-candy", title: "에버랜드 캔디샾 청소", before: "interior-case-candy-before.webp", after: "interior-case-candy-after.webp", beforeWidth: 1080, beforeHeight: 1440, afterWidth: 1080, afterHeight: 1440 },
+];
 const path = "/인테리어청소/";
 
 export default function InteriorCleaningLanding() {
-  const cases = caseIds
-    .map(id => portfolio.find(p => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => !!p);
-
   const structured = [
     {
       "@context": "https://schema.org",
