@@ -36,31 +36,36 @@ const consultTriggers = [
   "청소와 별도 관리를 여러 번 알아보기보다 함께 상담하고 싶은 경우",
 ];
 
-const scopeItems: { title: string; body: string; note?: string }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][] }[] = [
   {
     title: "주방과 수납 공간",
     body: "싱크대, 상판, 벽면, 바닥 등 표면 오염을 확인합니다. 수납장 내부와 서랍·선반, 모서리 등은 접근과 탈거 가능 여부를 살펴 세부 범위를 정합니다.",
     note: "식재료와 식기, 생활용품이 있다면 작업할 구역과 보관할 물품을 먼저 구분합니다.",
+    photoPairs: [["premium-kitchen-01.webp", "premium-kitchen-02.webp"], ["premium-kitchen-03.webp", "premium-kitchen-04.webp"]],
   },
   {
     title: "욕실과 배수구 주변",
     body: "세면대, 변기, 거울, 벽면과 바닥 등의 오염을 확인합니다. 수납장 내부, 환기구 커버, 배수구의 접근 가능한 부품 등도 요청 내용과 구조에 따라 범위를 정합니다.",
     note: "배관 내부 작업이나 누수 수리, 실리콘 교체는 공간 청소와 구분합니다.",
+    photoPairs: [["premium-bathroom-01.webp", "premium-bathroom-02.webp"], ["premium-bathroom-03.webp", "premium-bathroom-04.webp"]],
   },
   {
     title: "창틀과 유리",
     body: "창틀과 프레임, 모서리 등 먼지가 남기 쉬운 부분을 확인합니다. 유리의 어느 면을 청소할지, 방충망과 창호 탈거가 필요한지 구체적으로 정합니다.",
     note: "접근이 어려운 외창이나 외부 고소작업은 별도 확인이 필요합니다.",
+    photoPairs: [["premium-window-01.webp", "premium-window-02.webp"], ["premium-window-03.webp", "premium-window-04.webp"]],
   },
   {
     title: "바닥·문·몰딩",
     body: "바닥과 가장자리, 문틀, 몰딩 등 재질에 맞춰 먼지와 제거 가능한 오염을 청소합니다. 접착 흔적이나 도료 자국 등은 일반적인 먼지와 구분해 작업 가능 여부를 확인합니다.",
     note: "흠집·변색·마모와 같은 기존 손상은 청소로 제거할 오염과 나누어 안내합니다.",
+    photoPairs: [["premium-floor-01.webp", "premium-floor-02.webp"], ["premium-floor-03.webp", "premium-floor-04.webp"]],
   },
   {
     title: "베란다와 다용도실",
     body: "바닥, 창틀, 문 주변과 수납 공간 등 요청 구역을 확인합니다.",
     note: "기기가 놓여 있다면 주변 공간 청소와 기기 자체의 세척을 구분합니다.",
+    photoPairs: [["premium-veranda-01.webp", "premium-veranda-02.webp"], ["premium-veranda-03.webp", "premium-veranda-04.webp"]],
   },
 ];
 
@@ -289,6 +294,19 @@ export default function PremiumCleaningLanding() {
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   <p className="mt-2">{item.body}</p>
                   {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  {item.photoPairs && (
+                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                      {item.photoPairs.map((pair, pairIndex) => (
+                        <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                          {pair.map(photo => (
+                            <div key={photo} className="relative flex h-52 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-64">
+                              <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 현장 사진 ${pairIndex + 1}`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 220px, 45vw" />
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
