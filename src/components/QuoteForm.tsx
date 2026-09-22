@@ -37,17 +37,17 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-      <div className="ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen rounded-none bg-brand-light/40 px-4 py-4 leading-6 text-brand-dark sm:ml-0 sm:mr-0 sm:w-auto sm:rounded-xl sm:p-4 sm:text-sm">
+      <div className="rounded-xl bg-brand-light/40 p-4 leading-6 text-brand-dark sm:text-sm">
         <p className="text-lg font-bold">이메일로 견적 문의하기</p>
-        <p className="mt-2 whitespace-nowrap text-[clamp(11px,3.4vw,14px)] sm:text-sm">
+        <p className="mt-2 whitespace-nowrap text-[clamp(9px,2.8vw,11px)] sm:text-sm">
           아래 내용을 작성해서 보내주시면 바로 문의가 접수됩니다.
         </p>
         <a
           href={`tel:${siteConfig.phoneRaw}`}
-          className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-brand px-4 py-3 font-black text-white shadow-sm transition-transform hover:scale-[1.02] active:scale-95 sm:text-base"
+          className="mt-4 flex items-center justify-center gap-1.5 rounded-xl bg-brand px-3 py-2 font-black text-white shadow-sm transition-transform hover:scale-[1.02] active:scale-95 sm:gap-2 sm:px-4 sm:py-3 sm:text-base"
         >
-          <Phone className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" strokeWidth={2.6} />
-          <span className="whitespace-nowrap text-[clamp(12px,3.6vw,15px)] sm:text-base">긴급 상황시 {siteConfig.phone}(빠른연결)</span>
+          <Phone className="h-[clamp(10px,3.2vw,13px)] w-[clamp(10px,3.2vw,13px)] shrink-0 sm:h-5 sm:w-5" strokeWidth={2.6} />
+          <span className="whitespace-nowrap text-[clamp(10px,3.2vw,13px)] sm:text-base">긴급 상황시 {siteConfig.phone}(빠른연결)</span>
         </a>
       </div>
 
