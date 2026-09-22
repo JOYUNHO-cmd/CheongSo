@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Phone } from "lucide-react";
+import { Phone, Tag, MessageCircle } from "lucide-react";
 import { serviceCategories } from "@/lib/services-data";
 import { servicePath } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
@@ -592,16 +592,15 @@ export default function Header() {
         {/* 3) 하단 고정 바: 가격안내, 24시 전화안내, 빠른 무료견적 신청하기 */}
         <div className="border-t border-gray-200 bg-gray-50/80 px-5 py-4 shrink-0 space-y-2.5">
           {/* 가격안내 & 자동상담 & 카톡상담 & 24시 전화안내 4열 */}
-          <div className="grid grid-cols-4 gap-1 sm:gap-1.5">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
             <Link
               href="/pricing"
               onClick={closeMenu}
-              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-[11px] sm:text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
+              className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-sky-100 bg-sky-50 py-2.5 px-1 text-[11px] sm:text-xs font-bold text-sky-700 shadow-2xs transition-all hover:bg-sky-100 active:scale-95 cursor-pointer"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-500">
-                <rect x="2" y="5" width="20" height="14" rx="2" />
-                <line x1="2" y1="10" x2="22" y2="10" />
-              </svg>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-500 text-white shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6">
+                <Tag className="h-4.5 w-4.5" strokeWidth={2.2} aria-hidden="true" />
+              </span>
               <span>가격안내</span>
             </Link>
 
@@ -613,11 +612,11 @@ export default function Header() {
                   (window as unknown as { openConsultationBot?: () => void }).openConsultationBot?.();
                 }
               }}
-              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-teal-200 bg-teal-50/70 py-2 px-1 text-[11px] sm:text-xs font-bold text-teal-800 shadow-2xs hover:bg-teal-100 transition-colors active:scale-98 cursor-pointer"
+              className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-teal-100 bg-teal-50 py-2.5 px-1 text-[11px] sm:text-xs font-bold text-teal-800 shadow-2xs transition-all hover:bg-teal-100 active:scale-95 cursor-pointer"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand text-white shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6">
+                <MessageCircle className="h-4.5 w-4.5" strokeWidth={2.2} aria-hidden="true" />
+              </span>
               <span>자동상담</span>
             </button>
 
@@ -625,26 +624,33 @@ export default function Header() {
               href={siteConfig.kakaoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1 rounded-xl border border-amber-300 bg-[#FEE500]/30 py-2 px-1 text-[11px] sm:text-xs font-bold text-[#381E1F] shadow-2xs hover:bg-[#FEE500] transition-colors active:scale-98"
+              className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-amber-200 bg-[#FEE500]/25 py-2.5 px-1 text-[11px] sm:text-xs font-bold text-[#381E1F] shadow-2xs transition-all hover:bg-[#FEE500]/40 active:scale-95"
             >
-              <KakaoIcon className="h-4 w-4 text-[#381E1F]" />
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FEE500] text-[#381E1F] shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-6">
+                <KakaoIcon className="h-4.5 w-4.5" />
+              </span>
               <span>카톡상담</span>
             </a>
 
             {siteConfig.phoneRaw ? (
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-[11px] sm:text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98"
+                className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-emerald-100 bg-emerald-50 py-2.5 px-1 text-[11px] sm:text-xs font-bold text-emerald-700 shadow-2xs transition-all hover:bg-emerald-100 active:scale-95"
               >
-                <Phone className="h-4 w-4 text-brand" strokeWidth={2} aria-hidden="true" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6">
+                  <Phone className="h-4.5 w-4.5" strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>전화상담</span>
               </a>
             ) : (
               <Link
                 href="/contact"
                 onClick={closeMenu}
-                className="flex flex-col items-center justify-center gap-1 rounded-xl border border-gray-300 bg-white py-2 px-1 text-xs font-bold text-gray-800 shadow-2xs hover:border-brand hover:text-brand transition-colors active:scale-98 cursor-pointer"
+                className="group flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-emerald-100 bg-emerald-50 py-2.5 px-1 text-xs font-bold text-emerald-700 shadow-2xs transition-all hover:bg-emerald-100 active:scale-95 cursor-pointer"
               >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-white shadow-sm transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6">
+                  <Phone className="h-4.5 w-4.5" strokeWidth={2.2} aria-hidden="true" />
+                </span>
                 <span>상담안내</span>
               </Link>
             )}
