@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 function EcosorbDiagram() {
   return (
@@ -58,10 +59,13 @@ export default function EcosorbMechanism() {
         <EcosorbDiagram />
       </div>
 
-      <div className="mt-8 border-t border-gray-100 pt-7">
-        <h4 className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
-          <span className="text-red-600">✓</span>이산화황(SO₂) 제거 메커니즘
-        </h4>
+      <details className="group mt-8 border-t border-gray-100 pt-7">
+        <summary className="flex list-none items-center justify-between gap-2 cursor-pointer [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
+            <span className="text-red-600">✓</span>이산화황(SO₂) 제거 메커니즘
+          </span>
+          <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180 group-open:text-brand" />
+        </summary>
         <div className="mt-3 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <p className="text-[15px] leading-7 text-gray-800">
             SO₂가 수용성중간체인 H₂SO₃, <span className="font-bold">ECOSORB</span>이 투입될 경우 제거가 용이한 형태인 HSO₃가 형성된다.
@@ -79,12 +83,15 @@ export default function EcosorbMechanism() {
             </p>
           </div>
         </div>
-      </div>
+      </details>
 
-      <div className="mt-8 border-t border-gray-100 pt-7">
-        <h4 className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
-          <span className="text-red-600">✓</span>아민류 제거 메커니즘
-        </h4>
+      <details className="group mt-8 border-t border-gray-100 pt-7">
+        <summary className="flex list-none items-center justify-between gap-2 cursor-pointer [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
+            <span className="text-red-600">✓</span>아민류 제거 메커니즘
+          </span>
+          <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180 group-open:text-brand" />
+        </summary>
         <p className="mt-3 text-[15px] leading-7 text-gray-800">
           쓰레기(생선, 야채)처리 시설에서 발생되는 2가지의 아민 화합물, 즉 TEA(triethyl amine)과 DMEA(Dimethyl Ethyl Amine)의 경우 다음 기전에 의해 대기 중 제거가 용이한{" "}
           <span className="underline decoration-gray-400">유기염</span>으로 전환된다.
@@ -142,7 +149,7 @@ export default function EcosorbMechanism() {
         <p className="mt-5 text-[15px] font-bold text-gray-900">
           이 메커니즘에 의해 생성된 유기염들은 대기 중 제거가 용이하며 독성이 없는 물질입니다.
         </p>
-      </div>
+      </details>
     </div>
   );
 }
