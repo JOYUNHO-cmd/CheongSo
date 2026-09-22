@@ -7,7 +7,7 @@ function EcosorbDiagram() {
       alt="ECOSORB가 양전하를 띠고 악취원 분자와 결합하는 원리 그림"
       width={1301}
       height={1209}
-      className="h-auto w-full max-w-[220px]"
+      className="h-auto w-full max-w-[280px]"
     />
   );
 }
