@@ -73,29 +73,32 @@ export default function GalleryBrowser() {
 
   return (
     <>
-      {/* 카테고리 필터 */}
-      <div className="mb-8 flex flex-wrap justify-center gap-2">
-        <button
-          type="button"
-          onClick={() => selectCategory("all")}
-          className={`rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
-            activeCategory === "all" ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
-          }`}
-        >
-          전체
-        </button>
-        {categories.map((cat) => (
+      {/* 카테고리 필터 — 한 줄로만 두고 가로 스크롤해 한눈에 정돈되게 보여줍니다 */}
+      <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/60 p-2.5">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
           <button
-            key={cat.slug}
             type="button"
-            onClick={() => selectCategory(cat.slug)}
-            className={`rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
-              activeCategory === cat.slug ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+            onClick={() => selectCategory("all")}
+            className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
+              activeCategory === "all" ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
             }`}
           >
-            {cat.label}
+            전체
           </button>
-        ))}
+          <div className="h-6 w-px shrink-0 bg-gray-200" aria-hidden="true" />
+          {categories.map((cat) => (
+            <button
+              key={cat.slug}
+              type="button"
+              onClick={() => selectCategory(cat.slug)}
+              className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
+                activeCategory === cat.slug ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <p className="mb-5 text-center text-sm text-gray-500">

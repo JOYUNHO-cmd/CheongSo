@@ -189,4 +189,19 @@ details > summary {
   .animate-star-twinkle { animation: none; }
 }
 
+/* "누르면/선택하면 크게 볼 수 있어요" 안내 옆 아이콘 — 작고 귀엽게 까딱까딱 */
+@keyframes cute-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-4px) rotate(8deg); }
+}
+
+.animate-cute-bob {
+  display: inline-block;
+  animation: cute-bob 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cute-bob { animation: none; }
+}
+
 

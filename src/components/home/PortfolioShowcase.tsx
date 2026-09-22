@@ -173,7 +173,9 @@ export default function PortfolioShowcase() {
           ))}
         </div>
       </div>
-      <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">사진을 누르면 크게 볼 수 있어요</p>
+      <p className="mt-5 text-center text-base font-bold text-brand-dark sm:text-lg">
+        사진을 누르면 크게 볼 수 있어요 <span className="animate-cute-bob" aria-hidden="true">👆</span>
+      </p>
       <dialog ref={dialog} onClose={() => { setOpenItem(null); setHovered(false); setFocused(false); }} onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }} aria-label="시공 전/후 크게 보기" className="m-auto h-fit w-[95vw] max-w-[1300px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-white p-4 backdrop:bg-black/80">
         <form method="dialog" className="sticky top-0 z-10 flex justify-end"><button autoFocus className="rounded-full bg-brand-dark px-4 py-2 text-white">닫기 ✕</button></form>
         {openItem && (
