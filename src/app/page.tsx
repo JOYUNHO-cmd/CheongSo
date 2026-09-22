@@ -13,6 +13,7 @@ import CeoMessage from "@/components/home/CeoMessage";
 import TrustFeatures from "@/components/home/TrustFeatures";
 import Certifications from "@/components/home/Certifications";
 import SafetyCertifications from "@/components/home/SafetyCertifications";
+import EcosorbMechanism from "@/components/home/EcosorbMechanism";
 import PricingTransparency from "@/components/home/PricingTransparency";
 import FaqAccordion from "@/components/home/FaqAccordion";
 import { siteConfig } from "@/lib/site-config";
@@ -194,6 +195,7 @@ export default function Home() {
             />
           </div>
           <SafetyCertifications />
+          <EcosorbMechanism />
         </div>
       </section>
 
