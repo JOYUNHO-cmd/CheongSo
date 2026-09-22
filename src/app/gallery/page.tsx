@@ -5,7 +5,7 @@ import { buildMetadata } from "@/lib/seo";
 const totalCount = (galleryData as { items: unknown[] }[]).reduce((sum, cat) => sum + cat.items.length, 0);
 
 export const metadata = buildMetadata({
-  title: `찐현장사진 ${totalCount}건 모아보기`,
+  title: "현장사진들",
   description: `찐청소가 실제로 작업한 전/후 현장 사진 ${totalCount}건을 서비스 분야별로 모아 확인하세요.`,
   path: "/gallery",
   keywords: ["찐현장사진", "청소 전후사진", "청소업체 시공사례", "청소 현장 사진"],
