@@ -34,6 +34,7 @@ import OdorRemovalLanding from "@/components/service-pages/OdorRemovalLanding";
 import MoldRemovalLanding from "@/components/service-pages/MoldRemovalLanding";
 import ExteriorWallCleaningLanding from "@/components/service-pages/ExteriorWallCleaningLanding";
 import EventCleaningLanding from "@/components/service-pages/EventCleaningLanding";
+import StoneCleaningLanding from "@/components/service-pages/StoneCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -84,6 +85,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "행사장청소 비용·행사 전후 청소·예약 안내 | 찐청소",
     description: "기업 행사, 전시회, 공연, 축제 등 행사장청소를 상담하세요. 찐청소가 행사 전후 작업 범위, 운영 중 관리, 쓰레기 수거·반출 조건과 일정에 따른 견적 기준을 안내합니다.",
     component: () => <EventCleaningLanding />,
+  },
+  "석재청소": {
+    title: "대리석·화강석 청소 및 얼룩 제거 비용 | 찐청소",
+    description: "닦아도 남는 대리석 얼룩과 화강석 오염, 재질과 원인부터 확인하세요. 찐청소가 석재청소 범위, 기름·녹물 등 오염별 상담 기준, 견적과 작업 절차를 안내합니다.",
+    component: () => <StoneCleaningLanding />,
   },
   "입주청소": {
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
