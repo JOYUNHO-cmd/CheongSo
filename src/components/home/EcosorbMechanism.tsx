@@ -15,9 +15,7 @@ function EcosorbDiagram() {
 export default function EcosorbMechanism() {
   return (
     <div className="mt-10 rounded-2xl border border-gray-200 bg-white px-6 py-7 sm:px-9 sm:py-9">
-      <p className="text-sm font-bold tracking-widest text-brand">사용 약품 — ECOSORB</p>
-
-      <div className="mt-2 grid gap-6 sm:grid-cols-[1fr_260px] sm:items-start">
+      <div className="grid gap-6 sm:grid-cols-[1fr_260px] sm:items-start">
         <div>
           <h3 className="text-xl font-black text-gray-900 sm:text-2xl">악취제거 메커니즘</h3>
           <ul className="mt-4 space-y-2 text-[15px] leading-7 text-gray-800">
