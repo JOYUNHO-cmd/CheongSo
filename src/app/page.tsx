@@ -69,7 +69,7 @@ export default function Home() {
             {siteConfig.heroSubcopy.map((line, i) => (
               <span
                 key={line}
-                className={i === 0 ? "font-brush block text-base tracking-wide sm:text-2xl md:text-[28px] lg:text-[30px]" : "block"}
+                className={i === 0 ? "block italic -rotate-1 tracking-wide" : "block"}
               >
                 {line}
               </span>
