@@ -1,46 +1,14 @@
+import Image from "next/image";
+
 function EcosorbDiagram() {
   return (
-    <svg viewBox="0 0 200 170" className="h-auto w-full max-w-[180px]" aria-hidden="true">
-      <text x="100" y="16" textAnchor="middle" fontSize="15" fontWeight="800" fill="#1a1f24">
-        ECOSORB
-      </text>
-
-      <circle cx="95" cy="80" r="34" fill="#3b6fe0" />
-      <circle cx="82" cy="70" r="4.5" fill="#8fd14f" />
-      <circle cx="102" cy="65" r="4" fill="#8fd14f" />
-      <circle cx="108" cy="85" r="4.5" fill="#8fd14f" />
-      <circle cx="88" cy="90" r="3.5" fill="#8fd14f" />
-      <circle cx="97" cy="78" r="3.5" fill="#8fd14f" />
-
-      {[
-        [95, 34],
-        [131, 50],
-        [138, 80],
-        [125, 108],
-        [65, 108],
-        [52, 80],
-        [59, 50],
-      ].map(([x, y], i) => (
-        <text key={i} x={x} y={y} textAnchor="middle" fontSize="13" fontWeight="800" fill="#1a1f24">
-          +
-        </text>
-      ))}
-
-      <circle cx="168" cy="46" r="8" fill="#3b6fe0" />
-      <path d="M158 55 L112 72" stroke="#1a1f24" strokeWidth="1.2" markerEnd="url(#arrow)" />
-
-      <circle cx="35" cy="140" r="8" fill="#3b6fe0" />
-      <path d="M43 132 L75 105" stroke="#1a1f24" strokeWidth="1.2" markerEnd="url(#arrow)" />
-      <text x="24" y="160" fontSize="12" fontWeight="700" fill="#1a1f24">
-        악취원
-      </text>
-
-      <defs>
-        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6 Z" fill="#1a1f24" />
-        </marker>
-      </defs>
-    </svg>
+    <Image
+      src="/images/safety/ecosorb-diagram.webp"
+      alt="ECOSORB가 양전하를 띠고 악취원 분자와 결합하는 원리 그림"
+      width={1301}
+      height={1209}
+      className="h-auto w-full max-w-[220px]"
+    />
   );
 }
 
