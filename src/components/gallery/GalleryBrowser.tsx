@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import galleryData from "@/lib/gallery-data.json";
 
 type GalleryItem = {
@@ -56,6 +57,7 @@ export default function GalleryBrowser() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [openItem, setOpenItem] = useState<FlatItem | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -66,15 +68,59 @@ export default function GalleryBrowser() {
   function selectCategory(slug: string) {
     setActiveCategory(slug);
     setVisibleCount(PAGE_SIZE);
+    setFilterOpen(false);
   }
 
   const filtered = activeCategory === "all" ? items : items.filter((item) => item.categorySlug === activeCategory);
   const visible = filtered.slice(0, visibleCount);
+  const activeLabel = activeCategory === "all" ? "전체" : categories.find((c) => c.slug === activeCategory)?.label;
 
   return (
     <>
-      {/* 카테고리 필터 — 한 줄로만 두고 가로 스크롤해 한눈에 정돈되게 보여줍니다 */}
-      <div className="mb-8 rounded-2xl border border-gray-100 bg-gray-50/60 p-2.5">
+      {/* 카테고리 필터: 모바일은 펼침형 선택창, 태블릿 이상은 한 줄 가로 스크롤 칩 */}
+      <div className="relative mb-8 sm:hidden">
+        <button
+          type="button"
+          onClick={() => setFilterOpen((value) => !value)}
+          className="flex w-full items-center justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3.5 shadow-sm"
+        >
+          <span className="flex min-w-0 items-center gap-2">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+            <span className="shrink-0 font-extrabold text-brand-dark">{activeLabel}</span>
+            <span className="truncate text-xs text-gray-400">(궁금하신 현장 사례를 선택해주세요)</span>
+          </span>
+          <span
+            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-sm transition-transform duration-300 ${
+              filterOpen ? "rotate-180" : "animate-cute-bob"
+            }`}
+          >
+            <ChevronDown className="h-4 w-4" strokeWidth={2.75} />
+          </span>
+        </button>
+        {filterOpen && (
+          <div className="absolute inset-x-0 top-full z-20 mt-1.5 max-h-80 overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-lg divide-y divide-gray-100">
+            <button
+              type="button"
+              onClick={() => selectCategory("all")}
+              className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === "all" ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
+            >
+              전체
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat.slug}
+                type="button"
+                onClick={() => selectCategory(cat.slug)}
+                className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === cat.slug ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="mb-8 hidden rounded-2xl border border-gray-100 bg-gray-50/60 p-2.5 sm:block">
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
           <button
             type="button"
@@ -101,11 +147,7 @@ export default function GalleryBrowser() {
         </div>
       </div>
 
-      <p className="mb-5 text-center text-sm text-gray-500">
-        {activeCategory === "all" ? "전체" : categories.find((c) => c.slug === activeCategory)?.label} {filtered.length}건 중 {visible.length}건 표시
-      </p>
-
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
         {visible.map((item) => (
           <button
             key={item.id}
@@ -125,7 +167,6 @@ export default function GalleryBrowser() {
             </div>
             <div className="px-3 py-2.5">
               <p className="truncate text-xs sm:text-sm font-bold text-gray-700 group-hover:text-brand-dark">{item.title}</p>
-              <p className="mt-0.5 truncate text-[11px] text-gray-400">{item.categoryLabel}</p>
             </div>
           </button>
         ))}
@@ -138,7 +179,7 @@ export default function GalleryBrowser() {
             onClick={() => setVisibleCount((value) => value + PAGE_SIZE)}
             className="rounded-full border border-gray-200 bg-white px-8 py-3.5 text-sm font-bold text-brand-dark shadow-sm transition hover:border-brand hover:bg-brand-light"
           >
-            사진 더보기 ({filtered.length - visibleCount}건 남음)
+            사진 더보기
           </button>
         </div>
       )}
