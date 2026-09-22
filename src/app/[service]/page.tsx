@@ -28,6 +28,7 @@ import InteriorCleaningLanding from "@/components/service-pages/InteriorCleaning
 import PremiumCleaningLanding from "@/components/service-pages/PremiumCleaningLanding";
 import StudioCleaningLanding from "@/components/service-pages/StudioCleaningLanding";
 import PartialCleaningLanding from "@/components/service-pages/PartialCleaningLanding";
+import ExteriorWindowCleaningLanding from "@/components/service-pages/ExteriorWindowCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -48,6 +49,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "부분청소 비용·욕실·주방·창틀 선택 청소 | 찐청소",
     description: "집 전체가 아닌 필요한 곳만 청소하세요. 찐청소가 욕실·주방·창틀·베란다 등 요청 구역의 오염과 작업 범위를 확인하고, 필요한 인원과 장비·약품을 기준으로 견적을 안내합니다.",
     component: () => <PartialCleaningLanding />,
+  },
+  "외창청소": {
+    title: "외창청소 비용·아파트 유리창·청소 범위 안내 | 찐청소",
+    description: "찐청소 외창청소의 비용과 작업 범위를 안내합니다. 아파트·주택·상가의 창 구조와 접근 조건을 확인하고, 바깥 유리와 내창·창틀·방충망의 포함 여부를 구분해 상담합니다.",
+    component: () => <ExteriorWindowCleaningLanding />,
   },
   "입주청소": {
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
