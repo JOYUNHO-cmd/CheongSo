@@ -175,4 +175,18 @@ details > summary {
   animation: mobile-wiggle-ring 3.8s ease-in-out infinite 0.7s;
 }
 
+/* 고객 후기 섹션 별 다섯개 — 가운데가 가장 크게, 가장자리로 갈수록 작아지는 로고 아치 형태 */
+@keyframes star-twinkle {
+  0%, 100% { transform: scale(1); opacity: 0.82; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-star-twinkle { animation: none; }
+}
+
 

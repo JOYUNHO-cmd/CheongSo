@@ -6,6 +6,7 @@ import HeroVideo from "@/components/HeroVideo";
 import PortfolioShowcase from "@/components/home/PortfolioShowcase";
 import HashScrollCenter from "@/components/home/HashScrollCenter";
 import ReviewShowcase from "@/components/home/ReviewShowcase";
+import ReviewStars from "@/components/home/ReviewStars";
 import TrustConcerns from "@/components/home/TrustConcerns";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import CeoMessage from "@/components/home/CeoMessage";
@@ -142,6 +143,7 @@ export default function Home() {
       {/* 고객 후기 */}
       <section id="reviews" className="scroll-mt-20 bg-gradient-to-b from-white via-amber-50/30 to-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
+          <ReviewStars />
           <SectionHeading
             title="직접 이용해본 고객님들의 찐후기"
             description={
