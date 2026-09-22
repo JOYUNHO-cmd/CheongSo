@@ -105,7 +105,7 @@ export default function EcosorbMechanism() {
           </span>
         </summary>
         <p className="mt-3 text-[13px] leading-6 text-gray-800 sm:text-[15px] sm:leading-7">
-          쓰레기(생선, 야채)처리 시설에서 발생되는 2가지의{" "}
+          쓰레기처리 시설에서 발생되는 2가지의{" "}
           <br className="sm:hidden" />
           아민 화합물, 즉 TEA(triethyl amine)과{" "}
           <br className="sm:hidden" />
