@@ -31,6 +31,7 @@ import PartialCleaningLanding from "@/components/service-pages/PartialCleaningLa
 import ExteriorWindowCleaningLanding from "@/components/service-pages/ExteriorWindowCleaningLanding";
 import DisinfectionCleaningLanding from "@/components/service-pages/DisinfectionCleaningLanding";
 import OdorRemovalLanding from "@/components/service-pages/OdorRemovalLanding";
+import MoldRemovalLanding from "@/components/service-pages/MoldRemovalLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -66,6 +67,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "냄새악취제거 비용·담배·반려동물·실내 냄새 상담 | 찐청소",
     description: "반복되는 실내 냄새와 악취, 원인부터 확인하세요. 찐청소가 담배·반려동물·음식물 등 냄새 발생 상태를 살펴 청소·탈취 범위와 비용, 별도 보수가 필요한 부분을 안내합니다.",
     component: () => <OdorRemovalLanding />,
+  },
+  "곰팡이제거": {
+    title: "곰팡이제거 비용·벽지·베란다 작업 범위 안내 | 찐청소",
+    description: "벽지, 벽면, 천장, 베란다 곰팡이로 고민이신가요? 찐청소가 오염 범위와 자재 상태에 따른 제거 가능 여부, 견적 기준, 교체가 필요한 경우와 작업 후 관리 방법을 안내합니다.",
+    component: () => <MoldRemovalLanding />,
   },
   "입주청소": {
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
