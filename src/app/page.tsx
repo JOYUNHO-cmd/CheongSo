@@ -65,17 +65,8 @@ export default function Home() {
           </h1>
 
           {/* 서브 문구 (모바일 text-sm, PC 이전 크기인 lg:text-[26px] 복원) */}
-          <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-normal leading-relaxed text-gray-100 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+          <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-normal leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
             {siteConfig.heroSubcopy.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </p>
-
-          {/* 클로징 강조 문구 (모바일 text-base, PC 이전 크기인 lg:text-[32px] 복원) */}
-          <p className="mx-auto mt-3 sm:mt-5 text-base sm:text-2xl md:text-3xl lg:text-[32px] font-bold tracking-normal text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
-            {siteConfig.heroClosing.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>
@@ -149,7 +140,7 @@ export default function Home() {
             description={
               <>
                 <span className="block text-[16px] tracking-tight sm:text-inherit sm:inline sm:tracking-normal">
-                  가짜가 아닌 진짜 고객님들 후기입니다
+                  가짜가 아닌 찐 고객님들 후기입니다
                 </span>
               </>
             }
