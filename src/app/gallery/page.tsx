@@ -19,7 +19,7 @@ export default function GalleryPage() {
           찐현장사진 {totalCount}건 모아보기
         </h1>
         <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-          찐청소가 실제로 작업한 전/후 현장 사진입니다. 서비스 분야를 눌러 바로 이동해 보세요.
+          찐청소가 실제로 작업한 전/후 현장 사진입니다. 분야를 선택하면 해당 사진만 모아볼 수 있어요.
           사진을 누르면 크게 볼 수 있어요
         </p>
       </div>

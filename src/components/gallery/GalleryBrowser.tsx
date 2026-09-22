@@ -15,8 +15,23 @@ type GalleryItem = {
   afterHeight: number;
 };
 type GalleryCategory = { slug: string; label: string; items: GalleryItem[] };
+type FlatItem = GalleryItem & { categorySlug: string; categoryLabel: string };
 
 const categories = galleryData as GalleryCategory[];
+const allItems: FlatItem[] = categories.flatMap((cat) =>
+  cat.items.map((item) => ({ ...item, categorySlug: cat.slug, categoryLabel: cat.label }))
+);
+
+const PAGE_SIZE = 24;
+
+function shuffled<T>(list: T[]) {
+  const copy = [...list];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
 function Badge({ label, variant }: { label: string; variant: "before" | "after" }) {
   return (
@@ -31,7 +46,16 @@ function Badge({ label, variant }: { label: string; variant: "before" | "after" 
 }
 
 export default function GalleryBrowser() {
-  const [openItem, setOpenItem] = useState<GalleryItem | null>(null);
+  // 하이드레이션 직후에 섞어야 서버·클라이언트 초기 마크업이 일치합니다.
+  const [items, setItems] = useState(allItems);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setItems(shuffled(allItems));
+  }, []);
+
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [openItem, setOpenItem] = useState<FlatItem | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -39,63 +63,82 @@ export default function GalleryBrowser() {
     else dialog.current?.close();
   }, [openItem]);
 
+  function selectCategory(slug: string) {
+    setActiveCategory(slug);
+    setVisibleCount(PAGE_SIZE);
+  }
+
+  const filtered = activeCategory === "all" ? items : items.filter((item) => item.categorySlug === activeCategory);
+  const visible = filtered.slice(0, visibleCount);
+
   return (
     <>
-      {/* 카테고리 빠른 이동 칩 */}
-      <div className="sticky top-[56px] sm:top-[72px] z-30 -mx-4 sm:mx-0 px-4 sm:px-0 py-3 bg-white/95 backdrop-blur-sm border-y border-gray-100 mb-8 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-1.5 sm:gap-2 min-w-max mx-auto justify-start sm:justify-center">
-          {categories.map((cat) => (
-            <a
-              key={cat.slug}
-              href={`#${cat.slug}`}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-gray-100 px-3 py-1.5 text-xs sm:text-sm font-extrabold text-gray-700 hover:bg-brand hover:text-white transition-all active:scale-95"
-            >
-              <span>{cat.label}</span>
-              <span className="text-[10px] opacity-60">{cat.items.length}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <div className="space-y-14">
-        {categories.map((cat, idx) => (
-          <section key={cat.slug} id={cat.slug} className="scroll-mt-32">
-            <div className="mb-5 flex items-center gap-3 border-b border-gray-100 pb-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-brand text-xs font-black text-white shadow-xs">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-black text-gray-900">{cat.label}</h2>
-                <p className="text-xs sm:text-sm text-gray-500 mt-0.5">현장 사진 {cat.items.length}건</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-              {cat.items.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setOpenItem(item)}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
-                >
-                  <div className="grid grid-cols-2">
-                    <div className="relative aspect-square overflow-hidden bg-gray-100">
-                      <Image src={`/images/gallery-v2/${item.before}`} alt={`${item.title} 시공 전`} fill className="object-cover" sizes="(min-width: 1024px) 190px, (min-width: 640px) 220px, 45vw" />
-                      <Badge label="전" variant="before" />
-                    </div>
-                    <div className="relative aspect-square overflow-hidden bg-gray-100">
-                      <Image src={`/images/gallery-v2/${item.after}`} alt={`${item.title} 시공 후`} fill className="object-cover" sizes="(min-width: 1024px) 190px, (min-width: 640px) 220px, 45vw" />
-                      <Badge label="후" variant="after" />
-                    </div>
-                  </div>
-                  <div className="px-3 py-2.5">
-                    <p className="truncate text-xs sm:text-sm font-bold text-gray-700 group-hover:text-brand-dark">{item.title}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </section>
+      {/* 카테고리 필터 */}
+      <div className="mb-8 flex flex-wrap justify-center gap-2">
+        <button
+          type="button"
+          onClick={() => selectCategory("all")}
+          className={`rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
+            activeCategory === "all" ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+          }`}
+        >
+          전체
+        </button>
+        {categories.map((cat) => (
+          <button
+            key={cat.slug}
+            type="button"
+            onClick={() => selectCategory(cat.slug)}
+            className={`rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
+              activeCategory === cat.slug ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+            }`}
+          >
+            {cat.label}
+          </button>
         ))}
       </div>
+
+      <p className="mb-5 text-center text-sm text-gray-500">
+        {activeCategory === "all" ? "전체" : categories.find((c) => c.slug === activeCategory)?.label} {filtered.length}건 중 {visible.length}건 표시
+      </p>
+
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+        {visible.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => setOpenItem(item)}
+            className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
+          >
+            <div className="grid grid-cols-2">
+              <div className="relative aspect-square overflow-hidden bg-gray-100">
+                <Image src={`/images/gallery-v2/${item.before}`} alt={`${item.title} 시공 전`} fill className="object-cover" sizes="(min-width: 1024px) 190px, (min-width: 640px) 220px, 45vw" />
+                <Badge label="전" variant="before" />
+              </div>
+              <div className="relative aspect-square overflow-hidden bg-gray-100">
+                <Image src={`/images/gallery-v2/${item.after}`} alt={`${item.title} 시공 후`} fill className="object-cover" sizes="(min-width: 1024px) 190px, (min-width: 640px) 220px, 45vw" />
+                <Badge label="후" variant="after" />
+              </div>
+            </div>
+            <div className="px-3 py-2.5">
+              <p className="truncate text-xs sm:text-sm font-bold text-gray-700 group-hover:text-brand-dark">{item.title}</p>
+              <p className="mt-0.5 truncate text-[11px] text-gray-400">{item.categoryLabel}</p>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {visibleCount < filtered.length && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setVisibleCount((value) => value + PAGE_SIZE)}
+            className="rounded-full border border-gray-200 bg-white px-8 py-3.5 text-sm font-bold text-brand-dark shadow-sm transition hover:border-brand hover:bg-brand-light"
+          >
+            사진 더보기 ({filtered.length - visibleCount}건 남음)
+          </button>
+        </div>
+      )}
 
       <dialog
         ref={dialog}
