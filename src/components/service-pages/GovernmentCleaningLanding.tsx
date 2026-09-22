@@ -144,7 +144,7 @@ const faqItems: [string, string][] = [
   ["주말이나 야간 작업도 가능한가요?", "희망 날짜와 시간대를 알려주시면 가능 여부를 확인합니다. 건물 출입과 소음·장비 사용 제한도 함께 알려주세요."],
   ["책상과 의자, 캐비닛도 포함되나요?", "집기 청소는 공간 청소와 구분해 범위를 정합니다. 필요한 집기의 종류와 수량, 이동 여부를 상담 시 알려주세요."],
   ["바닥 왁스코팅도 포함되나요?", "바닥 세척과 왁스코팅은 다른 작업입니다. 코팅이 필요하다면 바닥 재질과 상태를 확인하여 견적에 별도 항목으로 반영합니다."],
-  ["과업지시서에 맞춰 견적을 받을 수 있나요?", "과업지시서를 보내주시면 요청 범위와 수행 조건을 검토합니다. 가능한 작업과 별도 확인이 필요한 항목을 구분해 안내합니다."],
+  ["청사 청소 과업지시서를 기준으로 견적을 받을 수 있나요?", "요청 구역, 작업 주기, 완료 기준과 제출 서류를 보내주시면 수행 가능 범위를 검토합니다. 계약 참여 자격이나 서류 충족 여부는 개별 발주 조건에 따라 별도로 확인합니다."],
   ["계약 서류나 작업 완료 자료도 준비할 수 있나요?", "기관에서 요구하는 서류 목록과 양식을 먼저 보내주세요. 발급·작성 가능한 자료와 대응 범위를 계약 전에 확인합니다."],
   ["작업 전후 사진을 받을 수 있나요?", "사진이 필요하시면 상담 시 요청해 주세요. 촬영 제한과 필요한 구역, 제출 형식을 확인하여 제공 가능 여부를 안내합니다."],
   ["청소 후 바로 시설을 이용할 수 있나요?", "작업 내용과 바닥 건조 상태에 따라 달라집니다. 시설 이용 재개 시간을 미리 알려주시면 작업 일정과 함께 검토합니다."],
@@ -175,7 +175,7 @@ export default function GovernmentCleaningLanding() {
       "@type": "Service",
       name: "관공서청소",
       serviceType: "관공서청소·공공기관청소",
-      description: "찐청소 관공서청소의 견적 기준과 작업 범위를 안내합니다. 민원실·사무공간·복도·화장실 등 요청 구역을 확인하고, 기관 운영시간과 출입 조건에 맞춰 일회성 청소와 정기관리를 상담합니다.",
+      description: "민원실 바닥의 보행 오염, 청사 복도·계단의 먼지와 화장실 청소를 구역별로 살펴봅니다. 찐청소는 기관 운영시간, 출입 절차와 담당 부서의 요구 범위를 확인해 일회성 대청소와 정기관리를 상담합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -210,12 +210,9 @@ export default function GovernmentCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>관공서청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">사업장청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">관공서청소, 공간은 깨끗하게 업무는 원활하게</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">관공서·공공기관 청소, 민원 공간과 업무 구역을 나눠 관리합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>민원인이 오가는 로비와 민원실, 직원들이 일하는 사무공간, 여러 사람이 함께 사용하는 복도와 화장실. 같은 건물 안에서도 필요한 청소와 작업 가능한 시간은 다릅니다.</p>
-            <p>찐청소는 관공서와 공공기관의 공간 구성, 이용 시간, 오염 상태를 확인해 청소 범위와 순서를 정합니다.</p>
-            <p>비용은 평수만으로 정하지 않습니다. 필요한 인원과 장비·약품, 실제 작업량을 기준으로 안내합니다.</p>
-            <p>청소를 맡기셨는데 설명하고 확인할 일만 늘어나면 곤란하니까요. 어디를, 언제, 어디까지 청소할지부터 분명하게 맞추겠습니다.</p>
+            <p>민원실 바닥의 보행 오염, 청사 복도·계단의 먼지와 화장실 청소를 구역별로 살펴봅니다. 찐청소는 기관 운영시간, 출입 절차와 담당 부서의 요구 범위를 확인해 일회성 대청소와 정기관리를 상담합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">관공서청소 견적 문의하기 →</CtaButton>
         </div>
@@ -283,6 +280,8 @@ export default function GovernmentCleaningLanding() {
           {/* 2. 공간별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간별 청소 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">민원실·회의실·복도는 이용 조건이 다릅니다</h3>
+            <p className="mt-2 mb-6">이용자가 많은 민원실과 보안이 필요한 업무 공간은 같은 방식으로 접근하지 않습니다. 바닥·유리·접촉 표면별 작업 범위를 정하고, 서류와 전산장비는 임의로 다루지 않습니다. 코팅이나 집기 세척이 필요하면 별도 항목으로 확인합니다.</p>
             <p>관공서청소는 건물 전체 또는 요청하신 일부 구역을 대상으로 상담할 수 있습니다.</p>
             <p className="mt-4">아래 항목은 공간별로 검토하는 청소 내용입니다. 모든 항목이 자동으로 포함되는 것은 아니며, 견적서와 과업 범위에 포함할 구역을 정합니다.</p>
 

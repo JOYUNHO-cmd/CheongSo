@@ -148,7 +148,7 @@ const contactChecklist = [
 
 const faqItems: [string, string][] = [
   ["집 상태가 많이 심해도 상담할 수 있나요?", "네. 미리 정리한 모습이 아니라 현재 상태를 기준으로 상담합니다. 쓰레기의 양과 오염 정도를 알려주시면 필요한 작업을 확인하겠습니다."],
-  ["청소 전에 제가 쓰레기를 먼저 버려야 하나요?", "아니요. 쓰레기 수거와 폐기물 처리가 기본에 포함됩니다. 남겨야 할 물건과 버릴 물건을 알려주시는 것이 더 중요합니다."],
+  ["사진을 찍을 공간도 부족한데 먼저 정리해야 하나요?", "작업을 위해 미리 모두 정리하실 필요는 없습니다. 안전하게 찍을 수 있는 출입구와 각 구역 사진부터 보내주세요. 사진으로 보이지 않는 물량과 오염은 추가 확인이 필요할 수 있습니다."],
   ["폐기물 처리비와 소독비가 별도인가요?", "찐청소의 쓰레기집청소는 수거·폐기물 처리·청소·소독·냄새 제거가 기본에 포함됩니다. 다만 실제 물량과 작업 범위에 따라 전체 견적은 달라집니다."],
   ["원룸이면 정해진 가격이 있나요?", "같은 원룸이라도 쓰레기 양, 분류에 필요한 시간, 오염 상태, 반출 조건이 달라 평수만으로 비용을 정하지 않습니다."],
   ["제가 현장에 없어도 되나요?", "네. 비대면 진행이 가능합니다. 출입 방법과 정리 범위를 사전에 협의하고, 작업 전후 사진을 자세히 보내드립니다."],
@@ -178,7 +178,7 @@ export default function TrashHouseCleaningLanding() {
       "@type": "Service",
       name: "쓰레기집청소",
       serviceType: "쓰레기집청소·폐기물 처리",
-      description: "쓰레기 수거와 폐기물 처리부터 청소·소독·냄새 제거까지. 찐청소의 쓰레기집청소 기본 범위와 견적 기준을 확인하세요. 비대면 진행이 가능하며, 상세한 작업 전후 사진을 전달해 드립니다.",
+      description: "원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -213,11 +213,9 @@ export default function TrashHouseCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>쓰레기집청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">쓰레기집청소, 어디서부터 시작할지 막막하다면</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">쓰레기가 쌓인 원룸·주거 공간, 남길 물건부터 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>혼자 정리하기 어려울 만큼 쌓였다면, 상담을 위해 먼저 집을 치우실 필요는 없습니다. 현재 상태와 남겨야 할 물건, 원하는 일정을 알려주세요.</p>
-            <p>찐청소는 쓰레기 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 현장에 함께하기 어려우시면 비대면으로 맡기실 수 있으며, 작업 전후 사진을 자세히 촬영해 보내드립니다.</p>
-            <p>얼마나 쌓였는지뿐 아니라, 어디까지 정리하고 어떻게 사용하실 공간인지 함께 확인하겠습니다.</p>
+            <p>원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">쓰레기집청소 견적 문의하기 →</CtaButton>
         </div>
@@ -265,6 +263,8 @@ export default function TrashHouseCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="기본 청소 범위와 미리 확인할 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">주방 음식물·생활 쓰레기·보관 물품을 구분합니다</h3>
+            <p className="mt-2 mb-6">방과 주방, 욕실마다 물건이 쌓인 양과 오염 상태를 나눠 확인합니다. 중요한 서류와 귀중품, 남길 물건은 폐기 대상과 분리합니다. 해충을 발견했다면 위치를 알려주시고, 전문 방제의 필요 여부와 범위는 소독과 구분해 확인해주세요.</p>
             <p>찐청소는 쓰레기만 반출하고 끝내는 것이 아니라, 합의한 구역의 청소와 소독·냄새 제거까지 진행합니다.</p>
             <p className="mt-4">남길 물건이 있다면 작업 전에 알려주세요. 집을 전부 비우는 작업인지, 필요한 물건을 남기고 다시 생활할 수 있도록 정리하는 작업인지에 따라 진행 방식이 달라집니다.</p>
 

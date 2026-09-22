@@ -164,7 +164,7 @@ const faqItems: [string, string][] = [
   ["정기청소 비용은 평당으로 정하나요?", "찐청소는 필요한 인원과 작업 시간을 중심으로 산정합니다. 면적과 이용 인원, 청소 항목, 방문 주기 등을 함께 확인합니다."],
   ["주 몇 회 정도가 적당한가요?", "공간의 사용량과 오염 상태에 따라 다릅니다. 가장 자주 더러워지는 곳과 필요한 관리 수준을 확인해 주기를 정합니다."],
   ["매번 모든 구역을 청소하나요?", "계약 범위에 따라 다릅니다. 매회 관리할 항목과 일정 주기로 작업할 항목을 나누어 안내합니다."],
-  ["정기청소를 시작하기 전에 대청소가 꼭 필요한가요?", "항상 필요한 것은 아닙니다. 초기 오염 상태를 확인해 판단하며, 필요하다면 대청소와 이후 정기관리의 범위·비용을 구분합니다."],
+  ["정기청소를 시작하면 오래된 찌든 때도 첫 방문에 모두 제거하나요?", "오래 쌓인 오염은 초기 대청소가 필요할 수 있습니다. 정기관리 범위와 첫 회 집중 작업을 구분해 견적을 안내하며, 코팅·설비 세척·대량 폐기물 처리는 별도 검토합니다."],
   ["책상과 의자도 청소해 주나요?", "집기 청소는 별도로 범위를 정합니다. 책상 위 서류 정리나 수납장 내부 청소까지 자동으로 포함되지는 않습니다."],
   ["쓰레기와 분리수거도 포함되나요?", "계약에 포함할 항목으로 정할 수 있습니다. 쓰레기통 비우기, 건물 내 이동, 외부 반출·처리는 서로 구분해 확인합니다."],
   ["세제와 화장지 같은 소모품도 제공하나요?", "청소용 장비·약품과 시설 운영용 소모품은 구분합니다. 품목별 준비 담당과 비용 포함 여부를 견적 단계에서 확인합니다."],
@@ -201,7 +201,7 @@ export default function RegularCleaningLanding() {
       "@type": "Service",
       name: "정기청소",
       serviceType: "정기청소·사무실상가 관리",
-      description: "찐청소 정기청소의 비용 기준과 방문 주기, 회차별 작업 범위를 안내합니다. 사무실·상가 등 공간의 이용 상태에 맞춰 필요한 인원과 작업 시간을 정하고 정기관리 견적을 상담하세요.",
+      description: "사무실 바닥과 휴게 공간, 건물 계단과 화장실처럼 자주 쓰는 구역을 주기적으로 관리합니다. 찐청소는 필요한 인원과 작업 시간, 방문 횟수를 기준으로 매회 작업과 주기별 집중 청소를 나눠 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -236,11 +236,9 @@ export default function RegularCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>정기청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">사업장청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">정기청소, 자주 오는 것만큼 무엇을 하는지가 중요합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">사무실·상가 정기청소, 구역별 이용량에 맞춰 주기를 정합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>바닥은 매번 닦는데 구석에는 먼지가 쌓이고, 청소를 맡겼는데 어디까지 해주는지 여전히 헷갈린다면. 방문 횟수와 함께 작업 범위를 살펴볼 때입니다.</p>
-            <p>찐청소는 공간의 이용 인원과 오염 상태를 확인해 필요한 인원, 작업 시간, 방문 주기를 정합니다.</p>
-            <p>매번 관리할 곳과 일정 주기로 청소할 곳을 구분하고, 그 내용을 기준으로 견적을 안내합니다.</p>
+            <p>사무실 바닥과 휴게 공간, 건물 계단과 화장실처럼 자주 쓰는 구역을 주기적으로 관리합니다. 찐청소는 필요한 인원과 작업 시간, 방문 횟수를 기준으로 매회 작업과 주기별 집중 청소를 나눠 안내합니다.</p>
             <p>직원들끼리 청소 당번 정하는 회의는 줄이고, 본업에 쓸 시간을 늘려보세요.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">정기청소 견적 문의하기 →</CtaButton>
@@ -310,6 +308,8 @@ export default function RegularCleaningLanding() {
           {/* 2. 범위/회차별 구성 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="정기청소 범위와 회차별 작업 구성" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">계단·화장실만 정기적으로 관리할 수도 있나요?</h3>
+            <p className="mt-2 mb-6">요청 구역과 방문 주기를 정해 상담할 수 있습니다. 계단 보행 오염, 난간 표면, 화장실 상태와 쓰레기 발생량을 보고 관리 시간을 배분합니다. 봉투·화장지 등 소모품 제공과 초기 대청소 여부는 별도로 확인합니다.</p>
             <p>정기청소는 매번 건물 전체를 대청소하는 서비스와 다릅니다.</p>
             <p className="mt-4">자주 관리할 구역과 일정 주기로 집중 청소할 구역을 나누어 구성합니다. 아래 항목은 상담 시 선택·검토하는 내용이며, 모든 항목이 자동으로 포함되는 것은 아닙니다.</p>
 

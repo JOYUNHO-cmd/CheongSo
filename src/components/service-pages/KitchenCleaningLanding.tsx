@@ -147,7 +147,7 @@ const prepItems = [
 
 const faqItems: [string, string][] = [
   ["업소 주방청소 비용은 평당 얼마인가요?", "평수만으로 정하지 않습니다. 기름때의 정도, 기기 배치, 작업 범위, 필요한 인원과 장비·약품을 확인해 견적을 안내합니다."],
-  ["바닥이나 특정 구역만 맡길 수 있나요?", "필요한 구역만 지정해 상담할 수 있습니다. 전체 주방 사진과 청소를 원하는 부위의 사진을 보내주세요."],
+  ["주방 바닥 기름때만 청소할 수 있나요?", "요청 구역을 지정해 상담할 수 있습니다. 바닥 재질, 기름때 정도와 배수·장비 접근 조건을 확인하며, 후드나 주방기기 전체 청소가 자동으로 포함되지는 않습니다."],
   ["오래된 기름때도 모두 제거되나요?", "오염의 종류와 고착 정도, 표면 상태에 따라 결과가 다릅니다. 제거 가능한 오염과 변색·부식·손상을 구분해 안내합니다."],
   ["후드청소도 기본으로 포함되나요?", "기본 포함으로 보지 않고 별도 항목으로 확인합니다. 외부 표면, 필터, 내부 등 원하는 부위를 알려주시면 구조와 상태에 따라 수행 가능 범위와 비용을 안내합니다."],
   ["후드를 청소하면 덕트 내부까지 청소되는 건가요?", "아니요. 후드와 배기 덕트 전체는 작업 범위가 다릅니다. 덕트 내부, 팬·모터 등은 별도 확인이 필요합니다."],
@@ -186,7 +186,7 @@ export default function KitchenCleaningLanding() {
       "@type": "Service",
       name: "주방청소",
       serviceType: "업소 주방청소",
-      description: "찐청소 업소 주방청소의 비용과 작업 범위를 안내합니다. 바닥·벽면·조리 공간의 기름때, 후드와 주방기기의 세척 범위를 확인하고 영업 일정에 맞춰 견적을 상담하세요.",
+      description: "닦아도 끈적이는 주방 바닥, 조리대와 벽면에 쌓인 기름때가 고민이신가요? 찐청소는 음식점·업소의 주방 구조와 기기 배치, 오염 상태를 확인하고 영업 일정에 맞춰 작업 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -221,11 +221,9 @@ export default function KitchenCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>주방청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">사업장청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">주방청소, 쌓인 기름때부터 영업 일정까지 꼼꼼하게</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">식당 주방청소, 바닥·벽면·조리대의 기름때를 구분해 정리합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>매일 닦아도 끈적이는 바닥, 조리대 주변에 쌓인 기름때, 기기 사이와 벽 쪽에 남은 오래된 오염. 바쁜 영업 중에는 평소 손이 닿는 곳을 관리하는 것만으로도 시간이 빠듯합니다.</p>
-            <p>찐청소는 음식점과 업소 주방의 오염 상태, 기기 배치, 작업 가능한 시간을 확인해 청소 범위를 정합니다.</p>
-            <p>비용은 평수만으로 정하지 않습니다. 필요한 인원과 장비·약품, 실제 작업량을 기준으로 안내합니다.</p>
+            <p>닦아도 끈적이는 주방 바닥, 조리대와 벽면에 쌓인 기름때가 고민이신가요? 찐청소는 음식점·업소의 주방 구조와 기기 배치, 오염 상태를 확인하고 영업 일정에 맞춰 작업 범위를 안내합니다.</p>
             <p>맛을 내는 일도 바쁘신데, 묵은 기름때와 씨름하는 일까지 떠안지 마세요. 어디까지 청소할지부터 분명하게 맞추겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">주방청소 견적 문의하기 →</CtaButton>
@@ -295,6 +293,8 @@ export default function KitchenCleaningLanding() {
           {/* 2. 구역별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="구역별 청소 범위와 별도 확인 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">기기 아래 기름때와 주방기기 내부는 다른 작업입니다</h3>
+            <p className="mt-2 mb-6">장비를 옮기지 않고 접근할 수 있는 바닥과 이동 후 청소할 구역을 나눕니다. 후드·필터, 냉장고 등 기기의 내부·분해 세척은 각각 확인합니다. 식재료와 식기 보관, 가스·전기설비 관련 담당 범위도 작업 전에 협의합니다.</p>
             <p>주방청소는 요청 구역과 기기 상태를 확인해 세부 범위를 정합니다.</p>
             <p className="mt-4">아래 항목이 모든 견적에 자동으로 포함되는 것은 아닙니다. 공간 청소와 기기 세척, 이동·분해 작업을 구분해 안내합니다.</p>
 

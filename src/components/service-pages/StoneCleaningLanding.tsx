@@ -143,7 +143,7 @@ const prepItems = [
 
 const faqItems: [string, string][] = [
   ["대리석 얼룩 제거와 대리석 청소는 같은 작업인가요?", "표면에 붙은 일반 오염을 세척하는 작업과 안쪽으로 스며든 얼룩을 처리하는 작업은 다를 수 있습니다. 상태를 확인해 범위와 비용을 구분합니다."],
-  ["대리석이 하얗게 변했는데 물때인가요?", "물때라고 단정할 수 없습니다. 세정제 잔여물이나 산성 물질에 의한 표면 손상일 수 있어 발생 경위와 표면 상태를 함께 확인해야 합니다."],
+  ["대리석이 뿌옇게 보이면 물때 제거로 해결되나요?", "물때라고 단정할 수 없습니다. 세정제 잔여물이나 산성 물질에 의한 표면 손상일 수 있어 상태를 확인해야 합니다. 청소와 복원 검토가 필요한 경우를 나눠 안내합니다."],
   ["화강석 기름 얼룩도 제거할 수 있나요?", "오염 깊이와 발생 시점, 표면 마감에 따라 다릅니다. 일반 세척으로 가능한지, 별도 처리가 필요한지 확인한 뒤 안내합니다."],
   ["석재청소를 하면 광택도 살아나나요?", "표면 오염이 정리되면서 외관이 개선될 수는 있지만, 마모되거나 손상된 광택을 복원하는 작업과는 다릅니다. 연마·광택 복원은 별도로 확인해야 합니다."],
   ["녹물과 백화도 기본비용에 포함되나요?", "일반 오염과 구분해 견적에서 확인합니다. 원인과 재질에 따라 별도 처리나 추가 점검이 필요할 수 있습니다."],
@@ -176,7 +176,7 @@ export default function StoneCleaningLanding() {
       "@type": "Service",
       name: "석재청소",
       serviceType: "석재청소",
-      description: "닦아도 남는 대리석 얼룩과 화강석 오염, 재질과 원인부터 확인하세요. 찐청소가 석재청소 범위, 기름·녹물 등 오염별 상담 기준, 견적과 작업 절차를 안내합니다.",
+      description: "닦아도 남는 대리석 얼룩, 부분적으로 짙어진 화강석 바닥이 고민이신가요? 찐청소는 석재 종류와 표면 마감, 오염 이력을 확인해 일반 세척과 별도 얼룩 처리 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -209,9 +209,7 @@ export default function StoneCleaningLanding() {
           <p className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</p>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">대리석·화강석 청소, 얼룩과 표면 손상부터 구분합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>걸레로 닦아도 그대로인 바닥. 부분적으로 짙어진 화강석, 뿌옇게 보이는 대리석 때문에 고민이신가요?</p>
-            <p>찐청소는 석재 종류와 표면 마감, 오염이 생긴 경위를 살펴 제거 가능한 범위를 안내합니다. 표면에 붙은 때와 안쪽으로 스며든 얼룩, 광택이 손상된 자국을 구분해 작업을 상담합니다.</p>
-            <p>돌이라고 다 같은 방법으로 닦을 수는 없으니까요. 더 세게 문지르기 전에, 어떤 상태인지부터 살펴보겠습니다.</p>
+            <p>닦아도 남는 대리석 얼룩, 부분적으로 짙어진 화강석 바닥이 고민이신가요? 찐청소는 석재 종류와 표면 마감, 오염 이력을 확인해 일반 세척과 별도 얼룩 처리 범위를 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">석재청소·얼룩 제거 견적 문의하기 →</CtaButton>
         </div>
@@ -271,6 +269,8 @@ export default function StoneCleaningLanding() {
           {/* 2. 재질·오염별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="대리석·화강석 및 오염별 작업 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">기름 얼룩·녹물·하얀 자국은 원인부터 구분합니다</h3>
+            <p className="mt-2 mb-6">석재에 스며든 오염과 표면에 남은 잔여물, 광택이 손상된 자국은 같은 작업이 아닙니다. 청소에 사용했던 제품과 발생 경위를 알려주세요. 연마·광택 복원, 보수와 보호제 시공은 기본 세척에 자동으로 포함되지 않습니다.</p>
             <p>석재청소는 모든 자국을 같은 약품으로 지우는 작업이 아닙니다.</p>
             <p className="mt-4">아래 항목을 기준으로 상담하고, 실제 포함 범위는 석재와 현장 상태에 맞춰 정합니다.</p>
 

@@ -149,7 +149,7 @@ const prepSections: [string, string][] = [
 const faqItems: [string, string][] = [
   ["찐청소가 직접 수거하나요?", "네. 찐청소가 직접 수집·운반을 진행하고, 폐기물 종류에 맞춰 협력 처리업체와 연계합니다."],
   ["처리업체와 협업하면 비용이 더 저렴한가요?", "협업을 통해 비용에 유리한 조건을 검토할 수 있습니다. 다만 종류와 물량, 인원·차량·반출 여건에 따라 달라지므로 일괄적인 최저가를 보장하지는 않습니다."],
-  ["집 밖으로 물건을 미리 내려놔야 하나요?", "먼저 옮기실 필요 없이 현재 위치를 알려주세요. 실내 반출 가능 여부와 필요한 인원·장비를 확인해 견적을 안내합니다."],
+  ["집 안에서 내려주는 작업과 처리까지 모두 포함되나요?", "실내 반출, 운반과 최종 처리 범위를 견적에서 구분합니다. 요청 시 비대면과 전후 사진 전달이 가능하고, 비워진 공간 청소는 포함 범위와 비용을 별도로 상담할 수 있습니다."],
   ["가구 한두 개도 상담할 수 있나요?", "품목 사진과 위치를 보내주시면 수거 가능 여부와 비용을 확인해 드립니다. 소량이라도 차량 이동과 작업 인원 등의 조건이 반영될 수 있습니다."],
   ["엘리베이터가 없어도 가능한가요?", "층수와 계단 구조, 물건의 크기·무게를 확인해야 합니다. 필요한 인원과 반출 가능 여부에 따라 견적이 달라질 수 있습니다."],
   ["큰 가구는 분해해서 가져가나요?", "분해가 필요한지와 가능한 작업인지 먼저 확인합니다. 모든 가구의 분해가 자동으로 포함되는 것은 아니므로 사진과 크기를 알려주세요."],
@@ -183,7 +183,7 @@ export default function WasteDisposalLanding() {
       "@type": "Service",
       name: "폐기물처리",
       serviceType: "폐기물처리·가구 수거",
-      description: "폐기물처리, 물건 사진과 위치부터 알려주세요. 찐청소가 직접 수집·운반하고 협력 처리업체와 연계합니다. 품목별 가능 여부와 비용을 안내하며, 비대면 진행과 작업 전후 사진 전달, 별도 청소 상담이 가능합니다.",
+      description: "이사 후 남은 가구나 사무실 정리 중 나온 물품을 처리해야 하나요? 찐청소는 수거 대상과 물량을 확인해 직접 수집·운반하고, 종류에 맞는 협력 처리업체와 연계합니다. 반출 조건과 처리 비용을 구분해 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -218,11 +218,9 @@ export default function WasteDisposalLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>폐기물처리</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">폐기물처리, 옮기기 어려운 물건부터 상담하세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">가구 수거부터 사무실 폐기물까지, 품목과 반출 조건을 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>버릴 물건은 정했는데 밖으로 옮기는 일이 막막하신가요? 물건 사진과 현재 놓인 위치를 알려주세요. 처리 가능한 품목인지, 어떤 반출 작업이 필요한지부터 확인하겠습니다.</p>
-            <p>찐청소는 폐기물을 직접 수집·운반하고, 협력 처리업체와 연계해 처리합니다. 협업을 통해 비용 부담을 줄일 수 있는 조건도 함께 검토합니다.</p>
-            <p>원하시면 비대면으로 진행하며, 작업 전후 사진을 자세히 촬영해 보내드립니다. 물건을 비운 뒤 청소까지 필요하다면 함께 상담하실 수 있습니다.</p>
+            <p>이사 후 남은 가구나 사무실 정리 중 나온 물품을 처리해야 하나요? 찐청소는 수거 대상과 물량을 확인해 직접 수집·운반하고, 종류에 맞는 협력 처리업체와 연계합니다. 반출 조건과 처리 비용을 구분해 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">폐기물처리 견적 문의하기 →</CtaButton>
         </div>
@@ -272,6 +270,8 @@ export default function WasteDisposalLanding() {
           {/* 2. 수거·처리 가능 품목 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="수거·운반 범위와 처리 가능 품목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">장롱·책상·의자, 품목과 크기를 함께 알려주세요</h3>
+            <p className="mt-2 mb-6">같은 수량이라도 크기와 재질, 분해 필요 여부에 따라 작업이 달라집니다. 계단·승강기와 차량 접근 조건을 함께 확인합니다. 가구 수거 요청이 재사용품 매입이나 무료 수거를 뜻하지는 않으며, 품목별 처리 가능 여부를 먼저 안내합니다.</p>
             <p>처리 가능 여부는 품목과 상태를 확인한 뒤 안내합니다. &lsquo;폐기물&rsquo;이라는 이름으로 모든 종류를 동일하게 수거하는 것은 아닙니다.</p>
 
             <div className="mt-6 space-y-6">

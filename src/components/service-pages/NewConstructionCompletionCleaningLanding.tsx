@@ -161,7 +161,7 @@ const prepItems = [
 const faqItems: [string, string][] = [
   ["신축청소와 준공청소를 따로 신청해야 하나요?", "찐청소에서는 신축준공청소로 통합해 상담합니다. 공사 상태와 청소 목적, 인계 일정에 맞춰 실제 작업 범위를 정합니다."],
   ["신축 아파트 한 세대나 일부 층도 상담할 수 있나요?", "필요한 공간을 지정해 상담할 수 있습니다. 한 세대의 입주 전 청소인지, 건물 공용부까지 포함하는 작업인지 구분해 안내합니다."],
-  ["인테리어청소와는 어떻게 다른가요?", "작업이 겹칠 수 있습니다. 신축준공청소는 건물의 공사 완료와 인계 준비를 중심으로, 인테리어청소는 전체·부분 리모델링 후 공간 상태를 중심으로 상담합니다. 명칭보다 실제 공사 내용과 범위가 중요합니다."],
+  ["공사 후 청소는 신축준공청소와 인테리어청소 중 무엇을 선택하나요?", "신축 건물의 전체·공용부 인계가 중심이면 신축준공청소로, 기존 공간의 리모델링이나 부분공사 뒤 분진 정리가 중심이면 인테리어청소로 상담하시면 됩니다."],
   ["비용은 평당으로 정하나요?", "평수만으로 정하지 않습니다. 구조와 층수, 마감재, 잔여물, 필요한 인원과 장비·약품을 확인해 견적을 안내합니다."],
   ["과업지시서에 맞춰 견적을 받을 수 있나요?", "과업지시서나 청소 범위표를 보내주시면 수행 가능한 작업과 별도 확인이 필요한 조건을 검토합니다."],
   ["보양재와 접착 흔적도 제거하나요?", "제거 대상과 범위를 확인해 견적에 반영합니다. 보호재를 걷는 작업과 남은 접착 흔적 제거는 구분하며, 유지해야 하는 보호재는 임의로 제거하지 않습니다."],
@@ -202,7 +202,7 @@ export default function NewConstructionCompletionCleaningLanding() {
       "@type": "Service",
       name: "신축준공청소",
       serviceType: "신축준공청소",
-      description: "찐청소 신축준공청소의 비용과 작업 범위를 안내합니다. 공사 분진·보양재·마감 잔여물을 확인하고, 건물 내부와 공용부의 청소를 공정 종료·검수·인계 일정에 맞춰 상담합니다.",
+      description: "공사가 끝난 건물의 바닥·창틀 분진, 보양재와 마감 잔여물을 확인합니다. 찐청소는 실내 전용 공간과 복도·계단 등 공용부를 나눠 작업 범위를 정하고, 공정 종료와 검수·인계 일정에 맞춰 상담합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -237,12 +237,9 @@ export default function NewConstructionCompletionCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>신축준공청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">신축준공청소, 공사의 끝에서 공간의 시작까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">신축청소부터 준공청소까지, 건물 인계에 필요한 범위를 정합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>새로 지은 건물이라고 바로 사용할 준비까지 끝난 것은 아닙니다.</p>
-            <p>창틀과 모서리에 남은 공사 분진, 보양재를 걷어낸 바닥의 접착 흔적, 인계 전에 확인해야 할 공간별 잔여물까지.</p>
-            <p>찐청소 신축준공청소는 공사 후 남은 오염을 정리하고, 공간을 사용할 준비를 돕는 서비스입니다.</p>
-            <p>건물의 마감 상태와 청소할 구역, 남은 공정을 확인해 필요한 인원과 장비·약품을 기준으로 견적을 안내합니다.</p>
+            <p>공사가 끝난 건물의 바닥·창틀 분진, 보양재와 마감 잔여물을 확인합니다. 찐청소는 실내 전용 공간과 복도·계단 등 공용부를 나눠 작업 범위를 정하고, 공정 종료와 검수·인계 일정에 맞춰 상담합니다.</p>
             <p>공정표에는 &lsquo;청소&rsquo; 두 글자지만, 실제 작업은 구역별로 꼼꼼하게 나누겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">신축준공청소 견적 문의하기 →</CtaButton>
@@ -311,6 +308,8 @@ export default function NewConstructionCompletionCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간별 청소 범위와 별도 확인 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">신축 상가·건물의 공사 잔여물은 모두 같은 작업인가요?</h3>
+            <p className="mt-2 mb-6">먼지와 가루를 정리하는 세척, 보호필름 제거, 굳은 시멘트·접착제 처리는 구분해야 합니다. 새 마감재의 상태와 제거 가능 여부를 확인하고, 대량 건축 폐기물이나 하자 보수는 별도 항목으로 정합니다. 공사가 남아 있으면 구역별 인계 순서도 협의합니다.</p>
             <p>신축준공청소는 구역과 마감재, 현장 상태에 맞춰 작업 범위를 정합니다.</p>
             <p className="mt-4">아래 항목이 모두 기본 비용에 자동으로 포함되는 것은 아닙니다. 필요한 공간과 세부 작업을 견적 단계에서 구분합니다.</p>
 

@@ -131,7 +131,7 @@ const prepItems = [
 const faqItems: [string, string][] = [
   ["입주청소와 이사청소는 다른가요?", "두 표현이 겹쳐 쓰이기도 합니다. 이 페이지에서는 기존에 사용하던 주택으로 이사하기 전, 생활 오염을 정리하는 청소를 안내합니다. 서비스 이름보다 실제 집 상태와 포함 범위가 중요합니다."],
   ["이사청소 비용은 평당 얼마인가요?", "찐청소는 평수만으로 정하지 않습니다. 구조와 오염 상태, 남은 짐, 작업 범위를 확인해 필요한 인원과 장비·약품을 기준으로 안내합니다."],
-  ["이사 당일에도 청소할 수 있나요?", "퇴거 완료부터 짐 반입까지 확보되는 시간과 작업 범위를 확인해야 합니다. 가능한 일정인지 먼저 검토하며, 당일 완료를 일괄 보장하지는 않습니다."],
+  ["퇴거와 입주가 같은 날이어도 청소할 수 있나요?", "실제 공실 확보 시간과 작업량을 확인한 뒤 가능 여부를 안내합니다. 이삿짐이 남아 있거나 반입 시간이 앞당겨지면 접근 가능한 범위가 달라질 수 있어 두 이사 일정을 함께 알려주세요."],
   ["이전 거주자가 아직 살고 있어도 예약할 수 있나요?", "현재 확인 가능한 사진과 구조, 퇴거 예정 시간으로 먼저 상담할 수 있습니다. 가구가 빠진 뒤 상태에 따라 추가 확인이 필요할 수 있습니다."],
   ["짐이나 가구가 남아 있어도 가능한가요?", "남아 있는 물건과 접근 가능한 구간을 확인해야 합니다. 빈집과 작업 범위·시간이 달라질 수 있으며 가구 이동이 자동으로 포함되지는 않습니다."],
   ["수납장 안쪽도 청소하나요?", "수납장 내부와 서랍·선반의 청소 여부를 견적 단계에서 정합니다. 내부 물품을 비울 수 있는지와 탈거 가능한 구조인지도 확인합니다."],
@@ -165,7 +165,7 @@ export default function MovingCleaningLanding() {
       "@type": "Service",
       name: "이사청소",
       serviceType: "이사청소",
-      description: "찐청소 이사청소의 비용과 공간별 작업 범위를 안내합니다. 기존 주택의 주방 기름때·욕실 물때·창틀 먼지를 확인하고, 퇴거와 이삿짐 반입 일정에 맞춰 견적을 상담하세요.",
+      description: "이전 거주자가 사용하던 주방 기름때, 욕실 물때와 가구가 빠진 자리의 먼지를 살펴봅니다. 찐청소는 기존 거주자의 퇴거와 이삿짐 반입 사이에 작업 가능한 시간을 확인해 이사청소를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -200,11 +200,9 @@ export default function MovingCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>이사청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">이사청소, 이전 생활의 흔적을 정리하고 들어가세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">이사 전 빈집 청소, 이전 생활의 묵은 때를 정리합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>집을 보러 갔을 때는 몰랐던 주방의 기름때, 가구가 빠진 뒤 드러난 구석의 먼지, 새로 짐을 넣기 전에 닦아두고 싶은 수납 공간.</p>
-            <p>이사청소는 기존 주택의 생활 오염을 정리하고, 내 물건을 들일 준비를 하는 작업입니다.</p>
-            <p>찐청소는 집의 구조와 오염 상태, 남아 있는 짐, 작업 가능한 시간을 확인해 청소 범위와 비용을 안내합니다.</p>
+            <p>이전 거주자가 사용하던 주방 기름때, 욕실 물때와 가구가 빠진 자리의 먼지를 살펴봅니다. 찐청소는 기존 거주자의 퇴거와 이삿짐 반입 사이에 작업 가능한 시간을 확인해 이사청소를 안내합니다.</p>
             <p>이삿짐 목록에 묵은 먼지까지 넣을 필요는 없으니까요. 짐을 들이기 전, 어디까지 청소할지부터 분명하게 맞추겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">이사청소 견적 문의하기 →</CtaButton>
@@ -273,6 +271,8 @@ export default function MovingCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간별 청소 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">가구가 빠진 자리와 남겨진 옵션 가전은 따로 확인합니다</h3>
+            <p className="mt-2 mb-6">비워진 바닥·벽 주변의 오염과 남아 있는 수납장·옵션 가전의 청소 범위를 나눕니다. 냉장고나 세탁기 내부, 남겨진 물품 반출은 사전 협의 항목입니다. 장기간 사용으로 생긴 변색·찍힘은 청소로 제거할 때와 구분합니다.</p>
             <p>이사청소는 빈집 상태를 중심으로 작업 범위를 검토합니다.</p>
             <p className="mt-4">다만 공간 이름만으로 세부 작업이 모두 포함되는 것은 아닙니다. 아래 항목을 기준으로 포함 범위와 별도 요청을 정합니다.</p>
 

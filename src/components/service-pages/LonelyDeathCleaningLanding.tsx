@@ -167,7 +167,7 @@ const prepSections: [string, string][] = [
 
 const faqItems: [string, string][] = [
   ["현장을 직접 보지 않고도 상담할 수 있나요?", "네. 현장 위치와 알고 계신 상황부터 알려주세요. 상담을 위해 직접 들어가거나 사진을 새로 찍으실 필요는 없습니다."],
-  ["비대면으로 전체 작업을 맡길 수 있나요?", "네. 출입과 유품 분류, 작업 중 연락, 완료 확인 방법을 협의하면 비대면 진행이 가능합니다."],
+  ["현장에 직접 가지 못해도 진행할 수 있나요?", "권한과 출입 조건, 보관·처리 기준을 확인하면 비대면으로 협의할 수 있습니다. 상세한 작업 전후 사진을 전달하며, 민감한 현장 사진을 홍보용으로 사용하는 것은 별도 동의가 필요한 사항입니다."],
   ["수거와 폐기물 처리도 포함되나요?", "네. 찐청소의 고독사청소는 수거·폐기물 처리·청소·소독·냄새 제거가 기본에 포함됩니다. 실제 물량과 작업 범위를 확인해 전체 견적을 정합니다."],
   ["소독과 냄새 제거는 추가 옵션인가요?", "아닙니다. 기본 포함 항목입니다. 다만 오염된 자재의 철거·교체나 복원 공사는 별도 비용입니다."],
   ["유품을 전부 버려야 하나요?", "그렇지는 않습니다. 보관할 유품과 처리할 물건을 구분합니다. 보관을 희망하는 물건도 오염 상태에 따라 별도 처리나 확인이 필요할 수 있습니다."],
@@ -203,7 +203,7 @@ export default function LonelyDeathCleaningLanding() {
       "@type": "Service",
       name: "고독사청소",
       serviceType: "고독사청소·특수청소",
-      description: "고독사 현장 청소와 유품정리를 안내합니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 비대면 진행과 상세한 전후 사진 전달이 가능하며, 철거·복원은 별도 견적으로 상담합니다.",
+      description: "현장 출입과 작업 가능 여부를 확인한 뒤 남겨진 물품과 오염 구역을 살펴봅니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 자재 철거·복원이 필요한 경우 별도 비용을 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -238,11 +238,9 @@ export default function LonelyDeathCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>고독사청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">고독사청소, 현장 정리부터 필요한 복원까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">고독사청소, 현장 인계 후 오염과 물품을 신중하게 정리합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>어디에 연락해야 할지, 무엇부터 정리해야 할지 막막하실 수 있습니다. 현장을 직접 보기 어렵거나 자세히 설명하기 힘드시다면, 알고 계신 상황부터 말씀해 주세요.</p>
-            <p>찐청소는 보관할 유품과 처리할 물건을 확인하고, 협의한 범위의 수거·폐기물 처리·청소·소독·냄새 제거를 진행합니다.</p>
-            <p>비대면으로 맡기실 수 있으며, 작업 전후 사진도 자세히 촬영해 보내드립니다. 철거와 복원이 필요한 부분은 기본 청소와 구분해 별도로 안내합니다.</p>
+            <p>현장 출입과 작업 가능 여부를 확인한 뒤 남겨진 물품과 오염 구역을 살펴봅니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 자재 철거·복원이 필요한 경우 별도 비용을 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">고독사청소 상담·견적 문의하기 →</CtaButton>
         </div>
@@ -289,6 +287,8 @@ export default function LonelyDeathCleaningLanding() {
           {/* 2. 범위/별도작업 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="기본 청소 범위와 별도 작업" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">장판·벽지·가구에 남은 오염은 깊이와 상태를 확인합니다</h3>
+            <p className="mt-2 mb-6">접근 가능한 표면의 오염과 마감재 안쪽으로 스며든 상태를 구분합니다. 보관할 유품과 처리할 물품을 협의하고, 청소로 다루기 어려운 자재는 교체 검토가 필요할 수 있습니다. 현장 기록은 의뢰인과 합의한 범위에서 다룹니다.</p>
             <p>고독사청소는 물건을 모두 비우는 방식으로만 진행하지 않습니다. 보관할 유품, 폐기할 물건, 오염을 처리할 구역을 구분하고 현장에 필요한 작업을 정합니다.</p>
 
             <div className="mt-6 space-y-6">

@@ -164,7 +164,7 @@ const faqItems: [string, string][] = [
   ["내창과 창틀, 방충망도 포함되나요?", "외창과 별도로 포함 여부를 정합니다. 상담 시 함께 청소할 항목을 알려주시면 견적에 구분해 안내합니다."],
   ["거실창만 맡길 수 있나요?", "필요한 방과 창만 지정해 상담할 수 있습니다. 창의 수량과 크기, 오염 상태를 알려주세요."],
   ["열리지 않는 고정창도 가능한가요?", "접근 조건을 먼저 확인해야 합니다. 주변 구조와 설치 위치에 따라 가능한 범위를 검토하며 모든 고정창의 작업을 보장하지는 않습니다."],
-  ["오래된 물자국이나 뿌연 얼룩도 모두 없어지나요?", "표면 오염인지, 고착된 흔적인지, 유리나 표면 처리의 손상인지에 따라 달라집니다. 필요한 경우 일부 구간을 확인해 예상 결과를 안내합니다."],
+  ["베란다 창이 뿌연데 외창청소로 해결되나요?", "먼지가 묻은 면이 실내인지 외부인지부터 확인합니다. 유리 사이에 생긴 흐림이나 표면 손상은 청소와 다른 조치가 필요할 수 있습니다. 창 전체와 흐린 부위 사진을 보내주세요."],
   ["유리 사이에 낀 것처럼 보이는 얼룩도 닦을 수 있나요?", "어느 면의 문제인지 먼저 확인해야 합니다. 유리 사이 내부의 문제라면 외부 표면 세척으로 해결되지 않을 수 있어 창호 상태 확인과 구분합니다."],
   ["필름이나 코팅이 있는 창도 청소할 수 있나요?", "필름·코팅의 종류와 상태, 제조사의 관리 지침을 확인해야 합니다. 관련 정보가 있다면 작업 전에 알려주세요."],
   ["비가 오면 예약은 어떻게 되나요?", "날씨와 작업 조건에 따라 진행 여부를 판단합니다. 일정 변경과 안내 방식은 예약 시 확인해 주세요."],
@@ -192,7 +192,7 @@ export default function ExteriorWindowCleaningLanding() {
       "@type": "Service",
       name: "외창청소",
       serviceType: "외창청소",
-      description: "찐청소 외창청소의 비용과 작업 범위를 안내합니다. 아파트·주택·상가의 창 구조와 접근 조건을 확인하고, 바깥 유리와 내창·창틀·방충망의 포함 여부를 구분해 상담합니다.",
+      description: "아파트 베란다 유리가 뿌옇거나 상가 전면 유리에 빗물 자국이 남아 있나요? 찐청소는 창 구조와 접근 조건, 유리와 필름 상태를 확인한 뒤 바깥 면의 청소 가능 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -223,12 +223,9 @@ export default function ExteriorWindowCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>외창청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">간단청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">외창청소, 안쪽을 닦아도 남는 답답함이 있다면</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">아파트·상가 외창청소, 바깥 유리의 먼지와 물자국을 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>안쪽 유리는 닦았는데 여전히 뿌옇고, 햇빛이 비치면 바깥 면의 얼룩이 더 잘 보인다면.</p>
-            <p>외창의 오염과 작업 가능한 범위를 살펴볼 때입니다.</p>
-            <p>찐청소는 창의 구조와 크기, 설치 높이와 접근 조건을 확인해 외창청소 범위와 비용을 안내합니다.</p>
-            <p>바깥 유리만 청소할지, 내창과 창틀·방충망도 함께 관리할지 구분해 상담합니다.</p>
+            <p>아파트 베란다 유리가 뿌옇거나 상가 전면 유리에 빗물 자국이 남아 있나요? 찐청소는 창 구조와 접근 조건, 유리와 필름 상태를 확인한 뒤 바깥 면의 청소 가능 범위를 안내합니다.</p>
             <p>풍경이 흐린 건지 창이 흐린 건지 헷갈렸다면, 먼저 창의 상태부터 확인해 보세요.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">외창청소 견적 문의하기 →</CtaButton>
@@ -298,6 +295,8 @@ export default function ExteriorWindowCleaningLanding() {
           {/* 2. 외창·내창·창틀·방충망 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="외창·내창·창틀·방충망 청소 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">유리 물때와 창틀 먼지는 작업 범위가 다릅니다</h3>
+            <p className="mt-2 mb-6">유리 표면의 일반 먼지·빗물 자국과 고착된 물때, 스티커 잔여물은 구분해 확인합니다. 내창, 창틀 내부와 방충망은 외창과 별도 항목입니다. 유리 자체의 손상이나 복층유리 사이의 흐림은 바깥 면 세척만으로 해결되지 않을 수 있습니다.</p>
             <p>창문 청소는 어떤 유리 면과 부속 구역을 청소하는지 구분해야 합니다.</p>
             <p className="mt-4">상담 시 사진을 기준으로 작업할 면을 확인합니다. 외창청소라는 이름만으로 내창과 창틀·방충망까지 모두 포함되는 것은 아닙니다.</p>
 
