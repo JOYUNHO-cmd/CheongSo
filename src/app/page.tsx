@@ -22,8 +22,8 @@ const totalServiceCount = serviceProfiles.length;
 
 const stats = [
   { label: "필요에 맞는 서비스", value: `${totalServiceCount}가지` },
-  { label: "작업 전 범위 확인", value: "꼼꼼히" },
-  { label: "마무리까지 함께", value: "차근차근" },
+  { label: "찐 현장 경력", value: "15년" },
+  { label: "찐 누적 시공", value: "5,000+" },
 ];
 
 export default function Home() {
@@ -74,7 +74,11 @@ export default function Home() {
 
           {/* 클로징 강조 문구 (모바일 text-base, PC 이전 크기인 lg:text-[32px] 복원) */}
           <p className="mx-auto mt-3 sm:mt-5 text-base sm:text-2xl md:text-3xl lg:text-[32px] font-bold tracking-normal text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
-            {siteConfig.heroClosing}
+            {siteConfig.heroClosing.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </p>
 
           {/* 중앙 강조 대형 무료견적신청 버튼 */}

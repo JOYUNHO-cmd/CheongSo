@@ -6,8 +6,8 @@ export const siteConfig = {
   description: "입주청소, 특수청소, 바닥시공까지 !! 책임지고 제대로 관리합니다",
   // 홈페이지 메인 히어로 전용 문구
   heroHeadline: ["찐찐찐찐 찐이야~♪ 정말 찐 청소!", "가짜는 가라! 제대로 하는 찐 청소!"],
-  heroSubcopy: ["대충이 아닌 꼼꼼함으로,", "말이 아닌 결과로 보여드립니다"],
-  heroClosing: "청소는 제대로. 신뢰는 확실하게!",
+  heroSubcopy: ["청소는 찐하게, 견적은 이유 있게.", "준공·인테리어청소부터 사업장·특수청소, 바닥 관리까지."],
+  heroClosing: ["평수만 묻고 가격부터 정하지 않습니다.", "현장에 필요한 작업부터 봅니다."],
   phone: "010.9882.8882",
   phoneRaw: "01098828882",
   kakaoUrl: "https://open.kakao.com/o/srNJGmpg",
