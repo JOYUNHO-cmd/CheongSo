@@ -30,6 +30,7 @@ import StudioCleaningLanding from "@/components/service-pages/StudioCleaningLand
 import PartialCleaningLanding from "@/components/service-pages/PartialCleaningLanding";
 import ExteriorWindowCleaningLanding from "@/components/service-pages/ExteriorWindowCleaningLanding";
 import DisinfectionCleaningLanding from "@/components/service-pages/DisinfectionCleaningLanding";
+import OdorRemovalLanding from "@/components/service-pages/OdorRemovalLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -60,6 +61,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "소독·방역 비용·해충 방제·소독증명서 발급 | 찐청소",
     description: "소독업 신고를 마친 찐청소가 공간·표면 소독부터 바퀴벌레·개미·빈대·모기와 쥐 방제까지 상담합니다. 작업 범위와 비용, 이용 전후 주의사항, 소독증명서 발급을 확인하세요.",
     component: () => <DisinfectionCleaningLanding />,
+  },
+  "냄새악취제거": {
+    title: "냄새악취제거 비용·담배·반려동물·실내 냄새 상담 | 찐청소",
+    description: "반복되는 실내 냄새와 악취, 원인부터 확인하세요. 찐청소가 담배·반려동물·음식물 등 냄새 발생 상태를 살펴 청소·탈취 범위와 비용, 별도 보수가 필요한 부분을 안내합니다.",
+    component: () => <OdorRemovalLanding />,
   },
   "입주청소": {
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
