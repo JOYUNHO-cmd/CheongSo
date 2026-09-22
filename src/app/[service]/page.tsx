@@ -33,6 +33,7 @@ import DisinfectionCleaningLanding from "@/components/service-pages/Disinfection
 import OdorRemovalLanding from "@/components/service-pages/OdorRemovalLanding";
 import MoldRemovalLanding from "@/components/service-pages/MoldRemovalLanding";
 import ExteriorWallCleaningLanding from "@/components/service-pages/ExteriorWallCleaningLanding";
+import EventCleaningLanding from "@/components/service-pages/EventCleaningLanding";
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
@@ -78,6 +79,11 @@ const customLandingPages: Record<string, { title: string; description: string; c
     title: "외벽청소 비용·건물 외벽 세척 범위·예약 안내 | 찐청소",
     description: "건물·상가 외벽청소, 재질과 오염 상태부터 확인하세요. 찐청소가 실제 작업 면적, 높이와 접근 조건에 따른 견적 기준, 외벽·외창 작업 범위와 예약 절차를 안내합니다.",
     component: () => <ExteriorWallCleaningLanding />,
+  },
+  "행사장청소": {
+    title: "행사장청소 비용·행사 전후 청소·예약 안내 | 찐청소",
+    description: "기업 행사, 전시회, 공연, 축제 등 행사장청소를 상담하세요. 찐청소가 행사 전후 작업 범위, 운영 중 관리, 쓰레기 수거·반출 조건과 일정에 따른 견적 기준을 안내합니다.",
+    component: () => <EventCleaningLanding />,
   },
   "입주청소": {
     title: "입주청소 비용·청소 범위·예약 안내 | 찐청소",
