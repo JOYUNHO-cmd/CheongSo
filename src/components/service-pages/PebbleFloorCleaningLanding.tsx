@@ -157,7 +157,7 @@ const prepSections: [string, string][] = [
 const faqItems: [string, string][] = [
   ["콩자갈 사이에 낀 때도 청소할 수 있나요?", "틈새 형태와 오염, 기존 마감 상태를 확인해 작업 범위를 안내합니다. 표면뿐 아니라 접근 가능한 틈새의 잔여물도 확인하지만, 보이지 않는 모든 깊이까지 완전 제거를 보장하지는 않습니다."],
   ["콩자갈청소 비용은 평당으로 정하나요?", "면적은 참고하지만 면적만으로 정하지 않습니다. 필요한 인원과 장비·약품, 오염과 고정 상태, 집기와 물 사용 조건을 함께 확인합니다."],
-  ["무조건 고압세척으로 진행하나요?", "아닙니다. 실내외 환경과 바닥 고정 상태, 배수·회수 여건에 따라 방법을 정해야 합니다. 다른 현장에서 사용한 압력이나 공법을 그대로 적용하지 않습니다."],
+  ["실내 콩자갈 바닥도 고압으로 물청소하나요?", "모든 콩자갈 바닥에 고압세척을 적용하지 않습니다. 고정 상태와 바탕 구조, 배수·회수 조건을 확인한 뒤 방법을 정합니다. 자갈이 빠지거나 마감이 손상된 부분은 먼저 알려주세요."],
   ["배수구가 없어도 가능한가요?", "현장 확인이 필요합니다. 물을 사용할 수 있는지와 회수 방법, 주변 시설 조건을 확인해 진행 가능 여부를 안내합니다."],
   ["콩자갈 바닥은 물이 빠지니까 많이 써도 되나요?", "틈이 있다는 것과 바닥 전체가 안전하게 배수되는 것은 다릅니다. 바탕 구조와 방수·배수 상태를 확인하지 않고 많은 물을 사용하면 안 됩니다."],
   ["청소하다가 자갈이 떨어질 수 있나요?", "기존 고정 상태와 손상 여부를 확인해야 합니다. 이미 약해진 구역은 작업에 제약이 있거나 보수가 먼저 필요할 수 있어 무손상을 일괄적으로 보장하지 않습니다."],
@@ -196,7 +196,7 @@ export default function PebbleFloorCleaningLanding() {
       "@type": "Service",
       name: "콩자갈청소",
       serviceType: "콩자갈청소·바닥 세척",
-      description: "콩자갈 사이에 낀 먼지와 찌든 때, 바닥 상태부터 확인하세요. 찐청소가 오염과 자갈 고정 상태, 물 사용 여건을 확인해 세척 범위와 비용, 건조·영업 재개 일정을 안내합니다.",
+      description: "콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -231,10 +231,9 @@ export default function PebbleFloorCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>콩자갈청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">콩자갈청소, 표면 사이에 남은 오염까지 살펴봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">카페·매장 콩자갈청소, 틈새 오염과 바닥 상태를 함께 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>쓸고 닦아도 콩자갈 사이에 먼지가 남거나, 사람들이 다니는 곳만 검게 보이나요? 카페나 매장에서 음료와 음식물을 흘린 뒤 얼룩이나 끈적임이 신경 쓰일 수도 있습니다.</p>
-            <p>찐청소는 콩자갈 바닥의 오염뿐 아니라 자갈의 고정 상태와 기존 마감, 물 사용 여건을 함께 확인합니다. 청소할 부분과 보수가 필요한 부분을 구분하고, 현장에 적용할 수 있는 세척 범위를 안내합니다.</p>
+            <p>콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.</p>
             <p>바닥이 예뻐서 선택했는데 청소가 숙제가 됐다면, 현재 상태부터 보여주세요.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">콩자갈청소 견적 문의하기 →</CtaButton>
@@ -281,6 +280,8 @@ export default function PebbleFloorCleaningLanding() {
           {/* 2. 청소 범위/바닥 상태 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="청소 범위와 바닥 상태별 확인 사항" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">자갈 틈새 오염과 수지·마감 변색을 구분합니다</h3>
+            <p className="mt-2 mb-6">표면에 쌓인 때와 기존 마감 자체의 변색은 다를 수 있습니다. 탈락한 자갈과 들뜬 부분, 급수·배수·회수 여건을 함께 확인하고 물 사용과 장비 적용 방법을 정합니다. 보수와 재시공, 기존 코팅 제거는 별도 항목입니다.</p>
             <p>콩자갈 바닥은 표면만 보고 같은 방식으로 청소하기 어렵습니다. 자갈을 고정한 상태와 표면 처리, 바탕 구조에 따라 적용 가능한 작업이 달라질 수 있습니다.</p>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (

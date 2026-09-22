@@ -138,7 +138,7 @@ const prepItems = [
 
 const faqItems: [string, string][] = [
   ["일반 청소와 프리미엄청소는 무엇이 다른가요?", "찐청소 프리미엄청소는 정밀청소에 냄새 제거와 새집증후군 관리를 결합한 서비스입니다. 특허받은 약품과 장비를 활용하며, 현장별 세부 범위를 정해 안내합니다."],
-  ["냄새 제거와 새집증후군 관리가 서비스 구성에 포함되나요?", "네. 정밀청소와 함께 프리미엄청소의 핵심 구성입니다. 실제 적용 구역과 작업 내용은 공간 상태에 맞춰 견적에 명시합니다."],
+  ["새집증후군 시공을 별도 서비스로 신청해야 하나요?", "찐청소에서는 프리미엄청소 안에서 새집증후군 관리를 함께 상담합니다. 제품·장비의 적용 범위와 실제 작업 구역을 확인하며, 공기질 측정이나 별도 시험은 기본 구성에 포함되는지 따로 확인해야 합니다."],
   ["특허받은 약품과 장비를 사용하나요?", "네. 찐청소는 특허받은 약품과 장비를 활용합니다. 상담 시 사용 제품·장비와 관련 특허 정보를 확인해 주세요. 특허와 현장별 성능·안전성 결과는 구분해야 합니다."],
   ["모든 유해물질을 완전히 제거하나요?", "모든 물질의 완전 제거를 보장하지 않습니다. 적용 기술과 대상, 공간 상태에 따라 결과가 달라질 수 있으며, 특정 저감 수치는 해당 시험·측정 조건에 근거해 확인해야 합니다."],
   ["냄새가 사라지면 새집증후군 관리도 완료된 건가요?", "냄새만으로 실내공기 상태를 판단할 수는 없습니다. 냄새 변화와 진행한 관리 내용, 별도로 확인한 측정 결과가 있다면 이를 구분해 살펴봐야 합니다."],
@@ -172,7 +172,7 @@ export default function PremiumCleaningLanding() {
       "@type": "Service",
       name: "프리미엄청소",
       serviceType: "프리미엄청소",
-      description: "정밀청소부터 냄새 제거와 새집증후군 관리까지. 찐청소가 특허받은 약품과 장비를 활용해 공간 상태에 맞는 작업을 안내합니다. 서비스 구성과 비용, 작업 후 입주 일정을 확인하세요.",
+      description: "신축 입주나 인테리어 이후 먼지뿐 아니라 새집 냄새도 신경 쓰이시나요? 찐청소 프리미엄청소는 정밀청소, 냄새 제거, 특허받은 약품과 장비를 활용한 새집증후군 관리를 함께 구성합니다. 현장별 적용 범위와 이용 재개 조건을 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -207,12 +207,9 @@ export default function PremiumCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>프리미엄청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">프리미엄청소, 정밀청소에 냄새와 새집증후군 관리까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">정밀청소에 새집 냄새와 새집증후군 관리까지</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>창틀과 수납 공간의 먼지도 신경 쓰이고, 공사 후 남은 냄새도 마음에 걸린다면.</p>
-            <p>찐청소 프리미엄청소는 정밀청소에 냄새 제거와 새집증후군 관리를 결합한 서비스입니다.</p>
-            <p>공간별 오염을 세밀하게 살펴 청소하고, 특허받은 약품과 장비를 활용한 관리까지 함께 진행합니다.</p>
-            <p>&lsquo;프리미엄&rsquo;이라는 이름만으로 설명을 끝내지 않겠습니다. 어디를 청소하고 어떤 관리를 받는지, 작업 후 무엇을 확인해야 하는지부터 안내하겠습니다.</p>
+            <p>신축 입주나 인테리어 이후 먼지뿐 아니라 새집 냄새도 신경 쓰이시나요? 찐청소 프리미엄청소는 정밀청소, 냄새 제거, 특허받은 약품과 장비를 활용한 새집증후군 관리를 함께 구성합니다. 현장별 적용 범위와 이용 재개 조건을 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">프리미엄청소 견적 문의하기 →</CtaButton>
         </div>
@@ -289,6 +286,8 @@ export default function PremiumCleaningLanding() {
           {/* 2. 정밀청소 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="정밀청소 범위와 공간별 확인 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">새집·인테리어 냄새는 발생 위치부터 구분합니다</h3>
+            <p className="mt-2 mb-6">새 수납장과 가구, 벽·바닥 마감 주변 등 냄새가 느껴지는 위치와 반입·시공 시점을 확인합니다. 정밀청소 구역과 냄새 관리 구역을 나눠 설명하며, 환기와 공간 이용 조건도 함께 안내합니다. 냄새 변화만으로 모든 실내 오염물질이 제거되었다고 판단하지 않습니다.</p>
             <p>프리미엄청소도 집마다 필요한 작업은 다릅니다.</p>
             <p className="mt-4">공간의 구조와 재질, 오염 상태를 확인해 포함할 세부 항목을 정합니다. 아래 내용은 상담 시 확인하는 작업 구역입니다.</p>
 

@@ -156,7 +156,7 @@ const faqItems: [string, string][] = [
   ["바닥왁스코팅 비용은 평수로 정하나요?", "면적은 참고하지만 면적만으로 정하지 않습니다. 필요한 인원과 장비·약품, 기존 왁스 상태, 박리 여부, 집기와 동선을 함께 확인합니다."],
   ["기존 왁스를 꼭 벗겨야 하나요?", "모든 현장에 박리가 필요한 것은 아닙니다. 기존 코팅 상태와 새 제품의 적합성 등을 확인해 필요 여부를 판단합니다."],
   ["박리 비용도 기본에 포함되나요?", "현장별 견적에서 확인해야 합니다. 세척과 코팅만 포함된 것인지, 박리까지 포함된 것인지 작업 전에 구분해 주세요."],
-  ["데코타일이면 모두 왁스코팅이 가능한가요?", "바닥재의 표면 처리와 제조사 관리 기준, 기존 코팅 상태를 확인해야 합니다. 재질 이름만으로 모든 제품에 같은 작업이 가능하다고 안내하지 않습니다."],
+  ["데코타일이면 모두 왁스코팅을 해도 되나요?", "바닥 제품과 기존 마감, 제조사 관리 기준에 따라 다릅니다. 적용 가능한 코팅인지 먼저 확인해야 하며, 모든 데코타일에 같은 제품과 방법을 사용하는 것은 아닙니다."],
   ["마루나 석재도 같은 방식으로 작업하나요?", "아닙니다. 바닥마다 적합한 관리 방식과 제품이 다릅니다. 일반적인 바닥왁스코팅과 같은 공정으로 볼 수 있는지부터 확인해야 합니다."],
   ["몇 번 코팅해 주시나요?", "바닥 상태와 사용할 제품의 기준, 협의한 마감 계획에 따라 정합니다. 횟수만으로 품질을 판단하기보다는 준비 작업과 도포·건조 조건을 함께 확인해 주세요."],
   ["코팅하면 깊은 흠집도 없어지나요?", "바닥왁스코팅은 깊은 흠집이나 파손을 수리하는 작업이 아닙니다. 외관상 변화가 있을 수 있지만 손상 자체가 사라진다고 보장하지는 않습니다."],
@@ -193,7 +193,7 @@ export default function FloorWaxCoatingLanding() {
       "@type": "Service",
       name: "바닥왁스코팅",
       serviceType: "바닥왁스코팅·바닥 관리",
-      description: "사무실·학원·상가 바닥왁스코팅, 바닥 재질과 기존 코팅 상태부터 확인하세요. 찐청소가 세척·박리 필요 여부, 견적 기준, 건조와 사용 재개 일정, 작업 후 관리 방법을 안내합니다.",
+      description: "사무실이나 학원 바닥을 닦아도 칙칙하거나 기존 왁스에 때가 겹쳐 보이나요? 찐청소는 바닥 재질과 기존 피막 상태를 살펴 세척·박리 필요 여부와 코팅 범위를 나눠 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -228,11 +228,9 @@ export default function FloorWaxCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥왁스코팅</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">바닥왁스코팅, 광택보다 먼저 바닥 상태를 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·사무실 바닥왁스코팅, 기존 오염과 피막부터 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>청소를 해도 바닥이 칙칙하거나, 사람들이 많이 다니는 곳만 유난히 닳아 보이나요? 왁스코팅을 고민하고 계시다면 먼저 확인할 것이 있습니다.</p>
-            <p>세척으로 정리할 수 있는 오염인지, 기존 왁스를 제거해야 하는지, 새 코팅을 적용하기에 적합한 바닥인지입니다.</p>
-            <p>찐청소는 바닥 재질과 기존 코팅 상태, 공간의 사용 방식을 확인해 필요한 작업을 안내합니다. 작업 범위뿐 아니라 언제 다시 걷고, 집기를 놓고, 청소할 수 있는지도 함께 확인합니다.</p>
+            <p>사무실이나 학원 바닥을 닦아도 칙칙하거나 기존 왁스에 때가 겹쳐 보이나요? 찐청소는 바닥 재질과 기존 피막 상태를 살펴 세척·박리 필요 여부와 코팅 범위를 나눠 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥왁스코팅 견적 문의하기 →</CtaButton>
         </div>
@@ -288,6 +286,8 @@ export default function FloorWaxCoatingLanding() {
           {/* 2. 세척/박리/코팅 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="세척·박리·코팅의 차이와 작업 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">때를 제거하는 세척과 왁스를 벗기는 박리는 다릅니다</h3>
+            <p className="mt-2 mb-6">오염이 표면에 붙어 있는지 기존 피막에 쌓였는지를 확인합니다. 코팅을 덧바르는 것만으로 해결할 수 있는지 단정하지 않고, 필요한 준비 작업과 도포 범위를 협의합니다. 집기 이동과 이용 재개 시간도 견적에서 확인합니다.</p>
             <p>바닥이 칙칙해졌다고 해서 무조건 왁스를 덧바르는 것은 아닙니다. 표면 오염인지, 기존 코팅층의 문제인지, 바닥재 자체의 손상인지부터 구분해야 합니다.</p>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (

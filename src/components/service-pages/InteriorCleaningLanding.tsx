@@ -148,7 +148,7 @@ const prepItems = [
 const faqItems: [string, string][] = [
   ["인테리어청소와 입주청소는 어떻게 다른가요?", "이 페이지에서는 인테리어·리모델링 후 생긴 분진과 마감 잔여물을 중심으로 안내합니다. 입주 전 청소와 겹칠 수 있으므로 이름보다 공사 내용과 실제 오염, 작업 범위를 확인하는 것이 중요합니다."],
   ["인테리어청소 비용은 평당으로 정하나요?", "찐청소는 평수만으로 정하지 않습니다. 공사 내용, 오염 상태, 짐의 유무와 요청 범위를 확인해 필요한 인원과 장비·약품을 기준으로 안내합니다."],
-  ["욕실이나 주방만 공사했는데 집 전체를 청소해야 하나요?", "반드시 그런 것은 아닙니다. 공사 구역과 주변 공간의 실제 상태를 살펴 필요한 범위를 정합니다. 분진이 다른 공간에 남아 있다면 해당 구역도 함께 검토합니다."],
+  ["욕실만 리모델링했는데 집 전체 청소가 필요한가요?", "공사 규모만으로 정하지 않습니다. 욕실 밖 복도·방·수납 공간에 분진이 퍼진 범위를 확인해 필요한 구역을 정합니다. 공사 전후 사진과 보양 상태가 상담에 도움이 됩니다."],
   ["공사하지 않은 곳의 기름때나 물때도 청소하나요?", "원하시면 함께 요청할 수 있습니다. 공사 분진 청소와 기존 생활 오염 제거를 구분해 작업 범위와 비용에 반영합니다."],
   ["짐과 가구가 있는 상태에서도 가능한가요?", "배치와 접근 가능한 구간을 확인해야 합니다. 물품 이동과 가구 자체의 청소는 구분하며, 빈집과는 작업 시간과 범위가 달라질 수 있습니다."],
   ["보호필름과 보양지는 모두 제거하나요?", "제거할 대상과 시점을 확인한 뒤 진행합니다. 추가 공사 때문에 남겨야 하는 보호재나 시공팀 확인이 필요한 부착물은 임의로 제거하지 않습니다."],
@@ -188,7 +188,7 @@ export default function InteriorCleaningLanding() {
       "@type": "Service",
       name: "인테리어청소",
       serviceType: "인테리어청소",
-      description: "찐청소 인테리어청소의 비용과 작업 범위를 안내합니다. 전체·부분 리모델링 후 분진과 마감 잔여물, 남아 있는 가구와 생활 오염을 확인하고 입주·영업 일정에 맞춰 상담합니다.",
+      description: "주방·욕실·창호 공사 뒤 주변 방까지 먼지가 퍼졌거나, 리모델링 후 바닥과 수납장에 분진이 남았나요? 찐청소는 공사한 구역과 주변으로 오염이 번진 구역을 나눠 인테리어청소 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -223,11 +223,9 @@ export default function InteriorCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>인테리어청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">인테리어청소, 바뀐 공간을 기분 좋게 사용할 준비</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">리모델링·부분공사 후 청소, 새 마감과 남은 짐을 함께 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>공사는 끝났는데 창틀과 수납장에는 먼지가 남아 있고, 새 바닥에는 접착 흔적이 보이고, 공사하지 않은 방까지 청소해야 할지 고민된다면.</p>
-            <p>공사한 범위와 실제 청소할 범위를 함께 살펴볼 때입니다.</p>
-            <p>찐청소는 인테리어·리모델링 후 공간의 상태를 확인해 분진과 마감 잔여물을 정리합니다. 남아 있는 가구와 기존 생활 오염도 구분해 필요한 작업을 안내합니다.</p>
+            <p>주방·욕실·창호 공사 뒤 주변 방까지 먼지가 퍼졌거나, 리모델링 후 바닥과 수납장에 분진이 남았나요? 찐청소는 공사한 구역과 주변으로 오염이 번진 구역을 나눠 인테리어청소 범위를 안내합니다.</p>
             <p>인테리어는 마음에 드는데 마지막 기억이 먼지 닦기일 필요는 없으니까요. 사용할 날짜에 맞춰 청소 범위와 순서부터 정하겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">인테리어청소 견적 문의하기 →</CtaButton>
@@ -297,6 +295,8 @@ export default function InteriorCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간별 청소 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">공사하지 않은 방의 먼지도 알려주세요</h3>
+            <p className="mt-2 mb-6">공사 분진이 이동한 범위와 기존 생활 오염을 구분합니다. 남아 있는 가구·가전의 보호 상태와 청소할 표면을 확인하고, 새로 시공한 마감재의 양생과 보수 일정에 맞춰 작업합니다. 도료나 접착제 잔여물은 일반 먼지와 별도로 확인합니다.</p>
             <p>인테리어청소는 공사 내용과 실제 오염을 기준으로 작업 범위를 정합니다.</p>
             <p className="mt-4">아래 항목이 모든 견적에 자동으로 포함되는 것은 아닙니다. 공간별 청소와 탈거·이동·별도 제거 작업을 구분해 안내합니다.</p>
 

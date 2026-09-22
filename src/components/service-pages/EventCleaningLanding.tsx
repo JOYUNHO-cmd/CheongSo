@@ -166,7 +166,7 @@ const faqItems: [string, string][] = [
   ["행사장청소 비용은 평당으로 계산하나요?", "면적만으로 정하지 않습니다. 행사 종류, 참석 인원, 음식 제공 여부, 작업 시간과 쓰레기 발생량을 살펴 필요한 인원 및 장비·약품 비용을 중심으로 산정합니다."],
   ["행사 끝난 뒤 청소만 신청할 수 있나요?", "네. 종료 후 청소만 필요한 경우 해당 시간과 구역을 기준으로 상담할 수 있습니다. 설치물과 장비가 언제 빠지는지도 함께 알려주세요."],
   ["행사 시작 전과 종료 후 청소를 함께 요청할 수 있나요?", "함께 상담할 수 있습니다. 두 작업의 날짜와 출입 시간, 구역을 각각 확인해 견적을 안내합니다."],
-  ["행사 중에도 청소 인력이 계속 관리해주나요?", "상주 또는 순회 관리가 필요하면 인력 배치 가능 여부부터 확인합니다. 담당 구역, 운영 시간, 점검 주기와 소모품 제공 범위를 별도로 정합니다."],
+  ["행사 중 화장실과 쓰레기통 관리도 맡길 수 있나요?", "인력 배치 가능 여부와 운영 시간을 먼저 협의합니다. 관리 구역, 순회 주기, 소모품 제공 주체와 행사 연장 시 조건을 따로 정합니다."],
   ["쓰레기는 전부 가져가나요?", "현장 지정 장소에 모으는 작업과 외부 반출·처리는 다릅니다. 폐기물 종류와 양, 행사장 처리 방식을 확인해 포함 범위와 비용을 안내합니다."],
   ["무대나 부스 철거도 포함되나요?", "행사장청소에 자동으로 포함되지 않습니다. 구조물 철거, 장비 회수와 청소를 구분하고 담당 업체와 작업 순서를 맞춰야 합니다."],
   ["바닥 테이프와 접착제도 제거하나요?", "별도 확인이 필요한 항목입니다. 바닥 재질과 접착 상태에 따라 작업 방법과 비용이 달라질 수 있으므로 미리 사진을 보내주세요."],
@@ -199,7 +199,7 @@ export default function EventCleaningLanding() {
       "@type": "Service",
       name: "행사장청소",
       serviceType: "행사장청소",
-      description: "기업 행사, 전시회, 공연, 축제 등 행사장청소를 상담하세요. 찐청소가 행사 전후 작업 범위, 운영 중 관리, 쓰레기 수거·반출 조건과 일정에 따른 견적 기준을 안내합니다.",
+      description: "전시장 부스 주변 먼지, 공연장 객석 아래 쓰레기, 취식 구역의 바닥 오염을 구역별로 확인합니다. 찐청소는 행사 전·종료 후 작업과 운영 중 관리 필요 여부를 나눠 상담하고, 철거와 대관 반납 일정에 맞춰 범위를 정합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -230,10 +230,9 @@ export default function EventCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>행사장청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">행사장청소, 시작 전 준비부터 끝난 뒤 마무리까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">행사 전 준비부터 종료 후 청소까지, 반납 시간을 함께 맞춥니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>행사 준비만으로도 확인할 일이 한두 가지가 아니죠. 참석자를 맞이할 공간부터 행사 후 남은 쓰레기와 바닥 오염까지, 청소 일정도 미리 정리해두면 한결 수월합니다.</p>
-            <p>찐청소는 행사 일정과 공간 구성, 예상 이용 인원, 음식 제공 여부를 살펴 필요한 청소 범위를 안내합니다. 행사 전 준비 청소와 종료 후 청소, 운영 중 관리가 필요한 경우를 구분해 상담합니다.</p>
+            <p>전시장 부스 주변 먼지, 공연장 객석 아래 쓰레기, 취식 구역의 바닥 오염을 구역별로 확인합니다. 찐청소는 행사 전·종료 후 작업과 운영 중 관리 필요 여부를 나눠 상담하고, 철거와 대관 반납 일정에 맞춰 범위를 정합니다.</p>
             <p>행사의 여운은 남아도, 컵과 포장지까지 남을 필요는 없으니까요.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">행사장청소 견적 문의하기 →</CtaButton>
@@ -295,6 +294,8 @@ export default function EventCleaningLanding() {
           {/* 2. 단계별/공간별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="행사 단계별·공간별 청소 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">객석·부스·취식 구역마다 쓰레기와 오염이 다릅니다</h3>
+            <p className="mt-2 mb-6">포장지와 음료 용기, 음식물과 설치 잔여물은 구분합니다. 현장 지정 장소로 모으는 작업과 외부 반출·처리는 별도 범위입니다. 임대 집기와 전시 물품은 폐기 대상에서 구분하고, 구조물 철거는 청소에 자동 포함되지 않습니다.</p>
             <p>행사장청소는 행사 전후 전체가 자동으로 묶이는 서비스가 아닙니다. 필요한 시점과 구역을 선택해 범위를 정합니다.</p>
 
             <div className="mt-6 space-y-6">

@@ -135,7 +135,7 @@ const prepItems = [
 const faqItems: [string, string][] = [
   ["찐청소는 소독업 신고 업체인가요?", "네. 소독업 신고를 완료했으며, 진행한 소독 내용에 따른 소독증명서 발급이 가능합니다."],
   ["바퀴벌레·개미·빈대·모기와 쥐 방제도 가능한가요?", "가능합니다. 대상과 발생 상태를 확인해 작업 구역과 방법, 필요한 방문 횟수를 안내합니다."],
-  ["소독을 하면 해충도 함께 없어지나요?", "공간·표면 소독과 해충 방제는 다른 작업입니다. 어떤 문제가 있는지 알려주시면 필요한 서비스를 구분해 안내합니다."],
+  ["소독과 바퀴벌레 방역은 같은 작업인가요?", "목적과 대상이 다릅니다. 공간·표면 소독과 해충 방제 범위를 각각 정해야 합니다. 한 번의 작업으로 모든 해충이 사라지거나 소독증명서가 무해함을 보증하는 것은 아닙니다."],
   ["비용은 평당으로 정하나요?", "면적만으로 정하지 않습니다. 대상과 발생 정도, 필요한 인원과 장비·약품, 작업 횟수를 함께 확인합니다."],
   ["어떤 약품과 장비를 사용하나요?", "대상과 공간, 적용 부위에 맞춰 선택합니다. 사용 예정 제품과 작업 방법, 주의사항은 상담과 작업 안내에서 확인해 주세요."],
   ["아이나 반려동물이 있어도 괜찮나요?", "작업 구역과 제품별 사용 조건을 확인해야 합니다. 아이와 반려동물의 접근 제한, 물품 보호와 사용 재개 안내를 따르도록 준비하며, 무조건 무해하다고 안내하지 않습니다."],
@@ -169,7 +169,7 @@ export default function DisinfectionCleaningLanding() {
       "@type": "Service",
       name: "소독&방역",
       serviceType: "소독&방역",
-      description: "소독업 신고를 마친 찐청소가 공간·표면 소독부터 바퀴벌레·개미·빈대·모기와 쥐 방제까지 상담합니다. 작업 범위와 비용, 이용 전후 주의사항, 소독증명서 발급을 확인하세요.",
+      description: "벌레를 발견한 위치, 반복되는 시간과 공간 용도를 알려주세요. 소독업 신고를 마친 찐청소는 공간·표면 소독과 바퀴벌레·개미·빈대·모기, 쥐 방제를 구분해 상담합니다. 실제 진행한 소독 내용에 따른 소독증명서 발급도 가능합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -200,13 +200,9 @@ export default function DisinfectionCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>소독&방역</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">소독&방역, 공간과 발생 원인에 맞춰 관리합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">공간 소독부터 바퀴벌레·빈대·쥐 방제까지, 대상을 구분합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>여러 사람이 사용하는 공간의 소독이 필요하거나, 주방에서 해충이 반복해서 보이거나, 시설에 제출할 소독증명서가 필요하다면.</p>
-            <p>먼저 어떤 작업이 필요한지부터 구분해야 합니다.</p>
-            <p>찐청소는 소독업 신고를 마친 업체로, 공간·표면 소독과 해충·쥐 방제를 진행하며 소독증명서 발급이 가능합니다.</p>
-            <p>소독할 구역과 발견된 해충, 공간의 사용 방식을 확인하고 작업 범위와 비용을 안내합니다.</p>
-            <p>약품을 많이 쓰는 것보다, 필요한 곳에 맞는 방법으로 적용하는 것을 기준으로 삼겠습니다.</p>
+            <p>벌레를 발견한 위치, 반복되는 시간과 공간 용도를 알려주세요. 소독업 신고를 마친 찐청소는 공간·표면 소독과 바퀴벌레·개미·빈대·모기, 쥐 방제를 구분해 상담합니다. 실제 진행한 소독 내용에 따른 소독증명서 발급도 가능합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">소독·방역 견적 문의하기 →</CtaButton>
         </div>
@@ -275,6 +271,8 @@ export default function DisinfectionCleaningLanding() {
           {/* 2. 소독·방제 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간 소독과 해충·쥐 방제 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">해충 이름을 모르겠다면 발견 위치와 사진부터 보내주세요</h3>
+            <p className="mt-2 mb-6">벌레의 모습과 발견 장소, 횟수를 확인해 관리 대상을 정합니다. 물린 자국만으로 빈대라고 단정하지 않습니다. 약품·장비는 대상과 공간에 맞춰 선택하며, 어린이·반려동물과 식품 보호, 작업 후 출입 조건을 함께 안내합니다.</p>
             <p>찐청소는 아래 서비스를 현장 상태에 맞춰 상담합니다.</p>
             <p className="mt-4">모든 항목이 하나의 기본 견적에 포함되는 것은 아니며, 요청한 대상과 작업 구역을 구분합니다.</p>
 

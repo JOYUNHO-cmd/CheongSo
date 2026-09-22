@@ -153,7 +153,7 @@ const prepSections: [string, string][] = [
 const faqItems: [string, string][] = [
   ["물걸레질로 안 지워지는 찌든 때도 가능한가요?", "바닥 재질과 오염 상태를 확인해 제거 가능 범위를 안내합니다. 다만 변색이나 마모처럼 청소로 해결되지 않는 흔적도 있을 수 있습니다."],
   ["바닥청소 비용은 평당으로 정하나요?", "면적은 참고하지만 면적만으로 정하지 않습니다. 필요한 인원과 장비·약품, 오염 상태, 집기와 동선을 함께 확인합니다."],
-  ["코팅 없이 바닥 세척만 맡길 수 있나요?", "네. 세척이 필요한 범위를 중심으로 상담하실 수 있습니다. 코팅을 반드시 함께 진행해야 하는 것은 아닙니다."],
+  ["포세린타일 얼룩 제거를 원하면 나노코팅을 신청해야 하나요?", "현재 오염을 정리하려면 바닥청소로 먼저 상담할 수 있습니다. 코팅은 적용 가능 여부와 관리 목적을 확인한 뒤 선택하는 별도 작업이며, 얼룩이 있다고 반드시 코팅해야 하는 것은 아닙니다."],
   ["세척하면 바닥이 반짝반짝해지나요?", "바닥 본래의 마감에 따라 다릅니다. 무광 바닥은 청소 후에도 무광일 수 있으며, 세척과 광택·코팅 작업은 구분해야 합니다."],
   ["기존 왁스도 청소하면서 제거되나요?", "일반 세척과 왁스 박리는 다른 작업입니다. 기존 코팅 상태를 확인해 박리가 필요한지와 견적 포함 여부를 협의합니다."],
   ["데코타일과 포세린타일은 같은 방식으로 청소하나요?", "아닙니다. 재질과 표면 마감, 오염 상태에 따라 적용할 방법을 확인해야 합니다."],
@@ -194,7 +194,7 @@ export default function FloorCleaningLanding() {
       "@type": "Service",
       name: "바닥청소",
       serviceType: "바닥청소·바닥 세척",
-      description: "닦아도 남는 바닥 찌든 때와 얼룩, 재질과 오염 상태부터 확인하세요. 찐청소가 바닥청소 범위와 견적 기준, 집기 이동과 작업 일정을 안내합니다. 코팅·본드 제거·보수는 필요한 경우 별도로 상담합니다.",
+      description: "사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -229,11 +229,9 @@ export default function FloorCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">바닥청소, 닦아도 남는 오염부터 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·포세린타일 바닥청소, 닦아도 남는 오염을 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>물걸레질을 해도 바닥이 칙칙하거나, 자주 다니는 곳만 검게 보이나요? 세제를 바꿔도 자국이 남는다면 더 세게 문지르기 전에 바닥 상태부터 확인하는 것이 좋습니다.</p>
-            <p>찐청소는 바닥 재질과 기존 코팅, 오염 상태를 확인해 필요한 세척 범위를 안내합니다. 청소로 제거할 수 있는 오염과 마모·변색 등 남을 수 있는 흔적을 구분합니다.</p>
-            <p>바닥청소가 필요하다고 코팅까지 반드시 해야 하는 것은 아닙니다. 지금 바닥에 필요한 작업부터 상담하세요.</p>
+            <p>사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥청소 견적 문의하기 →</CtaButton>
         </div>
@@ -279,6 +277,8 @@ export default function FloorCleaningLanding() {
           {/* 2. 바닥 재질/청소 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="바닥 재질별 확인 사항과 청소 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">타일 발자국·끈적임·줄눈 오염을 나눠 확인합니다</h3>
+            <p className="mt-2 mb-6">같은 바닥도 통행 구역과 가장자리의 오염이 다릅니다. 세정제 잔여물인지 묵은 때인지, 기존 피막이나 표면 손상인지 구분하고 재질에 맞춰 작업합니다. 왁스 박리·코팅, 본드 제거와 바닥 보수는 일반 세척과 별도입니다.</p>
             <p>바닥청소는 모든 표면을 같은 약품과 장비로 닦는 작업이 아닙니다. 재질과 기존 마감을 확인해 적용 가능한 방법과 작업 범위를 정합니다.</p>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (

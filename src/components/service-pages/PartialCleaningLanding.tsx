@@ -161,6 +161,7 @@ const faqItems: [string, string][] = [
   ["창틀 청소에 외창과 방충망도 포함되나요?", "창틀, 유리의 내외부 면, 방충망과 탈거 여부를 구분해 안내합니다. 접근이 어려운 곳은 작업 가능 여부를 별도로 확인합니다."],
   ["청소 중 집에 있어도 되나요?", "작업 구역과 생활 동선을 분리할 수 있는지 확인해야 합니다. 꼭 사용해야 하는 공간이나 시간대가 있다면 상담 시 알려주세요."],
   ["청소 후 미흡한 부분이 있으면 어떻게 하나요?", "합의한 범위 안에서 해당 위치와 상태를 알려주세요. 작업 내용과 현장을 확인해 후속 처리 방법을 안내합니다. 사후 접수 조건은 예약 전에 확인해 주세요."],
+  ["가정집 주방만 청소하고 싶은데 주방청소 서비스를 선택하나요?", "가정집의 일부 구역을 청소하려면 부분청소로 상담하시면 됩니다. 음식점·업소의 주방 전체 기름때와 설비 주변 작업은 주방청소에서 별도로 안내합니다."],
 ];
 
 const contactChecklist = [
@@ -184,7 +185,7 @@ export default function PartialCleaningLanding() {
       "@type": "Service",
       name: "부분청소",
       serviceType: "부분청소",
-      description: "집 전체가 아닌 필요한 곳만 청소하세요. 찐청소가 욕실·주방·창틀·베란다 등 요청 구역의 오염과 작업 범위를 확인하고, 필요한 인원과 장비·약품을 기준으로 견적을 안내합니다.",
+      description: "집 전체는 괜찮은데 욕실 물때나 주방 기름때, 창틀 먼지가 신경 쓰이시나요? 찐청소는 필요한 구역을 지정해 오염과 재질을 살펴보고 작업 범위를 안내합니다. 집 전체 청소가 필요한지부터 고민하지 않으셔도 됩니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -215,12 +216,9 @@ export default function PartialCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>부분청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">간단청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">부분청소, 신경 쓰이는 곳만 골라 맡기세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">화장실 한 곳부터 주방·창틀까지, 필요한 부분만 청소하세요</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>집 전체를 청소할 정도는 아닌데, 욕실 물때는 혼자 해결하기 어렵고, 주방 기름때나 창틀 먼지는 자꾸 미루게 된다면.</p>
-            <p>필요한 구역만 정해 상담해 보세요.</p>
-            <p>찐청소 부분청소는 욕실, 주방, 창틀, 베란다 등 요청하신 공간의 오염과 작업 조건을 확인해 진행합니다.</p>
-            <p>욕실 하나 때문에 집 전체 청소를 고민하실 필요는 없습니다. 어느 곳을 어디까지 청소할지부터 함께 정하겠습니다.</p>
+            <p>집 전체는 괜찮은데 욕실 물때나 주방 기름때, 창틀 먼지가 신경 쓰이시나요? 찐청소는 필요한 구역을 지정해 오염과 재질을 살펴보고 작업 범위를 안내합니다. 집 전체 청소가 필요한지부터 고민하지 않으셔도 됩니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">부분청소 견적 문의하기 →</CtaButton>
         </div>
@@ -288,6 +286,8 @@ export default function PartialCleaningLanding() {
           {/* 2. 선택 가능한 청소 구역 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="선택할 수 있는 청소 구역과 작업 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">욕실 물때·주방 기름때·창틀 먼지, 구역별로 요청하세요</h3>
+            <p className="mt-2 mb-6">욕실은 타일·유리·실리콘, 주방은 조리대·수납장·후드, 창 주변은 유리·창틀·방충망을 나눠 확인합니다. 구역 이름만으로 모든 내부 세척이나 탈거 작업이 포함되지는 않습니다. 특정 부위만 원하는 경우 사진에 표시해 보내주세요.</p>
             <p>부분청소는 &lsquo;어느 공간인지&rsquo;와 함께 &lsquo;그 안의 무엇을 청소할지&rsquo;를 정하는 서비스입니다.</p>
             <p className="mt-4">아래 내용은 상담 시 검토하는 항목이며, 내부·탈거·이동 작업이 모두 자동으로 포함되는 것은 아닙니다.</p>
 

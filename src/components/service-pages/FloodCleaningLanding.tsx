@@ -160,6 +160,7 @@ const faqItems: [string, string][] = [
   ["하루 안에 끝낼 수 있나요?", "현장마다 다릅니다. 청소 시간과 건조 기간은 구분해야 하며, 철거·복원이 필요하면 전체 일정이 더 길어질 수 있습니다."],
   ["청소가 끝나면 바로 입주하거나 영업해도 되나요?", "청소 완료만으로 결정하기 어렵습니다. 건조와 복원 상태, 필요한 설비 점검, 남아 있는 오염 등을 함께 확인해야 합니다."],
   ["사진만으로 견적을 받을 수 있나요?", "사진을 바탕으로 상담할 수 있습니다. 다만 자재 내부 습기, 냄새, 가려진 손상은 사진으로 확인하기 어려워 현장 확인 후 범위와 비용이 달라질 수 있습니다."],
+  ["하수 역류로 침수된 곳도 일반 침수와 동일하게 청소하나요?", "유입된 물과 오염물의 종류, 출입 가능한 상태를 먼저 확인해야 합니다. 현장 조건에 따라 필요한 조치와 작업 가능 범위가 달라지므로 일반 침수와 동일한 방식으로 진행한다고 약속하지 않습니다."],
 ];
 
 const caseIds = ["flood-03", "flood-02", "flood-01"] as const;
@@ -176,7 +177,7 @@ export default function FloodCleaningLanding() {
       "@type": "Service",
       name: "침수청소",
       serviceType: "침수청소·건조·소독",
-      description: "침수 후 남은 오염부터 건조·소독·냄새 제거까지, 찐청소의 기본 작업에 포함됩니다. 현장별 견적 기준과 진행 순서를 확인하세요. 필요한 철거와 복원도 별도 견적으로 연결해 진행합니다.",
+      description: "물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -211,11 +212,9 @@ export default function FloodCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>침수청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">침수청소, 물이 빠진 뒤의 건조와 소독까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">반지하·상가 침수청소, 남은 오염부터 건조·소독까지</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>물이 빠졌는데도 바닥에 오염이 남아 있거나, 눅눅함과 냄새 때문에 어디서부터 손대야 할지 막막하실 수 있습니다.</p>
-            <p>찐청소는 침수 후 오염 청소뿐 아니라 건조·소독·냄새 제거까지 기본으로 진행합니다. 손상된 부분의 철거와 복원이 필요하다면 준공청소까지 연결해 상담하실 수 있습니다.</p>
-            <p>다만 철거와 복원은 기본 청소비에 포함되지 않습니다. 청소로 정리할 부분과 별도 공사가 필요한 부분을 구분해 범위와 비용을 안내합니다.</p>
+            <p>물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">침수청소·복구 견적 문의하기 →</CtaButton>
         </div>
@@ -263,6 +262,8 @@ export default function FloodCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="기본 청소 범위와 별도 작업" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">젖은 바닥과 벽, 물품은 재사용 가능 여부를 나눠 봅니다</h3>
+            <p className="mt-2 mb-6">침수 높이와 지속 시간, 유입된 물의 종류, 물 유입이 계속되는지를 먼저 확인합니다. 젖은 마감재와 물품은 청소·건조 가능한 부분과 교체 검토 부분을 구분합니다. 표면이 말라 보인다는 이유만으로 내부 상태까지 건조되었다고 단정하지 않습니다.</p>
             <p>찐청소는 합의한 침수 피해 구역의 오염을 청소하고, 건조·소독·냄새 제거까지 진행합니다.</p>
             <p className="mt-4">현재 물이 남아 있는지, 물이 계속 들어오는지에 따라 먼저 필요한 조치가 달라집니다. 청소 전 현장 상태부터 알려주세요.</p>
 

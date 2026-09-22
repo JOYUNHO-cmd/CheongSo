@@ -150,7 +150,7 @@ const faqItems: [string, string][] = [
   ["청소도 기본에 포함되나요?", "네. 물품 정리 후 협의한 공간의 청소까지 기본으로 진행합니다."],
   ["소독과 냄새 제거도 기본 작업인가요?", "네. 별도 옵션이 아닌 기본 포함 작업입니다."],
   ["사진으로도 상담할 수 있나요?", "네. 현장 사진을 보내주시면 대략적인 범위와 예상 비용을 먼저 안내해드릴 수 있습니다. 정확한 견적은 현장 확인이나 추가 사진으로 확정합니다."],
-  ["모든 유품을 처리해야 하나요?", "아닙니다. 보관할 물건과 처리할 대상, 작업할 구역을 협의합니다. 아직 결정하지 못한 물품은 추가 확인 대상으로 구분합니다."],
+  ["유품정리는 집 안 물건을 모두 버리는 작업인가요?", "아닙니다. 보관·전달할 물품을 먼저 정하고 승인된 대상만 처리합니다. 판단이 어려운 물건의 확인 방식과 인계 장소도 사전에 협의합니다."],
   ["사진이나 편지, 중요한 서류를 찾아줄 수 있나요?", "찾아야 할 물품의 특징과 예상 위치를 알려주시면 확인할 작업 범위를 협의합니다. 다만 위치와 상태를 알 수 없는 물품의 발견을 보장하지는 않습니다."],
   ["가족이 멀리 있어도 맡길 수 있나요?", "네. 요청 시 비대면으로 진행할 수 있습니다. 출입 방법과 물품 확인 기준, 연락할 담당자와 유품 인계 방법을 먼저 정합니다."],
   ["현장을 계속 지켜봐야 하나요?", "아닙니다. 비대면으로 맡기신 경우 작업 중 확인이 필요한 사항은 전화나 사진으로 연락드립니다. 작업 후에는 전후 사진으로 결과를 확인하실 수 있습니다."],
@@ -180,7 +180,7 @@ export default function LegacyItemsCleaningLanding() {
       "@type": "Service",
       name: "유품정리",
       serviceType: "유품정리·폐기물 처리",
-      description: "찐청소 유품정리는 수거·폐기물 처리·청소·소독·냄새 제거까지 기본으로 포함합니다. 남길 유품과 정리할 물건을 구분하는 것부터 시작하며, 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
+      description: "고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -215,11 +215,9 @@ export default function LegacyItemsCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>유품정리</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">유품정리, 남길 물건부터 함께 확인하겠습니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">유품정리, 남길 물건과 정리할 공간을 차분히 나눕니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>고인의 물건을 정리하는 일은 어디서부터 시작해야 할지 결정하기 어려울 수 있습니다. 남겨두고 싶은 물건이 있어도 직접 하나씩 살펴볼 시간이나 여건이 충분하지 않을 수 있고요.</p>
-            <p>찐청소는 보관할 유품과 처리할 물건을 먼저 구분하고, 수거·폐기물 처리부터 청소·소독·냄새 제거까지 기본으로 진행합니다.</p>
-            <p>원하시면 비대면으로 맡기실 수 있습니다. 작업 전후 사진을 자세히 촬영해 보내드리며, 사진만으로도 먼저 상담하실 수 있습니다.</p>
+            <p>고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">유품정리 견적 문의하기 →</CtaButton>
         </div>
@@ -257,6 +255,8 @@ export default function LegacyItemsCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="유품정리 기본 범위와 별도 확인 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">서류·사진·가구마다 보관 기준을 먼저 정합니다</h3>
+            <p className="mt-2 mb-6">유품의 가치는 사용 가능 여부만으로 판단하지 않습니다. 전달할 물품, 확인이 필요한 서류와 정리할 가구를 구분하며 임의로 폐기하지 않습니다. 비대면 진행을 원하시면 연락 방식과 확인 절차를 협의하고 상세한 작업 전후 사진을 전달합니다.</p>
             <p>보관할 유품과 처리할 물품을 구분하고, 수거·폐기물 처리 후 공간 청소와 소독·냄새 제거까지 진행합니다.</p>
             <p className="mt-4">바로 결정하기 어려운 물품은 추가 확인 대상으로 구분하도록 작업 전에 협의합니다.</p>
 

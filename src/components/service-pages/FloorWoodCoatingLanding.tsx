@@ -162,7 +162,7 @@ const faqItems: [string, string][] = [
   ["새 마루도 코팅을 꼭 해야 하나요?", "꼭 필요한 것은 아닙니다. 기존 마감과 제조사 관리 기준, 사용 목적을 확인한 뒤 추가 코팅이 적합한지 판단해야 합니다."],
   ["강마루와 강화마루 모두 가능한가요?", "종류 이름만으로 일괄적으로 판단하지 않습니다. 제품별 표면 처리와 기존 상태를 확인해 적용 가능 여부를 안내합니다."],
   ["바닥왁스코팅과 마루코팅은 같은 건가요?", "서비스 이름만으로 같은 공정이라고 볼 수는 없습니다. 사용하는 제품과 기존 마감, 준비 작업이 무엇인지 확인해야 합니다."],
-  ["코팅하면 흠집과 찍힘이 없어지나요?", "깊은 흠집과 찍힘을 수리하는 작업은 아닙니다. 표면 외관이 달라질 수는 있지만 손상 자체가 복구된다고 보장하지 않습니다."],
+  ["강마루 코팅을 하면 흠집이 없어지나요?", "깊은 긁힘과 찍힘을 코팅만으로 없앤다고 보장하지 않습니다. 오염인지 마감 손상인지 구분한 뒤 시공으로 기대할 수 있는 변화와 별도 보수 필요 여부를 안내합니다."],
   ["물에 젖어 들뜬 마루도 코팅하면 되나요?", "코팅으로 해결할 문제인지부터 확인해야 합니다. 수분 원인과 자재 상태에 대한 점검이나 보수가 먼저 필요할 수 있습니다."],
   ["기존 코팅 위에 바로 덧바를 수 있나요?", "기존 마감과 적용할 제품의 적합성을 확인해야 합니다. 이전 관리제나 코팅층 때문에 별도 준비 작업이 필요한 경우도 있습니다."],
   ["샌딩과 기존 코팅 제거도 포함되나요?", "자동으로 포함되는 것은 아닙니다. 필요한 공정인지와 진행 가능 여부, 견적 포함 범위를 별도로 확인해야 합니다."],
@@ -201,7 +201,7 @@ export default function FloorWoodCoatingLanding() {
       "@type": "Service",
       name: "마루코팅",
       serviceType: "마루코팅·바닥 관리",
-      description: "마루코팅 전, 마루 종류와 기존 마감 상태부터 확인하세요. 찐청소가 시공 가능 여부, 세척과 코팅 범위, 견적 기준, 건조·가구 반입 일정과 작업 후 관리 방법을 안내합니다.",
+      description: "마루가 칙칙해졌거나 표면 관리가 필요해 코팅을 고민하고 계신가요? 찐청소는 마루 종류와 제조사 관리 기준, 기존 마감과 손상 상태를 확인해 적용 가능 여부를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -236,11 +236,9 @@ export default function FloorWoodCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>마루코팅</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">마루코팅, 우리 집 마루에 맞는 작업인지부터 확인하세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">강마루·강화마루·원목마루 코팅, 기존 마감과 적합성을 먼저 봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>닦아도 마루가 칙칙하거나, 생활 흠집 때문에 코팅을 고민하고 계신가요? 새로 입주하기 전에 미리 관리해 두고 싶은 경우도 있으실 겁니다.</p>
-            <p>마루코팅은 어떤 마루에 무엇을 바르는지에 따라 적용 여부와 결과가 달라집니다. 찐청소는 마루 종류와 기존 마감, 오염과 손상 상태를 확인해 작업 가능 범위부터 안내합니다.</p>
-            <p>광택을 더하고 싶은지, 기존의 자연스러운 느낌을 유지하고 싶은지도 알려주세요. 무조건 반짝이게 만드는 것보다 원하는 모습과 사용 환경에 맞는지 확인하는 것이 먼저입니다.</p>
+            <p>마루가 칙칙해졌거나 표면 관리가 필요해 코팅을 고민하고 계신가요? 찐청소는 마루 종류와 제조사 관리 기준, 기존 마감과 손상 상태를 확인해 적용 가능 여부를 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">마루코팅 상담·견적 문의하기 →</CtaButton>
         </div>
@@ -289,6 +287,8 @@ export default function FloorWoodCoatingLanding() {
           {/* 2. 마루 종류/작업 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="마루 종류별 확인 사항과 작업 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">생활 오염·흠집·들뜸은 같은 문제로 보지 않습니다</h3>
+            <p className="mt-2 mb-6">표면 오염을 정리하는 작업과 찍힘·긁힘을 보수하는 작업은 다릅니다. 수분 손상이나 들뜸은 코팅만으로 해결되지 않습니다. 기존 도막 제거, 샌딩과 보수는 기본 코팅과 별도로 가능 여부를 확인합니다.</p>
             <p>마루코팅은 모든 마루에 같은 약품을 바르는 작업이 아닙니다. 마루의 구조와 표면 마감, 제조사 관리 기준에 따라 적용 가능 여부를 먼저 확인해야 합니다.</p>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (

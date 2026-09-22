@@ -152,7 +152,7 @@ const faqItems: [string, string][] = [
   ["외벽청소 비용은 평당으로 계산하나요?", "건물 전체 평수만으로 계산하지 않습니다. 실제 작업 면적, 높이, 외장재와 접근 조건에 따라 필요한 인원 및 장비·약품 비용을 중심으로 산정합니다."],
   ["건물 정면이나 1층만 청소할 수 있나요?", "원하는 면이나 구간을 지정해 상담할 수 있습니다. 다만 부분 작업도 장비 준비와 주변 보호가 필요해 건물 전체 견적을 단순히 면적 비율로 나눈 금액과는 다를 수 있습니다."],
   ["외벽청소에 유리창도 포함되나요?", "견적에서 정한 범위에 따라 다릅니다. 외벽 마감재, 유리 바깥 면, 유리 안쪽 면, 창틀을 구분해 요청해주세요."],
-  ["고압세척으로 진행하나요?", "모든 외벽에 고압세척을 적용하는 것은 아닙니다. 재질, 마감 상태와 오염에 맞춰 방법을 정합니다. 강한 압력이 적합하지 않은 외벽도 있습니다."],
+  ["외벽 고압세척을 요청하면 모든 재질에 적용하나요?", "아닙니다. 표면과 마감 상태에 맞는 방법을 검토합니다. 노후하거나 손상된 외벽은 강한 세척이 적합하지 않을 수 있으며, 안전한 접근이나 보수 확인이 먼저 필요한 경우도 있습니다."],
   ["높은 건물도 작업할 수 있나요?", "높이만으로 가능 여부를 판단하지 않습니다. 건물 구조, 안전한 접근 방법, 장비 설치 공간과 주변 환경을 확인한 뒤 안내합니다."],
   ["로프나 고소작업차를 사용하나요?", "특정 방식을 미리 정하지 않고 현장 조건에 맞는 접근 방법과 실제 진행 가능 여부를 확인합니다. 필요한 장비와 비용은 견적에 안내합니다."],
   ["백화나 녹물 자국도 모두 제거되나요?", "오염 원인과 깊이, 자재 상태에 따라 다릅니다. 일반 외벽 세척과 별도 처리가 필요한 작업을 구분하며, 완전 제거를 사전에 보장하지 않습니다."],
@@ -182,7 +182,7 @@ export default function ExteriorWallCleaningLanding() {
       "@type": "Service",
       name: "외벽청소",
       serviceType: "외벽청소",
-      description: "건물·상가 외벽청소, 재질과 오염 상태부터 확인하세요. 찐청소가 실제 작업 면적, 높이와 접근 조건에 따른 견적 기준, 외벽·외창 작업 범위와 예약 절차를 안내합니다.",
+      description: "창 아래 검은 줄과 외벽에 쌓인 먼지, 빗물 자국이 남아 있나요? 찐청소는 석재·타일·패널 등 마감재 상태와 건물 높이, 접근 조건을 확인해 작업 가능한 면과 세척 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -213,10 +213,9 @@ export default function ExteriorWallCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>외벽청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">외벽청소, 건물에 맞는 방법으로 묵은 오염을 정리합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">건물 외벽청소, 재질과 빗물·묵은 오염을 함께 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>비가 오면 조금 씻겨 내려갈 줄 알았는데, 창 아래 검은 줄과 벽면의 묵은 때는 그대로 남아 있죠.</p>
-            <p>찐청소는 건물 외벽의 재질과 오염 상태, 작업 높이와 주변 환경을 살펴 세척 범위를 안내합니다. 제거할 수 있는 오염과 마감재 자체의 변색·손상도 구분합니다.</p>
+            <p>창 아래 검은 줄과 외벽에 쌓인 먼지, 빗물 자국이 남아 있나요? 찐청소는 석재·타일·패널 등 마감재 상태와 건물 높이, 접근 조건을 확인해 작업 가능한 면과 세척 범위를 안내합니다.</p>
             <p>건물도 첫인상이 있으니까요. 묵은 때는 정리하고, 외벽 상태에 맞춰 무리하지 않고 작업하겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">외벽청소 견적 문의하기 →</CtaButton>
@@ -277,6 +276,8 @@ export default function ExteriorWallCleaningLanding() {
           {/* 2. 재질별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="외벽 재질별 청소 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">석재 얼룩·패널 빗물 자국·유리 오염은 구분합니다</h3>
+            <p className="mt-2 mb-6">외벽 마감재 세척과 유리창 바깥 면 청소를 나눠 정합니다. 녹물·백화 같은 특수 얼룩, 손상된 도장과 실란트 보수는 일반 세척과 별도입니다. 높은 외벽은 장비 설치 공간과 주변 통행 조건도 확인해야 합니다.</p>
             <p>외벽청소는 물을 강하게 뿌리는 것만으로 끝나는 작업이 아닙니다.</p>
             <p className="mt-4">재질과 마감 상태에 따라 적합한 세척 방법이 다릅니다. 아래 항목은 상담 기준이며, 실제 포함 범위는 현장 상태를 보고 정합니다.</p>
 

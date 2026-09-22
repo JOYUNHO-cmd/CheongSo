@@ -153,7 +153,7 @@ const faqItems: [string, string][] = [
   ["담배 냄새나 곰팡이도 모두 없어지나요?", "냄새와 곰팡이의 원인, 자재 상태에 따라 다릅니다. 일반 청소로 다룰 범위와 별도 처리·보수가 필요한 부분을 구분하며 완전 제거를 일괄 보장하지 않습니다."],
   ["이사 당일에 청소할 수 있나요?", "퇴거 완료부터 짐 반입까지의 시간과 작업 범위를 확인해야 합니다. 가능한 일정인지 먼저 검토하며 당일 완료를 일괄 약속하지 않습니다."],
   ["집에 없어도 진행할 수 있나요?", "출입과 작업 전후 확인 방법을 정해야 합니다. 비대면 진행을 원하시면 가능 여부와 연락·검수 방식을 상담 시 확인해 주세요."],
-  ["퇴실청소를 하면 보증금을 돌려받을 수 있나요?", "청소는 합의한 구역의 오염을 정리하는 서비스입니다. 보증금 반환이나 비용 정산을 보장하지 않으며, 청소할 항목은 계약 당사자와 미리 확인해 알려주세요."],
+  ["원룸 퇴실청소를 하면 보증금을 돌려받을 수 있나요?", "퇴실청소와 보증금 정산은 별개입니다. 임대인이나 관리자의 청소 요구 항목을 알려주시면 견적 범위에 반영할 수 있지만, 시설 손상 보수나 보증금 반환까지 보장하지는 않습니다."],
   ["청소 후 미흡한 곳이 있으면 어떻게 하나요?", "작업 범위 안에서 해당 위치와 상태를 알려주세요. 작업 내용과 현장을 확인해 후속 처리 방법을 안내합니다. 사후 접수 조건은 예약 전에 확인해 주세요."],
 ];
 
@@ -179,7 +179,7 @@ export default function StudioCleaningLanding() {
       "@type": "Service",
       name: "원룸청소",
       serviceType: "원룸청소",
-      description: "찐청소 원룸청소의 비용과 작업 범위를 안내합니다. 주방·욕실·창틀·바닥부터 옵션 가전과 짐의 유무까지 확인하고, 입주 전·거주 중·퇴실 후 상황에 맞춰 견적을 상담하세요.",
+      description: "입주 전 빈 원룸인지, 살고 있는 오피스텔인지, 퇴실 후 정리가 필요한 방인지 알려주세요. 찐청소는 주방 기름때, 욕실 물때, 창틀 먼지와 옵션 가전의 상태를 나눠 확인하고 필요한 작업을 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -210,11 +210,9 @@ export default function StudioCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>원룸청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">간단청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">원룸청소, 작은 공간도 청소할 곳은 따로 있습니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">원룸·오피스텔 청소, 짐과 옵션 가전까지 범위를 확인하세요</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>방은 하나인데 주방도 있고 욕실도 있고, 냉장고와 세탁기, 창틀까지 살펴보면 손이 갈 곳이 많습니다.</p>
-            <p>찐청소는 원룸의 구조와 오염 상태, 남아 있는 짐과 옵션 가전을 확인해 필요한 청소를 안내합니다.</p>
-            <p>입주 전 빈방을 청소하는지, 살고 있는 방을 정리하는지, 퇴실 후 공간을 확인받으려는지에 따라 범위와 일정을 맞춥니다.</p>
+            <p>입주 전 빈 원룸인지, 살고 있는 오피스텔인지, 퇴실 후 정리가 필요한 방인지 알려주세요. 찐청소는 주방 기름때, 욕실 물때, 창틀 먼지와 옵션 가전의 상태를 나눠 확인하고 필요한 작업을 안내합니다.</p>
             <p>방은 하나여도 청소할 일까지 하나는 아니니까요. 작업 범위와 비용부터 분명하게 알려드리겠습니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">원룸청소 견적 문의하기 →</CtaButton>
@@ -283,6 +281,8 @@ export default function StudioCleaningLanding() {
           {/* 2. 상황별·공간별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="상황별·공간별 청소 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">복층·옵션 가전이 있는 원룸은 무엇이 다른가요?</h3>
+            <p className="mt-2 mb-6">복층 계단과 높은 창, 냉장고·세탁기 등 옵션 가전이 있으면 같은 면적도 작업량이 달라집니다. 공간 청소와 가전 내부·분해 세척을 구분하고, 짐 반출과 새 입주자의 짐 반입 사이 시간을 확인합니다.</p>
 
             <div className="space-y-6">
               {situationItems.map(([title, paragraphs]) => (

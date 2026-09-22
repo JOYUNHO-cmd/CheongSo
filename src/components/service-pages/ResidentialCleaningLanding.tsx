@@ -197,7 +197,7 @@ const faqItems: [string, string][] = [
   ["짐을 전부 빼야 하나요?", "집 전체의 짐을 비워야 하는 것은 아닙니다. 다만 청소할 표면과 수납장 내부에 놓인 물건은 이동이 필요할 수 있어, 누가 어디까지 정리할지 미리 정합니다."],
   ["욕실이나 주방만 맡길 수 있나요?", "필요한 공간만 지정해 상담할 수 있습니다. 작업 범위와 현장 조건에 맞춰 가능 여부와 견적을 안내합니다."],
   ["침대나 소파 아래도 청소하나요?", "가구를 움직이지 않고 접근할 수 있는 범위와 이동이 필요한 범위를 구분합니다. 무거운 가구 이동과 가구 자체의 세척은 자동으로 포함되지 않습니다."],
-  ["옷장 정리와 설거지도 해주시나요?", "거주청소에 기본 포함되는 것으로 안내하지 않습니다. 공간 청소와 정리수납·가사 작업은 구분하며, 필요한 요청은 별도로 확인합니다."],
+  ["거주청소는 가사도우미나 정리수납 서비스와 같은가요?", "쌓인 오염을 정해진 범위에서 청소하는 작업입니다. 빨래·설거지·물품 분류와 수납 정리까지 자동으로 포함되지는 않습니다. 원하는 업무를 먼저 알려주시면 구분해 안내합니다."],
   ["수납장 안에 물건이 있어도 내부 청소가 가능한가요?", "내용물을 옮길 공간과 이동·복귀 담당을 정해야 합니다. 개인 물품을 임의로 꺼내기보다 사전에 합의한 수납장과 범위만 작업하도록 맞춥니다."],
   ["집에 있어도 되나요?", "작업 내용과 생활 동선에 따라 다릅니다. 재택근무 등으로 꼭 사용해야 하는 공간이 있다면 미리 알려주시면 작업 순서와 진행 가능 여부를 검토합니다."],
   ["아이나 반려동물이 있어도 가능한가요?", "작업 구역과 머무는 공간을 분리할 수 있는지 확인해야 합니다. 사용 제품과 작업 후 공간 이용에 관해 확인할 사항도 상담 시 알려주세요."],
@@ -228,7 +228,7 @@ export default function ResidentialCleaningLanding() {
       "@type": "Service",
       name: "거주청소",
       serviceType: "거주청소",
-      description: "짐과 가구가 있는 집의 거주청소를 안내합니다. 찐청소가 주방·욕실·창틀·바닥의 오염과 접근 조건을 확인하고, 물품 이동 범위와 필요한 인원·작업 시간을 반영해 견적을 상담합니다.",
+      description: "살고 있는 아파트나 주택의 주방 기름때, 욕실 물때, 가구 주변 먼지가 쌓였나요? 찐청소는 생활용품과 가구 배치를 고려해 접근 가능한 구역을 나누고, 물품 이동과 청소 범위를 먼저 정합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -263,12 +263,9 @@ export default function ResidentialCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>거주청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">거주청소, 이사하지 않아도 집을 한 번 정리할 때</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">살고 있는 집 대청소, 짐이 있는 상태에 맞춰 진행합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>매일 청소해도 남아 있는 욕실 물때, 닦으려면 물건부터 치워야 하는 주방, 가구 사이와 창틀에 쌓인 먼지.</p>
-            <p>살고 있는 집은 빈집처럼 한 번에 청소하기 어렵습니다. 생활용품을 보호하면서 작업할 공간을 확보해야 하기 때문입니다.</p>
-            <p>찐청소는 현재 집의 상태와 가구 배치, 우선 청소할 곳을 확인해 작업 범위를 정합니다.</p>
-            <p>청소를 맡기려고 집을 이사 직전처럼 비우실 필요는 없습니다. 무엇을 미리 치우고, 어디까지 작업할지부터 함께 맞추겠습니다.</p>
+            <p>살고 있는 아파트나 주택의 주방 기름때, 욕실 물때, 가구 주변 먼지가 쌓였나요? 찐청소는 생활용품과 가구 배치를 고려해 접근 가능한 구역을 나누고, 물품 이동과 청소 범위를 먼저 정합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">거주청소 견적 문의하기 →</CtaButton>
         </div>
@@ -336,6 +333,8 @@ export default function ResidentialCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="공간별 청소 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">생활용품이 있는 주방·욕실은 어떻게 작업하나요?</h3>
+            <p className="mt-2 mb-6">조리대와 욕실 선반 위 물품, 바닥에 놓인 물건을 어떻게 옮기고 보관할지 협의합니다. 수납장 안쪽과 가구·가전 자체의 청소는 별도로 범위를 정합니다. 한 구역씩 작업할 수 있는지와 가족이 사용할 공간도 함께 확인합니다.</p>
             <p>거주청소는 생활 중인 물품을 고려해 접근 가능한 곳과 이동이 필요한 곳을 나누어 작업합니다.</p>
             <p className="mt-4">아래 항목은 상담 시 확인하는 내용입니다. 모든 공간과 물품의 청소가 자동으로 포함되는 것은 아니며, 세부 범위는 견적 단계에서 정합니다.</p>
 

@@ -139,6 +139,7 @@ const faqItems: [string, string][] = [
   ["공사 후 사무실청소도 가능한가요?", "가능합니다. 공사 분진의 양과 잔여물 상태를 확인해 작업 범위를 정합니다. 본드나 도료처럼 일반 세척과 다른 작업이 필요한 오염은 사진으로 미리 알려주세요."],
   ["사진만으로 견적을 받을 수 있나요?", "전체 공간과 주요 오염 부위 사진을 보내주시면 초기 상담에 도움이 됩니다. 사진으로 판단하기 어려운 구조나 오염이 있다면 현장 확인이 필요할 수 있습니다."],
   ["청소 후 바로 업무를 시작할 수 있나요?", "바닥 상태와 건조, 작업 내용에 따라 달라집니다. 업무 재개 예정 시간을 미리 알려주시면 작업 일정과 함께 안내합니다."],
+  ["사무실 정기청소도 매번 전체 내부를 대청소하나요?", "아닙니다. 정기청소는 필요한 인원과 시간당 작업 비용을 바탕으로 회차별 구역과 주기를 정합니다. 공사 분진이나 오래 쌓인 오염을 정리하는 일회성 대청소와 구분합니다."],
 ];
 
 const contactChecklist = [
@@ -170,7 +171,7 @@ export default function OfficeCleaningLanding() {
       "@type": "Service",
       name: "사무실청소",
       serviceType: "사무실청소",
-      description: "찐청소 사무실청소의 기본 범위와 견적 기준을 확인하세요. 집기와 바닥 코팅을 제외한 내부 청소부터 정기청소까지, 현장 상태와 필요한 인원·작업 시간에 맞춰 안내합니다.",
+      description: "이전할 사무실의 공사 먼지나 사용 중인 사무실 바닥의 묵은 때가 신경 쓰이시나요? 찐청소의 일회성 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부가 기본입니다. 디퓨저, 창틀과 안전조치를 확인한 시스템박스·배전반 분진까지 세부 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -205,11 +206,9 @@ export default function OfficeCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>사무실청소</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">사업장청소</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">사무실청소, 어디까지 하는지부터 분명하게</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">사무실 입주·대청소, 바닥부터 놓치기 쉬운 분진까지</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>바닥은 닦았는데 창틀에는 먼지가 남아 있고, 평수는 같은데 견적은 제각각이라면. 사무실청소는 가격과 함께 작업 범위를 살펴봐야 합니다.</p>
-            <p>찐청소의 일회성 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부를 기본으로 합니다. 눈에 보이는 바닥뿐 아니라 디퓨저, 창틀, 구석처럼 평소 손이 잘 닿지 않는 곳도 살펴봅니다.</p>
-            <p>비용은 평수만으로 정하지 않습니다. 현장에 필요한 인원과 장비·약품, 실제 작업량을 기준으로 안내합니다.</p>
+            <p>이전할 사무실의 공사 먼지나 사용 중인 사무실 바닥의 묵은 때가 신경 쓰이시나요? 찐청소의 일회성 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부가 기본입니다. 디퓨저, 창틀과 안전조치를 확인한 시스템박스·배전반 분진까지 세부 범위를 안내합니다.</p>
             <p>직원분들은 업무에 집중하세요. 먼지까지 업무 분담할 필요는 없으니까요.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">사무실청소 견적 문의하기 →</CtaButton>
@@ -278,6 +277,8 @@ export default function OfficeCleaningLanding() {
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="사무실청소 기본 범위와 제외 항목" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">사무실 바닥청소와 코팅은 구분합니다</h3>
+            <p className="mt-2 mb-6">바닥 재질과 기존 코팅 상태를 보고 먼지·보행 오염의 제거 범위를 정합니다. 바닥 세척은 내부 청소 범위에 포함되지만 왁스코팅은 별도입니다. 집기가 많으면 청소 대상이 아니더라도 주변 작업 동선과 인원에 영향을 줍니다.</p>
             <p>일회성 사무실청소의 기본 범위는 집기와 바닥 코팅을 제외한 전체 내부입니다.</p>
             <p className="mt-4">다만 &lsquo;전체 내부&rsquo;가 설비 분해, 가구 이동, 전기 작업까지 뜻하는 것은 아닙니다. 현장에 있는 공간과 안전하게 접근 가능한 범위를 기준으로 세부 작업 항목을 정합니다.</p>
 

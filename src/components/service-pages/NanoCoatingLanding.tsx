@@ -165,7 +165,7 @@ const prepSections: [string, string][] = [
 ];
 
 const faqItems: [string, string][] = [
-  ["찐청소는 어디에 나노코팅을 하나요?", "포세린타일 바닥을 전문으로 진행합니다. 욕실 유리, 거울, 수전, 싱크볼, 상판 등 다른 부위의 나노코팅은 진행하지 않습니다."],
+  ["욕실 유리나 수전도 함께 나노코팅할 수 있나요?", "찐청소는 포세린타일 바닥에 한해 나노코팅을 진행합니다. 유리·거울·수전·싱크볼·상판 등 다른 부위는 나노코팅 대상이 아닙니다."],
   ["포세린타일이면 반드시 코팅해야 하나요?", "아닙니다. 타일 제품과 기존 표면 상태, 제조사 관리 기준을 확인해야 합니다. 세척으로 해결할 수 있는 상태인지, 추가 코팅이 적합한지부터 판단합니다."],
   ["이미 생긴 얼룩도 코팅하면 없어지나요?", "코팅 자체가 얼룩 제거를 대신하지는 않습니다. 먼저 오염을 어디까지 제거할 수 있는지 확인하고 필요한 세척과 표면 정리를 협의해야 합니다."],
   ["코팅 전 청소도 기본 비용에 포함되나요?", "현장별 견적에서 세척과 오염 제거 범위를 확인해 주세요. 기존 코팅 제거나 특수 오염 처리까지 모두 포함된 것으로 보시면 안 됩니다."],
@@ -207,7 +207,7 @@ export default function NanoCoatingLanding() {
       "@type": "Service",
       name: "나노코팅",
       serviceType: "포세린타일 나노코팅",
-      description: "찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 기존 오염과 표면 상태를 확인해 세척·코팅 범위, 비용, 건조와 사용 재개 일정을 안내합니다. 유리·수전·상판 등 다른 부위는 시공하지 않습니다.",
+      description: "포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.",
       url: absoluteUrl(path),
       provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -242,11 +242,9 @@ export default function NanoCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>나노코팅</span>
           </nav>
           <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">포세린타일 나노코팅, 바닥 관리의 불편함부터 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">포세린타일 바닥 나노코팅, 얼룩과 기존 마감부터 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>물걸레질을 해도 얼룩이 남거나, 자주 다니는 부분만 유난히 때가 타 보이나요? 포세린타일의 차분한 느낌은 좋은데 관리가 생각보다 번거로워 코팅을 고민하실 수 있습니다.</p>
-            <p>찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 욕실 유리나 수전, 주방 상판 등 다른 부위의 나노코팅은 진행하지 않습니다.</p>
-            <p>먼저 현재 바닥에 남은 것이 오염인지, 세정제나 기존 코팅의 흔적인지 확인합니다. 그다음 타일에 코팅을 적용할 수 있는지, 어떤 변화를 기대할 수 있는지 안내하겠습니다.</p>
+            <p>포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.</p>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">포세린타일 나노코팅 견적 문의하기 →</CtaButton>
         </div>
@@ -295,6 +293,8 @@ export default function NanoCoatingLanding() {
           {/* 2. 시공 대상/범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="시공 대상과 세척·코팅 범위" />
+            <h3 className="mt-6 text-lg font-bold text-brand-dark">포세린타일 청소만 필요한지 코팅까지 필요한지 구분합니다</h3>
+            <p className="mt-2 mb-6">기존 오염을 정리하는 청소와 이후 표면 관리를 위한 코팅은 같은 작업이 아닙니다. 얼룩의 종류, 표면 마감과 기존 처리 상태를 보고 선택합니다. 코팅 효과와 사용 재개 조건은 적용 제품과 현장에 따라 안내하며 영구 오염 방지를 보장하지 않습니다.</p>
             <p>찐청소의 나노코팅 대상은 포세린타일 바닥입니다. 다른 부위까지 묶어서 시공하는 서비스가 아니라, 바닥 상태와 사용 환경에 집중해 상담합니다.</p>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
