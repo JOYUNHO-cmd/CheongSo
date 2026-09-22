@@ -16,14 +16,15 @@ function EcosorbDiagram() {
 export default function EcosorbMechanism() {
   return (
     <div className="mt-10 rounded-2xl border border-gray-200 bg-white px-6 py-7 sm:px-9 sm:py-9">
-      <div className="grid grid-cols-[1fr_100px] items-start gap-3 sm:grid-cols-[1fr_260px] sm:gap-6">
+      <div className="grid gap-6 sm:grid-cols-[1fr_260px] sm:items-start">
         <div>
           <h3 className="text-xl font-black text-gray-900 sm:text-2xl">악취제거 메커니즘</h3>
-          <ul className="mt-4 space-y-2 text-[13px] leading-6 text-gray-800 sm:text-[15px] sm:leading-7">
+          <ul className="mt-4 space-y-2 text-[15px] leading-7 text-gray-800">
             <li className="flex gap-2">
               <span className="text-gray-400">▪</span>
               <span>
                 물과 혼합되어 분사된 <span className="font-bold underline decoration-brand/60">ECOSORB</span>는{" "}
+                <br className="sm:hidden" />
                 <span className="underline decoration-gray-300">액적 외부</span>에 얇은{" "}
                 <span className="underline decoration-gray-300">기름 막</span>을 형성합니다
               </span>
@@ -32,6 +33,7 @@ export default function EcosorbMechanism() {
               <span className="text-gray-400">▪</span>
               <span>
                 형성된 <span className="underline decoration-gray-300">액적 외부 기름 막</span>은{" "}
+                <br className="sm:hidden" />
                 표면에 양전하를 형성합니다
               </span>
             </li>
@@ -40,6 +42,7 @@ export default function EcosorbMechanism() {
               <span>
                 형성된 전하와 <span className="underline decoration-gray-300">취기성 물질</span> 및{" "}
                 <span className="underline decoration-gray-300">유해물질</span>이{" "}
+                <br className="sm:hidden" />
                 정전기적으로 결합합니다
               </span>
             </li>
@@ -47,14 +50,19 @@ export default function EcosorbMechanism() {
               <span className="text-gray-400">▪</span>
               <span>
                 이 결합은 액적이나 취기성 물질 및 유해물질의{" "}
+                <br className="sm:hidden" />
                 <span className="underline decoration-gray-300">분자크기와 무관하게</span> 진행됩니다
               </span>
             </li>
           </ul>
         </div>
-        <div className="flex justify-self-end">
+        <div className="hidden justify-self-end sm:flex">
           <EcosorbDiagram />
         </div>
+      </div>
+
+      <div className="mt-8 flex justify-center sm:hidden">
+        <EcosorbDiagram />
       </div>
 
       <details className="group mt-8 border-t border-gray-100 pt-7">
@@ -102,6 +110,7 @@ export default function EcosorbMechanism() {
           TEA(triethyl amine)과 DMEA(Dimethyl Ethyl Amine)의 경우{" "}
           <br className="sm:hidden" />
           다음 기전에 의해 대기 중 제거가 용이한{" "}
+          <br className="sm:hidden" />
           <span className="underline decoration-gray-400">유기염</span>으로 전환된다.
         </p>
 
