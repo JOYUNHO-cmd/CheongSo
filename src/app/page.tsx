@@ -65,9 +65,12 @@ export default function Home() {
           </h1>
 
           {/* 서브 문구 (모바일 text-sm, PC 이전 크기인 lg:text-[26px] 복원) */}
-          <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-normal leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
-            {siteConfig.heroSubcopy.map((line) => (
-              <span key={line} className="block">
+          <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-semibold leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+            {siteConfig.heroSubcopy.map((line, i) => (
+              <span
+                key={line}
+                className={i === 0 ? "font-brush block text-base tracking-wide sm:text-2xl md:text-[28px] lg:text-[30px]" : "block"}
+              >
                 {line}
               </span>
             ))}
