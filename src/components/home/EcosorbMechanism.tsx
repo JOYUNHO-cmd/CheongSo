@@ -64,7 +64,9 @@ export default function EcosorbMechanism() {
           <span className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
             <span className="text-red-600">✓</span>이산화황(SO₂) 제거 메커니즘
           </span>
-          <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180 group-open:text-brand" />
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-brand/25 bg-brand-light/60 text-brand shadow-sm transition-all duration-200 group-open:rotate-180 group-open:border-brand group-open:bg-brand group-open:text-white">
+            <ChevronDown className="h-5 w-5" />
+          </span>
         </summary>
         <div className="mt-3 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <p className="text-[15px] leading-7 text-gray-800">
@@ -90,7 +92,9 @@ export default function EcosorbMechanism() {
           <span className="flex items-center gap-2 text-lg font-black text-blue-700 sm:text-xl">
             <span className="text-red-600">✓</span>아민류 제거 메커니즘
           </span>
-          <ChevronDown className="h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180 group-open:text-brand" />
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-brand/25 bg-brand-light/60 text-brand shadow-sm transition-all duration-200 group-open:rotate-180 group-open:border-brand group-open:bg-brand group-open:text-white">
+            <ChevronDown className="h-5 w-5" />
+          </span>
         </summary>
         <p className="mt-3 text-[15px] leading-7 text-gray-800">
           쓰레기(생선, 야채)처리 시설에서 발생되는 2가지의 아민 화합물, 즉 TEA(triethyl amine)과 DMEA(Dimethyl Ethyl Amine)의 경우 다음 기전에 의해 대기 중 제거가 용이한{" "}
