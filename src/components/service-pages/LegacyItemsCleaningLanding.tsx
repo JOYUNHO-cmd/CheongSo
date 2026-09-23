@@ -188,7 +188,7 @@ export default function LegacyItemsCleaningLanding() {
       serviceType: "유품정리·폐기물 처리",
       description: "고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

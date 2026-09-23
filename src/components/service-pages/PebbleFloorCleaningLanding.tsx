@@ -202,7 +202,7 @@ export default function PebbleFloorCleaningLanding() {
       serviceType: "콩자갈청소·바닥 세척",
       description: "콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

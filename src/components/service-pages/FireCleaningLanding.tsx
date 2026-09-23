@@ -178,7 +178,7 @@ export default function FireCleaningLanding() {
       serviceType: "화재청소·화재복원",
       description: "화재가 난 방이나 주방뿐 아니라 주변 공간에 번진 그을음과 탄 냄새도 함께 확인해야 합니다. 찐청소는 현장 출입과 안전조치가 확인된 뒤 잔여물 수거, 청소, 필요한 철거·복원과 마무리 청소를 연결해 상담합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

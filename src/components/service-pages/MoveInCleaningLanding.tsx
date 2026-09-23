@@ -180,7 +180,7 @@ export default function MoveInCleaningLanding() {
       serviceType: "입주청소",
       description: "신축 아파트의 수납장 가루와 창틀 먼지, 욕실과 바닥에 남은 오염을 살펴 새 생활을 준비합니다. 찐청소는 입주할 집의 구조와 마감 상태를 확인하고, 기본 청소와 추가 요청을 구분해 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

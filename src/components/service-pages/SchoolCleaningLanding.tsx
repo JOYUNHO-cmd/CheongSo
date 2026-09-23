@@ -195,7 +195,7 @@ export default function SchoolCleaningLanding() {
       serviceType: "학교청소·교실청소",
       description: "교실 바닥의 묵은 때와 창틀 먼지, 복도·계단과 화장실 오염을 살펴 개학 준비에 필요한 범위를 정합니다. 찐청소는 책걸상 배치, 돌봄·방과후 운영과 교내 공사 일정을 고려해 학교청소를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

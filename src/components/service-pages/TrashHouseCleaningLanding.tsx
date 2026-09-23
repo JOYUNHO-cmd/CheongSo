@@ -186,7 +186,7 @@ export default function TrashHouseCleaningLanding() {
       serviceType: "쓰레기집청소·폐기물 처리",
       description: "원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

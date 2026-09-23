@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
 };
 
-// 공개 주소가 없는 상태에서는 LocalBusiness 대신 확인된 회사 정보만 제공합니다.
+// 화면에 공개된 업체 정보와 동일한 값을 제공합니다. 미확인 영업시간·좌표는 넣지 않습니다.
 // 지역 페이지 작성용 목록은 실제 출동 가능 지역의 증거로 사용하지 않습니다.
 const organizationStructuredData = {
   "@context": "https://schema.org",
@@ -86,6 +86,9 @@ const organizationStructuredData = {
   image: defaultOgImage.url,
   description: siteConfig.description,
   telephone: siteConfig.phoneRaw,
+  email: siteConfig.email,
+  address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "KR" },
+  identifier: { "@type": "PropertyValue", propertyID: "사업자등록번호", value: siteConfig.businessNumber },
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
   sameAs: [siteConfig.kakaoUrl].filter(Boolean),
 };

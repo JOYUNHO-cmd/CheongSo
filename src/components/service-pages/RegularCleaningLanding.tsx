@@ -206,7 +206,7 @@ export default function RegularCleaningLanding() {
       serviceType: "정기청소·사무실상가 관리",
       description: "사무실 바닥과 휴게 공간, 건물 계단과 화장실처럼 자주 쓰는 구역을 주기적으로 관리합니다. 찐청소는 필요한 인원과 작업 시간, 방문 횟수를 기준으로 매회 작업과 주기별 집중 청소를 나눠 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

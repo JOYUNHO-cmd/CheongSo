@@ -198,7 +198,7 @@ export default function ExteriorWindowCleaningLanding() {
       serviceType: "외창청소",
       description: "아파트 베란다 유리가 뿌옇거나 상가 전면 유리에 빗물 자국이 남아 있나요? 찐청소는 창 구조와 접근 조건, 유리와 필름 상태를 확인한 뒤 바깥 면의 청소 가능 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

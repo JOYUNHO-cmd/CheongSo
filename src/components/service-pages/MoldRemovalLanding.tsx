@@ -173,7 +173,7 @@ export default function MoldRemovalLanding() {
       serviceType: "곰팡이제거",
       description: "벽지 모서리, 베란다 창 주변이나 천장에 곰팡이가 다시 생기나요? 찐청소는 오염 범위와 마감재 상태, 누수·결로 이력을 확인해 제거 가능한 부분과 교체·보수가 필요한 부분을 나눠 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

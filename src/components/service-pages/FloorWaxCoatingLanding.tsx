@@ -199,7 +199,7 @@ export default function FloorWaxCoatingLanding() {
       serviceType: "바닥왁스코팅·바닥 관리",
       description: "사무실이나 학원 바닥을 닦아도 칙칙하거나 기존 왁스에 때가 겹쳐 보이나요? 찐청소는 바닥 재질과 기존 피막 상태를 살펴 세척·박리 필요 여부와 코팅 범위를 나눠 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

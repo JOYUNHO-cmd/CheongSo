@@ -194,7 +194,7 @@ export default function OdorRemovalLanding() {
       serviceType: "냄새악취제거",
       description: "집에 밴 담배 냄새, 강아지·고양이 소변 냄새, 반복되는 실내 악취가 고민이신가요? 찐청소는 냄새가 느껴지는 위치와 오염된 소재, 발생 이력을 확인해 청소와 탈취 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

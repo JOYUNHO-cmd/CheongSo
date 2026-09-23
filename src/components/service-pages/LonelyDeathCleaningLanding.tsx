@@ -211,7 +211,7 @@ export default function LonelyDeathCleaningLanding() {
       serviceType: "고독사청소·특수청소",
       description: "현장 출입과 작업 가능 여부를 확인한 뒤 남겨진 물품과 오염 구역을 살펴봅니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 자재 철거·복원이 필요한 경우 별도 비용을 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -1,21 +1,38 @@
 import GalleryBrowser from "@/components/gallery/GalleryBrowser";
 import galleryData from "@/lib/gallery-data.json";
 import { buildMetadata } from "@/lib/seo";
-import { resolveGallerySelection } from "@/lib/gallery-navigation";
+import { resolveGallerySelection, galleryHref, galleryPageNumber, GALLERY_PAGE_SIZE } from "@/lib/gallery-navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { serviceConnections } from "@/lib/service-connections";
 
 const totalCount = (galleryData as { items: unknown[] }[]).reduce((sum, cat) => sum + cat.items.length, 0);
 
-export const metadata = buildMetadata({
-  title: "현장사진들",
-  description: `찐청소가 실제로 작업한 전/후 현장 사진 ${totalCount}쌍을 서비스 분야별로 모아 확인하세요.`,
-  path: "/gallery",
-  keywords: ["찐현장사진", "청소 전후사진", "청소업체 시공사례", "청소 현장 사진"],
-});
+type GalleryParams = { category?: string | string[]; item?: string | string[]; page?: string | string[] };
 
-export default async function GalleryPage({ searchParams }: { searchParams: Promise<{ category?: string | string[]; item?: string | string[] }> }) {
-  const selection = resolveGallerySelection(galleryData, await searchParams);
+function galleryState(params: GalleryParams) {
+  const selection = resolveGallerySelection(galleryData, params);
+  const category = galleryData.find(category => category.slug === selection.category);
+  const count = category?.items.length ?? totalCount;
+  const page = galleryPageNumber(params.page);
+  if (page === null || page > Math.max(1, Math.ceil(count / GALLERY_PAGE_SIZE))) notFound();
+  return { ...selection, page, label: category?.label, count };
+}
+
+export async function generateMetadata({ searchParams }: { searchParams: Promise<GalleryParams> }) {
+  const state = galleryState(await searchParams);
+  return buildMetadata({
+    title: `${state.label ? `${state.label} ` : ""}현장사진들${state.page > 1 ? ` · ${state.page}페이지` : ""}`,
+    description: state.label || state.page > 1
+      ? `찐청소의 ${state.label ?? "전체 서비스"} 작업 전/후 사진 ${state.count}쌍 중 ${state.page}페이지입니다. 실제 현장 사진과 관련 서비스 안내를 확인하세요.`
+      : `찐청소가 실제로 작업한 전/후 현장 사진 ${totalCount}쌍을 서비스 분야별로 모아 확인하세요.`,
+    path: galleryHref(state.category, null, state.page),
+    keywords: ["찐현장사진", "청소 전후사진", "청소업체 시공사례", "청소 현장 사진"],
+  });
+}
+
+export default async function GalleryPage({ searchParams }: { searchParams: Promise<GalleryParams> }) {
+  const selection = galleryState(await searchParams);
   const categoryItems = galleryData.find(category => category.slug === selection.category)?.items ?? [];
   const services = Object.entries(serviceConnections).filter(([, connection]) =>
     connection.gallery === selection.category || connection.cases?.some(id =>
@@ -39,7 +56,7 @@ export default async function GalleryPage({ searchParams }: { searchParams: Prom
           {services.filter(([slug]) => slug !== "화재청소").map(([slug]) => <li key={slug}><Link href={`/${slug}/#${slug === "유품정리" ? "photos" : "cases"}`} className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">{slug.replaceAll("-", "")}의 작업 전후 확인 안내로 돌아가기 →</Link></li>)}
         </ul>
       </aside>}
-      <GalleryBrowser key={selection.category} initialCategory={selection.category} initialItem={selection.item} />
+      <GalleryBrowser key={`${selection.category}-${selection.page}`} initialCategory={selection.category} initialItem={selection.item} initialPage={selection.page} />
     </div>
   );
 }

@@ -185,7 +185,7 @@ export default function StudioCleaningLanding() {
       serviceType: "원룸청소",
       description: "입주 전 빈 원룸인지, 살고 있는 오피스텔인지, 퇴실 후 정리가 필요한 방인지 알려주세요. 찐청소는 주방 기름때, 욕실 물때, 창틀 먼지와 옵션 가전의 상태를 나눠 확인하고 필요한 작업을 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

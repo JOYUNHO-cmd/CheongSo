@@ -207,7 +207,7 @@ export default function FloorWoodCoatingLanding() {
       serviceType: "마루코팅·바닥 관리",
       description: "마루가 칙칙해졌거나 표면 관리가 필요해 코팅을 고민하고 계신가요? 찐청소는 마루 종류와 제조사 관리 기준, 기존 마감과 손상 상태를 확인해 적용 가능 여부를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

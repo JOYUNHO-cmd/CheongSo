@@ -213,7 +213,7 @@ export default function NanoCoatingLanding() {
       serviceType: "포세린타일 나노코팅",
       description: "포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -207,7 +207,7 @@ export default function FactoryCleaningLanding() {
       serviceType: "공장청소·유니트쿨러청소·기계설비청소",
       description: "공장 바닥에 쌓인 기름때와 분진, 창고 통로 오염을 생산 일정에 맞춰 정리합니다. 찐청소는 유니트쿨러 내부·외부 세척과 기계설비청소도 상담하며, 공간 청소와 설비별 작업 비용을 나눠 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

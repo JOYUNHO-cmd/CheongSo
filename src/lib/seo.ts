@@ -24,7 +24,9 @@ export function buildMetadata({
   image?: { src: string; alt: string; width: number; height: number };
 }): Metadata {
   const fullTitle = title.endsWith(`| ${siteConfig.name}`) ? title : `${title} | ${siteConfig.name}`;
-  const canonical = absoluteUrl(path.endsWith("/") ? path : `${path}/`);
+  const canonicalUrl = new URL(absoluteUrl(path));
+  if (!canonicalUrl.pathname.endsWith("/")) canonicalUrl.pathname += "/";
+  const canonical = canonicalUrl.href;
   const shareImage = image ? { url: absoluteUrl(image.src), alt: image.alt, width: image.width, height: image.height } : defaultOgImage;
   return {
     title: fullTitle,

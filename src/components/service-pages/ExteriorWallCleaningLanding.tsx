@@ -188,7 +188,7 @@ export default function ExteriorWallCleaningLanding() {
       serviceType: "외벽청소",
       description: "창 아래 검은 줄과 외벽에 쌓인 먼지, 빗물 자국이 남아 있나요? 찐청소는 석재·타일·패널 등 마감재 상태와 건물 높이, 접근 조건을 확인해 작업 가능한 면과 세척 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",
