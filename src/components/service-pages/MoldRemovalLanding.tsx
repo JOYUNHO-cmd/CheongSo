@@ -222,7 +222,7 @@ export default function MoldRemovalLanding() {
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
-            <QuickFactsTable facts={quickFacts} />
+            <QuickFactsTable facts={quickFacts} guide={{ path, toc }} />
           <BackToContents />
           </section>
 

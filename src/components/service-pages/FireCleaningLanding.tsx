@@ -227,6 +227,16 @@ export default function FireCleaningLanding() {
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
+            <div data-fire-pilot className="mt-5 mb-6 border-l-4 border-brand pl-4 sm:pl-5">
+              <h3 className="text-lg font-bold text-brand-dark">청소만 할지, 복원까지 할지 아직 모르셔도 괜찮습니다</h3>
+              <ReadingParagraph className="mt-3">그을음과 탄 냄새가 남은 공간을 확인하고, 청소할 부분과 철거·복원할 부분을 나누어 상담합니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-3">관계기관의 출입 제한이나 현장 보존 안내가 있다면 먼저 따라야 합니다.</ReadingParagraph>
+              <nav aria-label="화재청소 처음 확인할 내용" className="mt-4 flex flex-wrap gap-x-5 gap-y-1">
+                <a href="#scope" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">청소·복원 범위 확인 →</a>
+                <a href="#estimate" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">견적 기준 확인 →</a>
+                <a href="#cases" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">실제 작업 사진 보기 →</a>
+              </nav>
+            </div>
             <QuickFactsTable facts={quickFacts} />
           <BackToContents />
           </section>
@@ -306,6 +316,19 @@ export default function FireCleaningLanding() {
             </ul>
             <ReadingParagraph className="mt-4 text-[15px] text-gray-500">위 항목은 화재청소에 자동으로 포함되는 것으로 보지 않으며, 담당 분야와 진행 가능 여부를 따로 확인해야 합니다.</ReadingParagraph>
             <ServiceNextStep path={path} />
+            <aside data-fire-pilot aria-label="화재 현장의 단계별 관련 안내" className="mt-5 border-l-4 border-brand/30 pl-4 sm:pl-5">
+              <h3 className="text-lg font-bold text-brand-dark">지금 필요한 단계에 맞춰 더 살펴보세요</h3>
+              <ul className="mt-4 space-y-5">
+                <li>
+                  <Link href="/폐기물처리/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">버릴 물품의 수거·반출부터 확인하려면 →</Link>
+                  <ReadingParagraph className="mt-1">남길 물건과 버릴 물건을 정했다면 수거 대상과 반출 조건을 확인해 보세요. 화재 잔여물은 종류와 오염 상태에 따라 처리 가능 여부를 별도로 확인합니다.</ReadingParagraph>
+                </li>
+                <li>
+                  <Link href="/신축준공청소/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">복원 공사 후 마무리 청소를 알아보려면 →</Link>
+                  <ReadingParagraph className="mt-1">복원 공사가 끝난 뒤 남은 분진과 공사 잔여물을 정리하는 단계라면 준공청소 범위를 참고해 보세요. 화재 직후의 그을음·냄새 제거와는 다른 작업이며, 포함 여부는 견적에서 확인합니다.</ReadingParagraph>
+                </li>
+              </ul>
+            </aside>
           <BackToContents />
           </section>
 

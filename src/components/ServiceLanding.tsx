@@ -9,7 +9,7 @@ import { regionalPages, regionalPath, type RegionalPage } from "@/lib/regional-p
 import { absoluteUrl } from "@/lib/site-url";
 import portfolio from "@/lib/portfolio-highlights.json";
 import { BackToTopButton } from "@/components/service-pages/ScrollControls";
-import { ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
+import { AnyangWaxEvidence, AnyangWaxEstimate, anyangWaxFaq } from "./service-pages/AnyangWaxEvidence";
 
 const portfolioGroups: Record<string, string> = {
   "입주청소": "move-in", "신축준공청소": "new-construction",
@@ -31,8 +31,9 @@ export default function ServiceLanding({ service, regional }: { service: Service
   const path = regional ? regionalPath(regional) : servicePath(service.name);
   const hasRegionalPhotos = regional?.service === "바닥-왁스-코팅" && regional.region === "경기도-안양시";
   const example = hasRegionalPhotos ? undefined : portfolio.find(p => p.id === `${portfolioGroups[service.name]}-01`);
-  const toc = [["scope", "작업 범위"], ["estimate", "견적 확인"], ["process", "진행 순서"], ...(regional ? [["local", "지역 상담 안내"]] : []), ["faq", "자주 묻는 질문"], ["related", "함께 살펴보기"]];
+  const toc = [...(hasRegionalPhotos ? [["cases", "안양 실제 작업 사진"]] : []), ["scope", "작업 범위"], ["estimate", "견적 확인"], ["process", "진행 순서"], ...(regional ? [["local", "지역 상담 안내"]] : []), ["faq", "자주 묻는 질문"], ["related", "함께 살펴보기"]];
   const faqItems: [string, string][] = [
+    ...(hasRegionalPhotos ? anyangWaxFaq : []),
     ["상담 전에 무엇을 준비하면 좋나요?", `${service.check}${hasBatchim(service.check) ? "을" : "를"} 알려주세요. 작업 대상의 전체 사진과 오염 부분 사진이 있으면 범위를 확인하는 데 도움이 됩니다`],
     ["신청하면 모든 작업이 포함되나요?", service.limitation],
     ["작업 시간과 비용은 어떻게 정하나요?", "면적만으로 확정하지 않고 오염과 소재, 필요한 인원·장비, 출입 가능한 시간을 함께 확인합니다. 작업 전 포함 범위와 완료 확인 방법을 협의해 주세요"],
@@ -65,17 +66,23 @@ export default function ServiceLanding({ service, regional }: { service: Service
           )}
         </div>
         <Link href="/contact/" className="mt-8 inline-block rounded-full bg-white px-6 py-3 font-bold text-brand-dark">상담 준비 항목 확인 →</Link>
+        {hasRegionalPhotos && <nav aria-label="안양 바닥왁스코팅 빠른 안내" className="mt-5 flex flex-wrap gap-x-6 gap-y-1">
+          <a href="#cases" className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">안양 실제 작업 사진 →</a>
+          <a href="#estimate" className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">비용·견적 기준 →</a>
+          <a href="#local" className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">방문·일정 준비 →</a>
+        </nav>}
       </div>
     </section>
     <div className={readability.layout}>
       <aside id="service-toc" tabIndex={-1} className="scroll-mt-24 md:scroll-mt-48"><nav aria-label="목차" className="rounded-2xl bg-gray-50 p-5 md:sticky md:top-36"><ReadingParagraph className="mb-3 font-bold text-brand-dark">이 페이지에서</ReadingParagraph><ol className="space-y-3 text-sm">{toc.map(([id, title]) => <li key={id}><a href={`#${id}`} className="hover:text-brand hover:underline">{title}</a></li>)}</ol></nav></aside>
       <div className={`${readability.body} space-y-12 text-gray-700`}>
-        {hasRegionalPhotos && <section aria-label="안양 바닥왁스코팅 현장 사진"><h2 className="text-2xl font-black text-brand-dark">안양 작업 사진을 함께 확인하세요</h2><ServicePhotoLinks path="/바닥-왁스-코팅/" /></section>}
+        {hasRegionalPhotos && <AnyangWaxEvidence />}
         {example && <section aria-label="서비스 참고 사진"><h2 className="text-2xl font-black text-brand-dark">사진으로 살펴보는 {service.name}</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">등록된 서비스 참고 사진입니다.{regional ? " 이 지역에서 촬영한 현장 사진을 의미하지 않습니다" : " 현장마다 작업 범위와 결과는 달라집니다"}</ReadingParagraph><div className="mt-5 grid gap-4 sm:grid-cols-2">{[{ label: "작업 전", file: example.before, width: example.beforeWidth, height: example.beforeHeight }, { label: "작업 후", file: example.after, width: example.afterWidth, height: example.afterHeight }].map(photo => <figure key={photo.file}><Image src={`/images/portfolio-v2/${photo.file}`} alt={`${service.name} 참고 사진 · ${photo.label}`} width={photo.width} height={photo.height} className="aspect-[4/3] w-full rounded-xl object-cover" sizes="(min-width: 768px) 340px, 100vw" /><figcaption className="mt-2 text-sm font-bold text-brand-dark">{photo.label}</figcaption></figure>)}</div></section>}
         <section id="scope" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{heading}, 어디까지 청소하나요?</h2><ReadingParagraph className="mt-4">다음 항목을 기준으로 현장 상태를 확인합니다. 실제 포함 범위는 상담 후 견적서에서 확인해 주세요</ReadingParagraph><ul className="mt-5 grid gap-3">{service.scope.map((item, i) => <li key={item} className="rounded-xl border border-gray-100 p-4"><span className="mr-3 font-black text-brand">0{i + 1}</span>{item}</li>)}</ul><ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-sm leading-7">{service.limitation}</ReadingParagraph><BackToContents />
           </section>
         <section id="estimate" className="scroll-mt-36">
-          <h2 className="text-2xl font-black text-brand-dark">견적도 꼼꼼하게, 이 항목부터</h2>
+          <h2 className="text-2xl font-black text-brand-dark">{hasRegionalPhotos ? "안양 바닥왁스코팅 비용과 견적 기준" : "견적도 꼼꼼하게, 이 항목부터"}</h2>
+          {hasRegionalPhotos && <AnyangWaxEstimate />}
           <ReadingParagraph className="mt-4 text-[13.5px] sm:text-[14px] md:text-[14.5px] leading-relaxed tracking-tight text-gray-700">
             <span className="block">{service.check}{hasBatchim(service.check) ? "을" : "를"} 확인합니다</span>
             <span className="block mt-1">전체 모습과 집중 관리가 필요한 부분의 사진을 준비해 주시면 작업 범위를 구체적으로 협의하기 좋습니다</span>

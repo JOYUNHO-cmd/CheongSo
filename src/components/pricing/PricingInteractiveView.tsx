@@ -110,9 +110,9 @@ export default function PricingInteractiveView() {
 
         {/* 3대 핵심 보장 원칙 카드 */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3 border-t border-white/15 pt-6">
-          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
-            <h3 className="font-bold text-sm sm:text-base text-white">동의 없는 추가금 0원</h3>
-            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+          <div className="flex min-w-0 flex-col justify-center gap-2.5 rounded-2xl bg-white/10 px-3 py-5 text-center sm:p-5 sm:text-left backdrop-blur-sm">
+            <h3 className="text-[17px] font-bold leading-snug text-white break-keep sm:text-base">동의 없는 추가금 0원</h3>
+            <p className="text-[14px] leading-7 text-teal-100/85 break-keep sm:text-[13px] sm:leading-relaxed">
               현장 특이사항 발생 시 사전 설명 후
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
@@ -120,9 +120,9 @@ export default function PricingInteractiveView() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
-            <h3 className="font-bold text-sm sm:text-base text-white">무료 현장 방문 견적</h3>
-            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+          <div className="flex min-w-0 flex-col justify-center gap-2.5 rounded-2xl bg-white/10 px-3 py-5 text-center sm:p-5 sm:text-left backdrop-blur-sm">
+            <h3 className="text-[17px] font-bold leading-snug text-white break-keep sm:text-base">무료 현장 방문 견적</h3>
+            <p className="text-[14px] leading-7 text-teal-100/85 break-keep sm:text-[13px] sm:leading-relaxed">
               사업장·특수·외벽 등 복합 현장은
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
@@ -130,9 +130,9 @@ export default function PricingInteractiveView() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-1.5 rounded-2xl bg-white/10 p-4 sm:p-5 backdrop-blur-sm">
-            <h3 className="font-bold text-sm sm:text-base text-white">고객 동행 당일 검수</h3>
-            <p className="text-xs sm:text-[13px] text-teal-100/85 leading-relaxed">
+          <div className="flex min-w-0 flex-col justify-center gap-2.5 rounded-2xl bg-white/10 px-3 py-5 text-center sm:p-5 sm:text-left backdrop-blur-sm">
+            <h3 className="text-[17px] font-bold leading-snug text-white break-keep sm:text-base">고객 동행 당일 검수</h3>
+            <p className="text-[14px] leading-7 text-teal-100/85 break-keep sm:text-[13px] sm:leading-relaxed">
               구석구석 꼼꼼하게 직접 눈으로 확인 후
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
@@ -389,30 +389,30 @@ export default function PricingInteractiveView() {
           </p>
 
           <div className="grid gap-4 sm:grid-cols-3 pt-4 text-left">
-            <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200/80">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs">
+            <div className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-2xl bg-slate-50 p-4 text-center border border-slate-200/80 sm:block sm:p-5 sm:text-left">
+              <div className="row-span-2 flex h-8 w-8 self-center items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs sm:h-10 sm:w-10">
                 <Camera className="h-5 w-5" strokeWidth={2} />
               </div>
-              <h3 className="font-bold text-sm sm:text-base text-gray-950 mt-3">1. 현장 사진 촬영</h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+              <h3 className="text-[17px] font-bold leading-snug text-gray-950 break-keep sm:mt-3 sm:text-base">1. 현장 사진 촬영</h3>
+              <p className="col-start-2 text-[14px] leading-7 text-gray-600 break-keep sm:mt-1 sm:text-sm sm:leading-relaxed">
                 공간 전체 및 창문, 오염이 심한 부위 사진 2~3장
               </p>
             </div>
-            <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200/80">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs">
+            <div className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-2xl bg-slate-50 p-4 text-center border border-slate-200/80 sm:block sm:p-5 sm:text-left">
+              <div className="row-span-2 flex h-8 w-8 self-center items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs sm:h-10 sm:w-10">
                 <Ruler className="h-5 w-5" strokeWidth={2} />
               </div>
-              <h3 className="font-bold text-sm sm:text-base text-gray-950 mt-3">2. 대략적인 평수 및 일정</h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+              <h3 className="text-[17px] font-bold leading-snug text-gray-950 break-keep sm:mt-3 sm:text-base">2. 대략적인 평수 및 일정</h3>
+              <p className="col-start-2 text-[14px] leading-7 text-gray-600 break-keep sm:mt-1 sm:text-sm sm:leading-relaxed">
                 실평수나 공급평형, 희망하시는 작업 날짜와 시간
               </p>
             </div>
-            <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200/80">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs">
+            <div className="grid min-w-0 grid-cols-[2rem_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-2xl bg-slate-50 p-4 text-center border border-slate-200/80 sm:block sm:p-5 sm:text-left">
+              <div className="row-span-2 flex h-8 w-8 self-center items-center justify-center rounded-xl bg-teal-50 text-brand border border-teal-100 shadow-2xs sm:h-10 sm:w-10">
                 <PhoneCall className="h-5 w-5" strokeWidth={2} />
               </div>
-              <h3 className="font-bold text-sm sm:text-base text-gray-950 mt-3">3. 전화 또는 문자 전송</h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+              <h3 className="text-[17px] font-bold leading-snug text-gray-950 break-keep sm:mt-3 sm:text-base">3. 전화 또는 문자 전송</h3>
+              <p className="col-start-2 text-[14px] leading-7 text-gray-600 break-keep sm:mt-1 sm:text-sm sm:leading-relaxed">
                 아래 전화 혹은 문자로 사진 전송 시 빠른 확인
               </p>
             </div>

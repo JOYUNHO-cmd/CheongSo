@@ -114,6 +114,23 @@
 .scopePhotos > div > div { height: auto; }
 
 @media (max-width: 639px) {
+  .enhanced .layout > aside nav > div > a[href^="tel:"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 0.5rem;
+    white-space: nowrap;
+  }
+  .enhanced .layout > aside nav > div > a[href^="tel:"]::before {
+    content: "";
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .enhanced .layout > aside nav > div > a[href^="tel:"] > span { display: inline; }
   .enhanced .body { font-size: 1.0625rem; line-height: 1.85; }
   .enhanced .body h2 { font-size: 1.375rem; line-height: 1.55; }
   .enhanced .body h3 { font-size: 1.125rem; }

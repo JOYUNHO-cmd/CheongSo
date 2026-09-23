@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ServiceEntryGuide, type EntryGuide } from "./ServiceEntryGuide";
 
 export function CtaButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
@@ -62,9 +63,10 @@ export function TocSidebar({ toc, id }: { toc: readonly (readonly [string, strin
   );
 }
 
-export function QuickFactsTable({ facts, headers = ["항목", "안내"] }: { facts: [string, string][]; headers?: [string, string] }) {
+export function QuickFactsTable({ facts, headers = ["항목", "안내"], guide }: { facts: [string, string][]; headers?: [string, string]; guide?: EntryGuide }) {
   return (
     <>
+      {guide && <ServiceEntryGuide {...guide} />}
       <dl className="mt-4 grid gap-2.5 rounded-2xl border border-gray-200 p-2.5 md:hidden">
         {facts.map(([label, value], i) => (
           <div key={label} className={`rounded-xl p-4 ${i % 2 === 1 ? "bg-gray-50" : "bg-brand-light/40"}`}>
