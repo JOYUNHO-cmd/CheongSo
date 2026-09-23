@@ -207,7 +207,7 @@ export default function NewConstructionCompletionCleaningLanding() {
       serviceType: "신축준공청소",
       description: "공사가 끝난 건물의 바닥·창틀 분진, 보양재와 마감 잔여물을 확인합니다. 찐청소는 실내 전용 공간과 복도·계단 등 공용부를 나눠 작업 범위를 정하고, 공정 종료와 검수·인계 일정에 맞춰 상담합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -182,7 +182,7 @@ export default function StoneCleaningLanding() {
       serviceType: "석재청소",
       description: "닦아도 남는 대리석 얼룩, 부분적으로 짙어진 화강석 바닥이 고민이신가요? 찐청소는 석재 종류와 표면 마감, 오염 이력을 확인해 일반 세척과 별도 얼룩 처리 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

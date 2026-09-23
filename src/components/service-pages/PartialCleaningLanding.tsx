@@ -191,7 +191,7 @@ export default function PartialCleaningLanding() {
       serviceType: "부분청소",
       description: "집 전체는 괜찮은데 욕실 물때나 주방 기름때, 창틀 먼지가 신경 쓰이시나요? 찐청소는 필요한 구역을 지정해 오염과 재질을 살펴보고 작업 범위를 안내합니다. 집 전체 청소가 필요한지부터 고민하지 않으셔도 됩니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

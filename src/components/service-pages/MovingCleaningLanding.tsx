@@ -170,7 +170,7 @@ export default function MovingCleaningLanding() {
       serviceType: "이사청소",
       description: "이전 거주자가 사용하던 주방 기름때, 욕실 물때와 가구가 빠진 자리의 먼지를 살펴봅니다. 찐청소는 기존 거주자의 퇴거와 이삿짐 반입 사이에 작업 가능한 시간을 확인해 이사청소를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

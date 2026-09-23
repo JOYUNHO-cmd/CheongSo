@@ -200,7 +200,7 @@ export default function FloorCleaningLanding() {
       serviceType: "바닥청소·바닥 세척",
       description: "사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -180,7 +180,7 @@ export default function GovernmentCleaningLanding() {
       serviceType: "관공서청소·공공기관청소",
       description: "민원실 바닥의 보행 오염, 청사 복도·계단의 먼지와 화장실 청소를 구역별로 살펴봅니다. 찐청소는 기관 운영시간, 출입 절차와 담당 부서의 요구 범위를 확인해 일회성 대청소와 정기관리를 상담합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

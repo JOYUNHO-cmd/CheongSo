@@ -179,7 +179,7 @@ export default function PremiumCleaningLanding() {
       serviceType: "프리미엄청소",
       description: "신축 입주나 인테리어 이후 먼지뿐 아니라 새집 냄새도 신경 쓰이시나요? 찐청소 프리미엄청소는 정밀청소, 냄새 제거, 특허받은 약품과 장비를 활용한 새집증후군 관리를 함께 구성합니다. 현장별 적용 범위와 이용 재개 조건을 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

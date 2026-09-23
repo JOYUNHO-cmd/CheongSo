@@ -233,7 +233,7 @@ export default function ResidentialCleaningLanding() {
       serviceType: "거주청소",
       description: "살고 있는 아파트나 주택의 주방 기름때, 욕실 물때, 가구 주변 먼지가 쌓였나요? 찐청소는 생활용품과 가구 배치를 고려해 접근 가능한 구역을 나누고, 물품 이동과 청소 범위를 먼저 정합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

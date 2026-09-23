@@ -184,7 +184,7 @@ export default function FloodCleaningLanding() {
       serviceType: "침수청소·건조·소독",
       description: "물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

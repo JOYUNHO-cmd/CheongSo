@@ -2,10 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import galleryData from "@/lib/gallery-data.json";
 import { useRouter } from "next/navigation";
-import { galleryHref } from "@/lib/gallery-navigation";
+import { galleryHref, GALLERY_PAGE_SIZE as PAGE_SIZE } from "@/lib/gallery-navigation";
 
 type GalleryItem = {
   id: string;
@@ -25,17 +26,6 @@ const allItems: FlatItem[] = categories.flatMap((cat) =>
   cat.items.map((item) => ({ ...item, categorySlug: cat.slug, categoryLabel: cat.label }))
 );
 
-const PAGE_SIZE = 24;
-
-function shuffled<T>(list: T[]) {
-  const copy = [...list];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
 function Badge({ label, variant }: { label: string; variant: "before" | "after" }) {
   return (
     <span
@@ -48,14 +38,8 @@ function Badge({ label, variant }: { label: string; variant: "before" | "after" 
   );
 }
 
-export default function GalleryBrowser({ initialCategory = "all", initialItem = null }: { initialCategory?: string; initialItem?: string | null }) {
+export default function GalleryBrowser({ initialCategory = "all", initialItem = null, initialPage = 1 }: { initialCategory?: string; initialItem?: string | null; initialPage?: number }) {
   const router = useRouter();
-  // 하이드레이션 직후에 섞어야 서버·클라이언트 초기 마크업이 일치합니다.
-  const [items, setItems] = useState(allItems);
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setItems(shuffled(allItems));
-  }, []);
 
   const activeCategory = initialCategory;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -68,14 +52,16 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
     else dialog.current?.close();
   }, [openItem]);
 
-  function selectCategory(slug: string) {
+  function selectCategory() {
     setVisibleCount(PAGE_SIZE);
     setFilterOpen(false);
-    router.push(galleryHref(slug), { scroll: false });
   }
 
-  const filtered = activeCategory === "all" ? items : items.filter((item) => item.categorySlug === activeCategory);
-  const visible = filtered.slice(0, visibleCount);
+  // 고정 순서와 실제 페이지 URL로 모든 사진을 서버 HTML에서 발견할 수 있게 합니다.
+  const filtered = activeCategory === "all" ? allItems : allItems.filter((item) => item.categorySlug === activeCategory);
+  const offset = (initialPage - 1) * PAGE_SIZE;
+  const visible = filtered.slice(offset, offset + visibleCount);
+  const pageCount = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const activeLabel = activeCategory === "all" ? "전체" : categories.find((c) => c.slug === activeCategory)?.label;
 
   return (
@@ -102,24 +88,26 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
         </button>
         {filterOpen && (
           <div id="gallery-mobile-filters" className="absolute inset-x-0 top-full z-20 mt-1.5 max-h-80 overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-lg divide-y divide-gray-100">
-            <button
-              type="button"
-              onClick={() => selectCategory("all")}
-              aria-pressed={activeCategory === "all"}
+            <Link
+              href={galleryHref("all")}
+              scroll={false}
+              onClick={selectCategory}
+              aria-current={activeCategory === "all" ? "page" : undefined}
               className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === "all" ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
             >
               전체
-            </button>
+            </Link>
             {categories.map((cat) => (
-              <button
+              <Link
                 key={cat.slug}
-                type="button"
-                onClick={() => selectCategory(cat.slug)}
-                aria-pressed={activeCategory === cat.slug}
+                href={galleryHref(cat.slug)}
+                scroll={false}
+                onClick={selectCategory}
+                aria-current={activeCategory === cat.slug ? "page" : undefined}
                 className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === cat.slug ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
               >
                 {cat.label}
-              </button>
+              </Link>
             ))}
           </div>
         )}
@@ -127,29 +115,31 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
 
       <div className="mb-8 hidden rounded-2xl border border-gray-100 bg-gray-50/60 p-2.5 sm:block">
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-          <button
-            type="button"
-            onClick={() => selectCategory("all")}
-            aria-pressed={activeCategory === "all"}
+          <Link
+            href={galleryHref("all")}
+            scroll={false}
+            onClick={selectCategory}
+            aria-current={activeCategory === "all" ? "page" : undefined}
             className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
               activeCategory === "all" ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
             }`}
           >
             전체
-          </button>
+          </Link>
           <div className="h-6 w-px shrink-0 bg-gray-200" aria-hidden="true" />
           {categories.map((cat) => (
-            <button
+            <Link
               key={cat.slug}
-              type="button"
-              onClick={() => selectCategory(cat.slug)}
-              aria-pressed={activeCategory === cat.slug}
+              href={galleryHref(cat.slug)}
+              scroll={false}
+              onClick={selectCategory}
+              aria-current={activeCategory === cat.slug ? "page" : undefined}
               className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
                 activeCategory === cat.slug ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
               }`}
             >
               {cat.label}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
@@ -159,7 +149,7 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
           <button
             key={item.id}
             type="button"
-            onClick={() => router.push(galleryHref(activeCategory, item.id), { scroll: false })}
+            onClick={() => router.push(galleryHref(activeCategory, item.id, initialPage), { scroll: false })}
             className="group flex w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
           >
             <div className="grid w-full shrink-0 grid-cols-2">
@@ -179,7 +169,7 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
         ))}
       </div>
 
-      {visibleCount < filtered.length && (
+      {offset + visibleCount < filtered.length && (
         <div className="mt-8 flex justify-center">
           <button
             type="button"
@@ -191,9 +181,17 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
         </div>
       )}
 
+      {pageCount > 1 && (
+        <nav aria-label="현장사진 페이지 이동" className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm font-bold text-brand-dark">
+          {initialPage > 1 && <Link href={galleryHref(activeCategory, null, initialPage - 1)} className="inline-flex min-h-11 items-center underline underline-offset-4">← 이전 페이지</Link>}
+          <span>{initialPage} / {pageCount} 페이지</span>
+          {initialPage < pageCount && <Link href={galleryHref(activeCategory, null, initialPage + 1)} className="inline-flex min-h-11 items-center underline underline-offset-4">다음 페이지 →</Link>}
+        </nav>
+      )}
+
       <dialog
         ref={dialog}
-        onClose={() => { if (openItem) router.replace(galleryHref(activeCategory), { scroll: false }); }}
+        onClose={() => { if (openItem) router.replace(galleryHref(activeCategory, null, initialPage), { scroll: false }); }}
         aria-label="시공 전/후 크게 보기"
         className="m-auto h-fit w-[95vw] max-w-[1300px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-white p-4 backdrop:bg-black/80"
       >

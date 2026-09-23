@@ -193,7 +193,7 @@ export default function InteriorCleaningLanding() {
       serviceType: "인테리어청소",
       description: "주방·욕실·창호 공사 뒤 주변 방까지 먼지가 퍼졌거나, 리모델링 후 바닥과 수납장에 분진이 남았나요? 찐청소는 공사한 구역과 주변으로 오염이 번진 구역을 나눠 인테리어청소 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -176,7 +176,7 @@ export default function OfficeCleaningLanding() {
       serviceType: "사무실청소",
       description: "이전할 사무실의 공사 먼지나 사용 중인 사무실 바닥의 묵은 때가 신경 쓰이시나요? 찐청소의 일회성 사무실청소는 집기와 바닥 코팅을 제외한 전체 내부가 기본입니다. 디퓨저, 창틀과 안전조치를 확인한 시스템박스·배전반 분진까지 세부 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

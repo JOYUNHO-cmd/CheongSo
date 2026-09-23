@@ -181,7 +181,7 @@ export default function FloorAdhesiveRemovalLanding() {
       serviceType: "바닥본드제거·접착제 제거",
       description: "바닥재를 걷어낸 뒤 본드와 끈적이는 접착제가 남았나요? 찐청소는 새 타일을 시공할 바탕인지 기존 바닥을 다시 사용할 것인지 먼저 확인합니다. 협의한 본드 제거와 마무리 세척은 기본이며, 바닥재 철거는 별도입니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

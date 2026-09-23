@@ -191,7 +191,7 @@ export default function KitchenCleaningLanding() {
       serviceType: "업소 주방청소",
       description: "닦아도 끈적이는 주방 바닥, 조리대와 벽면에 쌓인 기름때가 고민이신가요? 찐청소는 음식점·업소의 주방 구조와 기기 배치, 오염 상태를 확인하고 영업 일정에 맞춰 작업 범위를 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

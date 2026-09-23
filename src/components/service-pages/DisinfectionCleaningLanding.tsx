@@ -175,7 +175,7 @@ export default function DisinfectionCleaningLanding() {
       serviceType: "소독&방역",
       description: "벌레를 발견한 위치, 반복되는 시간과 공간 용도를 알려주세요. 소독업 신고를 마친 찐청소는 공간·표면 소독과 바퀴벌레·개미·빈대·모기, 쥐 방제를 구분해 상담합니다. 실제 진행한 소독 내용에 따른 소독증명서 발급도 가능합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

@@ -205,7 +205,7 @@ export default function EventCleaningLanding() {
       serviceType: "행사장청소",
       description: "전시장 부스 주변 먼지, 공연장 객석 아래 쓰레기, 취식 구역의 바닥 오염을 구역별로 확인합니다. 찐청소는 행사 전·종료 후 작업과 운영 중 관리 필요 여부를 나눠 상담하고, 철거와 대관 반납 일정에 맞춰 범위를 정합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

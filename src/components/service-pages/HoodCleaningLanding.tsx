@@ -178,7 +178,7 @@ export default function HoodCleaningLanding() {
       serviceType: "업소 후드청소",
       description: "후드 표면의 끈적임과 필터에 쌓인 기름때, 기름받이 오염을 구분해 살펴봅니다. 찐청소는 업소용 주방 후드의 크기와 구조, 분리 가능한 부품을 확인하고 영업 종료·조리 준비 시간에 맞춰 청소를 상담합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",

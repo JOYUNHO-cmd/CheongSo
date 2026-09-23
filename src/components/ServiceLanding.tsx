@@ -39,7 +39,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
     ["작업 시간과 비용은 어떻게 정하나요?", "면적만으로 확정하지 않고 오염과 소재, 필요한 인원·장비, 출입 가능한 시간을 함께 확인합니다. 작업 전 포함 범위와 완료 확인 방법을 협의해 주세요"],
   ];
   const structured = [
-    { "@context": "https://schema.org", "@type": "Service", name: heading, serviceType: service.name, description: regional?.intro || service.intro, url: absoluteUrl(path), provider: { "@type": "Organization", name: "찐청소", url: absoluteUrl("/") }, ...(regional ? { areaServed: { "@type": "AdministrativeArea", name: regional.region.replaceAll("-", " ") } } : {}) },
+    { "@context": "https://schema.org", "@type": "Service", name: heading, serviceType: service.name, description: regional?.intro || service.intro, url: absoluteUrl(path), provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: "찐청소", url: absoluteUrl("/") }, ...(regional ? { areaServed: { "@type": "AdministrativeArea", name: regional.region.replaceAll("-", " ") } } : {}) },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "홈", item: absoluteUrl("/") }, { "@type": "ListItem", position: 2, name: "서비스", item: absoluteUrl("/services/") }, { "@type": "ListItem", position: 3, name: service.name, item: absoluteUrl(servicePath(service.name)) }, ...(regional ? [{ "@type": "ListItem", position: 4, name: heading, item: absoluteUrl(path) }] : [])] },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
   ];

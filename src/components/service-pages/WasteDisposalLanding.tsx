@@ -189,7 +189,7 @@ export default function WasteDisposalLanding() {
       serviceType: "폐기물처리·가구 수거",
       description: "이사 후 남은 가구나 사무실 정리 중 나온 물품을 처리해야 하나요? 찐청소는 수거 대상과 물량을 확인해 직접 수집·운반하고, 종류에 맞는 협력 처리업체와 연계합니다. 반출 조건과 처리 비용을 구분해 안내합니다.",
       url: absoluteUrl(path),
-      provider: { "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
+      provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
     {
       "@context": "https://schema.org",
