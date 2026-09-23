@@ -10,7 +10,7 @@ export default function PricingTransparency() {
         <span className="block whitespace-nowrap sm:whitespace-normal tracking-tight">같은 평수여도 짐의 양과 바닥 재질, 오염 상태는 다릅니다</span>
         <span className="block mt-1 sm:mt-1 whitespace-nowrap sm:whitespace-normal tracking-tight">필요한 작업을 먼저 정리하고 그에 맞는 비용을 협의합니다</span>
       </p>
-      <dl className="mt-8 grid gap-4 md:grid-cols-2">
+      <dl className="mt-8 grid gap-4 md:grid-cols-2 max-sm:text-center">
         {[
           { title: "공간과 면적", text: "방과 욕실 수, 공용 공간, 실제 작업할 면적" },
           { title: "소재와 오염", text: "바닥 재질, 기존 코팅, 찌든 때와 잔여물" },

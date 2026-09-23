@@ -218,7 +218,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleAnchorNavClick(e, link.href)}
-                    className={`rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold transition-all cursor-pointer whitespace-nowrap ${link.href === "/contact" ? "bg-brand text-white hover:bg-brand-dark" : "text-gray-900 hover:bg-teal-50 hover:text-brand"}`}
+                    className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold transition-all cursor-pointer whitespace-nowrap text-gray-900 hover:bg-teal-50 hover:text-brand"
                   >
                     {link.label}
                   </Link>
@@ -495,7 +495,7 @@ export default function Header() {
         <div className="flex-1 overflow-y-auto px-6 py-2 divide-y divide-gray-100">
           <nav aria-label="모바일 주요 안내" className="-mx-3 grid grid-cols-3 gap-1 py-4 sm:mx-0 sm:gap-2">
             {mainNavLinks.filter(link => link.href !== "/pricing" && link.href !== "/contact").map(link => <Link key={link.href} href={link.href} onClick={closeMenu} className="flex min-h-11 min-w-0 items-center justify-center gap-1 rounded-lg bg-teal-50 px-0.5 py-2 text-[12px] font-bold whitespace-nowrap text-brand-dark hover:bg-teal-100 sm:text-[15px]">
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-brand"><path d="m2 9 3 5 3-5m8-3-5 6 5 6m7-12-5 6 5 6" /></svg>
+              <svg aria-hidden="true" width="1em" height="1em" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 -rotate-12 text-brand"><path d="M3.5 8.5Q6 10 8.5 15Q12 7.5 17 3.5" strokeWidth="2.4" /><path d="m3 3.5 3 1" strokeWidth="1.4" opacity="0.5" /></svg>
               {link.label}
             </Link>)}
           </nav>

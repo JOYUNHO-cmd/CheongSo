@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TrustConcerns() {
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6 max-sm:text-center">
       <div className="grid items-center gap-10 md:grid-cols-[1fr_280px]">
         <div>
           <h2 className="text-[18.5px] leading-[21px] sm:text-2xl sm:leading-tight md:text-4xl font-black tracking-tight text-brand-dark whitespace-nowrap sm:whitespace-normal">
