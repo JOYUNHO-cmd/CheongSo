@@ -10,13 +10,14 @@ import { siteConfig } from "@/lib/site-config";
 import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 import Logo from "@/components/Logo";
 import KakaoIcon from "@/components/icons/KakaoIcon";
+import styles from "./Header.module.css";
 
 // 상단 주요 안내 메뉴
 const mainNavLinks = [
-  { label: "회사소개", href: "/about" },
-  { label: "가격안내", href: "/pricing" },
   { label: "찐현장사진들", href: "/gallery" },
-  { label: "찐후기", href: "/#reviews" },
+  { label: "지역별 안내", href: "/areas" },
+  { label: "가격안내", href: "/pricing" },
+  { label: "회사소개", href: "/about" },
   { label: "견적문의", href: "/contact" },
 ];
 
@@ -211,13 +212,13 @@ export default function Header() {
               </Link>
 
               {/* PC/태블릿 로고 옆 안내 메뉴 (태블릿은 md:text-[11.5px] md:px-1.5 로 벨런스 있게) */}
-              <nav className="hidden md:flex items-center md:gap-0.5 lg:gap-1.5 xl:gap-2">
+              <nav aria-label="주요 안내" className="hidden md:flex items-center md:gap-0.5 lg:gap-1.5 xl:gap-2">
                 {mainNavLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleAnchorNavClick(e, link.href)}
-                    className="rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold text-gray-900 transition-all hover:bg-teal-50 hover:text-brand cursor-pointer whitespace-nowrap"
+                    className={`rounded-lg px-2 py-1.5 md:px-1.5 md:py-1 md:text-[13.5px] lg:text-[16.5px] xl:px-3.5 xl:py-2 xl:text-[19px] font-bold transition-all cursor-pointer whitespace-nowrap ${link.href === "/contact" ? "bg-brand text-white hover:bg-brand-dark" : "text-gray-900 hover:bg-teal-50 hover:text-brand"}`}
                   >
                     {link.label}
                   </Link>
@@ -490,8 +491,14 @@ export default function Header() {
           </button>
         </div>
 
-        {/* 2) 본문: 오직 서비스 메뉴만 세로로 깔끔하게 나열되는 계층형 아코디언 트리 */}
+        {/* 2) 주요 안내와 서비스 메뉴 */}
         <div className="flex-1 overflow-y-auto px-6 py-2 divide-y divide-gray-100">
+          <nav aria-label="모바일 주요 안내" className="-mx-3 grid grid-cols-3 gap-1 py-4 sm:mx-0 sm:gap-2">
+            {mainNavLinks.filter(link => link.href !== "/pricing" && link.href !== "/contact").map(link => <Link key={link.href} href={link.href} onClick={closeMenu} className="flex min-h-11 min-w-0 items-center justify-center gap-1 rounded-lg bg-teal-50 px-0.5 py-2 text-[12px] font-bold whitespace-nowrap text-brand-dark hover:bg-teal-100 sm:text-[15px]">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-brand"><path d="m2 9 3 5 3-5m8-3-5 6 5 6m7-12-5 6 5 6" /></svg>
+              {link.label}
+            </Link>)}
+          </nav>
           {serviceCategories.map((cat, idx) => {
             const isOpen = openMobileCategory === cat.slug;
             return (
@@ -507,6 +514,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={() => setOpenMobileCategory(isOpen ? "" : cat.slug)}
+                  aria-expanded={isOpen}
                   className="flex w-full items-center justify-between py-3.5 text-left cursor-pointer list-none select-none touch-manipulation"
                 >
                   <span className={`text-[18px] font-bold tracking-tight transition-colors ${isOpen ? "text-gray-950 font-extrabold" : "text-gray-800 hover:text-gray-950"}`}>
@@ -514,20 +522,12 @@ export default function Header() {
                   </span>
 
                   {/* 큰 서비스 화살표: 닫혀있을 시 ◁, 열렸을 시 ▼ */}
-                  <div className="shrink-0 pl-2 transition-all flex items-center justify-center">
-                    {!isOpen ? (
-                      <div className="flex items-center">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          className="text-gray-400 fill-none stroke-current stroke-[2.5]"
-                        >
-                          <path d="M19 4L5 12L19 20Z" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    ) : (
-                      <div className="flex items-center">
+                  <div className="relative shrink-0 pl-2 flex items-center justify-center">
+                      <span data-category-arrows aria-hidden="true" className={styles.categoryArrows} style={{ visibility: isOpen ? "hidden" : "visible" }}>
+                        {[0, 1, 2].map(index => <svg key={index} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M19 4L5 12L19 20Z" strokeLinejoin="round" /></svg>)}
+                      </span>
+                    {isOpen && (
+                      <div className="absolute right-0 flex items-center">
                         <svg
                           width="20"
                           height="20"

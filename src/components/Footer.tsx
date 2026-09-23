@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 const quickLinks = [
   ["홈", "/"], ["회사소개", "/about/"], ["서비스", "/services/"],
   ["찐현장사진들", "/gallery/"], ["견적문의", "/contact/"],
+  ["찐후기", "/#reviews"],
 ];
 const services = [
   ["간단청소", "/services/#easy"], ["이사·입주청소", "/services/#moving"],
