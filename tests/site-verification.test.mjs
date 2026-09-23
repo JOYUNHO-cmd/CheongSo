@@ -4,13 +4,15 @@ import { JSDOM } from 'jsdom';
 
 const base = 'http://127.0.0.1:3101';
 
-test('homepage head exposes the Naver site verification token once', async () => {
+test('homepage head preserves both Naver site verification tokens once each', async () => {
   const response = await fetch(base + '/');
   assert.equal(response.status, 200);
 
   const document = new JSDOM(await response.text()).window.document;
   const tags = document.head.querySelectorAll('meta[name="naver-site-verification"]');
 
-  assert.equal(tags.length, 1);
-  assert.equal(tags[0].getAttribute('content'), 'fe4c8205531b56fe1f25b4ec59355e26caddc83b');
+  assert.deepEqual([...tags].map(tag => tag.getAttribute('content')).sort(), [
+    'fe4c8205531b56fe1f25b4ec59355e26caddc83b',
+    '36e2b575b85f34bdbe15e6e05ac5afeb35c29eb2',
+  ].sort());
 });
