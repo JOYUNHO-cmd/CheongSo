@@ -185,11 +185,14 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="mb-10 text-center">
             <SectionHeading
-              title="냄새·공기질 관리에 사용하는 ECOSORB, 시험자료로 확인하세요"
-              titleClassName="!whitespace-normal break-keep text-[17px] min-[360px]:text-[18px] min-[390px]:text-[19px] sm:text-2xl md:text-3xl"
+              title="냄새·공기질 관리에 사용하는 ECOSORB"
               description={
                 <>
-                  <span className="block break-keep">ECOSORB의 VOC 및 독성 관련 시험자료입니다. 시험 결과는 자료에 기재된 제품과 조건에 해당합니다.</span>
+                  <span className="block break-keep">
+                    ECOSORB의 VOC 및 독성 관련 시험자료입니다.{" "}
+                    <br className="sm:hidden" />
+                    시험 결과는 자료에 기재된 제품과 조건에 해당합니다.
+                  </span>
                 </>
               }
             />

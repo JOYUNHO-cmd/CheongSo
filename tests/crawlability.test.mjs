@@ -71,5 +71,5 @@ test('public business details and service providers share one identity', async (
   assert.equal(organization.email, 'danger3662@naver.com');
   assert.equal(data.find(item => item['@type'] === 'Service').provider['@id'], organization['@id']);
   const { doc: home } = await page('/');
-  assert.ok(home.querySelector('main a[href="/reviews/"]'));
+  assert.ok(home.querySelector('a[href="/#reviews"], a[href="#reviews"]'));
 });
