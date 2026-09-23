@@ -67,10 +67,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "sClb7-Z59NfZqApNmnWpUSVUk55Opm6GqRAsWr161VU",
-    // 네이버 서치어드바이저에서 발급받은 소유 확인 코드를 NAVER_SITE_VERIFICATION 환경변수로 설정하면 자동 반영됩니다.
-    ...(process.env.NAVER_SITE_VERIFICATION
-      ? { other: { "naver-site-verification": process.env.NAVER_SITE_VERIFICATION } }
-      : {}),
+    other: {
+      "naver-site-verification": "fe4c8205531b56fe1f25b4ec59355e26caddc83b",
+    },
   },
 };
 
