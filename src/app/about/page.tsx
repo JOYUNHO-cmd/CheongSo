@@ -144,14 +144,13 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <p className="text-center text-xl sm:text-2xl font-black text-brand-dark leading-snug break-keep md:text-left">
+            <p className="text-center text-[clamp(10px,3.4vw,20px)] max-sm:whitespace-nowrap sm:text-2xl font-black text-brand-dark leading-snug break-keep md:text-left">
               안녕하세요, 찐청소
-              <br className="sm:hidden" />
-              <span className="hidden sm:inline"> </span>
+              {" "}
               대표 조윤호입니다
             </p>
 
-            <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep md:mx-0 md:max-w-none">
+            <div className="mx-auto mt-8 max-w-xl space-y-5 text-[14.5px] sm:text-[15px] leading-relaxed text-gray-600 break-keep max-sm:text-center md:mx-0 md:max-w-none">
               <p>
                 저는 이미 청소로 밥벌이를
                 <br className="sm:hidden" />
@@ -236,9 +235,9 @@ export default function AboutPage() {
         <SectionHeading title={`${siteConfig.name}가 지키는 약속`} />
         <div className="grid gap-4 md:grid-cols-3">
           {values.map((value) => (
-            <div key={value.title} className="rounded-2xl border border-gray-100 bg-white p-5 lg:p-6 shadow-sm">
+            <div key={value.title} className="rounded-2xl border border-gray-100 bg-white p-5 lg:p-6 shadow-sm max-sm:text-center">
               <h3 className="text-lg font-bold text-brand-dark">{value.title}</h3>
-              <p className="mt-2 text-[12.5px] sm:text-[13px] md:text-[12px] lg:text-[13.5px] leading-relaxed tracking-tight text-gray-500 break-keep">
+              <p className="mt-2 text-[clamp(10px,3.15vw,14px)] max-sm:whitespace-nowrap sm:text-[13px] md:text-[12px] lg:text-[13.5px] leading-relaxed tracking-tight text-gray-500 break-keep">
                 <span className="block">{value.line1}</span>
                 <span className="block mt-0.5">{value.line2}</span>
               </p>

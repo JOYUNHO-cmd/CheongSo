@@ -23,7 +23,7 @@ export default async function GalleryPage({ searchParams }: { searchParams: Prom
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-16">
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-        <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-gray-900 mb-3">
+        <h1 className="text-[clamp(12px,3.8vw,24px)] max-sm:whitespace-nowrap sm:text-4xl font-black tracking-tight text-gray-900 mb-3">
           찐청소가 실제로 작업한 전/후 현장 사진입니다
         </h1>
         <p className="text-base sm:text-lg font-bold text-gray-700 leading-relaxed">분야를 선택하면 해당 사진만 볼 수 있습니다.</p>
