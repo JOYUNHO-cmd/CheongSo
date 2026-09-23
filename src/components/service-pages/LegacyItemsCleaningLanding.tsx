@@ -1,3 +1,8 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { EcosorbNotice } from "@/components/service-pages/EcosorbNotice";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -10,6 +15,7 @@ const toc = [
   ["estimate", "비용·견적 기준"],
   ["scope", "기본 범위·별도 확인"],
   ["extra", "추가 비용"],
+  ["safety", "ECOSORB·냄새 관리"],
   ["process", "진행 순서"],
   ["photos", "작업 전후 사진"],
   ["area", "지역·비대면 진행"],
@@ -201,7 +207,7 @@ export default function LegacyItemsCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -214,60 +220,63 @@ export default function LegacyItemsCleaningLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>유품정리</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">유품정리, 남길 물건과 정리할 공간을 차분히 나눕니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.</p>
+            <ReadingParagraph>고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">유품정리 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="유품정리 비용과 견적 산정 기준" />
             <h3 className="mt-2 text-lg font-bold text-brand-dark">물건의 양뿐 아니라 분류할 내용도 확인합니다</h3>
-            <p className="mt-2">같은 크기의 집이라도 보관할 유품이 미리 구분된 공간과, 서랍·수납장 속 물품을 하나씩 확인해야 하는 공간은 작업량이 다릅니다. 찐청소는 평수만으로 가격을 정하지 않습니다.</p>
-            <p className="mt-4">견적은 물품의 양과 분류에 필요한 시간, 반출 조건과 청소 범위를 확인해 필요한 인원·장비·약품을 기준으로 산정합니다.</p>
+            <ReadingParagraph className="mt-2" breakAfter={["같은 크기의 집이라도 ","미리 구분된 공간과, "]}>같은 크기의 집이라도 보관할 유품이 미리 구분된 공간과, 서랍·수납장 속 물품을 하나씩 확인해야 하는 공간은 작업량이 다릅니다. 찐청소는 평수만으로 가격을 정하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["반출 조건과 청소 범위를 확인해 "]}>견적은 물품의 양과 분류에 필요한 시간, 반출 조건과 청소 범위를 확인해 필요한 인원·장비·약품을 기준으로 산정합니다.</ReadingParagraph>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">수거와 폐기물 처리, 청소까지 기본에 포함됩니다</h3>
-            <p className="mt-2">유품정리 비용에는 협의한 물품의 수거·폐기물 처리와 정리 후 청소, 소독·냄새 제거까지 포함됩니다. 이 작업들을 별도 옵션으로 추가 청구하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">유품정리 비용에는 협의한 물품의 수거·폐기물 처리와 정리 후 청소, 소독·냄새 제거까지 포함됩니다. 이 작업들을 별도 옵션으로 추가 청구하지 않습니다.</ReadingParagraph>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">사진으로도 상담할 수 있나요?</h3>
-            <p className="mt-2">네. 현장 사진을 먼저 보내주시면 대략적인 범위와 예상 비용을 안내해드릴 수 있습니다. 정확한 견적은 현장 확인이나 추가 사진으로 확정합니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">견적 상담에서는 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">네. 현장 사진을 먼저 보내주시면 대략적인 범위와 예상 비용을 안내해드릴 수 있습니다. 정확한 견적은 현장 확인이나 추가 사진으로 확정합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">견적 상담에서는 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="유품정리 기본 범위와 별도 확인 항목" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">서류·사진·가구마다 보관 기준을 먼저 정합니다</h3>
-            <p className="mt-2 mb-6">유품의 가치는 사용 가능 여부만으로 판단하지 않습니다. 전달할 물품, 확인이 필요한 서류와 정리할 가구를 구분하며 임의로 폐기하지 않습니다. 비대면 진행을 원하시면 연락 방식과 확인 절차를 협의하고 상세한 작업 전후 사진을 전달합니다.</p>
-            <p>보관할 유품과 처리할 물품을 구분하고, 수거·폐기물 처리 후 공간 청소와 소독·냄새 제거까지 진행합니다.</p>
-            <p className="mt-4">바로 결정하기 어려운 물품은 추가 확인 대상으로 구분하도록 작업 전에 협의합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">유품의 가치는 사용 가능 여부만으로 판단하지 않습니다. 전달할 물품, 확인이 필요한 서류와 정리할 가구를 구분하며 임의로 폐기하지 않습니다. 비대면 진행을 원하시면 연락 방식과 확인 절차를 협의하고 상세한 작업 전후 사진을 전달합니다.</ReadingParagraph>
+            <ReadingParagraph>보관할 유품과 처리할 물품을 구분하고, 수거·폐기물 처리 후 공간 청소와 소독·냄새 제거까지 진행합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">바로 결정하기 어려운 물품은 추가 확인 대상으로 구분하도록 작업 전에 협의합니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                    <div className={`${readability.scopePhotos} mt-4 items-start`}>
                       {item.photoPairs.map((pair, pairIndex) => (
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
@@ -302,7 +311,7 @@ export default function LegacyItemsCleaningLanding() {
               ))}
             </div>
 
-            <p className="mt-6 font-bold text-brand-dark">별도로 확인해야 하는 요청</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">별도로 확인해야 하는 요청</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {separateScopeItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -311,35 +320,14 @@ export default function LegacyItemsCleaningLanding() {
                 </li>
               ))}
             </ul>
+          <BackToContents />
           </section>
 
-          {/* 냄새 제거 약품 안전성 - "소독과 냄새 제거" 바로 뒤에 배치해 신뢰를 확인시킵니다 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">소독·냄새 제거에 사용하는 약품, 안전한가요?</h2>
-            <p className="mt-4">소독과 냄새 제거에 사용하는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 고인이 지내시던 공간을 가족이 다시 편안하게 사용하실 수 있도록, 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>협의한 범위를 넘어 물품의 양이나 분류·청소 작업이 늘어나면 견적이 달라질 수 있습니다.</p>
+            <ReadingParagraph>협의한 범위를 넘어 물품의 양이나 분류·청소 작업이 늘어나면 견적이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -348,8 +336,12 @@ export default function LegacyItemsCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">수거·폐기물 처리·청소·소독·냄새 제거 자체를 추가 옵션으로 청구하는 것은 아닙니다. 작업량이나 조건이 변경되는 경우 해당 내용과 비용을 먼저 협의합니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">수거·폐기물 처리·청소·소독·냄새 제거 자체를 추가 옵션으로 청구하는 것은 아닙니다. 작업량이나 조건이 변경되는 경우 해당 내용과 비용을 먼저 협의합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
+
+          <EcosorbNotice />
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
@@ -369,49 +361,53 @@ export default function LegacyItemsCleaningLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
-            <p className="mt-2 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 물품의 양뿐 아니라 분류와 가족 확인 과정에 따라 달라집니다. 필요한 완료일과 충분히 살펴봐야 할 부분을 함께 말씀해 주세요.</p>
+            <ReadingParagraph className="mt-2 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 물품의 양뿐 아니라 분류와 가족 확인 과정에 따라 달라집니다. 필요한 완료일과 충분히 살펴봐야 할 부분을 함께 말씀해 주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/결과확인 */}
           <section id="photos" className="scroll-mt-36">
             <SectionTitle id="photos-title" kicker="05" title="작업 전후 사진과 결과 확인" />
-            <p>작업 전후 사진을 자세히 촬영해 고객님께 보내드립니다. 현장에 함께하지 못하셔도 정리한 공간과 청소 결과를 확인하실 수 있도록 안내합니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">사진으로 다음 내용을 확인하실 수 있습니다.</p>
+            <ReadingParagraph>작업 전후 사진을 자세히 촬영해 고객님께 보내드립니다. 현장에 함께하지 못하셔도 정리한 공간과 청소 결과를 확인하실 수 있도록 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">사진으로 다음 내용을 확인하실 수 있습니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {photoChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5">사진을 보신 뒤 궁금한 부분이나 추가로 확인할 위치가 있으면 말씀해 주세요.</p>
-            <p className="mt-4 text-[15px] text-gray-500">고객님께 전달하는 작업 기록과 홈페이지·홍보용 사진 사용은 별개입니다. 촬영과 공개에 대한 요청 사항은 상담 시 알려주세요.</p>
+            <ReadingParagraph className="mt-5">사진을 보신 뒤 궁금한 부분이나 추가로 확인할 위치가 있으면 말씀해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">고객님께 전달하는 작업 기록과 홈페이지·홍보용 사진 사용은 별개입니다. 촬영과 공개에 대한 요청 사항은 상담 시 알려주세요.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/비대면 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 비대면 진행" />
-            <p>현장 위치와 희망 날짜를 알려주시면 방문 가능 여부와 일정을 확인합니다.</p>
+            <ReadingParagraph>현장 위치와 희망 날짜를 알려주시면 방문 가능 여부와 일정을 확인합니다.</ReadingParagraph>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">가족이 멀리 있어도 맡길 수 있나요?</h3>
-            <p className="mt-2">네. 요청 시 비대면으로 진행할 수 있습니다. 출입 방법과 물품 확인 기준, 연락할 담당자와 유품 인계 방법을 사전에 협의합니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">비대면 상담 전 다음 정보를 알려주시면 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-2">네. 요청 시 비대면으로 진행할 수 있습니다. 출입 방법과 물품 확인 기준, 연락할 담당자와 유품 인계 방법을 사전에 협의합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">비대면 상담 전 다음 정보를 알려주시면 도움이 됩니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">현장을 계속 지켜봐야 하나요?</h3>
-            <p className="mt-2">아닙니다. 작업 중 확인이 필요한 사항은 전화나 사진으로 연락드립니다. 작업 후에는 상세한 전후 사진으로 결과를 확인하실 수 있습니다.</p>
+            <ReadingParagraph className="mt-2">아닙니다. 작업 중 확인이 필요한 사항은 전화나 사진으로 연락드립니다. 작업 후에는 상세한 전후 사진으로 결과를 확인하실 수 있습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 사후 문의" />
-            <p>작업 후에는 보관하기로 한 유품과 협의한 정리·청소 범위를 기준으로 결과를 확인합니다.</p>
+            <ReadingParagraph>작업 후에는 보관하기로 한 유품과 협의한 정리·청소 범위를 기준으로 결과를 확인합니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -420,7 +416,8 @@ export default function LegacyItemsCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">작업 후 확인이 필요한 사항은 물품이나 위치, 발견한 상태를 전달해 주시면 작업 내용과 기록을 확인해 안내합니다. 사후 접수 기간과 보완 조건은 계약 시 확인해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">작업 후 확인이 필요한 사항은 물품이나 위치, 발견한 상태를 전달해 주시면 작업 내용과 기록을 확인해 안내합니다. 사후 접수 기간과 보완 조건은 계약 시 확인해 주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -430,11 +427,12 @@ export default function LegacyItemsCleaningLanding() {
               {prepSections.map(([title, body]) => (
                 <div key={title}>
                   <h3 className="text-lg font-bold text-brand-dark">{title}</h3>
-                  <p className="mt-2">{body}</p>
+                  <ReadingParagraph className="mt-2">{body}</ReadingParagraph>
                 </div>
               ))}
             </div>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">물품 처리를 결정할 수 있는 의뢰인과 작업 범위를 확인한 뒤 진행합니다. 다른 사람의 물건이 섞여 있다면 함께 알려주세요.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">물품 처리를 결정할 수 있는 의뢰인과 작업 범위를 확인한 뒤 진행합니다. 다른 사람의 물건이 섞여 있다면 함께 알려주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -444,18 +442,19 @@ export default function LegacyItemsCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">유품정리 상담·견적 문의</p>
-              <p className="mt-3 text-white/80">정리할 범위를 아직 결정하지 못하셨다면, 현장 상황과 남겨두고 싶은 물건부터 말씀해 주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 수거·폐기물 처리·청소·소독·냄새 제거까지 포함한 견적을 안내합니다. 원하시면 비대면으로 진행하고, 상세한 전후 사진으로 작업 결과를 전달해드립니다.</p>
+              <ReadingParagraph className="text-xl font-bold">유품정리 상담·견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">정리할 범위를 아직 결정하지 못하셨다면, 현장 상황과 남겨두고 싶은 물건부터 말씀해 주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">찐청소는 수거·폐기물 처리·청소·소독·냄새 제거까지 포함한 견적을 안내합니다. 원하시면 비대면으로 진행하고, 상세한 전후 사진으로 작업 결과를 전달해드립니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

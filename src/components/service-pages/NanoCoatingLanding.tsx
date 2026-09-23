@@ -1,3 +1,7 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -228,7 +232,7 @@ export default function NanoCoatingLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -241,35 +245,36 @@ export default function NanoCoatingLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>나노코팅</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">포세린타일 바닥 나노코팅, 얼룩과 기존 마감부터 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.</p>
+            <ReadingParagraph>포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">포세린타일 나노코팅 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="포세린타일 나노코팅 비용과 견적 기준" />
-            <p>포세린타일 나노코팅 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 기존 오염, 표면 마감, 코팅 이력과 집기 유무에 따라 필요한 준비 작업이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 범위를 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph breakAfter={["같은 면적이라도 ","코팅 이력과 집기 유무에 따라 "]}>포세린타일 나노코팅 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 기존 오염, 표면 마감, 코팅 이력과 집기 유무에 따라 필요한 준비 작업이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 범위를 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">코팅 전에 바닥 상태를 확인합니다</h3>
-            <p className="mt-2">새 타일이라고 해서 준비 작업이 모두 같지는 않습니다. 시공 잔여물이나 오염이 남아 있을 수 있고, 사용하던 바닥에는 세정제나 관리제의 흔적이 있을 수 있습니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">새 타일이라고 해서 준비 작업이 모두 같지는 않습니다. 시공 잔여물이나 오염이 남아 있을 수 있고, 사용하던 바닥에는 세정제나 관리제의 흔적이 있을 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -277,33 +282,34 @@ export default function NanoCoatingLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">넓이뿐 아니라 작업 여건도 반영합니다</h3>
-            <p className="mt-2">바닥이 비어 있는 공간과 테이블·진열장 등이 많은 공간은 작업 동선이 다릅니다. 가구를 옮겨 전체를 작업할지, 고정 집기를 제외하고 진행할지도 견적에 영향을 줍니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">같은 평수라는 이유만으로 같은 작업량이라고 보지 않습니다.</p>
+            <ReadingParagraph className="mt-2">바닥이 비어 있는 공간과 테이블·진열장 등이 많은 공간은 작업 동선이 다릅니다. 가구를 옮겨 전체를 작업할지, 고정 집기를 제외하고 진행할지도 견적에 영향을 줍니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">같은 평수라는 이유만으로 같은 작업량이라고 보지 않습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">세척과 코팅이 어디까지 포함되는지 확인하세요</h3>
-            <p className="mt-2">견적 상담에서는 다음 항목을 구분해 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">견적 상담에서는 다음 항목을 구분해 확인해 주세요.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {includedCheckItems.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">&lsquo;나노코팅&rsquo;이라는 서비스명만으로 모든 세척과 보수 작업이 포함된다고 보기는 어렵습니다. 현장에 필요한 공정과 포함 비용을 먼저 맞추는 것이 중요합니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">&lsquo;나노코팅&rsquo;이라는 서비스명만으로 모든 세척과 보수 작업이 포함된다고 보기는 어렵습니다. 현장에 필요한 공정과 포함 비용을 먼저 맞추는 것이 중요합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 시공 대상/범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="시공 대상과 세척·코팅 범위" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">포세린타일 청소만 필요한지 코팅까지 필요한지 구분합니다</h3>
-            <p className="mt-2 mb-6">기존 오염을 정리하는 청소와 이후 표면 관리를 위한 코팅은 같은 작업이 아닙니다. 얼룩의 종류, 표면 마감과 기존 처리 상태를 보고 선택합니다. 코팅 효과와 사용 재개 조건은 적용 제품과 현장에 따라 안내하며 영구 오염 방지를 보장하지 않습니다.</p>
-            <p>찐청소의 나노코팅 대상은 포세린타일 바닥입니다. 다른 부위까지 묶어서 시공하는 서비스가 아니라, 바닥 상태와 사용 환경에 집중해 상담합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">기존 오염을 정리하는 청소와 이후 표면 관리를 위한 코팅은 같은 작업이 아닙니다. 얼룩의 종류, 표면 마감과 기존 처리 상태를 보고 선택합니다. 코팅 효과와 사용 재개 조건은 적용 제품과 현장에 따라 안내하며 영구 오염 방지를 보장하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph>찐청소의 나노코팅 대상은 포세린타일 바닥입니다. 다른 부위까지 묶어서 시공하는 서비스가 아니라, 바닥 상태와 사용 환경에 집중해 상담합니다.</ReadingParagraph>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                    <div className={`${readability.scopePhotos} mt-4 items-start`}>
                       {item.photoPairs.map((pair, pairIndex) => (
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
@@ -319,7 +325,7 @@ export default function NanoCoatingLanding() {
               ))}
             </div>
 
-            <p className="mt-6 font-bold text-brand-dark">진행하지 않는 대상</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">진행하지 않는 대상</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {notServicedItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -329,7 +335,7 @@ export default function NanoCoatingLanding() {
               ))}
             </ul>
 
-            <p className="mt-6 font-bold text-brand-dark">별도로 범위를 확인할 작업</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">별도로 범위를 확인할 작업</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {separateScopeItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -338,12 +344,14 @@ export default function NanoCoatingLanding() {
                 </li>
               ))}
             </ul>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>견적은 처음 확인한 바닥 상태와 협의한 공정을 기준으로 정합니다. 실제 오염이나 작업 조건이 다르면 추가 작업이 필요할 수 있습니다.</p>
+            <ReadingParagraph>견적은 처음 확인한 바닥 상태와 협의한 공정을 기준으로 정합니다. 실제 오염이나 작업 조건이 다르면 추가 작업이 필요할 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -352,7 +360,8 @@ export default function NanoCoatingLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">코팅 전 세척과 기존 코팅 제거가 견적에 각각 어디까지 포함되는지 확인해 주세요. 작업 중 변경이 필요할 때 비용과 일정을 협의할 방법도 미리 정하는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">코팅 전 세척과 기존 코팅 제거가 견적에 각각 어디까지 포함되는지 확인해 주세요. 작업 중 변경이 필요할 때 비용과 일정을 협의할 방법도 미리 정하는 것이 좋습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 4. 진행순서 */}
@@ -366,7 +375,7 @@ export default function NanoCoatingLanding() {
                 </span>
               ))}
             </div>
-            <p className="mt-4 text-[15px] text-gray-500">구체적인 공정과 도포 횟수는 적용할 제품과 현장 상태에 따라 정합니다.</p>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">구체적인 공정과 도포 횟수는 적용할 제품과 현장 상태에 따라 정합니다.</ReadingParagraph>
 
             <ol className="mt-6 space-y-4">
               {processSteps.map(([title, body], i) => (
@@ -374,46 +383,49 @@ export default function NanoCoatingLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">겉이 말랐다고 모든 사용이 가능한 것은 아닙니다</h3>
-            <p className="mt-2">제품과 온도·습도·환기 등 현장 조건에 따라 필요한 시간이 달라집니다. 잠깐 걷는 것과 가구를 옮기거나 물걸레질하는 것은 다른 사용 조건입니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">다음 시점을 각각 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">제품과 온도·습도·환기 등 현장 조건에 따라 필요한 시간이 달라집니다. 잠깐 걷는 것과 가구를 옮기거나 물걸레질하는 것은 다른 사용 조건입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">다음 시점을 각각 확인해 주세요.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {timingChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 종료 시간뿐 아니라 실제 사용 재개 시간까지 함께 계획하는 것이 중요합니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 종료 시간뿐 아니라 실제 사용 재개 시간까지 함께 계획하는 것이 중요합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/사례 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인 방법" />
-            <p>포세린타일 코팅 사례를 볼 때는 &lsquo;얼마나 반짝이는가&rsquo;보다 어떤 바닥에 어떤 작업을 했는지 확인하는 것이 좋습니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">사례에서 확인할 내용</p>
+            <ReadingParagraph>포세린타일 코팅 사례를 볼 때는 &lsquo;얼마나 반짝이는가&rsquo;보다 어떤 바닥에 어떤 작업을 했는지 확인하는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">사례에서 확인할 내용</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">세척으로 깨끗해진 변화와 코팅의 효과는 구분해서 봐야 합니다. 작업 직후 사진만으로 장기간의 오염 저항성이나 유지 기간까지 판단할 수는 없습니다. 물방울이 맺히는 모습도 하나의 표면 특성일 뿐, 모든 오염이 남지 않거나 청소가 필요 없다는 증거는 아닙니다. 사진 기록이 필요하다면 촬영 구역과 전달 방법을 상담 시 협의해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">세척으로 깨끗해진 변화와 코팅의 효과는 구분해서 봐야 합니다. 작업 직후 사진만으로 장기간의 오염 저항성이나 유지 기간까지 판단할 수는 없습니다. 물방울이 맺히는 모습도 하나의 표면 특성일 뿐, 모든 오염이 남지 않거나 청소가 필요 없다는 증거는 아닙니다. 사진 기록이 필요하다면 촬영 구역과 전달 방법을 상담 시 협의해 주세요.</ReadingParagraph>
             {cases.length > 0 && (
               <div className="mt-6 space-y-8">
                 {cases.map(item => <CaseFigure key={item.id} item={item} />)}
               </div>
             )}
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/예약 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 위치와 바닥 사진, 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</p>
+            <ReadingParagraph>현장 위치와 바닥 사진, 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -421,21 +433,22 @@ export default function NanoCoatingLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">입주 전에 작업하고 싶다면</h3>
-            <p className="mt-2">다른 공사가 남아 있는지, 청소와 가구 반입 일정은 언제인지 알려주세요. 코팅 전 바탕 준비와 시공 후 건조 시간을 고려해 순서를 협의합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">새집이라는 이유만으로 세척과 상태 확인 없이 바로 코팅할 수 있다고 단정하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">다른 공사가 남아 있는지, 청소와 가구 반입 일정은 언제인지 알려주세요. 코팅 전 바탕 준비와 시공 후 건조 시간을 고려해 순서를 협의합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">새집이라는 이유만으로 세척과 상태 확인 없이 바로 코팅할 수 있다고 단정하지 않습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">거주 중이거나 영업 중인 공간이라면</h3>
             <div className="mt-2 rounded-xl bg-gray-50 p-5">
-              <p className="text-[15.5px]">작업 구역을 비울 수 있는지와 출입 제한이 가능한지 먼저 확인합니다. 부분 작업이 가능한지, 전체 공간을 비워야 하는지는 현장 조건에 따라 달라집니다.</p>
-              <p className="mt-2 text-[15.5px]">주방이나 출입문으로 가는 길이 작업 구역과 겹친다면 미리 알려주세요.</p>
+              <ReadingParagraph className="text-[15.5px]">작업 구역을 비울 수 있는지와 출입 제한이 가능한지 먼저 확인합니다. 부분 작업이 가능한지, 전체 공간을 비워야 하는지는 현장 조건에 따라 달라집니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15.5px]">주방이나 출입문으로 가는 길이 작업 구역과 겹친다면 미리 알려주세요.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/관리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 관리 방법" />
-            <p>검수는 협의한 구역과 마감 계획을 기준으로 진행합니다. 외관뿐 아니라 사용 안내와 관리 방법까지 함께 확인해 주세요.</p>
-            <p className="mt-5 font-bold text-brand-dark">주요 검수 항목</p>
+            <ReadingParagraph>검수는 협의한 구역과 마감 계획을 기준으로 진행합니다. 외관뿐 아니라 사용 안내와 관리 방법까지 함께 확인해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 검수 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -446,16 +459,17 @@ export default function NanoCoatingLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">코팅 후에도 일상 청소는 필요합니다</h3>
-            <p className="mt-2">코팅은 청소 부담을 줄이기 위한 선택이지, 청소를 없애는 작업은 아닙니다. 쏟은 음식물이나 오염은 제품의 관리 안내에 따라 정리해 주세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">&ldquo;이제 청소는 졸업이네요&rdquo;까지 약속드리지는 않습니다. 대신 어떤 관리가 필요한지 구체적으로 안내받는 것이 오래 사용하는 데 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-2">코팅은 청소 부담을 줄이기 위한 선택이지, 청소를 없애는 작업은 아닙니다. 쏟은 음식물이나 오염은 제품의 관리 안내에 따라 정리해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">&ldquo;이제 청소는 졸업이네요&rdquo;까지 약속드리지는 않습니다. 대신 어떤 관리가 필요한지 구체적으로 안내받는 것이 오래 사용하는 데 도움이 됩니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">사용 제품에 맞는 관리 기준을 확인하세요</h3>
-            <p className="mt-2">일상 청소를 시작할 시점과 적합한 세정제·도구를 확인해 주세요. 강한 세정제나 연마 도구, 스팀청소기 등을 사용하려면 타일과 코팅 제품에 적합한지 먼저 확인하는 것이 좋습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">임의로 다른 왁스나 광택제를 덧바르기 전에도 함께 사용할 수 있는지 문의해 주세요.</p>
+            <ReadingParagraph className="mt-2">일상 청소를 시작할 시점과 적합한 세정제·도구를 확인해 주세요. 강한 세정제나 연마 도구, 스팀청소기 등을 사용하려면 타일과 코팅 제품에 적합한지 먼저 확인하는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">임의로 다른 왁스나 광택제를 덧바르기 전에도 함께 사용할 수 있는지 문의해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">유지 기간은 사용 환경에 따라 달라집니다</h3>
-            <p className="mt-2">통행량, 의자와 집기 이동, 오염 종류, 청소 방식에 따라 표면 상태가 달라집니다. 제품과 현장을 확인하지 않고 일정한 유지 기간이나 재시공 주기를 약속하지 않습니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">사후 문의와 재확인의 범위·기간은 계약 시 확인하시기 바랍니다.</p>
+            <ReadingParagraph className="mt-2">통행량, 의자와 집기 이동, 오염 종류, 청소 방식에 따라 표면 상태가 달라집니다. 제품과 현장을 확인하지 않고 일정한 유지 기간이나 재시공 주기를 약속하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">사후 문의와 재확인의 범위·기간은 계약 시 확인하시기 바랍니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -465,10 +479,11 @@ export default function NanoCoatingLanding() {
               {prepSections.map(([title, body]) => (
                 <div key={title}>
                   <h3 className="text-lg font-bold text-brand-dark">{title}</h3>
-                  <p className="mt-2">{body}</p>
+                  <ReadingParagraph className="mt-2">{body}</ReadingParagraph>
                 </div>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -478,18 +493,19 @@ export default function NanoCoatingLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">포세린타일 나노코팅 견적 문의</p>
-              <p className="mt-3 text-white/80">코팅이 필요한지부터 상담하셔도 괜찮습니다. 바닥 전체 사진과 오염이 잘 보이는 사진, 현재 불편한 점을 알려주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 현재 오염을 정리하는 작업과 이후 관리를 위한 코팅을 구분하고, 내 바닥에 적합한 범위와 비용을 안내하겠습니다.</p>
+              <ReadingParagraph className="text-xl font-bold">포세린타일 나노코팅 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">코팅이 필요한지부터 상담하셔도 괜찮습니다. 바닥 전체 사진과 오염이 잘 보이는 사진, 현재 불편한 점을 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">찐청소는 포세린타일 바닥 나노코팅을 전문으로 진행합니다. 현재 오염을 정리하는 작업과 이후 관리를 위한 코팅을 구분하고, 내 바닥에 적합한 범위와 비용을 안내하겠습니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

@@ -1,0 +1,9 @@
+.sentence,
+.breath { display: inline; }
+
+/* Same server-rendered text on both devices; no client-only or hidden copy. */
+@media (max-width: 639px) {
+  .sentence,
+  .breath { display: block; }
+  .sentence + .sentence { margin-top: 0.75em; }
+}

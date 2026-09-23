@@ -1,3 +1,7 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -215,7 +219,7 @@ export default function FloorCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -228,36 +232,37 @@ export default function FloorCleaningLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·포세린타일 바닥청소, 닦아도 남는 오염을 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.</p>
+            <ReadingParagraph>사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥청소 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="바닥청소 비용과 견적 산정 기준" />
-            <p>바닥청소 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 바닥 재질, 오염 정도, 기존 코팅 상태와 집기 유무에 따라 필요한 작업량이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 조건을 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph breakAfter={["같은 면적이라도 ","집기 유무에 따라 "]}>바닥청소 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 바닥 재질, 오염 정도, 기존 코팅 상태와 집기 유무에 따라 필요한 작업량이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 조건을 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">면적보다 작업량이 더 중요한 경우도 있습니다</h3>
-            <p className="mt-2">집기가 많은 50평 공간은 비어 있는 100평 공간보다 작업이 복잡할 수 있습니다. 책상과 의자 사이, 좁은 통로, 이동해야 할 물건이 많으면 준비와 세척에 시간이 더 필요하기 때문입니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">평수는 참고하되, 실제 청소할 면적과 작업 동선을 함께 확인합니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">집기가 많은 50평 공간은 비어 있는 100평 공간보다 작업이 복잡할 수 있습니다. 책상과 의자 사이, 좁은 통로, 이동해야 할 물건이 많으면 준비와 세척에 시간이 더 필요하기 때문입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">평수는 참고하되, 실제 청소할 면적과 작업 동선을 함께 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -265,29 +270,30 @@ export default function FloorCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">청소와 추가 공정은 구분해서 안내합니다</h3>
-            <p className="mt-2">바닥 세척과 기존 왁스 제거, 새 코팅은 서로 다른 작업입니다. 현재 바닥에 필요한 공정을 확인한 뒤 견적에 어디까지 포함되는지 구분해야 합니다.</p>
+            <ReadingParagraph className="mt-2">바닥 세척과 기존 왁스 제거, 새 코팅은 서로 다른 작업입니다. 현재 바닥에 필요한 공정을 확인한 뒤 견적에 어디까지 포함되는지 구분해야 합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {includedCheckItems.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">세척만으로 정리할 수 있는 상태인지부터 확인하고, 추가 공정은 필요성과 비용을 함께 살펴보세요.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">세척만으로 정리할 수 있는 상태인지부터 확인하고, 추가 공정은 필요성과 비용을 함께 살펴보세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 바닥 재질/청소 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="바닥 재질별 확인 사항과 청소 범위" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">타일 발자국·끈적임·줄눈 오염을 나눠 확인합니다</h3>
-            <p className="mt-2 mb-6">같은 바닥도 통행 구역과 가장자리의 오염이 다릅니다. 세정제 잔여물인지 묵은 때인지, 기존 피막이나 표면 손상인지 구분하고 재질에 맞춰 작업합니다. 왁스 박리·코팅, 본드 제거와 바닥 보수는 일반 세척과 별도입니다.</p>
-            <p>바닥청소는 모든 표면을 같은 약품과 장비로 닦는 작업이 아닙니다. 재질과 기존 마감을 확인해 적용 가능한 방법과 작업 범위를 정합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">같은 바닥도 통행 구역과 가장자리의 오염이 다릅니다. 세정제 잔여물인지 묵은 때인지, 기존 피막이나 표면 손상인지 구분하고 재질에 맞춰 작업합니다. 왁스 박리·코팅, 본드 제거와 바닥 보수는 일반 세척과 별도입니다.</ReadingParagraph>
+            <ReadingParagraph>바닥청소는 모든 표면을 같은 약품과 장비로 닦는 작업이 아닙니다. 재질과 기존 마감을 확인해 적용 가능한 방법과 작업 범위를 정합니다.</ReadingParagraph>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                    <div className={`${readability.scopePhotos} mt-4 items-start`}>
                       {item.photoPairs.map((pair, pairIndex) => (
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
@@ -302,7 +308,7 @@ export default function FloorCleaningLanding() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-bold text-brand-dark">별도로 확인할 작업</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">별도로 확인할 작업</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {separateScopeItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -311,7 +317,7 @@ export default function FloorCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 font-bold text-brand-dark">페인트 오염 제거 사례</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">페인트 오염 제거 사례</ReadingParagraph>
             <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
               {["floorclean-paint-01.webp", "floorclean-paint-02.webp", "floorclean-paint-03.webp", "floorclean-paint-04.webp"].map(photo => (
                 <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
@@ -319,7 +325,7 @@ export default function FloorCleaningLanding() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 font-bold text-brand-dark">테이프·특수 오염 제거 사례</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">테이프·특수 오염 제거 사례</ReadingParagraph>
             <div className="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
               {["floorclean-tape-01.webp", "floorclean-tape-02.webp", "floorclean-tape-03.webp", "floorclean-tape-04.webp"].map(photo => (
                 <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-gray-50 sm:h-48">
@@ -327,13 +333,15 @@ export default function FloorCleaningLanding() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-[15px] text-gray-500">필요한 항목이 있다면 진행 가능 여부와 견적 포함 범위를 별도로 확인해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">필요한 항목이 있다면 진행 가능 여부와 견적 포함 범위를 별도로 확인해 주세요.</ReadingParagraph>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>견적은 처음 확인한 바닥 상태와 작업 구역을 기준으로 정합니다. 실제 조건이나 요청 범위가 달라지면 비용 조정이 필요할 수 있습니다.</p>
+            <ReadingParagraph>견적은 처음 확인한 바닥 상태와 작업 구역을 기준으로 정합니다. 실제 조건이나 요청 범위가 달라지면 비용 조정이 필요할 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -342,7 +350,8 @@ export default function FloorCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 단계에서 확정할 수 있는 작업과 현장 확인이 더 필요한 작업을 구분해 주세요. 변경이 필요한 경우 비용과 일정을 어떻게 협의할지도 미리 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 단계에서 확정할 수 있는 작업과 현장 확인이 더 필요한 작업을 구분해 주세요. 변경이 필요한 경우 비용과 일정을 어떻게 협의할지도 미리 확인하는 것이 좋습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 4. 진행순서 */}
@@ -363,40 +372,43 @@ export default function FloorCleaningLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
-            <p className="mt-2">작업 면적, 오염 상태, 집기 이동과 건조 여건에 따라 달라집니다. 빈 공간과 영업 중인 공간은 같은 면적이라도 일정이 다를 수 있습니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">당일 세척이 가능한 현장이라도 작업 종료와 정상 사용 가능 시점은 구분해야 합니다. 다음 출근·수업·영업 시간이 정해져 있다면 먼저 알려주세요.</p>
+            <ReadingParagraph className="mt-2" breakAfter={["같은 면적이라도 "]}>작업 면적, 오염 상태, 집기 이동과 건조 여건에 따라 달라집니다. 빈 공간과 영업 중인 공간은 같은 면적이라도 일정이 다를 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">당일 세척이 가능한 현장이라도 작업 종료와 정상 사용 가능 시점은 구분해야 합니다. 다음 출근·수업·영업 시간이 정해져 있다면 먼저 알려주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/사례 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인 방법" />
-            <p>바닥청소 사례는 같은 재질과 비슷한 오염 상태인지 함께 확인하는 것이 좋습니다. 반짝이는 결과가 모두 세척만으로 만들어진 것은 아닐 수 있습니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">사례에서 확인할 내용</p>
+            <ReadingParagraph>바닥청소 사례는 같은 재질과 비슷한 오염 상태인지 함께 확인하는 것이 좋습니다. 반짝이는 결과가 모두 세척만으로 만들어진 것은 아닐 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">사례에서 확인할 내용</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">청소 후에도 바닥재 본래의 무광 질감은 그대로일 수 있습니다. 광택이 강해졌는지만으로 청소 결과를 판단하지 않는 것이 좋습니다. 작업 기록이 필요하면 촬영할 구역과 전달 방법을 상담 시 협의해 주세요. 사진만으로 끈적임이나 물기 상태까지 모두 확인할 수는 없습니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">청소 후에도 바닥재 본래의 무광 질감은 그대로일 수 있습니다. 광택이 강해졌는지만으로 청소 결과를 판단하지 않는 것이 좋습니다. 작업 기록이 필요하면 촬영할 구역과 전달 방법을 상담 시 협의해 주세요. 사진만으로 끈적임이나 물기 상태까지 모두 확인할 수는 없습니다.</ReadingParagraph>
             {cases.length > 0 && (
               <div className="mt-6 space-y-8">
                 {cases.map(item => <CaseFigure key={item.id} item={item} />)}
               </div>
             )}
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/예약 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 위치와 바닥 사진, 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</p>
+            <ReadingParagraph>현장 위치와 바닥 사진, 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -404,25 +416,26 @@ export default function FloorCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">영업 중에도 청소할 수 있나요?</h3>
-            <p className="mt-2">작업 구역과 고객·직원의 이동 동선을 분리할 수 있는지 먼저 확인합니다. 물기가 있는 구역을 계속 통과해야 한다면 작업 시간을 조정해야 할 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">부분 작업이 가능한지, 휴무나 영업 종료 후 작업이 필요한지는 현장 여건에 따라 협의합니다.</p>
+            <ReadingParagraph className="mt-2">작업 구역과 고객·직원의 이동 동선을 분리할 수 있는지 먼저 확인합니다. 물기가 있는 구역을 계속 통과해야 한다면 작업 시간을 조정해야 할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">부분 작업이 가능한지, 휴무나 영업 종료 후 작업이 필요한지는 현장 여건에 따라 협의합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">야간이나 주말 작업이 필요한 경우</h3>
-            <p className="mt-2">희망 시간대를 알려주시면 가능한 일정을 확인합니다. 건물의 소음 제한과 출입 규정, 작업 후 건조 시간도 함께 고려해야 합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">모든 지역과 시간대의 즉시 작업을 일괄적으로 약속드리지는 않습니다.</p>
+            <ReadingParagraph className="mt-2">희망 시간대를 알려주시면 가능한 일정을 확인합니다. 건물의 소음 제한과 출입 규정, 작업 후 건조 시간도 함께 고려해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">모든 지역과 시간대의 즉시 작업을 일괄적으로 약속드리지는 않습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">정기적인 바닥 관리가 필요한 경우</h3>
             <div className="mt-2 rounded-xl bg-gray-50 p-5">
-              <p className="text-[15.5px]">일회성 세척인지, 반복적인 관리가 필요한지 알려주세요. 정기청소는 필요한 인원과 작업 시간을 중심으로, 방문 횟수와 범위를 협의합니다.</p>
-              <p className="mt-2 text-[15.5px]">정기 관리와 별도의 박리·코팅 작업이 어디까지 포함되는지도 구분해 확인합니다.</p>
+              <ReadingParagraph className="text-[15.5px]">일회성 세척인지, 반복적인 관리가 필요한지 알려주세요. 정기청소는 필요한 인원과 작업 시간을 중심으로, 방문 횟수와 범위를 협의합니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15.5px]">정기 관리와 별도의 박리·코팅 작업이 어디까지 포함되는지도 구분해 확인합니다.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/관리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 관리 방법" />
-            <p>검수는 처음 협의한 구역과 오염 제거 범위를 기준으로 진행합니다. 전체 인상뿐 아니라 특히 신경 쓰였던 부분을 함께 확인해 주세요.</p>
-            <p className="mt-5 font-bold text-brand-dark">주요 검수 항목</p>
+            <ReadingParagraph>검수는 처음 협의한 구역과 오염 제거 범위를 기준으로 진행합니다. 전체 인상뿐 아니라 특히 신경 쓰였던 부분을 함께 확인해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 검수 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -433,13 +446,14 @@ export default function FloorCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">지워지지 않는 자국은 원인을 구분합니다</h3>
-            <p className="mt-2">청소가 덜 된 오염과 자재 자체의 손상은 다릅니다. 남은 자국이 있다면 위치와 상태를 확인해 추가 세척 대상인지, 보수 등 다른 작업이 필요한지 살펴봅니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">모든 얼룩이 사라지거나 처음 시공한 상태로 돌아간다고 약속하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">청소가 덜 된 오염과 자재 자체의 손상은 다릅니다. 남은 자국이 있다면 위치와 상태를 확인해 추가 세척 대상인지, 보수 등 다른 작업이 필요한지 살펴봅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">모든 얼룩이 사라지거나 처음 시공한 상태로 돌아간다고 약속하지 않습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">일상 관리도 바닥에 맞춰 주세요</h3>
-            <p className="mt-2">청소 후 사용할 세정제와 도구는 바닥 재질과 기존 코팅에 맞춰 확인하는 것이 좋습니다. 강하게 문지르거나 다른 관리제를 덧바르기 전에 적합성을 확인해 주세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">새 코팅을 함께 진행했다면 물걸레질과 집기 반입 시점은 해당 제품 기준을 따라야 합니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">작업 후 문의할 부분이 있다면 사진과 위치를 함께 알려주세요. 재확인과 사후 처리의 범위·기간은 계약 시 확인하시기 바랍니다.</p>
+            <ReadingParagraph className="mt-2">청소 후 사용할 세정제와 도구는 바닥 재질과 기존 코팅에 맞춰 확인하는 것이 좋습니다. 강하게 문지르거나 다른 관리제를 덧바르기 전에 적합성을 확인해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">새 코팅을 함께 진행했다면 물걸레질과 집기 반입 시점은 해당 제품 기준을 따라야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">작업 후 문의할 부분이 있다면 사진과 위치를 함께 알려주세요. 재확인과 사후 처리의 범위·기간은 계약 시 확인하시기 바랍니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -449,10 +463,11 @@ export default function FloorCleaningLanding() {
               {prepSections.map(([title, body]) => (
                 <div key={title}>
                   <h3 className="text-lg font-bold text-brand-dark">{title}</h3>
-                  <p className="mt-2">{body}</p>
+                  <ReadingParagraph className="mt-2">{body}</ReadingParagraph>
                 </div>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -462,18 +477,19 @@ export default function FloorCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">바닥청소 견적 문의</p>
-              <p className="mt-3 text-white/80">바닥 재질이나 오염의 이름을 정확히 모르셔도 괜찮습니다. 현재 사진과 가장 불편한 부분부터 알려주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 바닥 상태에 맞춰 필요한 세척 범위와 비용을 안내합니다. 코팅이나 보수가 꼭 필요한지부터 확인하고, 청소로 가능한 결과를 구체적으로 상담하겠습니다.</p>
+              <ReadingParagraph className="text-xl font-bold">바닥청소 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">바닥 재질이나 오염의 이름을 정확히 모르셔도 괜찮습니다. 현재 사진과 가장 불편한 부분부터 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">찐청소는 바닥 상태에 맞춰 필요한 세척 범위와 비용을 안내합니다. 코팅이나 보수가 꼭 필요한지부터 확인하고, 청소로 가능한 결과를 구체적으로 상담하겠습니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

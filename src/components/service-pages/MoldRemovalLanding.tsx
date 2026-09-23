@@ -1,5 +1,10 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
+import { ServiceScenePhotos } from "@/components/service-pages/ServiceScenePhotos";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -7,7 +12,6 @@ import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
-  ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "부위별 범위·제외 항목"],
   ["extra", "추가 비용"],
@@ -188,88 +192,72 @@ export default function MoldRemovalLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
+        <div className="absolute inset-0">
+          <Image src="/images/service-scenes/mold-under-window.webp" alt="" fill preload className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/75" />
+        </div>
+        <div className="relative mx-auto max-w-5xl">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>곰팡이제거</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">벽지·베란다 곰팡이제거, 얼룩과 반복되는 습기 문제를 구분합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>벽지 모서리, 베란다 창 주변이나 천장에 곰팡이가 다시 생기나요? 찐청소는 오염 범위와 마감재 상태, 누수·결로 이력을 확인해 제거 가능한 부분과 교체·보수가 필요한 부분을 나눠 안내합니다.</p>
+            <ReadingParagraph>벽지 모서리, 베란다 창 주변이나 천장에 곰팡이가 다시 생기나요? 찐청소는 오염 범위와 마감재 상태, 누수·결로 이력을 확인해 제거 가능한 부분과 교체·보수가 필요한 부분을 나눠 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">곰팡이제거 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
-          {/* 약품 안전성 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 생활 중인 벽면과 가까운 곳을 다루는 작업인 만큼 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="곰팡이제거 비용과 견적 산정 기준" />
-            <p>곰팡이제거 비용은 집 전체 평수만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">같은 크기의 방이라도 창 주변에 일부 발생한 경우와 가구 뒤 벽면 전체로 번진 경우는 작업량이 다릅니다. 표면 오염을 제거하는 작업과 손상된 자재를 걷어내야 하는 작업도 구분해야 합니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품 비용을 중심으로 실제 작업 조건을 반영해 견적을 안내합니다.</p>
+            <ReadingParagraph>곰팡이제거 비용은 집 전체 평수만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["같은 크기의 방이라도 ","가구 뒤 벽면 전체로 번진 경우는 "]}>같은 크기의 방이라도 창 주변에 일부 발생한 경우와 가구 뒤 벽면 전체로 번진 경우는 작업량이 다릅니다. 표면 오염을 제거하는 작업과 손상된 자재를 걷어내야 하는 작업도 구분해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["비용을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품 비용을 중심으로 실제 작업 조건을 반영해 견적을 안내합니다.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">주요 견적 기준</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 견적 기준</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진을 보내주시면 우선 상담에 도움이 됩니다. 다만 벽지 안쪽이나 가구 뒤처럼 사진에 보이지 않는 부분은 현장 확인 후 범위가 달라질 수 있습니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">집이 몇 평인지도 참고하지만, 실제로 어디를 얼마나 작업해야 하는지를 먼저 봅니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진을 보내주시면 우선 상담에 도움이 됩니다. 다만 벽지 안쪽이나 가구 뒤처럼 사진에 보이지 않는 부분은 현장 확인 후 범위가 달라질 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">집이 몇 평인지도 참고하지만, 실제로 어디를 얼마나 작업해야 하는지를 먼저 봅니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 부위별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="부위별 곰팡이제거 범위와 제외 항목" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">벽지 뒤·창 주변·천장, 발생 위치를 알려주세요</h3>
-            <p className="mt-2 mb-6">벽지 들뜸과 손상, 창 주변에 반복되는 결로, 천장의 물 얼룩처럼 관찰되는 상태를 함께 알려주세요. 표면 제거와 벽지·실리콘 교체를 구분하며, 누수·단열 보수는 청소와 별도입니다. 발생 위치만으로 원인을 확정하지 않습니다.</p>
-            <p>곰팡이가 보인다고 모든 자재에 같은 방법을 적용하지는 않습니다.</p>
-            <p className="mt-4">아래는 부위별 상담 기준이며, 최종 포함 범위는 견적 단계에서 정합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">벽지 들뜸과 손상, 창 주변에 반복되는 결로, 천장의 물 얼룩처럼 관찰되는 상태를 함께 알려주세요. 표면 제거와 벽지·실리콘 교체를 구분하며, 누수·단열 보수는 청소와 별도입니다. 발생 위치만으로 원인을 확정하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph>곰팡이가 보인다고 모든 자재에 같은 방법을 적용하지는 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">아래는 부위별 상담 기준이며, 최종 포함 범위는 견적 단계에서 정합니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-3 text-[15px] font-bold text-gray-600">작업 검토 범위</p>
+                  <ReadingParagraph className="mt-3 text-[15px] font-bold text-gray-600">작업 검토 범위</ReadingParagraph>
                   <ul className="mt-2 space-y-1.5">
                     {item.included.map(li => (
                       <li key={li} className="flex items-start gap-2 text-[15.5px]">
@@ -278,7 +266,7 @@ export default function MoldRemovalLanding() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-[15px] font-bold text-gray-600">별도 확인 항목</p>
+                  <ReadingParagraph className="mt-3 text-[15px] font-bold text-gray-600">별도 확인 항목</ReadingParagraph>
                   <ul className="mt-2 space-y-1.5">
                     {item.excluded.map(li => (
                       <li key={li} className="flex items-start gap-2 text-[15.5px]">
@@ -287,16 +275,19 @@ export default function MoldRemovalLanding() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-[15px] text-gray-500">{item.note}</p>
+                  <ReadingParagraph className="mt-3 text-[15px] text-gray-500">{item.note}</ReadingParagraph>
                 </div>
               ))}
             </div>
+            <ServiceScenePhotos path={path} section="scope" />
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생하는 경우" />
-            <p>다음과 같은 조건에서는 작업 범위나 비용이 달라질 수 있습니다.</p>
+            <ReadingParagraph>다음과 같은 조건에서는 작업 범위나 비용이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -305,76 +296,84 @@ export default function MoldRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">누수 보수, 단열, 방수, 도배 같은 공사는 곰팡이제거와 구분해 확인합니다. 진행 가능 여부와 비용도 별도 협의 대상입니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">추가 작업이 필요한 상황에서는 해당 부위와 이유, 비용을 설명한 뒤 진행 여부를 협의합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">누수 보수, 단열, 방수, 도배 같은 공사는 곰팡이제거와 구분해 확인합니다. 진행 가능 여부와 비용도 별도 협의 대상입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">추가 작업이 필요한 상황에서는 해당 부위와 이유, 비용을 설명한 뒤 진행 여부를 협의합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="곰팡이제거 진행 순서와 소요 시간" />
+            <ServiceScenePhotos path={path} section="process" />
             <ol className="mt-4 space-y-4">
               {processSteps.map(([title, body], i) => (
                 <li key={title} className="flex gap-4 rounded-xl border border-gray-100 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 오염 범위와 자재 상태에 따라 달라집니다. 제거 작업이 끝나는 시간과 공간을 다시 사용할 수 있는 시점이 같지 않을 수 있어 각각 안내합니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 오염 범위와 자재 상태에 따라 달라집니다. 제거 작업이 끝나는 시간과 공간을 다시 사용할 수 있는 시점이 같지 않을 수 있어 각각 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진에서 확인할 부분" />
-            <p>곰팡이제거 전후 사진은 같은 위치와 비슷한 조명에서 비교하는 것이 좋습니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">주요 확인 항목</p>
+            <ReadingParagraph>곰팡이제거 전후 사진은 같은 위치와 비슷한 조명에서 비교하는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">주요 확인 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">사진에서 얼룩이 옅어졌다는 사실만으로 벽체 내부 상태나 이후 재발 여부까지 판단할 수는 없습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">전후 비교와 함께 작업 범위, 남은 문제, 이후 필요한 조치를 확인하는 것이 중요합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">사진에서 얼룩이 옅어졌다는 사실만으로 벽체 내부 상태나 이후 재발 여부까지 판단할 수는 없습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">전후 비교와 함께 작업 범위, 남은 문제, 이후 필요한 조치를 확인하는 것이 중요합니다.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/일정 조율 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 주소와 희망 날짜를 알려주시면 방문 가능 여부를 확인해드립니다.</p>
-            <p className="mt-4">다음 일정이 있다면 상담 때 함께 말씀해주세요.</p>
+            <ReadingParagraph>현장 주소와 희망 날짜를 알려주시면 방문 가능 여부를 확인해드립니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">다음 일정이 있다면 상담 때 함께 말씀해주세요.</ReadingParagraph>
 
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">도배나 가구 배치를 앞두고 있다면 곰팡이 작업과 건조, 필요한 보수의 순서를 먼저 맞추는 것이 좋습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">곰팡이가 생긴 상태에서 급하게 마감부터 진행하지 않도록 일정을 함께 조율하겠습니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">도배나 가구 배치를 앞두고 있다면 곰팡이 작업과 건조, 필요한 보수의 순서를 먼저 맞추는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">곰팡이가 생긴 상태에서 급하게 마감부터 진행하지 않도록 일정을 함께 조율하겠습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/재발안내 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="청소 완료 후 검수 및 재발 관련 안내" />
-            <p>작업 후에는 협의한 범위를 기준으로 제거 상태와 주변 정리 상태를 확인합니다.</p>
+            <ReadingParagraph>작업 후에는 협의한 범위를 기준으로 제거 상태와 주변 정리 상태를 확인합니다.</ReadingParagraph>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {checkupChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
 
-            <p className="mt-5">곰팡이 재발에는 누수, 결로, 실내 습기 등 여러 조건이 영향을 줍니다. 제거 작업을 했더라도 수분 문제가 남아 있으면 다시 발생할 수 있습니다.</p>
-            <p className="mt-2">찐청소는 무조건 다시 생기지 않는다고 약속하기보다, 이번에 처리한 부분과 이후 관리가 필요한 부분을 구분해 설명합니다.</p>
-            <p className="mt-2">작업 누락이 의심되거나 같은 위치에 이상이 보이면 사진과 발생 시점을 알려주세요. 작업 내용과 현장 상태를 확인해 후속 대응을 안내합니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">재방문이나 추가 작업의 적용 조건과 비용은 계약 시 확인해주세요.</p>
+            <ReadingParagraph className="mt-5">곰팡이 재발에는 누수, 결로, 실내 습기 등 여러 조건이 영향을 줍니다. 제거 작업을 했더라도 수분 문제가 남아 있으면 다시 발생할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">찐청소는 무조건 다시 생기지 않는다고 약속하기보다, 이번에 처리한 부분과 이후 관리가 필요한 부분을 구분해 설명합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">작업 누락이 의심되거나 같은 위치에 이상이 보이면 사진과 발생 시점을 알려주세요. 작업 내용과 현장 상태를 확인해 후속 대응을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">재방문이나 추가 작업의 적용 조건과 비용은 계약 시 확인해주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항/이후관리 */}
           <section id="prep" className="scroll-mt-36">
             <SectionTitle id="prep-title" kicker="08" title="작업 전 준비사항과 이후 관리" />
-            <p className="font-bold text-brand-dark">작업 전 준비사항</p>
+            <ReadingParagraph className="font-bold text-brand-dark">작업 전 준비사항</ReadingParagraph>
             <ul className="mt-4 space-y-2.5">
               {prepItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -383,9 +382,9 @@ export default function MoldRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">직접 벽지를 뜯거나 마른 솔로 넓게 문지르기보다는 현재 상태를 먼저 촬영해 상담해주세요. 여러 세정제나 제거제를 섞어 사용하지 마세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">직접 벽지를 뜯거나 마른 솔로 넓게 문지르기보다는 현재 상태를 먼저 촬영해 상담해주세요. 여러 세정제나 제거제를 섞어 사용하지 마세요.</ReadingParagraph>
 
-            <p className="mt-8 font-bold text-brand-dark">작업 이후 관리</p>
+            <ReadingParagraph className="mt-8 font-bold text-brand-dark">작업 이후 관리</ReadingParagraph>
             <ul className="mt-4 space-y-2.5">
               {afterCareItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -394,7 +393,8 @@ export default function MoldRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">관리를 잘못해서 생겼다고 단정하지 않습니다. 생활 습관뿐 아니라 건물과 설비 상태도 함께 살펴야 합니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">관리를 잘못해서 생겼다고 단정하지 않습니다. 생활 습관뿐 아니라 건물과 설비 상태도 함께 살펴야 합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -404,18 +404,19 @@ export default function MoldRemovalLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">곰팡이제거 견적 문의</p>
-              <p className="mt-3 text-white/80">&ldquo;벽지를 바꿔야 할까요?&rdquo; &ldquo;닦았는데 같은 자리에 또 생겼어요.&rdquo; &ldquo;이사 전에 어느 정도까지 처리해야 할까요?&rdquo;</p>
-              <p className="mt-2 text-white/80">어떤 작업이 필요한지 아직 모르셔도 괜찮습니다. 현재 상태부터 보여주세요.</p>
+              <ReadingParagraph className="text-xl font-bold">곰팡이제거 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">&ldquo;벽지를 바꿔야 할까요?&rdquo; &ldquo;닦았는데 같은 자리에 또 생겼어요.&rdquo; &ldquo;이사 전에 어느 정도까지 처리해야 할까요?&rdquo;</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">어떤 작업이 필요한지 아직 모르셔도 괜찮습니다. 현재 상태부터 보여주세요.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

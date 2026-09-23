@@ -1,5 +1,11 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { EcosorbNotice } from "@/components/service-pages/EcosorbNotice";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
+import { ServiceScenePhotos } from "@/components/service-pages/ServiceScenePhotos";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -7,10 +13,10 @@ import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
-  ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "냄새 유형별 범위"],
   ["extra", "추가 비용"],
+  ["safety", "ECOSORB·냄새 관리"],
   ["process", "진행 순서"],
   ["results", "결과 확인"],
   ["area", "지역·일정 조율"],
@@ -207,103 +213,90 @@ export default function OdorRemovalLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
+        <div className="absolute inset-0">
+          <Image src="/images/service-scenes/odor-wall-residue.webp" alt="" fill preload className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/75" />
+        </div>
+        <div className="relative mx-auto max-w-5xl">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>냄새악취제거</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">담배·반려동물 냄새, 향으로 덮기 전에 발생 위치부터 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>집에 밴 담배 냄새, 강아지·고양이 소변 냄새, 반복되는 실내 악취가 고민이신가요? 찐청소는 냄새가 느껴지는 위치와 오염된 소재, 발생 이력을 확인해 청소와 탈취 범위를 안내합니다.</p>
+            <ReadingParagraph>집에 밴 담배 냄새, 강아지·고양이 소변 냄새, 반복되는 실내 악취가 고민이신가요? 찐청소는 냄새가 느껴지는 위치와 오염된 소재, 발생 이력을 확인해 청소와 탈취 범위를 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">냄새·악취 제거 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
-          {/* 약품 안전성 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 생활 공간의 냄새를 직접 다루는 작업인 만큼 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="냄새악취제거 비용과 견적 산정 기준" />
-            <p>냄새 제거 비용은 면적이나 냄새의 강도만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">한쪽 바닥에 오염이 남은 경우와 여러 공간의 자재·물품을 확인해야 하는 경우는 작업량이 다릅니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 관리할 구역과 작업 내용을 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph>냄새 제거 비용은 면적이나 냄새의 강도만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["한쪽 바닥에 오염이 남은 경우와 "]}>한쪽 바닥에 오염이 남은 경우와 여러 공간의 자재·물품을 확인해야 하는 경우는 작업량이 다릅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 관리할 구역과 작업 내용을 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">좁은 공간도 원인에 따라 작업이 달라집니다</h3>
-            <p className="mt-2">냄새가 나는 방이 작더라도 오염이 가구 뒤나 자재 안쪽에 있다면 접근과 처리가 어려울 수 있습니다.</p>
-            <p className="mt-2">반대로 발생 위치가 분명하고 제한된 구역에 오염이 있다면 해당 부분을 중심으로 작업을 검토할 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">몇 평인지와 함께 어디서 언제 냄새가 나는지 알려주세요.</p>
+            <ReadingParagraph className="mt-2">냄새가 나는 방이 작더라도 오염이 가구 뒤나 자재 안쪽에 있다면 접근과 처리가 어려울 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">반대로 발생 위치가 분명하고 제한된 구역에 오염이 있다면 해당 부분을 중심으로 작업을 검토할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">몇 평인지와 함께 어디서 언제 냄새가 나는지 알려주세요.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진은 오염과 구조를 확인하는 데 도움이 되지만, 냄새 자체를 사진만으로 판단할 수는 없습니다. 원인이나 범위가 불분명하면 현장 확인이 필요할 수 있습니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진은 오염과 구조를 확인하는 데 도움이 되지만, 냄새 자체를 사진만으로 판단할 수는 없습니다. 원인이나 범위가 불분명하면 현장 확인이 필요할 수 있습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 냄새 유형별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="냄새 유형별 확인 사항과 작업 범위" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">바닥·벽면에 남은 냄새와 배수구 냄새는 구분합니다</h3>
-            <p className="mt-2 mb-6">냄새가 느껴지는 위치가 곧 원인이라고 단정하지 않습니다. 바닥·벽면·가구에 남은 오염과 배수·누수 관련 문제를 나눠 살펴봅니다. 소재 내부에 스며든 오염, 전문 세척이나 교체가 필요한 부분도 별도로 안내합니다.</p>
-            <p>냄새가 비슷하게 느껴져도 원인과 필요한 작업은 다를 수 있습니다.</p>
-            <p className="mt-4">아래 항목은 상담 시 살펴보는 대표적인 상황입니다. 모든 냄새에 같은 약품·장비를 적용하거나 같은 결과를 약속하지 않습니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">냄새가 느껴지는 위치가 곧 원인이라고 단정하지 않습니다. 바닥·벽면·가구에 남은 오염과 배수·누수 관련 문제를 나눠 살펴봅니다. 소재 내부에 스며든 오염, 전문 세척이나 교체가 필요한 부분도 별도로 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>냄새가 비슷하게 느껴져도 원인과 필요한 작업은 다를 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">아래 항목은 상담 시 살펴보는 대표적인 상황입니다. 모든 냄새에 같은 약품·장비를 적용하거나 같은 결과를 약속하지 않습니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   {item.paragraphs.map((p, i) => (
-                    <p key={p} className={i === item.paragraphs.length - 1 ? "mt-2 text-[15px] text-gray-500" : "mt-2"}>{p}</p>
+                    <ReadingParagraph key={p} className={i === item.paragraphs.length - 1 ? "mt-2 text-[15px] text-gray-500" : "mt-2"}>{p}</ReadingParagraph>
                   ))}
                 </div>
               ))}
             </div>
+            <ServiceScenePhotos path={path} section="scope" />
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용과 별도 보수가 필요한 경우" />
-            <p>처음 정한 범위보다 오염 구역이 넓거나 별도 작업이 필요한 경우 견적이 달라질 수 있습니다.</p>
+            <ReadingParagraph>처음 정한 범위보다 오염 구역이 넓거나 별도 작업이 필요한 경우 견적이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -314,41 +307,47 @@ export default function OdorRemovalLanding() {
             </ul>
 
             <h3 className="mt-8 text-lg font-bold text-brand-dark">탈취와 철거·보수는 구분합니다</h3>
-            <p className="mt-2">오염된 자재의 교체, 누수 수리, 배관 보수 등은 일반적인 냄새 제거와 다른 작업입니다.</p>
-            <p className="mt-2">필요한 경우 작업 가능 여부와 담당 범위, 비용을 먼저 확인합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">냄새가 난다는 이유만으로 모든 자재를 철거하거나 교체하는 방향으로 정하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">오염된 자재의 교체, 누수 수리, 배관 보수 등은 일반적인 냄새 제거와 다른 작업입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">필요한 경우 작업 가능 여부와 담당 범위, 비용을 먼저 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">냄새가 난다는 이유만으로 모든 자재를 철거하거나 교체하는 방향으로 정하지 않습니다.</ReadingParagraph>
 
             <h3 className="mt-8 text-lg font-bold text-brand-dark">먼저 해야 할 작업이 있다면 안내합니다</h3>
-            <p className="mt-2">원인 물질이 남아 있거나 물이 계속 유입되는 등 선행 조치가 필요한 상황이 있을 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">청소·탈취만으로 다룰 수 있는 부분과 먼저 해결해야 할 문제를 구분해 안내합니다.</p>
+            <ReadingParagraph className="mt-2">원인 물질이 남아 있거나 물이 계속 유입되는 등 선행 조치가 필요한 상황이 있을 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">청소·탈취만으로 다룰 수 있는 부분과 먼저 해결해야 할 문제를 구분해 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
+
+          <EcosorbNotice />
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="냄새 제거 진행 순서와 소요 시간" />
+            <ServiceScenePhotos path={path} section="process" />
             <ol className="mt-4 space-y-4">
               {processSteps.map(([title, body], i) => (
                 <li key={title} className="flex gap-4 rounded-xl border border-gray-100 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">얼마나 걸리나요?</h3>
-            <p className="mt-2">오염의 종류와 범위, 처리 방법과 방문 횟수에 따라 달라집니다.</p>
-            <p className="mt-2">작업 시간 외에도 건조·환기와 후속 확인이 필요할 수 있습니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소팀이 철수하는 시간과 사람이 다시 생활할 수 있는 시간을 같다고 단정하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">오염의 종류와 범위, 처리 방법과 방문 횟수에 따라 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">작업 시간 외에도 건조·환기와 후속 확인이 필요할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소팀이 철수하는 시간과 사람이 다시 생활할 수 있는 시간을 같다고 단정하지 않습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 결과 확인 */}
           <section id="results" className="scroll-mt-36">
             <SectionTitle id="results-title" kicker="05" title="작업 결과와 냄새 변화 확인" />
-            <p>냄새 제거 결과는 전후 사진만으로 확인하기 어렵습니다.</p>
-            <p className="mt-4">사진은 오염물 제거와 표면 청소, 작업 구역을 보여주는 자료입니다. 냄새 변화는 별도로 살펴야 합니다.</p>
+            <ReadingParagraph>냄새 제거 결과는 전후 사진만으로 확인하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">사진은 오염물 제거와 표면 청소, 작업 구역을 보여주는 자료입니다. 냄새 변화는 별도로 살펴야 합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">비교할 조건을 함께 기록합니다</h3>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
@@ -356,42 +355,46 @@ export default function OdorRemovalLanding() {
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">평소 생활 중 관찰한 내용을 알려주세요. 결과를 시험하려고 안내와 다르게 환기를 중단하거나 출입 제한을 어길 필요는 없습니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">평소 생활 중 관찰한 내용을 알려주세요. 결과를 시험하려고 안내와 다르게 환기를 중단하거나 출입 제한을 어길 필요는 없습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">냄새 감소와 공기질은 다릅니다</h3>
-            <p className="mt-2">냄새가 줄었다는 것만으로 모든 오염물질이 제거됐거나 실내가 무조건 안전하다고 판단할 수는 없습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">특정 물질의 측정이 필요하면 제공 가능 여부와 측정 항목·조건·비용을 별도로 확인해야 합니다. 측정이나 수치 보고서가 기본 포함된 것으로 안내하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">냄새가 줄었다는 것만으로 모든 오염물질이 제거됐거나 실내가 무조건 안전하다고 판단할 수는 없습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">특정 물질의 측정이 필요하면 제공 가능 여부와 측정 항목·조건·비용을 별도로 확인해야 합니다. 측정이나 수치 보고서가 기본 포함된 것으로 안내하지 않습니다.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/일정 조율 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</p>
-            <p className="mt-4">작업 일정은 냄새 상태뿐 아니라 공간을 비울 수 있는 시간과 이후 사용 계획을 고려합니다.</p>
+            <ReadingParagraph>현장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">작업 일정은 냄새 상태뿐 아니라 공간을 비울 수 있는 시간과 이후 사용 계획을 고려합니다.</ReadingParagraph>
 
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">야간이나 휴무일 작업은 현장 조건과 예약 상황에 따라 가능 여부를 안내합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">야간이나 휴무일 작업은 현장 조건과 예약 상황에 따라 가능 여부를 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 사후관리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="작업 후 관리와 재방문 기준" />
             <h3 className="text-lg font-bold text-brand-dark">적용한 작업에 맞는 안내를 따라주세요</h3>
-            <p className="mt-2">환기, 출입 제한, 표면 사용과 물품 복귀 시점은 제품과 작업 방식에 따라 달라질 수 있습니다.</p>
-            <p className="mt-2">안내받은 조건을 확인한 뒤 공간을 사용해 주세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">냄새가 남는다고 여러 탈취제나 세정제를 임의로 섞어 사용하지 마세요.</p>
+            <ReadingParagraph className="mt-2">환기, 출입 제한, 표면 사용과 물품 복귀 시점은 제품과 작업 방식에 따라 달라질 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">안내받은 조건을 확인한 뒤 공간을 사용해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">냄새가 남는다고 여러 탈취제나 세정제를 임의로 섞어 사용하지 마세요.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">다시 느껴지면 위치와 상황을 알려주세요</h3>
-            <p className="mt-2">냄새가 반복된다면 남아 있는 오염, 다른 발생원, 외부 유입, 새 물품이나 추가 공사 등 확인할 사항을 검토합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">다시 난다는 이유만으로 곧바로 같은 작업을 반복하기보다 발생 상황을 함께 살펴봅니다.</p>
+            <ReadingParagraph className="mt-2">냄새가 반복된다면 남아 있는 오염, 다른 발생원, 외부 유입, 새 물품이나 추가 공사 등 확인할 사항을 검토합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">다시 난다는 이유만으로 곧바로 같은 작업을 반복하기보다 발생 상황을 함께 살펴봅니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">재방문 조건은 계약 전에 정합니다</h3>
-            <p className="mt-2">처음 견적에 포함된 방문 횟수와 후속 확인, 추가 작업의 비용을 확인해 주세요.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">한 번에 완전 제거, 영구적인 효과, 기간 제한 없는 무상 재방문을 일괄 약속하지 않습니다.</p>
+            <ReadingParagraph className="mt-2">처음 견적에 포함된 방문 횟수와 후속 확인, 추가 작업의 비용을 확인해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">한 번에 완전 제거, 영구적인 효과, 기간 제한 없는 무상 재방문을 일괄 약속하지 않습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -405,8 +408,9 @@ export default function OdorRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">원인을 확인하려고 벽이나 바닥을 직접 뜯거나 설비를 분해할 필요는 없습니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">가스 누출이나 전기 과열이 의심되는 냄새는 일반 탈취 상담보다 긴급 안전 확인이 먼저입니다. 위험이 의심되는 공간에서 원인을 찾으려 머무르지 말고 안전한 곳에서 119 또는 해당 설비 긴급기관에 연락해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">원인을 확인하려고 벽이나 바닥을 직접 뜯거나 설비를 분해할 필요는 없습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">가스 누출이나 전기 과열이 의심되는 냄새는 일반 탈취 상담보다 긴급 안전 확인이 먼저입니다. 위험이 의심되는 공간에서 원인을 찾으려 머무르지 말고 안전한 곳에서 119 또는 해당 설비 긴급기관에 연락해 주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -416,18 +420,19 @@ export default function OdorRemovalLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">냄새·악취 제거 견적 문의</p>
-              <p className="mt-3 text-white/80">몇 평인지와 함께, 언제부터 어디에서 냄새가 나는지 알려주세요.</p>
-              <p className="mt-2 text-white/80">담배 냄새가 남은 집인지, 반려동물 오염이 반복된 구역인지, 공사나 침수 이후 달라진 상태인지에 따라 확인할 내용이 다릅니다.</p>
+              <ReadingParagraph className="text-xl font-bold">냄새·악취 제거 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">몇 평인지와 함께, 언제부터 어디에서 냄새가 나는지 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">담배 냄새가 남은 집인지, 반려동물 오염이 반복된 구역인지, 공사나 침수 이후 달라진 상태인지에 따라 확인할 내용이 다릅니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

@@ -1,5 +1,10 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
+import { ServiceScenePhotos } from "@/components/service-pages/ServiceScenePhotos";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -7,7 +12,6 @@ import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
-  ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "재질·오염별 범위"],
   ["extra", "추가 비용"],
@@ -197,88 +201,72 @@ export default function StoneCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
+        <div className="absolute inset-0">
+          <Image src="/images/service-scenes/stone-floor-condition.webp" alt="" fill preload className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/75" />
+        </div>
+        <div className="relative mx-auto max-w-5xl">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>석재청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">대리석·화강석 청소, 얼룩과 표면 손상부터 구분합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>닦아도 남는 대리석 얼룩, 부분적으로 짙어진 화강석 바닥이 고민이신가요? 찐청소는 석재 종류와 표면 마감, 오염 이력을 확인해 일반 세척과 별도 얼룩 처리 범위를 안내합니다.</p>
+            <ReadingParagraph>닦아도 남는 대리석 얼룩, 부분적으로 짙어진 화강석 바닥이 고민이신가요? 찐청소는 석재 종류와 표면 마감, 오염 이력을 확인해 일반 세척과 별도 얼룩 처리 범위를 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">석재청소·얼룩 제거 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
-          {/* 약품 안전성 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 로비와 통로처럼 계속 오가는 공간을 다루는 만큼 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="석재청소 비용과 견적 산정 기준" />
-            <p>석재청소 비용은 면적만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">넓은 로비의 일반적인 보행 오염과 작은 구역에 깊게 스며든 기름 얼룩은 필요한 작업이 다릅니다. 같은 화강석이라도 표면 마감과 기존 코팅 상태에 따라 접근 방법이 달라질 수 있습니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품 비용을 중심으로 실제 작업 조건을 반영합니다.</p>
+            <ReadingParagraph>석재청소 비용은 면적만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["넓은 로비의 일반적인 보행 오염과 ","같은 화강석이라도 "]}>넓은 로비의 일반적인 보행 오염과 작은 구역에 깊게 스며든 기름 얼룩은 필요한 작업이 다릅니다. 같은 화강석이라도 표면 마감과 기존 코팅 상태에 따라 접근 방법이 달라질 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["비용을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품 비용을 중심으로 실제 작업 조건을 반영합니다.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">주요 견적 기준</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 견적 기준</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">면적은 참고하되, 실제로 어떤 작업이 필요한지를 먼저 봅니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적에서는 일반 세척 범위와 별도 얼룩 제거 범위를 구분해 확인해주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">면적은 참고하되, 실제로 어떤 작업이 필요한지를 먼저 봅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적에서는 일반 세척 범위와 별도 얼룩 제거 범위를 구분해 확인해주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 재질·오염별 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="대리석·화강석 및 오염별 작업 범위" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">기름 얼룩·녹물·하얀 자국은 원인부터 구분합니다</h3>
-            <p className="mt-2 mb-6">석재에 스며든 오염과 표면에 남은 잔여물, 광택이 손상된 자국은 같은 작업이 아닙니다. 청소에 사용했던 제품과 발생 경위를 알려주세요. 연마·광택 복원, 보수와 보호제 시공은 기본 세척에 자동으로 포함되지 않습니다.</p>
-            <p>석재청소는 모든 자국을 같은 약품으로 지우는 작업이 아닙니다.</p>
-            <p className="mt-4">아래 항목을 기준으로 상담하고, 실제 포함 범위는 석재와 현장 상태에 맞춰 정합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">석재에 스며든 오염과 표면에 남은 잔여물, 광택이 손상된 자국은 같은 작업이 아닙니다. 청소에 사용했던 제품과 발생 경위를 알려주세요. 연마·광택 복원, 보수와 보호제 시공은 기본 세척에 자동으로 포함되지 않습니다.</ReadingParagraph>
+            <ReadingParagraph>석재청소는 모든 자국을 같은 약품으로 지우는 작업이 아닙니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">아래 항목을 기준으로 상담하고, 실제 포함 범위는 석재와 현장 상태에 맞춰 정합니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-3 text-[15px] font-bold text-gray-600">기본 작업으로 협의하는 범위</p>
+                  <ReadingParagraph className="mt-3 text-[15px] font-bold text-gray-600">기본 작업으로 협의하는 범위</ReadingParagraph>
                   <ul className="mt-2 space-y-1.5">
                     {item.included.map(li => (
                       <li key={li} className="flex items-start gap-2 text-[15.5px]">
@@ -287,7 +275,7 @@ export default function StoneCleaningLanding() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-[15px] font-bold text-gray-600">별도 확인 항목</p>
+                  <ReadingParagraph className="mt-3 text-[15px] font-bold text-gray-600">별도 확인 항목</ReadingParagraph>
                   <ul className="mt-2 space-y-1.5">
                     {item.excluded.map(li => (
                       <li key={li} className="flex items-start gap-2 text-[15.5px]">
@@ -296,14 +284,14 @@ export default function StoneCleaningLanding() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-3 text-[15px] text-gray-500">{item.note}</p>
+                  <ReadingParagraph className="mt-3 text-[15px] text-gray-500">{item.note}</ReadingParagraph>
                 </div>
               ))}
 
               {diagnosisItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-3 text-[15px] font-bold text-gray-600">확인할 내용</p>
+                  <ReadingParagraph className="mt-3 text-[15px] font-bold text-gray-600">확인할 내용</ReadingParagraph>
                   <ul className="mt-2 space-y-1.5">
                     {item.checks.map(li => (
                       <li key={li} className="flex items-start gap-2 text-[15.5px]">
@@ -313,15 +301,15 @@ export default function StoneCleaningLanding() {
                     ))}
                   </ul>
                   {item.notes.map(n => (
-                    <p key={n} className="mt-3 text-[15px] text-gray-500">{n}</p>
+                    <ReadingParagraph key={n} className="mt-3 text-[15px] text-gray-500">{n}</ReadingParagraph>
                   ))}
                 </div>
               ))}
             </div>
 
             <div className="mt-6 rounded-xl bg-gray-50 p-5">
-              <p className="font-bold text-brand-dark">석재청소와 구분해야 하는 작업</p>
-              <p className="mt-2 text-[15.5px]">다음 항목은 기본 세척에 자동으로 포함되지 않습니다.</p>
+              <ReadingParagraph className="font-bold text-brand-dark">석재청소와 구분해야 하는 작업</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15.5px]">다음 항목은 기본 세척에 자동으로 포함되지 않습니다.</ReadingParagraph>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {separateWorkItems.map(item => (
                   <li key={item} className="flex items-start gap-2 text-[15.5px]">
@@ -330,15 +318,18 @@ export default function StoneCleaningLanding() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-[15px] text-gray-500">필요한 경우 실제 진행 가능 여부와 범위를 별도로 확인합니다.</p>
-              <p className="mt-2 text-[15px] text-gray-500">인조대리석, 엔지니어드 스톤, 포세린타일도 천연 대리석과 동일하게 취급하지 않습니다. 재질이 불분명하면 제품 정보나 시공 자료를 함께 확인합니다.</p>
+              <ReadingParagraph className="mt-4 text-[15px] text-gray-500">필요한 경우 실제 진행 가능 여부와 범위를 별도로 확인합니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15px] text-gray-500">인조대리석, 엔지니어드 스톤, 포세린타일도 천연 대리석과 동일하게 취급하지 않습니다. 재질이 불분명하면 제품 정보나 시공 자료를 함께 확인합니다.</ReadingParagraph>
             </div>
+            <ServiceScenePhotos path={path} section="scope" />
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생하는 경우" />
-            <p>다음 조건에서는 작업량과 비용이 달라질 수 있습니다.</p>
+            <ReadingParagraph>다음 조건에서는 작업량과 비용이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -347,70 +338,77 @@ export default function StoneCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">추가 처리가 필요하면 해당 위치와 이유, 비용을 설명한 뒤 진행 여부를 협의합니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">&lsquo;석재청소&rsquo;라는 이름에 세척부터 연마와 코팅까지 모두 포함되어 있다고 생각하지 않도록 견적에서 구분해드립니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">추가 처리가 필요하면 해당 위치와 이유, 비용을 설명한 뒤 진행 여부를 협의합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">&lsquo;석재청소&rsquo;라는 이름에 세척부터 연마와 코팅까지 모두 포함되어 있다고 생각하지 않도록 견적에서 구분해드립니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="석재청소 진행 순서와 소요 시간" />
+            <ServiceScenePhotos path={path} section="process" />
             <ol className="mt-4 space-y-4">
               {processSteps.map(([title, body], i) => (
                 <li key={title} className="flex gap-4 rounded-xl border border-gray-100 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 면적과 오염 종류에 따라 달라집니다. 별도 얼룩 처리나 건조 상태 확인이 필요한 경우에는 한 번의 방문으로 끝나는 작업과 일정이 다를 수 있습니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 시간은 면적과 오염 종류에 따라 달라집니다. 별도 얼룩 처리나 건조 상태 확인이 필요한 경우에는 한 번의 방문으로 끝나는 작업과 일정이 다를 수 있습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진에서 확인할 부분" />
-            <p>석재는 조명과 촬영 각도, 젖음 상태에 따라 색과 광택이 다르게 보입니다.</p>
-            <p className="mt-4">전후 사진은 같은 위치와 비슷한 조명에서 비교하고, 마른 상태도 함께 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph>석재는 조명과 촬영 각도, 젖음 상태에 따라 색과 광택이 다르게 보입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">전후 사진은 같은 위치와 비슷한 조명에서 비교하고, 마른 상태도 함께 확인하는 것이 좋습니다.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">주요 확인 항목</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 확인 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">젖어서 색이 진해진 상태나 조명 반사가 강한 사진만으로 결과를 판단하지 않습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">세척 결과와 광택 복원 결과도 구분해서 확인해야 합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">젖어서 색이 진해진 상태나 조명 반사가 강한 사진만으로 결과를 판단하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">세척 결과와 광택 복원 결과도 구분해서 확인해야 합니다.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/일정 조율 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 주소와 희망 날짜를 알려주시면 진행 가능 여부와 일정을 안내합니다.</p>
-            <p className="mt-4">상담 시 함께 알려주세요.</p>
+            <ReadingParagraph>현장 주소와 희망 날짜를 알려주시면 진행 가능 여부와 일정을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">상담 시 함께 알려주세요.</ReadingParagraph>
 
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">로비나 통로처럼 계속 사용하는 공간은 작업 구역과 이용 동선을 나눌 수 있는지 살펴봅니다. 청소 완료 시점과 다시 이용할 수 있는 시간은 현장 조건에 맞춰 안내합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">로비나 통로처럼 계속 사용하는 공간은 작업 구역과 이용 동선을 나눌 수 있는지 살펴봅니다. 청소 완료 시점과 다시 이용할 수 있는 시간은 현장 조건에 맞춰 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="청소 완료 후 검수 및 사후 처리 기준" />
-            <p>작업 후에는 협의한 구역과 항목을 기준으로 확인합니다.</p>
+            <ReadingParagraph>작업 후에는 협의한 구역과 항목을 기준으로 확인합니다.</ReadingParagraph>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {checkupChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
 
-            <p className="mt-5">석재 안쪽으로 깊게 스며든 얼룩이나 오래된 변색은 일부 남을 수 있습니다. 표면이 손상된 흔적은 청소만으로 회복되지 않을 수 있습니다.</p>
-            <p className="mt-2">제거되지 않는 자국을 없애기 위해 무조건 더 강한 처리를 반복하지 않습니다. 자재 상태와 가능한 개선 범위를 설명합니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 누락이나 이상이 의심되면 위치와 사진을 알려주세요. 계약 범위와 현장 상태를 확인해 대응을 안내합니다. 재방문과 추가 작업 조건은 계약 시 확인해주세요.</p>
+            <ReadingParagraph className="mt-5">석재 안쪽으로 깊게 스며든 얼룩이나 오래된 변색은 일부 남을 수 있습니다. 표면이 손상된 흔적은 청소만으로 회복되지 않을 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">제거되지 않는 자국을 없애기 위해 무조건 더 강한 처리를 반복하지 않습니다. 자재 상태와 가능한 개선 범위를 설명합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 누락이나 이상이 의심되면 위치와 사진을 알려주세요. 계약 범위와 현장 상태를 확인해 대응을 안내합니다. 재방문과 추가 작업 조건은 계약 시 확인해주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -424,8 +422,9 @@ export default function StoneCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">재질이 확인되지 않은 상태에서 식초, 구연산, 강한 욕실 세정제나 거친 연마도구를 임의로 사용하지 마세요. 특히 대리석은 산성 물질로 표면이 손상될 수 있습니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">청소 후에도 해당 석재와 마감에 적합한 관리 제품을 사용하는 것이 중요합니다. 액체를 흘렸다면 오래 방치하지 말고 부드러운 소재로 흡수해 정리해주세요.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">재질이 확인되지 않은 상태에서 식초, 구연산, 강한 욕실 세정제나 거친 연마도구를 임의로 사용하지 마세요. 특히 대리석은 산성 물질로 표면이 손상될 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">청소 후에도 해당 석재와 마감에 적합한 관리 제품을 사용하는 것이 중요합니다. 액체를 흘렸다면 오래 방치하지 말고 부드러운 소재로 흡수해 정리해주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -435,18 +434,19 @@ export default function StoneCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">석재청소·오염 제거 견적 문의</p>
-              <p className="mt-3 text-white/80">&ldquo;대리석에 생긴 자국이 닦아도 그대로예요.&rdquo; &ldquo;화강석 바닥이 부분적으로 검게 변했어요.&rdquo; &ldquo;청소로 될지, 연마가 필요한지 모르겠어요.&rdquo;</p>
-              <p className="mt-2 text-white/80">석재 이름이나 오염 원인을 정확히 모르셔도 괜찮습니다. 현재 상태와 이전에 시도한 방법부터 알려주세요.</p>
+              <ReadingParagraph className="text-xl font-bold">석재청소·오염 제거 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">&ldquo;대리석에 생긴 자국이 닦아도 그대로예요.&rdquo; &ldquo;화강석 바닥이 부분적으로 검게 변했어요.&rdquo; &ldquo;청소로 될지, 연마가 필요한지 모르겠어요.&rdquo;</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">석재 이름이나 오염 원인을 정확히 모르셔도 괜찮습니다. 현재 상태와 이전에 시도한 방법부터 알려주세요.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

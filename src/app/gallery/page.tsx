@@ -1,17 +1,22 @@
 import GalleryBrowser from "@/components/gallery/GalleryBrowser";
 import galleryData from "@/lib/gallery-data.json";
 import { buildMetadata } from "@/lib/seo";
+import { resolveGallerySelection } from "@/lib/gallery-navigation";
+import Link from "next/link";
+import { serviceConnections } from "@/lib/service-connections";
 
 const totalCount = (galleryData as { items: unknown[] }[]).reduce((sum, cat) => sum + cat.items.length, 0);
 
 export const metadata = buildMetadata({
   title: "현장사진들",
-  description: `찐청소가 실제로 작업한 전/후 현장 사진 ${totalCount}건을 서비스 분야별로 모아 확인하세요.`,
+  description: `찐청소가 실제로 작업한 전/후 현장 사진 ${totalCount}쌍을 서비스 분야별로 모아 확인하세요.`,
   path: "/gallery",
   keywords: ["찐현장사진", "청소 전후사진", "청소업체 시공사례", "청소 현장 사진"],
 });
 
-export default function GalleryPage() {
+export default async function GalleryPage({ searchParams }: { searchParams: Promise<{ category?: string | string[]; item?: string | string[] }> }) {
+  const selection = resolveGallerySelection(galleryData, await searchParams);
+  const services = Object.entries(serviceConnections).filter(([, connection]) => connection.gallery === selection.category);
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-16">
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
@@ -23,7 +28,11 @@ export default function GalleryPage() {
           사진을 누르면 크게 볼 수 있어요 <span aria-hidden="true">🔍</span>
         </p>
       </div>
-      <GalleryBrowser />
+      {services.length > 0 && <aside aria-label="사진과 관련된 서비스 안내" className="mb-6 rounded-2xl bg-brand-light/40 p-5 text-sm leading-7">
+        <p className="font-bold text-brand-dark">사진을 보셨다면, 작업 범위와 견적 기준도 확인해 보세요.</p>
+        {services.map(([slug]) => <Link key={slug} href={`/${slug}/`} className="mt-2 inline-block font-bold text-brand-dark underline underline-offset-4">{slug.replaceAll("-", "")} 서비스 안내 →</Link>)}
+      </aside>}
+      <GalleryBrowser key={selection.category} initialCategory={selection.category} initialItem={selection.item} />
     </div>
   );
 }

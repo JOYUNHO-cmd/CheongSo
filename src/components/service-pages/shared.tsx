@@ -41,9 +41,9 @@ export function SectionTitle({ id, kicker, title }: { id: string; kicker: string
   );
 }
 
-export function TocSidebar({ toc }: { toc: readonly (readonly [string, string])[] }) {
+export function TocSidebar({ toc, id }: { toc: readonly (readonly [string, string])[]; id?: string }) {
   return (
-    <aside>
+    <aside id={id} tabIndex={id ? -1 : undefined} className={id ? "scroll-mt-24 md:scroll-mt-48" : undefined}>
       <nav aria-label="목차" className="rounded-2xl bg-gray-50 p-5 md:sticky md:top-36">
         <p className="mb-3 font-bold text-brand-dark">한눈에 보기</p>
         <ol className="space-y-3 text-sm">

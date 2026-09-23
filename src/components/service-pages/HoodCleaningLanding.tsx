@@ -1,3 +1,7 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -8,7 +12,6 @@ import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
-  ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "범위·덕트청소 차이"],
   ["extra", "추가 비용"],
@@ -194,7 +197,7 @@ export default function HoodCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -207,92 +210,72 @@ export default function HoodCleaningLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>후드청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">사업장청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">식당 후드청소, 본체·필터·기름받이 범위를 먼저 확인하세요</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>후드 표면의 끈적임과 필터에 쌓인 기름때, 기름받이 오염을 구분해 살펴봅니다. 찐청소는 업소용 주방 후드의 크기와 구조, 분리 가능한 부품을 확인하고 영업 종료·조리 준비 시간에 맞춰 청소를 상담합니다.</p>
-            <p>메뉴는 다양해도 괜찮지만, 청소 범위까지 헷갈릴 필요는 없으니까요.</p>
+            <ReadingParagraph>후드 표면의 끈적임과 필터에 쌓인 기름때, 기름받이 오염을 구분해 살펴봅니다. 찐청소는 업소용 주방 후드의 크기와 구조, 분리 가능한 부품을 확인하고 영업 종료·조리 준비 시간에 맞춰 청소를 상담합니다.</ReadingParagraph>
+            <ReadingParagraph>메뉴는 다양해도 괜찮지만, 청소 범위까지 헷갈릴 필요는 없으니까요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">후드청소 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
-          {/* 약품 안전성 - "약품"이 언급되는 견적 기준 앞에 배치해 신뢰를 먼저 확인시킵니다 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 조리 공간 위에서 진행하는 작업이라 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="후드청소 비용과 견적 산정 기준" />
-            <p>후드청소 비용은 주방 평수만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">같은 크기의 후드라도 기름때가 쌓인 정도, 필터 구성, 설치 높이, 아래쪽 조리기기의 배치에 따라 작업량이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 범위를 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph>후드청소 비용은 주방 평수만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["같은 크기의 후드라도 ","아래쪽 조리기기의 배치에 따라 "]}>같은 크기의 후드라도 기름때가 쌓인 정도, 필터 구성, 설치 높이, 아래쪽 조리기기의 배치에 따라 작업량이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업 범위를 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">길이가 같아도 작업량은 다릅니다</h3>
-            <p className="mt-2">겉면의 가벼운 오염을 청소하는 작업과 내부 접근 부위까지 두껍게 쌓인 기름때를 제거하는 작업은 같지 않습니다.</p>
-            <p className="mt-2">후드 아래에 조리기기가 빽빽하게 놓여 있다면 접근과 주변 보호에 필요한 시간도 달라집니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">그래서 몇 미터인지와 함께, 어디까지 청소할지를 확인해야 합니다.</p>
+            <ReadingParagraph className="mt-2">겉면의 가벼운 오염을 청소하는 작업과 내부 접근 부위까지 두껍게 쌓인 기름때를 제거하는 작업은 같지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">후드 아래에 조리기기가 빽빽하게 놓여 있다면 접근과 주변 보호에 필요한 시간도 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">그래서 몇 미터인지와 함께, 어디까지 청소할지를 확인해야 합니다.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">후드 전체 사진, 필터와 안쪽 오염 사진, 후드 아래 조리 공간 사진을 함께 보내주시면 상담에 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">후드 전체 사진, 필터와 안쪽 오염 사진, 후드 아래 조리 공간 사진을 함께 보내주시면 상담에 도움이 됩니다.</ReadingParagraph>
 
             <h3 className="mt-8 text-lg font-bold text-brand-dark">정기관리는 사용량과 오염 상태에 맞춥니다</h3>
-            <p className="mt-3">관리 주기는 모든 매장에 똑같이 적용하기 어렵습니다.</p>
-            <p className="mt-3">조리 방식과 영업시간, 사용량에 따라 오염이 쌓이는 속도가 다르므로 실제 상태를 보고 범위와 주기를 정하는 것이 좋습니다.</p>
-            <p className="mt-3">정기 작업은 필요한 인원과 작업 시간을 바탕으로 회차별 청소 내용을 반영해 안내합니다.</p>
+            <ReadingParagraph className="mt-3">관리 주기는 모든 매장에 똑같이 적용하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-3">조리 방식과 영업시간, 사용량에 따라 오염이 쌓이는 속도가 다르므로 실제 상태를 보고 범위와 주기를 정하는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-3">정기 작업은 필요한 인원과 작업 시간을 바탕으로 회차별 청소 내용을 반영해 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 범위/덕트 차이 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="후드청소 범위와 덕트청소의 차이" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">후드 기름때 제거와 덕트 내부 청소는 같지 않습니다</h3>
-            <p className="mt-2 mb-6">후드 본체의 접근 가능한 내부, 필터와 기름받이의 세척 범위를 정합니다. 덕트 안쪽 전체, 팬·모터와 전기설비는 접근 구조와 별도 작업 가능 여부를 확인해야 합니다. 청소만으로 배기 성능이나 설비 고장이 해결된다고 단정하지 않습니다.</p>
-            <p>&lsquo;후드 전체 청소&rsquo;라는 표현만으로는 작업 범위를 알기 어렵습니다.</p>
-            <p className="mt-4">찐청소는 아래 항목 중 어디까지 작업할지 구분해 안내합니다. 모든 항목이 기본 비용에 자동으로 포함되는 것은 아닙니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">후드 본체의 접근 가능한 내부, 필터와 기름받이의 세척 범위를 정합니다. 덕트 안쪽 전체, 팬·모터와 전기설비는 접근 구조와 별도 작업 가능 여부를 확인해야 합니다. 청소만으로 배기 성능이나 설비 고장이 해결된다고 단정하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph>&lsquo;후드 전체 청소&rsquo;라는 표현만으로는 작업 범위를 알기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">찐청소는 아래 항목 중 어디까지 작업할지 구분해 안내합니다. 모든 항목이 기본 비용에 자동으로 포함되는 것은 아닙니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                    <div className={`${readability.scopePhotos} mt-4 items-start`}>
                       {item.photoPairs.map((pair, pairIndex) => (
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
@@ -307,12 +290,14 @@ export default function HoodCleaningLanding() {
                 </div>
               ))}
             </div>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>처음 정한 작업보다 범위가 늘어나거나 별도 공정이 필요한 경우 견적이 달라질 수 있습니다.</p>
+            <ReadingParagraph>처음 정한 작업보다 범위가 늘어나거나 별도 공정이 필요한 경우 견적이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -321,8 +306,10 @@ export default function HoodCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적을 비교할 때는 금액과 함께 세척 부위를 확인해 주세요. 겉면만 닦는 견적과 내부·필터까지 작업하는 견적은 같은 조건이 아닙니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적을 비교할 때는 금액과 함께 세척 부위를 확인해 주세요. 겉면만 닦는 견적과 내부·필터까지 작업하는 견적은 같은 조건이 아닙니다.</ReadingParagraph>
+          <BackToContents />
           </section>
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
@@ -333,69 +320,74 @@ export default function HoodCleaningLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업 시간은 얼마나 걸리나요?</h3>
-            <p className="mt-2">후드의 크기와 수량, 기름때의 정도, 내부 접근 조건, 필터 작업 범위에 따라 달라집니다.</p>
-            <p className="mt-2">청소 시간 외에도 주변 보호, 건조, 재설치와 검수 시간을 고려해야 합니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">다음 영업을 위한 조리 준비 시간을 알려주시면 일정 검토에 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-2">후드의 크기와 수량, 기름때의 정도, 내부 접근 조건, 필터 작업 범위에 따라 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">청소 시간 외에도 주변 보호, 건조, 재설치와 검수 시간을 고려해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">다음 영업을 위한 조리 준비 시간을 알려주시면 일정 검토에 도움이 됩니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/사례 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인" />
-            <p>후드청소는 겉면 사진 한 장만으로 결과를 판단하기 어렵습니다. 실제 견적에 포함된 부위를 중심으로 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph>후드청소는 겉면 사진 한 장만으로 결과를 판단하기 어렵습니다. 실제 견적에 포함된 부위를 중심으로 확인하는 것이 좋습니다.</ReadingParagraph>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">사진은 가능한 한 같은 위치와 비슷한 조명에서 비교하면 상태를 확인하기 쉽습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">닦아서 반짝이는 겉면과 별개로, 약속한 내부 부위와 필터가 작업됐는지를 함께 살펴보세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">전후 사진이나 완료 자료가 필요하면 상담 시 알려주세요. 촬영 가능한 구역과 제공 방식을 확인해 안내합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">사진은 가능한 한 같은 위치와 비슷한 조명에서 비교하면 상태를 확인하기 쉽습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">닦아서 반짝이는 겉면과 별개로, 약속한 내부 부위와 필터가 작업됐는지를 함께 살펴보세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">전후 사진이나 완료 자료가 필요하면 상담 시 알려주세요. 촬영 가능한 구역과 제공 방식을 확인해 안내합니다.</ReadingParagraph>
 
             {cases.length > 0 && (
               <div className="mt-6 space-y-8">
                 {cases.map(item => <CaseFigure key={item.id} item={item} />)}
               </div>
             )}
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/예약 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>매장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</p>
-            <p className="mt-4">후드청소는 조리 공간 위에서 진행하는 작업인 만큼 영업 일정과 작업 구역을 함께 조율해야 합니다.</p>
+            <ReadingParagraph>매장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">후드청소는 조리 공간 위에서 진행하는 작업인 만큼 영업 일정과 작업 구역을 함께 조율해야 합니다.</ReadingParagraph>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5">야간이나 휴무일 작업을 원하시면 희망 시간대를 알려주세요. 현장 조건과 예약 상황에 따라 가능 여부를 안내합니다.</p>
+            <ReadingParagraph className="mt-5">야간이나 휴무일 작업을 원하시면 희망 시간대를 알려주세요. 현장 조건과 예약 상황에 따라 가능 여부를 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/관리기준 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="청소 완료 후 검수와 관리 기준" />
             <h3 className="text-lg font-bold text-brand-dark">약속한 부위를 기준으로 확인합니다</h3>
-            <p className="mt-2">견적에 포함된 본체·내부·필터 등의 작업 상태를 확인합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">청소 전 특히 신경 쓰였던 구역은 검수 때 다시 살펴보는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-2">견적에 포함된 본체·내부·필터 등의 작업 상태를 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">청소 전 특히 신경 쓰였던 구역은 검수 때 다시 살펴보는 것이 좋습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">청소와 성능 점검은 구분합니다</h3>
-            <p className="mt-2">청소만으로 흡입력, 소음, 냄새 문제가 모두 해결된다고 약속하지 않습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">청소 결과와 별도로 설비 점검이 필요한 사항은 구분해서 확인해야 합니다.</p>
+            <ReadingParagraph className="mt-2">청소만으로 흡입력, 소음, 냄새 문제가 모두 해결된다고 약속하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">청소 결과와 별도로 설비 점검이 필요한 사항은 구분해서 확인해야 합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">관리 주기는 오염 상태를 보고 정합니다</h3>
-            <p className="mt-2">필터와 내부 접근 부위의 오염이 얼마나 빠르게 쌓이는지 살펴보세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">조리 방식이나 영업시간이 달라졌다면 기존 청소 주기가 적절한지도 다시 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-2">필터와 내부 접근 부위의 오염이 얼마나 빠르게 쌓이는지 살펴보세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">조리 방식이나 영업시간이 달라졌다면 기존 청소 주기가 적절한지도 다시 확인하는 것이 좋습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">미흡한 부분은 위치와 상태를 알려주세요</h3>
-            <p className="mt-2">작업 범위 안에서 추가 확인이 필요한 곳이 있다면 해당 부위와 상태를 알려주세요.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 내용과 현장 상태를 확인하여 후속 처리 방법을 안내합니다.</p>
+            <ReadingParagraph className="mt-2">작업 범위 안에서 추가 확인이 필요한 곳이 있다면 해당 부위와 상태를 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 내용과 현장 상태를 확인하여 후속 처리 방법을 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -409,7 +401,8 @@ export default function HoodCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소를 위해 필터나 기기를 미리 무리하게 분해하실 필요는 없습니다. 어떤 부품을 누가 탈착할지부터 정하면 됩니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소를 위해 필터나 기기를 미리 무리하게 분해하실 필요는 없습니다. 어떤 부품을 누가 탈착할지부터 정하면 됩니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -419,18 +412,19 @@ export default function HoodCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">후드청소 견적 문의</p>
-              <p className="mt-3 text-white/80">후드가 몇 개인지와 함께, 어디까지 청소할지 알려주세요.</p>
-              <p className="mt-2 text-white/80">겉면의 기름때를 정리하려는지, 필터와 안쪽까지 작업이 필요한지, 덕트나 배기설비까지 상담하려는지에 따라 준비가 달라집니다.</p>
+              <ReadingParagraph className="text-xl font-bold">후드청소 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">후드가 몇 개인지와 함께, 어디까지 청소할지 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">겉면의 기름때를 정리하려는지, 필터와 안쪽까지 작업이 필요한지, 덕트나 배기설비까지 상담하려는지에 따라 준비가 달라집니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

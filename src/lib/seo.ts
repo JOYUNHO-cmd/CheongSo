@@ -14,15 +14,18 @@ export function buildMetadata({
   description,
   path,
   keywords,
+  image,
 }: {
   title: string;
   description: string;
   path: string;
   /** 주제 분류용입니다. Google 검색 순위 신호로 사용되지 않습니다. */
   keywords?: string[];
+  image?: { src: string; alt: string; width: number; height: number };
 }): Metadata {
   const fullTitle = title.endsWith(`| ${siteConfig.name}`) ? title : `${title} | ${siteConfig.name}`;
   const canonical = absoluteUrl(path.endsWith("/") ? path : `${path}/`);
+  const shareImage = image ? { url: absoluteUrl(image.src), alt: image.alt, width: image.width, height: image.height } : defaultOgImage;
   return {
     title: fullTitle,
     description,
@@ -38,13 +41,13 @@ export function buildMetadata({
       type: "website",
       locale: "ko_KR",
       siteName: siteConfig.name,
-      images: [defaultOgImage],
+      images: [shareImage],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [defaultOgImage.url],
+      images: [shareImage.url],
     },
   };
 }

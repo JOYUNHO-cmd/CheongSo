@@ -1,5 +1,10 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
+import { ServiceScenePhotos } from "@/components/service-pages/ServiceScenePhotos";
 import { absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { CtaButton, SectionTitle, TocSidebar, QuickFactsTable } from "@/components/service-pages/shared";
@@ -7,7 +12,6 @@ import { BackToTopButton } from "@/components/service-pages/ScrollControls";
 
 const toc = [
   ["quickfacts", "핵심 정보 보기"],
-  ["safety", "사용 약품 안전성"],
   ["estimate", "비용·견적 기준"],
   ["scope", "외창·내창·창틀·방충망"],
   ["extra", "추가 비용"],
@@ -213,109 +217,96 @@ export default function ExteriorWindowCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:py-20">
-        <div className="mx-auto max-w-5xl">
+      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
+        <div className="absolute inset-0">
+          <Image src="/images/service-scenes/window-frame-wiping.webp" alt="" fill preload className="object-cover" sizes="100vw" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/75" />
+        </div>
+        <div className="relative mx-auto max-w-5xl">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>외창청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">간단청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">간단청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">아파트·상가 외창청소, 바깥 유리의 먼지와 물자국을 살펴봅니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>아파트 베란다 유리가 뿌옇거나 상가 전면 유리에 빗물 자국이 남아 있나요? 찐청소는 창 구조와 접근 조건, 유리와 필름 상태를 확인한 뒤 바깥 면의 청소 가능 범위를 안내합니다.</p>
-            <p>풍경이 흐린 건지 창이 흐린 건지 헷갈렸다면, 먼저 창의 상태부터 확인해 보세요.</p>
+            <ReadingParagraph>아파트 베란다 유리가 뿌옇거나 상가 전면 유리에 빗물 자국이 남아 있나요? 찐청소는 창 구조와 접근 조건, 유리와 필름 상태를 확인한 뒤 바깥 면의 청소 가능 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>풍경이 흐린 건지 창이 흐린 건지 헷갈렸다면, 먼저 창의 상태부터 확인해 보세요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">외창청소 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
-          {/* 약품 안전성 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">사용하는 약품, 인체에 안전한가요?</h2>
-            <p className="mt-4">공기질 정화, 냄새제거에 사용되는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 창을 통해 바로 생활 공간과 이어지는 만큼 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="외창청소 비용과 견적 산정 기준" />
-            <p>외창청소 비용은 집 전체 평수만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">같은 평수라도 창의 수와 크기, 열리는 방식, 고정창 유무와 접근 조건이 다르기 때문입니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업할 유리 면과 현장 조건을 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph>외창청소 비용은 집 전체 평수만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["같은 평수라도 ","열리는 방식, "]}>같은 평수라도 창의 수와 크기, 열리는 방식, 고정창 유무와 접근 조건이 다르기 때문입니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 실제 작업할 유리 면과 현장 조건을 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">몇 평인지보다 어떤 창인지가 중요합니다</h3>
-            <p className="mt-2">거실의 큰 창 몇 개와 작은 창이 여러 곳에 나뉜 구조는 작업량이 다릅니다.</p>
-            <p className="mt-2">열리는 창과 열리지 않는 고정창도 접근 조건이 같지 않습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">층수만으로 가능 여부나 비용을 정하지 않고, 실제로 어느 면까지 작업할 수 있는지 확인합니다.</p>
+            <ReadingParagraph className="mt-2">거실의 큰 창 몇 개와 작은 창이 여러 곳에 나뉜 구조는 작업량이 다릅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">열리는 창과 열리지 않는 고정창도 접근 조건이 같지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">층수만으로 가능 여부나 비용을 정하지 않고, 실제로 어느 면까지 작업할 수 있는지 확인합니다.</ReadingParagraph>
 
-            <p className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</p>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">견적에 반영되는 주요 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">창 전체가 보이는 사진과 오염 부위 사진을 함께 보내주시면 상담에 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">창 전체가 보이는 사진과 오염 부위 사진을 함께 보내주시면 상담에 도움이 됩니다.</ReadingParagraph>
 
             <h3 className="mt-8 text-lg font-bold text-brand-dark">거실창이나 일부 창만 요청할 수 있습니다</h3>
-            <p className="mt-2">집 전체 창이 아니라 거실, 특정 방, 베란다 등 필요한 곳만 지정해 상담할 수 있습니다.</p>
-            <p className="mt-2">선택한 구역에 맞춰 작업량과 준비 조건을 검토합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">부분 작업의 비용이 전체 견적에서 창 개수 비율만큼 줄어드는 것은 아니므로 실제 필요한 작업을 기준으로 안내합니다.</p>
+            <ReadingParagraph className="mt-2">집 전체 창이 아니라 거실, 특정 방, 베란다 등 필요한 곳만 지정해 상담할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">선택한 구역에 맞춰 작업량과 준비 조건을 검토합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">부분 작업의 비용이 전체 견적에서 창 개수 비율만큼 줄어드는 것은 아니므로 실제 필요한 작업을 기준으로 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 외창·내창·창틀·방충망 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="외창·내창·창틀·방충망 청소 범위" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">유리 물때와 창틀 먼지는 작업 범위가 다릅니다</h3>
-            <p className="mt-2 mb-6">유리 표면의 일반 먼지·빗물 자국과 고착된 물때, 스티커 잔여물은 구분해 확인합니다. 내창, 창틀 내부와 방충망은 외창과 별도 항목입니다. 유리 자체의 손상이나 복층유리 사이의 흐림은 바깥 면 세척만으로 해결되지 않을 수 있습니다.</p>
-            <p>창문 청소는 어떤 유리 면과 부속 구역을 청소하는지 구분해야 합니다.</p>
-            <p className="mt-4">상담 시 사진을 기준으로 작업할 면을 확인합니다. 외창청소라는 이름만으로 내창과 창틀·방충망까지 모두 포함되는 것은 아닙니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">유리 표면의 일반 먼지·빗물 자국과 고착된 물때, 스티커 잔여물은 구분해 확인합니다. 내창, 창틀 내부와 방충망은 외창과 별도 항목입니다. 유리 자체의 손상이나 복층유리 사이의 흐림은 바깥 면 세척만으로 해결되지 않을 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph>창문 청소는 어떤 유리 면과 부속 구역을 청소하는지 구분해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">상담 시 사진을 기준으로 작업할 면을 확인합니다. 외창청소라는 이름만으로 내창과 창틀·방충망까지 모두 포함되는 것은 아닙니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
                   {item.paragraphs.map((p, i) => (
-                    <p key={p} className={i === item.paragraphs.length - 1 ? "mt-2 text-[15px] text-gray-500" : "mt-2"}>{p}</p>
+                    <ReadingParagraph key={p} className={i === item.paragraphs.length - 1 ? "mt-2 text-[15px] text-gray-500" : "mt-2"}>{p}</ReadingParagraph>
                   ))}
                 </div>
               ))}
             </div>
+            <ServiceScenePhotos path={path} section="scope" />
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용과 별도 확인 항목" />
-            <p>처음 정한 범위보다 작업이 늘어나거나 별도 접근·제거 작업이 필요한 경우 견적이 달라질 수 있습니다.</p>
+            <ReadingParagraph>처음 정한 범위보다 작업이 늘어나거나 별도 접근·제거 작업이 필요한 경우 견적이 달라질 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -326,7 +317,7 @@ export default function ExteriorWindowCleaningLanding() {
             </ul>
 
             <div className="mt-6 rounded-xl bg-gray-50 p-5">
-              <p className="font-bold text-brand-dark">다음 항목은 일반 외창 세척과 구분합니다</p>
+              <ReadingParagraph className="font-bold text-brand-dark">다음 항목은 일반 외창 세척과 구분합니다</ReadingParagraph>
               <ul className="mt-3 grid gap-2 sm:grid-cols-2">
                 {separateScopeItems.map(item => (
                   <li key={item} className="flex items-start gap-2 text-[15.5px]">
@@ -335,79 +326,87 @@ export default function ExteriorWindowCleaningLanding() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-[15px] text-gray-500">추가 요청은 가능 여부와 비용을 확인한 뒤 범위를 정합니다.</p>
+              <ReadingParagraph className="mt-4 text-[15px] text-gray-500">추가 요청은 가능 여부와 비용을 확인한 뒤 범위를 정합니다.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="외창청소 진행 순서와 소요 시간" />
+            <ServiceScenePhotos path={path} section="process" />
             <ol className="mt-4 space-y-4">
               {processSteps.map(([title, body], i) => (
                 <li key={title} className="flex gap-4 rounded-xl border border-gray-100 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업 시간은 얼마나 걸리나요?</h3>
-            <p className="mt-2">창의 수와 크기, 오염 정도, 접근 방법과 추가 항목에 따라 달라집니다.</p>
-            <p className="mt-2">외창만 작업하는 경우와 내창·창틀·방충망까지 함께 하는 경우는 시간이 다릅니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">현장 정보를 확인한 뒤 예상 시간을 안내합니다.</p>
+            <ReadingParagraph className="mt-2">창의 수와 크기, 오염 정도, 접근 방법과 추가 항목에 따라 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">외창만 작업하는 경우와 내창·창틀·방충망까지 함께 하는 경우는 시간이 다릅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">현장 정보를 확인한 뒤 예상 시간을 안내합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/사례 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인" />
-            <p>외창청소는 유리의 반사와 햇빛에 따라 상태가 다르게 보일 수 있습니다.</p>
-            <p className="mt-4">가능하면 같은 창을 비슷한 위치와 조명에서 비교해 주세요.</p>
+            <ReadingParagraph>외창청소는 유리의 반사와 햇빛에 따라 상태가 다르게 보일 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">가능하면 같은 창을 비슷한 위치와 조명에서 비교해 주세요.</ReadingParagraph>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">유리가 젖어 있는 모습만으로 결과를 판단하기보다 마무리 상태를 함께 확인하는 것이 좋습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">남은 흔적이 어느 면에 있는지, 표면 오염인지 기존 손상인지도 구분합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">사진 제공이 필요하면 촬영 구역과 전달 가능 여부를 상담 시 확인해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">유리가 젖어 있는 모습만으로 결과를 판단하기보다 마무리 상태를 함께 확인하는 것이 좋습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">남은 흔적이 어느 면에 있는지, 표면 오염인지 기존 손상인지도 구분합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">사진 제공이 필요하면 촬영 구역과 전달 가능 여부를 상담 시 확인해 주세요.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/일정 조율 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</p>
-            <p className="mt-4">외창청소는 날씨와 건물의 이용 조건을 함께 고려해야 합니다.</p>
+            <ReadingParagraph>현장 주소와 희망 날짜를 알려주시면 서비스 가능 여부와 일정을 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">외창청소는 날씨와 건물의 이용 조건을 함께 고려해야 합니다.</ReadingParagraph>
 
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">현장 안전과 작업 조건에 따라 일정이나 범위를 조정할 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">공동주택은 관리주체에 사전 확인할 사항과 필요한 안내가 있는지도 함께 살펴주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">현장 안전과 작업 조건에 따라 일정이나 범위를 조정할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">공동주택은 관리주체에 사전 확인할 사항과 필요한 안내가 있는지도 함께 살펴주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후확인 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="청소 완료 후 검수와 사후 확인" />
             <h3 className="text-lg font-bold text-brand-dark">청소하기로 한 면을 기준으로 확인합니다</h3>
-            <p className="mt-2">외부 면, 내부 면, 창 사이의 면 중 어디까지 작업했는지 확인합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">창틀·방충망 등은 견적에 포함된 항목을 기준으로 살펴봅니다.</p>
+            <ReadingParagraph className="mt-2">외부 면, 내부 면, 창 사이의 면 중 어디까지 작업했는지 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">창틀·방충망 등은 견적에 포함된 항목을 기준으로 살펴봅니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">오염과 기존 손상은 구분합니다</h3>
-            <p className="mt-2">흠집, 표면 처리 손상, 유리 사이에 보이는 뿌연 흔적 등은 겉면 세척만으로 해결되지 않을 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">추가 세척을 검토할 부분과 창호 상태를 별도로 확인할 부분을 구분해 안내합니다.</p>
+            <ReadingParagraph className="mt-2">흠집, 표면 처리 손상, 유리 사이에 보이는 뿌연 흔적 등은 겉면 세척만으로 해결되지 않을 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">추가 세척을 검토할 부분과 창호 상태를 별도로 확인할 부분을 구분해 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">미흡한 부분은 창의 위치와 면을 알려주세요</h3>
-            <p className="mt-2">작업 범위 안에서 추가 확인이 필요한 곳은 어느 방의 어떤 창인지, 어느 면에서 보이는지 알려주세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">작업 내용과 현장을 확인해 후속 처리 방법을 안내합니다. 접수와 처리 조건은 예약 전에 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">작업 범위 안에서 추가 확인이 필요한 곳은 어느 방의 어떤 창인지, 어느 면에서 보이는지 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">작업 내용과 현장을 확인해 후속 처리 방법을 안내합니다. 접수와 처리 조건은 예약 전에 확인해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업 후 새로 생긴 오염은 구분합니다</h3>
-            <p className="mt-2">청소 이후 날씨나 주변 공사 등으로 생긴 오염과 작업 당시 미흡했던 부분은 구분해서 확인합니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 후 깨끗한 상태가 일정 기간 유지된다고 일괄 보장하지는 않습니다.</p>
+            <ReadingParagraph className="mt-2">청소 이후 날씨나 주변 공사 등으로 생긴 오염과 작업 당시 미흡했던 부분은 구분해서 확인합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 후 깨끗한 상태가 일정 기간 유지된다고 일괄 보장하지는 않습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -421,7 +420,8 @@ export default function ExteriorWindowCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진을 찍거나 오염을 확인하려고 창밖으로 몸을 내밀지 마세요. 실내나 지상에서 안전하게 촬영할 수 있는 사진만 보내주시면 됩니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">사진을 찍거나 오염을 확인하려고 창밖으로 몸을 내밀지 마세요. 실내나 지상에서 안전하게 촬영할 수 있는 사진만 보내주시면 됩니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -431,18 +431,19 @@ export default function ExteriorWindowCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">외창청소 견적 문의</p>
-              <p className="mt-3 text-white/80">몇 평인지와 함께, 어떤 창을 어디까지 청소할지 알려주세요.</p>
-              <p className="mt-2 text-white/80">거실 바깥 유리만 필요한지, 안쪽 유리와 창틀도 함께 닦고 싶은지, 열리지 않는 창이나 높은 구간이 있는지에 따라 준비가 달라집니다.</p>
+              <ReadingParagraph className="text-xl font-bold">외창청소 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">몇 평인지와 함께, 어떤 창을 어디까지 청소할지 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">거실 바깥 유리만 필요한지, 안쪽 유리와 창틀도 함께 닦고 싶은지, 열리지 않는 창이나 높은 구간이 있는지에 따라 준비가 달라집니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

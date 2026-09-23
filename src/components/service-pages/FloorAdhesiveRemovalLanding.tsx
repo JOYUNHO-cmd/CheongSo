@@ -1,3 +1,7 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -196,7 +200,7 @@ export default function FloorAdhesiveRemovalLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -209,34 +213,35 @@ export default function FloorAdhesiveRemovalLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥본드제거</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">바닥시공</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·장판 철거 후 본드 제거, 바닥 사용 목적부터 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>바닥재를 걷어낸 뒤 본드와 끈적이는 접착제가 남았나요? 찐청소는 새 타일을 시공할 바탕인지 기존 바닥을 다시 사용할 것인지 먼저 확인합니다. 협의한 본드 제거와 마무리 세척은 기본이며, 바닥재 철거는 별도입니다.</p>
+            <ReadingParagraph>바닥재를 걷어낸 뒤 본드와 끈적이는 접착제가 남았나요? 찐청소는 새 타일을 시공할 바탕인지 기존 바닥을 다시 사용할 것인지 먼저 확인합니다. 협의한 본드 제거와 마무리 세척은 기본이며, 바닥재 철거는 별도입니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥본드제거 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="바닥본드제거 비용과 견적 산정 기준" />
-            <p>바닥본드제거 비용은 면적만으로 정하기 어렵습니다. 같은 크기의 공간이라도 본드의 두께와 굳은 정도, 바닥 재질, 작업 후 사용 목적에 따라 필요한 작업량이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 현장 상태와 마감 범위를 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph breakAfter={["같은 크기의 공간이라도 ","작업 후 사용 목적에 따라 "]}>바닥본드제거 비용은 면적만으로 정하기 어렵습니다. 같은 크기의 공간이라도 본드의 두께와 굳은 정도, 바닥 재질, 작업 후 사용 목적에 따라 필요한 작업량이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로 "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 현장 상태와 마감 범위를 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">먼저, 제거 후 바닥을 어떻게 사용할지 확인합니다</h3>
-            <p className="mt-2">상담할 때 아래 두 가지 중 어느 쪽인지 알려주세요.</p>
+            <ReadingParagraph className="mt-2">상담할 때 아래 두 가지 중 어느 쪽인지 알려주세요.</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {purposeOptions.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -245,11 +250,11 @@ export default function FloorAdhesiveRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-[15px] text-gray-500">새 타일로 덮을 바탕면과 그대로 드러내 사용할 바닥은 결과를 확인하는 기준이 다릅니다. 기존 바닥을 재사용하려면 접착제 잔여물뿐 아니라 표면 오염과 마감 상태까지 더 세심하게 살펴야 하므로 비용이 달라질 수 있습니다.</p>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">새 타일로 덮을 바탕면과 그대로 드러내 사용할 바닥은 결과를 확인하는 기준이 다릅니다. 기존 바닥을 재사용하려면 접착제 잔여물뿐 아니라 표면 오염과 마감 상태까지 더 세심하게 살펴야 하므로 비용이 달라질 수 있습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">본드 상태와 바닥 재질도 중요합니다</h3>
-            <p className="mt-2">얇게 남은 접착제와 두껍게 굳은 본드는 작업량이 다릅니다. 바닥의 기존 코팅이나 손상 상태에 따라서도 적용할 수 있는 방법과 기대 결과가 달라집니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">얇게 남은 접착제와 두껍게 굳은 본드는 작업량이 다릅니다. 바닥의 기존 코팅이나 손상 상태에 따라서도 적용할 수 있는 방법과 기대 결과가 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -257,24 +262,25 @@ export default function FloorAdhesiveRemovalLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">철거비와 본드 제거비는 구분합니다</h3>
-            <p className="mt-2">바닥재를 걷어내는 철거와, 그 아래 남은 접착제를 제거하는 작업은 서로 다릅니다. 찐청소의 바닥본드제거 기본 비용에는 바닥재 철거가 포함되지 않습니다. 철거도 필요하다면 상담 단계에서 함께 알려주세요.</p>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적을 비교하실 때는 철거, 본드 제거, 마무리 세척이 각각 어디까지 포함되는지 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-2">바닥재를 걷어내는 철거와, 그 아래 남은 접착제를 제거하는 작업은 서로 다릅니다. 찐청소의 바닥본드제거 기본 비용에는 바닥재 철거가 포함되지 않습니다. 철거도 필요하다면 상담 단계에서 함께 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적을 비교하실 때는 철거, 본드 제거, 마무리 세척이 각각 어디까지 포함되는지 확인하는 것이 좋습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 제거 범위/마감 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="작업 목적에 따른 제거 범위와 마감" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">새 타일 시공 준비와 바닥 재사용은 마무리 기준이 다릅니다</h3>
-            <p className="mt-2 mb-6">새 마감 시공을 위한 제거는 후속 시공에 필요한 바탕 조건을 협의합니다. 기존 바닥을 재사용하는 경우에는 노출될 표면과 잔흔을 더 살펴 마무리 세척까지 신경 씁니다. 본드 종류와 바닥 재질, 제거 목적에 따라 비용이 달라질 수 있습니다.</p>
-            <p>찐청소는 작업 목적에 맞춰 본드 제거 범위를 정하고, 마무리 세척까지 진행합니다. 새 타일 시공용과 기존 바닥 재사용용 모두 세척은 기본에 포함됩니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">새 마감 시공을 위한 제거는 후속 시공에 필요한 바탕 조건을 협의합니다. 기존 바닥을 재사용하는 경우에는 노출될 표면과 잔흔을 더 살펴 마무리 세척까지 신경 씁니다. 본드 종류와 바닥 재질, 제거 목적에 따라 비용이 달라질 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph>찐청소는 작업 목적에 맞춰 본드 제거 범위를 정하고, 마무리 세척까지 진행합니다. 새 타일 시공용과 기존 바닥 재사용용 모두 세척은 기본에 포함됩니다.</ReadingParagraph>
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photoPairs && (
-                    <div className="mt-4 grid items-start gap-3 sm:grid-cols-2">
+                    <div className={`${readability.scopePhotos} mt-4 items-start`}>
                       {item.photoPairs.map((pair, pairIndex) => (
                         <div key={pair.join("-")} className={`grid gap-2.5 overflow-hidden rounded-xl border border-gray-100 bg-gray-50 p-2.5 ${pair.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                           {pair.map(photo => (
@@ -289,7 +295,7 @@ export default function FloorAdhesiveRemovalLanding() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 font-bold text-brand-dark">별도로 확인할 작업</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">별도로 확인할 작업</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {separateScopeItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -298,13 +304,15 @@ export default function FloorAdhesiveRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">필요한 항목이 있다면 진행 가능 여부와 비용을 별도로 확인해 주세요.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">필요한 항목이 있다면 진행 가능 여부와 비용을 별도로 확인해 주세요.</ReadingParagraph>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>견적은 처음 확인한 바닥 상태와 작업 목적을 기준으로 정합니다. 작업 범위나 마감 목표가 달라지면 비용도 조정될 수 있습니다.</p>
+            <ReadingParagraph>견적은 처음 확인한 바닥 상태와 작업 목적을 기준으로 정합니다. 작업 범위나 마감 목표가 달라지면 비용도 조정될 수 있습니다.</ReadingParagraph>
             <ul className="mt-5 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -313,7 +321,8 @@ export default function FloorAdhesiveRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">마무리 세척 자체는 기본 포함 항목입니다. 다만 세척을 넘어서는 바닥 보수나 별도 마감 공사는 구분해서 확인해야 합니다. 견적 상담 때 제거 후 바닥 사용 목적을 정확히 알려주시면, 처음부터 필요한 범위를 맞추는 데 도움이 됩니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">마무리 세척 자체는 기본 포함 항목입니다. 다만 세척을 넘어서는 바닥 보수나 별도 마감 공사는 구분해서 확인해야 합니다. 견적 상담 때 제거 후 바닥 사용 목적을 정확히 알려주시면, 처음부터 필요한 범위를 맞추는 데 도움이 됩니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 4. 진행순서 */}
@@ -334,40 +343,43 @@ export default function FloorAdhesiveRemovalLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
-            <p className="mt-2">본드의 상태, 바닥 재질, 면적, 집기와 장애물, 마감 목표에 따라 달라집니다. 같은 면적이라도 재사용을 위한 마무리에는 더 많은 작업이 필요할 수 있습니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 종료 시점과 세척 후 건조, 다음 공정을 시작할 시점은 구분해야 합니다. 타일 시공이나 영업 재개 일정이 있다면 상담 시 먼저 알려주세요.</p>
+            <ReadingParagraph className="mt-2">본드의 상태, 바닥 재질, 면적, 집기와 장애물, 마감 목표에 따라 달라집니다. 같은 면적이라도 재사용을 위한 마무리에는 더 많은 작업이 필요할 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">작업 종료 시점과 세척 후 건조, 다음 공정을 시작할 시점은 구분해야 합니다. 타일 시공이나 영업 재개 일정이 있다면 상담 시 먼저 알려주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/사례 */}
           <section id="cases" className="scroll-mt-36">
             <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인 방법" />
-            <p>바닥본드제거 사례는 작업 전후 모습과 함께 제거 목적을 확인하는 것이 중요합니다.</p>
-            <p className="mt-4">새 타일을 깔기 위한 바탕면 작업과 기존 바닥을 다시 쓰기 위한 작업은 같은 기준으로 비교하기 어렵습니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">사례를 볼 때 확인할 내용</p>
+            <ReadingParagraph>바닥본드제거 사례는 작업 전후 모습과 함께 제거 목적을 확인하는 것이 중요합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">새 타일을 깔기 위한 바탕면 작업과 기존 바닥을 다시 쓰기 위한 작업은 같은 기준으로 비교하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">사례를 볼 때 확인할 내용</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {caseChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">완료 사진이 필요하면 촬영할 구역과 전달 방법을 상담 시 협의해 주세요. 사진상 깨끗해 보이는 것만으로 끈적임이나 표면 상태를 모두 판단할 수는 없습니다. 현장 검수에서는 사진과 함께 실제 마감 상태를 확인하는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">완료 사진이 필요하면 촬영할 구역과 전달 방법을 상담 시 협의해 주세요. 사진상 깨끗해 보이는 것만으로 끈적임이나 표면 상태를 모두 판단할 수는 없습니다. 현장 검수에서는 사진과 함께 실제 마감 상태를 확인하는 것이 좋습니다.</ReadingParagraph>
             {cases.length > 0 && (
               <div className="mt-6 space-y-8">
                 {cases.map(item => <CaseFigure key={item.id} item={item} />)}
               </div>
             )}
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/예약 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 위치와 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다. 바닥 전체 사진과 본드가 가까이 보이는 사진을 함께 보내주시면 상담에 도움이 됩니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</p>
+            <ReadingParagraph>현장 위치와 희망 날짜를 알려주시면 방문 가능 여부와 일정을 안내합니다. 바닥 전체 사진과 본드가 가까이 보이는 사진을 함께 보내주시면 상담에 도움이 됩니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -375,21 +387,22 @@ export default function FloorAdhesiveRemovalLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">철거가 아직 끝나지 않았어도 상담할 수 있나요?</h3>
-            <p className="mt-2">네. 현재 상태로 상담할 수 있습니다. 다만 바닥재 아래의 본드 상태는 철거 후에야 확인할 수 있어, 최종 범위와 견적에 추가 확인이 필요할 수 있습니다. 철거가 필요하다는 사실도 미리 알려주세요. 철거는 기본 본드 제거 비용에 포함되지 않습니다.</p>
+            <ReadingParagraph className="mt-2">네. 현재 상태로 상담할 수 있습니다. 다만 바닥재 아래의 본드 상태는 철거 후에야 확인할 수 있어, 최종 범위와 견적에 추가 확인이 필요할 수 있습니다. 철거가 필요하다는 사실도 미리 알려주세요. 철거는 기본 본드 제거 비용에 포함되지 않습니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">다른 시공 일정과 맞출 수 있나요?</h3>
             <div className="mt-2 rounded-xl bg-gray-50 p-5">
-              <p className="text-[15.5px]">희망 일정을 알려주시면 가능한 작업 시간을 확인합니다. 본드 제거와 세척 후 다음 공정에 필요한 상태를 후속 시공 담당자와 미리 협의하면 일정 조율에 도움이 됩니다.</p>
-              <p className="mt-2 text-[15.5px]">본드 제거가 끝난 즉시 모든 바닥재를 시공할 수 있다고 일괄적으로 약속드리지는 않습니다.</p>
+              <ReadingParagraph className="text-[15.5px]">희망 일정을 알려주시면 가능한 작업 시간을 확인합니다. 본드 제거와 세척 후 다음 공정에 필요한 상태를 후속 시공 담당자와 미리 협의하면 일정 조율에 도움이 됩니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15.5px]">본드 제거가 끝난 즉시 모든 바닥재를 시공할 수 있다고 일괄적으로 약속드리지는 않습니다.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 사후 문의" />
-            <p>검수는 처음 정한 바닥 사용 목적과 작업 범위를 기준으로 진행합니다.</p>
-            <p className="mt-4">새 타일 시공을 준비한 경우에는 후속 시공에 앞서 협의한 바탕면 상태인지 확인합니다. 기존 바닥을 재사용하는 경우에는 접착제 잔여물과 세척 상태, 남아 있는 표면 흔적을 함께 살펴봅니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">주요 검수 항목</p>
+            <ReadingParagraph>검수는 처음 정한 바닥 사용 목적과 작업 범위를 기준으로 진행합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">새 타일 시공을 준비한 경우에는 후속 시공에 앞서 협의한 바탕면 상태인지 확인합니다. 기존 바닥을 재사용하는 경우에는 접착제 잔여물과 세척 상태, 남아 있는 표면 흔적을 함께 살펴봅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 검수 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -398,8 +411,9 @@ export default function FloorAdhesiveRemovalLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5">청소로 제거할 오염과 바닥 자체의 손상은 구분해야 합니다. 본드를 제거한다고 해서 기존 바닥의 모든 흔적이 사라지는 것은 아닙니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">작업 후 궁금한 부분이 있다면 해당 위치와 상태를 알려주세요. 재확인과 사후 처리 범위·기간은 계약 시 확인하시기 바랍니다.</p>
+            <ReadingParagraph className="mt-5">청소로 제거할 오염과 바닥 자체의 손상은 구분해야 합니다. 본드를 제거한다고 해서 기존 바닥의 모든 흔적이 사라지는 것은 아닙니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">작업 후 궁금한 부분이 있다면 해당 위치와 상태를 알려주세요. 재확인과 사후 처리 범위·기간은 계약 시 확인하시기 바랍니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -409,10 +423,11 @@ export default function FloorAdhesiveRemovalLanding() {
               {prepSections.map(([title, body]) => (
                 <div key={title}>
                   <h3 className="text-lg font-bold text-brand-dark">{title}</h3>
-                  <p className="mt-2">{body}</p>
+                  <ReadingParagraph className="mt-2">{body}</ReadingParagraph>
                 </div>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -422,18 +437,19 @@ export default function FloorAdhesiveRemovalLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">바닥본드제거 견적 문의</p>
-              <p className="mt-3 text-white/80">본드가 잘 떨어지는지 직접 시험해 보고 문의하실 필요는 없습니다. 현재 바닥 사진과 제거 후 사용 목적부터 알려주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 바닥을 어떻게 사용할지에 맞춰 본드 제거 범위와 비용을 안내합니다. 마무리 세척은 기본으로 진행하며, 기존 바닥 재사용 시에는 더 세심하게 마감합니다. 철거와 별도 보수·코팅은 구분해 확인하세요.</p>
+              <ReadingParagraph className="text-xl font-bold">바닥본드제거 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">본드가 잘 떨어지는지 직접 시험해 보고 문의하실 필요는 없습니다. 현재 바닥 사진과 제거 후 사용 목적부터 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">찐청소는 바닥을 어떻게 사용할지에 맞춰 본드 제거 범위와 비용을 안내합니다. 마무리 세척은 기본으로 진행하며, 기존 바닥 재사용 시에는 더 세심하게 마감합니다. 철거와 별도 보수·코팅은 구분해 확인하세요.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

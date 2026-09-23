@@ -1,3 +1,8 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { EcosorbNotice } from "@/components/service-pages/EcosorbNotice";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -10,6 +15,7 @@ const toc = [
   ["estimate", "비용·견적 기준"],
   ["scope", "기본 범위·별도 작업"],
   ["extra", "추가 비용"],
+  ["safety", "ECOSORB·냄새 관리"],
   ["process", "진행 순서"],
   ["photos", "작업 전후 사진"],
   ["area", "지역·비대면 진행"],
@@ -224,7 +230,7 @@ export default function LonelyDeathCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -237,35 +243,36 @@ export default function LonelyDeathCleaningLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>고독사청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">고독사청소, 현장 인계 후 오염과 물품을 신중하게 정리합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>현장 출입과 작업 가능 여부를 확인한 뒤 남겨진 물품과 오염 구역을 살펴봅니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 자재 철거·복원이 필요한 경우 별도 비용을 안내합니다.</p>
+            <ReadingParagraph>현장 출입과 작업 가능 여부를 확인한 뒤 남겨진 물품과 오염 구역을 살펴봅니다. 찐청소는 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행하며, 자재 철거·복원이 필요한 경우 별도 비용을 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">고독사청소 상담·견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="고독사청소 비용과 견적 산정 기준" />
-            <p>고독사청소 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 오염이 발생한 위치와 범위, 자재 상태, 정리할 물건의 양에 따라 필요한 작업이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로, 폐기물 처리량과 현장 조건을 함께 확인해 견적을 안내합니다.</p>
+            <ReadingParagraph breakAfter={["같은 면적이라도 ","정리할 물건의 양에 따라 "]}>고독사청소 비용은 평수만으로 정하기 어렵습니다. 같은 면적이라도 오염이 발생한 위치와 범위, 자재 상태, 정리할 물건의 양에 따라 필요한 작업이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["장비·약품을 중심으로, "]}>찐청소는 필요한 인원과 장비·약품을 중심으로, 폐기물 처리량과 현장 조건을 함께 확인해 견적을 안내합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">공간 크기보다 실제 작업 범위를 확인합니다</h3>
-            <p className="mt-2">작은 공간에서도 오염이 바닥재나 주변 자재 안쪽까지 이어져 있다면 추가 작업이 필요할 수 있습니다. 반대로 집 전체를 정리할 필요 없이 일부 구역을 중심으로 작업할 수 있는 현장도 있습니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">작은 공간에서도 오염이 바닥재나 주변 자재 안쪽까지 이어져 있다면 추가 작업이 필요할 수 있습니다. 반대로 집 전체를 정리할 필요 없이 일부 구역을 중심으로 작업할 수 있는 현장도 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -273,23 +280,24 @@ export default function LonelyDeathCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">수거·폐기물 처리·소독·냄새 제거는 기본 포함입니다</h3>
-            <p className="mt-2">찐청소의 고독사청소에는 수거·폐기물 처리·청소·소독·냄새 제거가 기본으로 포함됩니다. 다만 기본 포함이라는 말이 현장 상태와 물량에 관계없이 같은 금액이라는 뜻은 아닙니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">견적을 비교하실 때는 청소비만 제시된 것인지, 폐기물 처리와 냄새 제거까지 포함된 것인지 함께 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">찐청소의 고독사청소에는 수거·폐기물 처리·청소·소독·냄새 제거가 기본으로 포함됩니다. 다만 기본 포함이라는 말이 현장 상태와 물량에 관계없이 같은 금액이라는 뜻은 아닙니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">견적을 비교하실 때는 청소비만 제시된 것인지, 폐기물 처리와 냄새 제거까지 포함된 것인지 함께 확인해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">철거와 복원은 별도 견적입니다</h3>
-            <p className="mt-2">손상되거나 오염된 자재의 철거, 교체와 복원 공사는 기본 청소비에 포함되지 않습니다. 필요한 경우 작업 이유와 대상 구역, 복원 범위를 구분해 상담합니다. 청소만 필요한지, 철거·복원까지 필요한지는 현장을 확인한 뒤 정합니다.</p>
+            <ReadingParagraph className="mt-2">손상되거나 오염된 자재의 철거, 교체와 복원 공사는 기본 청소비에 포함되지 않습니다. 필요한 경우 작업 이유와 대상 구역, 복원 범위를 구분해 상담합니다. 청소만 필요한지, 철거·복원까지 필요한지는 현장을 확인한 뒤 정합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">사진이 없어도 상담할 수 있습니다</h3>
-            <p className="mt-2">이미 가지고 계신 사진이 있다면 상담에 도움이 됩니다. 사진 촬영이 어렵거나 현장을 보기 힘드시다면, 아는 내용만 먼저 알려주세요.</p>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 상담을 위해 직접 들어가거나 오염된 물건을 옮기실 필요는 없습니다. 사진으로 확인하기 어려운 부분은 현장 확인 후 범위와 비용이 달라질 수 있습니다.</p>
+            <ReadingParagraph className="mt-2">이미 가지고 계신 사진이 있다면 상담에 도움이 됩니다. 사진 촬영이 어렵거나 현장을 보기 힘드시다면, 아는 내용만 먼저 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 상담을 위해 직접 들어가거나 오염된 물건을 옮기실 필요는 없습니다. 사진으로 확인하기 어려운 부분은 현장 확인 후 범위와 비용이 달라질 수 있습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 범위/별도작업 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="기본 청소 범위와 별도 작업" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">장판·벽지·가구에 남은 오염은 깊이와 상태를 확인합니다</h3>
-            <p className="mt-2 mb-6">접근 가능한 표면의 오염과 마감재 안쪽으로 스며든 상태를 구분합니다. 보관할 유품과 처리할 물품을 협의하고, 청소로 다루기 어려운 자재는 교체 검토가 필요할 수 있습니다. 현장 기록은 의뢰인과 합의한 범위에서 다룹니다.</p>
-            <p>고독사청소는 물건을 모두 비우는 방식으로만 진행하지 않습니다. 보관할 유품, 폐기할 물건, 오염을 처리할 구역을 구분하고 현장에 필요한 작업을 정합니다.</p>
+            <ReadingParagraph className="mt-2 mb-6">접근 가능한 표면의 오염과 마감재 안쪽으로 스며든 상태를 구분합니다. 보관할 유품과 처리할 물품을 협의하고, 청소로 다루기 어려운 자재는 교체 검토가 필요할 수 있습니다. 현장 기록은 의뢰인과 합의한 범위에서 다룹니다.</ReadingParagraph>
+            <ReadingParagraph>고독사청소는 물건을 모두 비우는 방식으로만 진행하지 않습니다. 보관할 유품, 폐기할 물건, 오염을 처리할 구역을 구분하고 현장에 필요한 작업을 정합니다.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => {
@@ -298,8 +306,8 @@ export default function LonelyDeathCleaningLanding() {
                   <div key={item.title} className={`rounded-xl border border-gray-100 p-5 ${hasPhotos ? "grid gap-5 md:grid-cols-[1fr_300px]" : ""}`}>
                     <div>
                       <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                      <p className="mt-2">{item.body}</p>
-                      {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                      <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                      {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                     </div>
                     {hasPhotos && (
                       <div className="space-y-3">
@@ -334,7 +342,7 @@ export default function LonelyDeathCleaningLanding() {
               })}
             </div>
 
-            <p className="mt-6 font-bold text-brand-dark">별도로 확인할 항목</p>
+            <ReadingParagraph className="mt-6 font-bold text-brand-dark">별도로 확인할 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {separateScopeItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -343,37 +351,17 @@ export default function LonelyDeathCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-[15px] text-gray-500">위 항목은 기본 서비스에 자동으로 포함되지 않으며, 진행 가능 여부와 비용을 별도로 확인해야 합니다.</p>
+            <ReadingParagraph className="mt-5 text-[15px] text-gray-500">위 항목은 기본 서비스에 자동으로 포함되지 않으며, 진행 가능 여부와 비용을 별도로 확인해야 합니다.</ReadingParagraph>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
-          {/* 냄새 제거·공기질 개선 약품 안전성 - "냄새 제거" 바로 뒤에 배치해 신뢰를 확인시킵니다 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">냄새 제거·공기질 개선에 사용하는 약품, 안전한가요?</h2>
-            <p className="mt-4">고독사청소에 사용하는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 냄새 제거뿐 아니라 공기질 개선 효과까지 확인된 제품이라, 청소가 끝난 뒤 바로 생활하거나 사용해야 하는 공간이라 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>추가 비용 여부는 처음 확인한 상태와 협의한 작업 범위가 달라지는지를 기준으로 확인해야 합니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">다음과 같은 경우에는 견적 조정이 필요할 수 있습니다.</p>
+            <ReadingParagraph>추가 비용 여부는 처음 확인한 상태와 협의한 작업 범위가 달라지는지를 기준으로 확인해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">다음과 같은 경우에는 견적 조정이 필요할 수 있습니다.</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -382,8 +370,12 @@ export default function LonelyDeathCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">소독과 냄새 제거 자체는 기본 포함 항목입니다. 다만 자재 내부 오염에 대응하기 위한 별도 공사까지 기본 청소비에 포함되는 것은 아닙니다. 계약 전에는 확정된 작업과 추가 확인이 필요한 항목을 구분하고, 변경 시 비용과 일정을 어떻게 협의할지도 확인해 주세요.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">소독과 냄새 제거 자체는 기본 포함 항목입니다. 다만 자재 내부 오염에 대응하기 위한 별도 공사까지 기본 청소비에 포함되는 것은 아닙니다. 계약 전에는 확정된 작업과 추가 확인이 필요한 항목을 구분하고, 변경 시 비용과 일정을 어떻게 협의할지도 확인해 주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
+
+          <EcosorbNotice />
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
@@ -396,7 +388,7 @@ export default function LonelyDeathCleaningLanding() {
                 </span>
               ))}
             </div>
-            <p className="mt-4 text-[15px] text-gray-500">철거는 오염 처리에 앞서 필요한 경우도 있습니다. 구체적인 순서와 반복 작업 여부는 현장 상태에 맞춰 조정합니다.</p>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">철거는 오염 처리에 앞서 필요한 경우도 있습니다. 구체적인 순서와 반복 작업 여부는 현장 상태에 맞춰 조정합니다.</ReadingParagraph>
 
             <ol className="mt-6 space-y-4">
               {processSteps.map(([title, body], i) => (
@@ -404,21 +396,22 @@ export default function LonelyDeathCleaningLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
-            <p className="mt-2">오염 범위, 자재 상태, 정리할 물건의 양, 냄새 제거와 별도 공사 필요 여부에 따라 달라집니다. 현장 확인 없이 당일 완료나 일정한 작업 기간을 약속드리지는 않습니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">퇴실이나 공간 인도 일정이 정해져 있다면 상담 시 먼저 알려주세요. 청소 완료 시점과 복원까지 마무리되는 시점을 구분해 안내받는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-2">오염 범위, 자재 상태, 정리할 물건의 양, 냄새 제거와 별도 공사 필요 여부에 따라 달라집니다. 현장 확인 없이 당일 완료나 일정한 작업 기간을 약속드리지는 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">퇴실이나 공간 인도 일정이 정해져 있다면 상담 시 먼저 알려주세요. 청소 완료 시점과 복원까지 마무리되는 시점을 구분해 안내받는 것이 좋습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진/결과확인 */}
           <section id="photos" className="scroll-mt-36">
             <SectionTitle id="photos-title" kicker="05" title="작업 전후 사진과 결과 확인" />
-            <p>찐청소는 작업 전후 사진을 자세히 촬영해 보내드립니다. 현장에 직접 오시기 어려운 경우에도 합의한 작업이 어떻게 진행되었는지 확인하실 수 있습니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">주요 확인 항목</p>
+            <ReadingParagraph>찐청소는 작업 전후 사진을 자세히 촬영해 보내드립니다. 현장에 직접 오시기 어려운 경우에도 합의한 작업이 어떻게 진행되었는지 확인하실 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 확인 항목</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {photoChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -426,21 +419,23 @@ export default function LonelyDeathCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">현장 사진을 보는 것이 부담스럽다면</h3>
-            <p className="mt-2">사진을 직접 확인하기 어렵다면 상담할 때 말씀해 주세요. 전체 공간, 보관 유품, 완료 상태 등 어떤 자료를 누구에게 전달할지 미리 협의하실 수 있습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">결과 확인을 위해 원치 않는 상세 장면까지 직접 보셔야 하는 방식으로 정할 필요는 없습니다. 대신 확인할 담당자와 필요한 자료의 범위를 정해 주세요.</p>
+            <ReadingParagraph className="mt-2">사진을 직접 확인하기 어렵다면 상담할 때 말씀해 주세요. 전체 공간, 보관 유품, 완료 상태 등 어떤 자료를 누구에게 전달할지 미리 협의하실 수 있습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">결과 확인을 위해 원치 않는 상세 장면까지 직접 보셔야 하는 방식으로 정할 필요는 없습니다. 대신 확인할 담당자와 필요한 자료의 범위를 정해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">사진으로 확인하기 어려운 부분도 있습니다</h3>
-            <p className="mt-2">사진은 눈에 보이는 결과를 확인하는 자료입니다. 냄새나 자재 내부 상태까지 사진만으로 판단할 수는 없습니다. 냄새 확인과 추가 조치 여부는 별도로 설명을 듣고, 현장 확인 방법을 협의해 주세요.</p>
+            <ReadingParagraph className="mt-2">사진은 눈에 보이는 결과를 확인하는 자료입니다. 냄새나 자재 내부 상태까지 사진만으로 판단할 수는 없습니다. 냄새 확인과 추가 조치 여부는 별도로 설명을 듣고, 현장 확인 방법을 협의해 주세요.</ReadingParagraph>
+            <ServicePhotoLinks path={path} />
+          <BackToContents />
           </section>
 
           {/* 6. 지역/비대면 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 비대면 진행" />
-            <p>현장 주소와 희망 일정을 알려주시면 방문 가능 여부를 안내합니다. 층수, 엘리베이터, 주차 위치와 반출 여건도 함께 확인합니다.</p>
+            <ReadingParagraph>현장 주소와 희망 일정을 알려주시면 방문 가능 여부를 안내합니다. 층수, 엘리베이터, 주차 위치와 반출 여건도 함께 확인합니다.</ReadingParagraph>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">현장에 가지 않고도 맡길 수 있나요?</h3>
-            <p className="mt-2">네. 원하시면 비대면으로 진행할 수 있습니다. 현장 출입 방법과 유품 분류, 작업 중 확인과 결과 전달 방법을 사전에 협의합니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">비대면 진행 전 확인할 내용</p>
+            <ReadingParagraph className="mt-2">네. 원하시면 비대면으로 진행할 수 있습니다. 현장 출입 방법과 유품 분류, 작업 중 확인과 결과 전달 방법을 사전에 협의합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">비대면 진행 전 확인할 내용</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -449,16 +444,17 @@ export default function LonelyDeathCleaningLanding() {
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">주변 시선이 걱정된다면</h3>
             <div className="mt-2 rounded-xl bg-gray-50 p-5">
-              <p className="text-[15.5px]">방문 시간과 반출 동선 등 걱정되는 부분을 알려주세요. 현장 여건에서 조정할 수 있는 내용을 함께 확인하겠습니다.</p>
-              <p className="mt-2 text-[15.5px]">다만 복도와 엘리베이터 등 공용 공간을 사용해야 할 수 있어, 주변에서 작업 사실을 전혀 알 수 없다고 보장하지는 않습니다.</p>
+              <ReadingParagraph className="text-[15.5px]">방문 시간과 반출 동선 등 걱정되는 부분을 알려주세요. 현장 여건에서 조정할 수 있는 내용을 함께 확인하겠습니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15.5px]">다만 복도와 엘리베이터 등 공용 공간을 사용해야 할 수 있어, 주변에서 작업 사실을 전혀 알 수 없다고 보장하지는 않습니다.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 사후 문의" />
-            <p>검수는 처음 협의한 작업 범위와 유품 분류 기준을 중심으로 진행합니다. 공간이 비워졌는지뿐 아니라 청소 결과와 남은 확인 사항을 함께 살펴봅니다.</p>
-            <p className="mt-5 font-bold text-brand-dark">주요 검수 항목</p>
+            <ReadingParagraph>검수는 처음 협의한 작업 범위와 유품 분류 기준을 중심으로 진행합니다. 공간이 비워졌는지뿐 아니라 청소 결과와 남은 확인 사항을 함께 살펴봅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">주요 검수 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -467,8 +463,9 @@ export default function LonelyDeathCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5">작업 후 궁금한 부분이나 냄새가 느껴지는 위치가 있다면 구체적으로 알려주세요. 재확인과 사후 처리의 적용 범위·기간은 계약 시 확인하시기 바랍니다.</p>
-            <p className="mt-4 text-[15px] text-gray-500">청소 완료만으로 공간의 모든 상태를 보증하는 것은 아닙니다. 다시 사용할 시점은 남아 있는 작업과 필요한 점검 사항까지 함께 확인해 결정해야 합니다.</p>
+            <ReadingParagraph className="mt-5">작업 후 궁금한 부분이나 냄새가 느껴지는 위치가 있다면 구체적으로 알려주세요. 재확인과 사후 처리의 적용 범위·기간은 계약 시 확인하시기 바랍니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">청소 완료만으로 공간의 모든 상태를 보증하는 것은 아닙니다. 다시 사용할 시점은 남아 있는 작업과 필요한 점검 사항까지 함께 확인해 결정해야 합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -478,10 +475,11 @@ export default function LonelyDeathCleaningLanding() {
               {prepSections.map(([title, body]) => (
                 <div key={title}>
                   <h3 className="text-lg font-bold text-brand-dark">{title}</h3>
-                  <p className="mt-2">{body}</p>
+                  <ReadingParagraph className="mt-2">{body}</ReadingParagraph>
                 </div>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -491,18 +489,19 @@ export default function LonelyDeathCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">고독사청소 상담·견적 문의</p>
-              <p className="mt-3 text-white/80">처음부터 상황을 자세히 설명하거나 모든 정리 범위를 결정하실 필요는 없습니다. 현재 알고 계신 내용과 가장 필요한 도움부터 말씀해 주세요.</p>
-              <p className="mt-2 text-white/80">찐청소는 수거·폐기물 처리부터 청소·소독·냄새 제거까지 기본으로 진행합니다. 비대면으로 맡기실 수 있으며, 상세한 작업 전후 사진을 전달해 드립니다. 필요한 철거와 복원은 별도 견적으로 안내합니다.</p>
+              <ReadingParagraph className="text-xl font-bold">고독사청소 상담·견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">처음부터 상황을 자세히 설명하거나 모든 정리 범위를 결정하실 필요는 없습니다. 현재 알고 계신 내용과 가장 필요한 도움부터 말씀해 주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-white/80">찐청소는 수거·폐기물 처리부터 청소·소독·냄새 제거까지 기본으로 진행합니다. 비대면으로 맡기실 수 있으며, 상세한 작업 전후 사진을 전달해 드립니다. 필요한 철거와 복원은 별도 견적으로 안내합니다.</ReadingParagraph>
               <ul className="mt-5 grid gap-2 text-sm text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2 rounded-lg bg-white/10 px-3 py-2">

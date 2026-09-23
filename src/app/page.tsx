@@ -180,16 +180,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 사용 약품 안전성 입증 자료 & 사용 장비 */}
+      {/* ECOSORB 제품 시험자료 */}
       <section className="bg-gray-50 py-16 md:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="mb-10 text-center">
             <SectionHeading
-              title="인체에 안전한 약품만 사용합니다"
+              title="냄새·공기질 관리에 사용하는 ECOSORB, 시험자료로 확인하세요"
               description={
                 <>
-                  <span className="block break-keep sm:inline">공기질을 개선하고 인체에 무독성임을 입증하는 공인 시험 자료입니다.</span>{" "}
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                  <span className="block break-keep">ECOSORB의 VOC 및 독성 관련 시험자료입니다. 시험 결과는 자료에 기재된 제품과 조건에 해당합니다.</span>
                 </>
               }
             />

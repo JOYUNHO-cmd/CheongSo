@@ -4,6 +4,7 @@ import { serviceCategories, itemAnchor } from "@/lib/services-data";
 import { servicePath, serviceProfiles } from "@/lib/service-profiles";
 import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
+import readability from "@/components/service-pages/Readability.module.css";
 
 const totalServiceCount = serviceProfiles.length;
 
@@ -16,7 +17,7 @@ export const metadata = buildMetadata({
 
 export default function ServicesPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-16">
+    <div className={`${readability.catalog} mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-16`}>
       {/* 1. 상단 타이틀 */}
       <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
         <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-gray-900 mb-3">
@@ -48,8 +49,8 @@ export default function ServicesPage() {
       </div>
 
       {/* 2. [모바일 & PC 공통] 7개 분야 빠른 바로가기 퀵 네비게이션 칩 */}
-      <div className="sticky top-[56px] sm:top-[72px] z-30 -mx-4 sm:mx-0 px-4 sm:px-0 py-3 bg-white/95 backdrop-blur-sm border-y border-gray-100 mb-8 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-1.5 sm:gap-2 min-w-max mx-auto justify-start sm:justify-center">
+      <div>
+        <div className={readability.categories}>
           {serviceCategories.map((cat, idx) => (
             <a
               key={cat.slug}
@@ -95,8 +96,8 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            {/* 세부 서비스 그리드 (모바일 2열, 태블릿 3열, PC 4열) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3">
+            {/* 글자를 줄이지 않고 화면 너비에 맞춰 카드 열 수 조정 */}
+            <div className={readability.cards}>
               {cat.items.map((item, i) => (
                 <Link
                   key={item}

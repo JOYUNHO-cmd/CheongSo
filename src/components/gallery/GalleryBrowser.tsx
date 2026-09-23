@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import galleryData from "@/lib/gallery-data.json";
+import { useRouter } from "next/navigation";
+import { galleryHref } from "@/lib/gallery-navigation";
 
 type GalleryItem = {
   id: string;
@@ -46,7 +48,8 @@ function Badge({ label, variant }: { label: string; variant: "before" | "after" 
   );
 }
 
-export default function GalleryBrowser() {
+export default function GalleryBrowser({ initialCategory = "all", initialItem = null }: { initialCategory?: string; initialItem?: string | null }) {
+  const router = useRouter();
   // 하이드레이션 직후에 섞어야 서버·클라이언트 초기 마크업이 일치합니다.
   const [items, setItems] = useState(allItems);
   useEffect(() => {
@@ -54,9 +57,9 @@ export default function GalleryBrowser() {
     setItems(shuffled(allItems));
   }, []);
 
-  const [activeCategory, setActiveCategory] = useState("all");
+  const activeCategory = initialCategory;
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const [openItem, setOpenItem] = useState<FlatItem | null>(null);
+  const openItem = allItems.find(item => item.id === initialItem) ?? null;
   const [filterOpen, setFilterOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
 
@@ -66,9 +69,9 @@ export default function GalleryBrowser() {
   }, [openItem]);
 
   function selectCategory(slug: string) {
-    setActiveCategory(slug);
     setVisibleCount(PAGE_SIZE);
     setFilterOpen(false);
+    router.push(galleryHref(slug), { scroll: false });
   }
 
   const filtered = activeCategory === "all" ? items : items.filter((item) => item.categorySlug === activeCategory);
@@ -82,6 +85,8 @@ export default function GalleryBrowser() {
         <button
           type="button"
           onClick={() => setFilterOpen((value) => !value)}
+          aria-expanded={filterOpen}
+          aria-controls="gallery-mobile-filters"
           className="flex w-full items-center justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3.5 shadow-sm"
         >
           <span className="flex min-w-0 items-center gap-2">
@@ -98,10 +103,11 @@ export default function GalleryBrowser() {
           </span>
         </button>
         {filterOpen && (
-          <div className="absolute inset-x-0 top-full z-20 mt-1.5 max-h-80 overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-lg divide-y divide-gray-100">
+          <div id="gallery-mobile-filters" className="absolute inset-x-0 top-full z-20 mt-1.5 max-h-80 overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-lg divide-y divide-gray-100">
             <button
               type="button"
               onClick={() => selectCategory("all")}
+              aria-pressed={activeCategory === "all"}
               className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === "all" ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
             >
               전체
@@ -111,6 +117,7 @@ export default function GalleryBrowser() {
                 key={cat.slug}
                 type="button"
                 onClick={() => selectCategory(cat.slug)}
+                aria-pressed={activeCategory === cat.slug}
                 className={`block w-full px-4 py-3 text-left text-sm font-bold ${activeCategory === cat.slug ? "bg-brand-light text-brand-dark" : "text-gray-700 hover:bg-teal-50"}`}
               >
                 {cat.label}
@@ -125,6 +132,7 @@ export default function GalleryBrowser() {
           <button
             type="button"
             onClick={() => selectCategory("all")}
+            aria-pressed={activeCategory === "all"}
             className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
               activeCategory === "all" ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
             }`}
@@ -137,6 +145,7 @@ export default function GalleryBrowser() {
               key={cat.slug}
               type="button"
               onClick={() => selectCategory(cat.slug)}
+              aria-pressed={activeCategory === cat.slug}
               className={`shrink-0 rounded-xl px-4 py-2.5 text-sm font-extrabold transition-all ${
                 activeCategory === cat.slug ? "bg-brand text-white shadow-sm" : "border border-gray-200 bg-white text-gray-600 hover:border-brand hover:text-brand"
               }`}
@@ -152,7 +161,7 @@ export default function GalleryBrowser() {
           <button
             key={item.id}
             type="button"
-            onClick={() => setOpenItem(item)}
+            onClick={() => router.push(galleryHref(activeCategory, item.id), { scroll: false })}
             className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
           >
             <div className="grid grid-cols-2">
@@ -186,7 +195,7 @@ export default function GalleryBrowser() {
 
       <dialog
         ref={dialog}
-        onClose={() => setOpenItem(null)}
+        onClose={() => { if (openItem) router.replace(galleryHref(activeCategory), { scroll: false }); }}
         aria-label="시공 전/후 크게 보기"
         className="m-auto h-fit w-[95vw] max-w-[1300px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-white p-4 backdrop:bg-black/80"
       >

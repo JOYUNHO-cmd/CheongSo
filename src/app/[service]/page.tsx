@@ -38,6 +38,7 @@ import StoneCleaningLanding from "@/components/service-pages/StoneCleaningLandin
 import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
+import representativeImages from "@/lib/service-representative-images.json";
 import { siteConfig } from "@/lib/site-config";
 // 목록 밖 주소는 아래 조회에서 404로 처리합니다. 한글 경로도 같은 조회를 거칩니다.
 export const dynamicParams = true;
@@ -225,7 +226,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = custom?.description ?? s.intro;
   const category = serviceCategories.find(c => c.slug === s.category);
   const keywords = [s.name, `${s.name} 가격`, `${s.name} 비용`, `${s.name} 견적`, category?.title, siteConfig.name].filter((v): v is string => !!v);
-  return buildMetadata({ title, description, keywords, path: servicePath(s.name) });
+  const image = (representativeImages as Record<string, { src: string; alt: string; width: number; height: number }>)[s.slug];
+  return buildMetadata({ title, description, keywords, path: servicePath(s.name), image });
 }
 export default async function Page({ params }: Props) {
   const s = findService((await params).service); if (!s) notFound();

@@ -1,3 +1,8 @@
+import readability from "./Readability.module.css";
+import { ReadingParagraph } from "./ReadingParagraph";
+import { BackToContents } from "./BackToContents";
+import { EcosorbNotice } from "@/components/service-pages/EcosorbNotice";
+import { ServiceNextStep, ServicePhotoLinks } from "@/components/service-pages/ServiceConnections";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl } from "@/lib/site-url";
@@ -10,8 +15,8 @@ const toc = [
   ["quickfacts", "핵심 정보 보기"],
   ["estimate", "비용·견적 기준"],
   ["scope", "기본 범위·별도 작업"],
-  ["safety", "냄새 제거 약품 안전성"],
   ["extra", "추가 비용"],
+  ["safety", "ECOSORB·냄새 관리"],
   ["process", "진행 순서"],
   ["cases", "작업 전후 사진"],
   ["area", "지역·예약 일정"],
@@ -198,7 +203,7 @@ export default function FloodCleaningLanding() {
   ];
 
   return (
-    <article>
+    <article className={`${readability.landing} ${readability.enhanced}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
@@ -211,37 +216,38 @@ export default function FloodCleaningLanding() {
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>침수청소</span>
           </nav>
-          <p className="text-sm font-bold tracking-widest text-brand-light">특수청소</p>
+          <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">반지하·상가 침수청소, 남은 오염부터 건조·소독까지</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <p>물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.</p>
+            <ReadingParagraph>물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">침수청소·복구 견적 문의하기 →</CtaButton>
         </div>
       </section>
 
-      <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 md:grid-cols-[190px_1fr]">
+      <div className={readability.layout}>
         {/* 목차 - 급한 고객이 원하는 항목으로 바로 이동 */}
-        <TocSidebar toc={toc} />
+        <TocSidebar toc={toc} id="service-toc" />
 
-        <div className="space-y-14 text-[17px] leading-8 text-gray-800">
+        <div className={`${readability.body} space-y-14 text-gray-800`}>
           {/* 핵심 정보 */}
           <section id="quickfacts" className="scroll-mt-36">
             <h2 className="text-xl font-black text-brand-dark">상단 핵심 정보</h2>
             <QuickFactsTable facts={quickFacts} />
+          <BackToContents />
           </section>
 
           {/* 1. 비용/견적 */}
           <section id="estimate" className="scroll-mt-36">
             <SectionTitle id="estimate-title" kicker="01" title="침수청소 비용과 견적 산정 기준" />
-            <p>침수청소 비용은 평수만으로 정하기 어렵습니다.</p>
-            <p className="mt-4">같은 면적이라도 들어온 물의 종류, 침수된 시간, 남은 토사와 오염, 젖은 자재의 상태에 따라 작업량이 달라집니다.</p>
-            <p className="mt-4">찐청소는 필요한 인원과 장비·약품을 중심으로 현장에 필요한 작업을 확인해 견적을 안내합니다. 건조·소독·냄새 제거는 기본 작업에 포함하며, 철거와 복원은 별도 견적으로 구분합니다.</p>
+            <ReadingParagraph>침수청소 비용은 평수만으로 정하기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["같은 면적이라도 ","젖은 자재의 상태에 따라 "]}>같은 면적이라도 들어온 물의 종류, 침수된 시간, 남은 토사와 오염, 젖은 자재의 상태에 따라 작업량이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4" breakAfter={["기본 작업에 포함하며, "]}>찐청소는 필요한 인원과 장비·약품을 중심으로 현장에 필요한 작업을 확인해 견적을 안내합니다. 건조·소독·냄새 제거는 기본 작업에 포함하며, 철거와 복원은 별도 견적으로 구분합니다.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">같은 평수라도 작업량은 다릅니다</h3>
-            <p className="mt-2">물이 빠진 빈 공간과 젖은 집기·토사가 남아 있는 공간은 정리에 필요한 시간이 다릅니다.</p>
-            <p className="mt-2">바닥 표면만 젖은 현장과 벽체·바닥재 안쪽까지 확인해야 하는 현장도 같은 기준으로 보기 어렵습니다.</p>
-            <p className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</p>
+            <ReadingParagraph className="mt-2">물이 빠진 빈 공간과 젖은 집기·토사가 남아 있는 공간은 정리에 필요한 시간이 다릅니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">바닥 표면만 젖은 현장과 벽체·바닥재 안쪽까지 확인해야 하는 현장도 같은 기준으로 보기 어렵습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">견적을 위해 다음 내용을 확인합니다.</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {estimateChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -249,30 +255,31 @@ export default function FloodCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 font-bold text-brand-dark">건조·소독·냄새 제거도 포함된 견적입니다</h3>
-            <p className="mt-2">찐청소의 침수청소에는 건조·소독·냄새 제거가 기본으로 포함됩니다.</p>
-            <p className="mt-2">다만 기본 포함이라는 말이 피해 정도와 작업량에 관계없이 같은 가격이라는 뜻은 아닙니다. 현장에 필요한 인원과 장비, 예상 작업 범위를 확인해 전체 견적을 정합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">상담할 때는 건조 작업의 대상과 예상 기간, 완료 확인 방법도 함께 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">찐청소의 침수청소에는 건조·소독·냄새 제거가 기본으로 포함됩니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">다만 기본 포함이라는 말이 피해 정도와 작업량에 관계없이 같은 가격이라는 뜻은 아닙니다. 현장에 필요한 인원과 장비, 예상 작업 범위를 확인해 전체 견적을 정합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">상담할 때는 건조 작업의 대상과 예상 기간, 완료 확인 방법도 함께 확인해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">청소비와 복원비는 구분합니다</h3>
-            <p className="mt-2">침수청소를 맡기신다고 철거와 복원 공사까지 자동으로 포함되지는 않습니다.</p>
+            <ReadingParagraph className="mt-2">침수청소를 맡기신다고 철거와 복원 공사까지 자동으로 포함되지는 않습니다.</ReadingParagraph>
             <QuickFactsTable facts={costSplit} headers={["구분", "내용"]} />
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">물을 빼는 작업과 청소, 손상된 공간을 복원하는 공사가 견적에 각각 어디까지 포함되는지 확인하는 것이 중요합니다.</p>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">물을 빼는 작업과 청소, 손상된 공간을 복원하는 공사가 견적에 각각 어디까지 포함되는지 확인하는 것이 중요합니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 2. 범위 */}
           <section id="scope" className="scroll-mt-36">
             <SectionTitle id="scope-title" kicker="02" title="기본 청소 범위와 별도 작업" />
             <h3 className="mt-6 text-lg font-bold text-brand-dark">젖은 바닥과 벽, 물품은 재사용 가능 여부를 나눠 봅니다</h3>
-            <p className="mt-2 mb-6">침수 높이와 지속 시간, 유입된 물의 종류, 물 유입이 계속되는지를 먼저 확인합니다. 젖은 마감재와 물품은 청소·건조 가능한 부분과 교체 검토 부분을 구분합니다. 표면이 말라 보인다는 이유만으로 내부 상태까지 건조되었다고 단정하지 않습니다.</p>
-            <p>찐청소는 합의한 침수 피해 구역의 오염을 청소하고, 건조·소독·냄새 제거까지 진행합니다.</p>
-            <p className="mt-4">현재 물이 남아 있는지, 물이 계속 들어오는지에 따라 먼저 필요한 조치가 달라집니다. 청소 전 현장 상태부터 알려주세요.</p>
+            <ReadingParagraph className="mt-2 mb-6">침수 높이와 지속 시간, 유입된 물의 종류, 물 유입이 계속되는지를 먼저 확인합니다. 젖은 마감재와 물품은 청소·건조 가능한 부분과 교체 검토 부분을 구분합니다. 표면이 말라 보인다는 이유만으로 내부 상태까지 건조되었다고 단정하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph>찐청소는 합의한 침수 피해 구역의 오염을 청소하고, 건조·소독·냄새 제거까지 진행합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">현재 물이 남아 있는지, 물이 계속 들어오는지에 따라 먼저 필요한 조치가 달라집니다. 청소 전 현장 상태부터 알려주세요.</ReadingParagraph>
 
             <div className="mt-6 space-y-6">
               {scopeItems.map(item => (
-                <div key={item.title} className="rounded-xl border border-gray-100 p-5">
+                <div key={item.title} className={`${readability.scopeCard} rounded-xl border border-gray-100 p-5`}>
                   <h3 className="text-lg font-bold text-brand-dark">{item.title}</h3>
-                  <p className="mt-2">{item.body}</p>
-                  {item.note && <p className="mt-2 text-[15px] text-gray-500">{item.note}</p>}
+                  <ReadingParagraph className="mt-2">{item.body}</ReadingParagraph>
+                  {item.note && <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{item.note}</ReadingParagraph>}
                   {item.photos && (
                     <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                       {item.photos.map(photo => (
@@ -288,8 +295,8 @@ export default function FloodCleaningLanding() {
 
             <div className="mt-6 rounded-xl bg-gray-50 p-5">
               <h3 className="font-bold text-brand-dark">{restorationNote.title}</h3>
-              <p className="mt-2 text-[15.5px]">{restorationNote.body}</p>
-              <p className="mt-2 text-[15px] text-gray-500">{restorationNote.note}</p>
+              <ReadingParagraph className="mt-2 text-[15.5px]">{restorationNote.body}</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{restorationNote.note}</ReadingParagraph>
             </div>
 
             <h3 className="mt-8 font-bold text-brand-dark">청소와 별도로 확인할 사항</h3>
@@ -301,37 +308,17 @@ export default function FloodCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-[15px] text-gray-500">위 항목은 침수청소에 자동으로 포함되는 것으로 보지 않으며, 진행 가능 여부와 담당 범위를 사전에 확인해야 합니다.</p>
+            <ReadingParagraph className="mt-4 text-[15px] text-gray-500">위 항목은 침수청소에 자동으로 포함되는 것으로 보지 않으며, 진행 가능 여부와 담당 범위를 사전에 확인해야 합니다.</ReadingParagraph>
+            <ServiceNextStep path={path} />
+          <BackToContents />
           </section>
 
-          {/* 냄새 제거 약품 안전성 - "냄새 제거" 바로 뒤에 배치해 신뢰를 확인시킵니다 */}
-          <section id="safety" className="scroll-mt-36">
-            <h2 className="text-xl font-black text-brand-dark">침수 냄새 제거에 사용하는 약품, 안전한가요?</h2>
-            <p className="mt-4">침수 냄새 제거에 사용하는 약품은 해외 공인 시험기관의 검증을 거친 제품입니다. 건조와 소독이 끝난 뒤 바로 생활하거나 영업을 재개해야 하는 공간이라 저희도 이 부분을 가장 신경 씁니다.</p>
-            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">VOC(휘발성유기화합물) 성분 불검출</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">눈·피부 자극 없음 (자극물질 아님)</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">경구·경피 노출 시 독성 없음</li>
-              <li className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">흡입 노출 시 독성 없음</li>
-            </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-voc-report.webp" alt="VOC 실험 결과 증빙자료" width={933} height={1245} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">VOC 실험 결과 (PACE Inc.)</figcaption>
-              </figure>
-              <figure className="overflow-hidden rounded-xl border border-gray-200">
-                <Image src="/images/safety/safety-toxicity-report.webp" alt="무독성 실험 결과 증빙자료" width={1905} height={1200} className="w-full object-contain" sizes="(min-width: 768px) 340px, 100vw" />
-                <figcaption className="border-t border-gray-100 px-4 py-2.5 text-sm text-gray-500">무독성 실험 결과 (Tox Monitor/BSR, Inc.)</figcaption>
-              </figure>
-            </div>
-            <p className="mt-4 text-[15px] text-gray-500">제품마다 적용 시험 항목은 다를 수 있으며, 현장 상황에 맞는 제품과 사용량은 상담 시 안내합니다.</p>
-          </section>
 
           {/* 3. 추가비용 */}
-          <section id="extra" className="scroll-mt-36">
+          <section id="extra" className={`${readability.extraCosts} scroll-mt-36`}>
             <SectionTitle id="extra-title" kicker="03" title="추가 비용이 발생할 수 있는 경우" />
-            <p>건조·소독·냄새 제거는 기본 포함 항목입니다. 이 항목을 진행한다는 이유만으로 별도 선택 서비스로 구분하지 않습니다.</p>
-            <p className="mt-4">다만 처음 협의한 피해 범위나 작업 조건이 달라지면 견적 조정이 필요할 수 있습니다.</p>
+            <ReadingParagraph>건조·소독·냄새 제거는 기본 포함 항목입니다. 이 항목을 진행한다는 이유만으로 별도 선택 서비스로 구분하지 않습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">다만 처음 협의한 피해 범위나 작업 조건이 달라지면 견적 조정이 필요할 수 있습니다.</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {extraCostItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -340,13 +327,17 @@ export default function FloodCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 단계에서 확인 가능한 부분과 작업 중 추가 확인이 필요한 부분을 구분해 주세요. 범위가 달라질 때 비용과 일정을 어떻게 협의할지도 함께 정해두는 것이 좋습니다.</p>
+            <ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">견적 단계에서 확인 가능한 부분과 작업 중 추가 확인이 필요한 부분을 구분해 주세요. 범위가 달라질 때 비용과 일정을 어떻게 협의할지도 함께 정해두는 것이 좋습니다.</ReadingParagraph>
+          <BackToContents />
           </section>
+
+          <EcosorbNotice />
+
 
           {/* 4. 진행순서 */}
           <section id="process" className="scroll-mt-36">
             <SectionTitle id="process-title" kicker="04" title="침수청소부터 복원까지 진행 순서" />
-            <p>기본 진행 흐름은 다음과 같습니다.</p>
+            <ReadingParagraph>기본 진행 흐름은 다음과 같습니다.</ReadingParagraph>
 
             <div className="mt-5 flex flex-wrap items-center gap-2 rounded-xl bg-gray-50 p-4 text-sm font-bold text-brand-dark">
               {processFlow.map((step, i) => (
@@ -356,7 +347,7 @@ export default function FloodCleaningLanding() {
                 </span>
               ))}
             </div>
-            <p className="mt-3 text-[15px] text-gray-500">배수·수거·철거 등의 필요 여부와 포함 범위는 현장별로 정합니다. 작업 순서는 오염과 자재 상태에 따라 조정하거나 일부 공정을 반복할 수 있습니다.</p>
+            <ReadingParagraph className="mt-3 text-[15px] text-gray-500">배수·수거·철거 등의 필요 여부와 포함 범위는 현장별로 정합니다. 작업 순서는 오염과 자재 상태에 따라 조정하거나 일부 공정을 반복할 수 있습니다.</ReadingParagraph>
 
             <ol className="mt-6 space-y-4">
               {processSteps.map(([title, body], i) => (
@@ -364,24 +355,25 @@ export default function FloodCleaningLanding() {
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light font-black text-brand-dark">{i + 1}</span>
                   <div>
                     <h3 className="font-bold text-brand-dark">{title}</h3>
-                    <p className="mt-1">{body}</p>
+                    <ReadingParagraph className="mt-1">{body}</ReadingParagraph>
                   </div>
                 </li>
               ))}
             </ol>
 
             <h3 className="mt-6 font-bold text-brand-dark">작업은 얼마나 걸리나요?</h3>
-            <p className="mt-2">표면 청소에 걸리는 시간과 건조에 필요한 시간은 다를 수 있습니다. 피해 면적, 젖은 자재, 환기 조건, 별도 공사 유무에 따라 전체 일정이 달라집니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">당일 청소가 가능한 현장이라도 건조와 복원까지 같은 날 끝난다는 뜻은 아닙니다. 입주나 영업 재개 기한이 있다면 상담할 때 먼저 알려주세요.</p>
+            <ReadingParagraph className="mt-2">표면 청소에 걸리는 시간과 건조에 필요한 시간은 다를 수 있습니다. 피해 면적, 젖은 자재, 환기 조건, 별도 공사 유무에 따라 전체 일정이 달라집니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">당일 청소가 가능한 현장이라도 건조와 복원까지 같은 날 끝난다는 뜻은 아닙니다. 입주나 영업 재개 기한이 있다면 상담할 때 먼저 알려주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 5. 전후사진 */}
           {cases.length > 0 && (
             <section id="cases" className="scroll-mt-36">
               <SectionTitle id="cases-title" kicker="05" title="작업 전후 사진과 결과 확인 방법" />
-              <p>침수청소 결과는 물이 없어지고 바닥이 깨끗해진 모습만으로 판단하기 어렵습니다. 사진으로 확인할 내용과 현장 상태로 확인할 내용을 구분하는 것이 좋습니다.</p>
+              <ReadingParagraph>침수청소 결과는 물이 없어지고 바닥이 깨끗해진 모습만으로 판단하기 어렵습니다. 사진으로 확인할 내용과 현장 상태로 확인할 내용을 구분하는 것이 좋습니다.</ReadingParagraph>
 
-              <p className="mt-4 font-bold text-brand-dark">사진으로 확인할 내용</p>
+              <ReadingParagraph className="mt-4 font-bold text-brand-dark">사진으로 확인할 내용</ReadingParagraph>
               <ul className="mt-3 space-y-2.5">
                 <li className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
@@ -409,7 +401,7 @@ export default function FloodCleaningLanding() {
                 {cases.map(item => <CaseFigure key={item.id} item={item} />)}
               </div>
 
-              <p className="mt-5 font-bold text-brand-dark">별도로 설명과 확인이 필요한 내용</p>
+              <ReadingParagraph className="mt-5 font-bold text-brand-dark">별도로 설명과 확인이 필요한 내용</ReadingParagraph>
               <ul className="mt-3 space-y-2.5">
                 <li className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
@@ -428,18 +420,20 @@ export default function FloodCleaningLanding() {
                   누수·배수·전기 설비 등 별도 점검 사항
                 </li>
               </ul>
-              <p className="mt-4">작업 사례를 비교하실 때도 청소만 진행한 현장인지, 철거와 자재 교체까지 진행한 현장인지 함께 확인해 주세요.</p>
-              <p className="mt-2 text-[15px] text-gray-500">완료 사진이 필요하다면 촬영 구역과 전달 방법을 상담 시 협의하실 수 있습니다.</p>
+              <ReadingParagraph className="mt-4">작업 사례를 비교하실 때도 청소만 진행한 현장인지, 철거와 자재 교체까지 진행한 현장인지 함께 확인해 주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15px] text-gray-500">완료 사진이 필요하다면 촬영 구역과 전달 방법을 상담 시 협의하실 수 있습니다.</ReadingParagraph>
               <Link href="#cases" className="mt-4 inline-block font-bold text-brand">침수·누수청소 현장 사진 보기 →</Link>
-            </section>
+            <ServicePhotoLinks path={path} />
+            <BackToContents />
+          </section>
           )}
 
           {/* 6. 지역/예약 */}
           <section id="area" className="scroll-mt-36">
             <SectionTitle id="area-title" kicker="06" title="서비스 가능 지역과 예약 일정" />
-            <p>현장 위치와 침수 상황을 알려주시면 방문 가능 여부와 일정을 안내합니다.</p>
-            <p className="mt-4">반지하나 지하 공간이라면 출입구, 계단, 장비 진입 여건도 함께 알려주세요.</p>
-            <p className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</p>
+            <ReadingParagraph>현장 위치와 침수 상황을 알려주시면 방문 가능 여부와 일정을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">반지하나 지하 공간이라면 출입구, 계단, 장비 진입 여건도 함께 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-5 font-bold text-brand-dark">상담 시 필요한 정보</ReadingParagraph>
             <ul className="mt-3 grid gap-2.5 sm:grid-cols-2">
               {reservationChecklist.map(item => (
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
@@ -448,23 +442,24 @@ export default function FloodCleaningLanding() {
 
             <div className="mt-6 rounded-xl bg-gray-50 p-5">
               <h3 className="font-bold text-brand-dark">물이 아직 남아 있어도 상담할 수 있나요?</h3>
-              <p className="mt-2 text-[15.5px]">네. 현재 상태부터 알려주세요. 필요한 배수 작업의 규모와 진행 가능 여부, 견적 포함 범위를 먼저 확인합니다.</p>
-              <p className="mt-2 text-[15px] text-gray-500">물이 많이 남아 있거나 출입 안전이 확인되지 않은 현장에서는 촬영을 위해 무리하게 들어가지 마세요.</p>
+              <ReadingParagraph className="mt-2 text-[15.5px]">네. 현재 상태부터 알려주세요. 필요한 배수 작업의 규모와 진행 가능 여부, 견적 포함 범위를 먼저 확인합니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15px] text-gray-500">물이 많이 남아 있거나 출입 안전이 확인되지 않은 현장에서는 촬영을 위해 무리하게 들어가지 마세요.</ReadingParagraph>
             </div>
 
             <div className="mt-4 rounded-xl bg-gray-50 p-5">
               <h3 className="font-bold text-brand-dark">급하게 정리해야 한다면</h3>
-              <p className="mt-2 text-[15.5px]">희망 일정과 현재 작업 가능한 상태인지 먼저 말씀해 주세요. 피해 상황과 인원·장비 일정을 확인해 착수 가능 시점을 안내합니다.</p>
-              <p className="mt-2 text-[15px] text-gray-500">모든 현장에 즉시 출동하거나 당일 전체 복구를 완료한다고 일괄적으로 약속드리지는 않습니다.</p>
+              <ReadingParagraph className="mt-2 text-[15.5px]">희망 일정과 현재 작업 가능한 상태인지 먼저 말씀해 주세요. 피해 상황과 인원·장비 일정을 확인해 착수 가능 시점을 안내합니다.</ReadingParagraph>
+              <ReadingParagraph className="mt-2 text-[15px] text-gray-500">모든 현장에 즉시 출동하거나 당일 전체 복구를 완료한다고 일괄적으로 약속드리지는 않습니다.</ReadingParagraph>
             </div>
+          <BackToContents />
           </section>
 
           {/* 7. 검수/사후처리 */}
           <section id="checkup" className="scroll-mt-36">
             <SectionTitle id="checkup-title" kicker="07" title="완료 후 검수와 사후 문의" />
-            <p>검수는 처음 협의한 작업 범위를 기준으로 진행합니다.</p>
-            <p className="mt-4">청소가 끝난 구역과 추가 확인이 필요한 구역을 구분해 주세요.</p>
-            <p className="mt-4 font-bold text-brand-dark">주요 검수 항목</p>
+            <ReadingParagraph>검수는 처음 협의한 작업 범위를 기준으로 진행합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4">청소가 끝난 구역과 추가 확인이 필요한 구역을 구분해 주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 font-bold text-brand-dark">주요 검수 항목</ReadingParagraph>
             <ul className="mt-3 space-y-2.5">
               {checkupItems.map(item => (
                 <li key={item} className="flex items-start gap-2.5 rounded-xl border border-gray-100 px-4 py-3">
@@ -473,9 +468,10 @@ export default function FloodCleaningLanding() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4">작업 후 문제가 의심된다면 발생 위치와 상태를 알려주세요. 청소 누락인지, 자재 손상인지, 누수나 물 유입이 다시 발생한 것인지 구분해서 확인해야 합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">재확인과 사후 처리의 범위·기간은 계약 시 확인하시기 바랍니다.</p>
-            <p className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소 완료가 건물과 전기·가스 설비의 안전을 보증하는 것은 아닙니다.</p>
+            <ReadingParagraph className="mt-4">작업 후 문제가 의심된다면 발생 위치와 상태를 알려주세요. 청소 누락인지, 자재 손상인지, 누수나 물 유입이 다시 발생한 것인지 구분해서 확인해야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">재확인과 사후 처리의 범위·기간은 계약 시 확인하시기 바랍니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">청소 완료가 건물과 전기·가스 설비의 안전을 보증하는 것은 아닙니다.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 8. 준비사항 */}
@@ -483,23 +479,24 @@ export default function FloodCleaningLanding() {
             <SectionTitle id="prep-title" kicker="08" title="작업 전 준비사항" />
 
             <h3 className="font-bold text-brand-dark">출입 안전부터 확인해 주세요</h3>
-            <p className="mt-2">출입 제한이나 안전 안내가 있다면 먼저 따라주세요. 물에 잠겼던 전기 설비와 기기는 임의로 켜지 말고 적절한 전문 점검을 받으셔야 합니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">상담을 위해 위험한 공간에 들어가 사진을 찍으실 필요는 없습니다.</p>
+            <ReadingParagraph className="mt-2">출입 제한이나 안전 안내가 있다면 먼저 따라주세요. 물에 잠겼던 전기 설비와 기기는 임의로 켜지 말고 적절한 전문 점검을 받으셔야 합니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">상담을 위해 위험한 공간에 들어가 사진을 찍으실 필요는 없습니다.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">물이 들어온 경로를 알려주세요</h3>
-            <p className="mt-2">폭우 유입인지, 배관 누수인지, 역류인지 알고 계신 범위에서 알려주세요. 정확한 원인을 모르시면 모르는 상태 그대로 말씀해 주셔도 됩니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">물이 계속 들어오는지, 관련 수리가 진행되었는지도 중요합니다.</p>
+            <ReadingParagraph className="mt-2">폭우 유입인지, 배관 누수인지, 역류인지 알고 계신 범위에서 알려주세요. 정확한 원인을 모르시면 모르는 상태 그대로 말씀해 주셔도 됩니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">물이 계속 들어오는지, 관련 수리가 진행되었는지도 중요합니다.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">기존 사진과 피해 기록이 있다면 준비해 주세요</h3>
-            <p className="mt-2">이미 촬영한 사진이 있다면 전체 공간과 피해 구역을 전달해 주세요. 기록을 남기기 위해 무리하게 출입하거나 물건을 옮길 필요는 없습니다.</p>
-            <p className="mt-2 text-[15px] text-gray-500">보험이나 피해 지원 관련 절차를 진행 중이라면, 정리·철거 전에 필요한 기록과 보존 사항을 담당 기관에 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2">이미 촬영한 사진이 있다면 전체 공간과 피해 구역을 전달해 주세요. 기록을 남기기 위해 무리하게 출입하거나 물건을 옮길 필요는 없습니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">보험이나 피해 지원 관련 절차를 진행 중이라면, 정리·철거 전에 필요한 기록과 보존 사항을 담당 기관에 확인해 주세요.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">남길 물건과 버릴 물건을 알려주세요</h3>
-            <p className="mt-2">중요 서류와 귀중품, 보관할 집기 등을 미리 알려주세요.</p>
-            <p className="mt-2 text-[15px] text-gray-500">침수된 물건의 보관 여부와 다시 사용할 수 있는지는 별도로 판단해야 합니다.</p>
+            <ReadingParagraph className="mt-2">중요 서류와 귀중품, 보관할 집기 등을 미리 알려주세요.</ReadingParagraph>
+            <ReadingParagraph className="mt-2 text-[15px] text-gray-500">침수된 물건의 보관 여부와 다시 사용할 수 있는지는 별도로 판단해야 합니다.</ReadingParagraph>
 
             <h3 className="mt-6 font-bold text-brand-dark">건물의 작업 조건을 확인해 주세요</h3>
-            <p className="mt-2 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">관리실 협의, 엘리베이터 사용, 주차 위치, 반출 시간 등을 알려주시면 작업 계획에 도움이 됩니다. 복원 공사가 필요하다면 건물 소유자나 관리 주체와 협의할 사항도 미리 확인해 주세요.</p>
+            <ReadingParagraph className="mt-2 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">관리실 협의, 엘리베이터 사용, 주차 위치, 반출 시간 등을 알려주시면 작업 계획에 도움이 됩니다. 복원 공사가 필요하다면 건물 소유자나 관리 주체와 협의할 사항도 미리 확인해 주세요.</ReadingParagraph>
+          <BackToContents />
           </section>
 
           {/* 9. FAQ */}
@@ -509,18 +506,19 @@ export default function FloodCleaningLanding() {
               {faqItems.map(([q, a]) => (
                 <details key={q} className="rounded-xl border border-gray-200 p-4">
                   <summary className="cursor-pointer font-bold text-[16.5px]">{q}</summary>
-                  <p className="mt-3">{a}</p>
+                  <ReadingParagraph className="mt-3">{a}</ReadingParagraph>
                 </details>
               ))}
             </div>
+          <BackToContents />
           </section>
 
           {/* 10. 문의 CTA */}
           <section id="contact" className="scroll-mt-36">
             <div className="rounded-2xl bg-brand-dark p-7 text-white">
-              <p className="text-xl font-bold">침수청소·복구 견적 문의</p>
-              <p className="mt-3 text-white/80">물이 남아 있는지, 청소만 필요한지, 철거까지 해야 하는지 아직 판단하기 어려우셔도 괜찮습니다. 현재 알고 계신 상황부터 알려주세요.</p>
-              <p className="mt-3 text-sm font-bold text-white">상담할 때 알려주시면 좋은 내용</p>
+              <ReadingParagraph className="text-xl font-bold">침수청소·복구 견적 문의</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-white/80">물이 남아 있는지, 청소만 필요한지, 철거까지 해야 하는지 아직 판단하기 어려우셔도 괜찮습니다. 현재 알고 계신 상황부터 알려주세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-3 text-sm font-bold text-white">상담할 때 알려주시면 좋은 내용</ReadingParagraph>
               <ul className="mt-2 grid gap-1.5 text-[15px] text-white/80 sm:grid-cols-2">
                 {contactChecklist.map(item => (
                   <li key={item} className="flex items-start gap-2">
@@ -529,7 +527,7 @@ export default function FloodCleaningLanding() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-white/80">찐청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 철거와 복원이 필요하다면 별도 견적으로 연결해 진행합니다. 지금 필요한 작업과 비용에 포함되는 범위부터 확인하세요.</p>
+              <ReadingParagraph className="mt-4 text-white/80">찐청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 철거와 복원이 필요하다면 별도 견적으로 연결해 진행합니다. 지금 필요한 작업과 비용에 포함되는 범위부터 확인하세요.</ReadingParagraph>
               <div className="mt-5 flex flex-wrap gap-3">
                 <CtaButton>침수청소·복구 견적 문의하기 →</CtaButton>
                 <a href="tel:010-9882-8882" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3.5 text-base font-bold text-white hover:bg-white/10">

@@ -1,0 +1,206 @@
+{
+  "소독-방역": {
+    "src": "/images/service-scenes/pest-treatment-scene.webp",
+    "alt": "열린 수납 공간을 향해 분사 장비를 사용하는 작업",
+    "width": 960,
+    "height": 1280
+  },
+  "행사장청소": {
+    "src": "/images/service-scenes/event-booth.webp",
+    "alt": "전시장 부스 외벽과 통로가 함께 보이는 현장",
+    "width": 960,
+    "height": 1280
+  },
+  "외벽청소": {
+    "src": "/images/service-scenes/wall-extended-tool.webp",
+    "alt": "높은 외벽 타일 면에 긴 작업 도구를 대고 청소하는 장면",
+    "width": 960,
+    "height": 1280
+  },
+  "외창청소": {
+    "src": "/images/service-scenes/window-frame-wiping.webp",
+    "alt": "열린 계단 창의 프레임을 손으로 닦는 작업",
+    "width": 960,
+    "height": 1280
+  },
+  "공장청소": {
+    "src": "/images/hero-bg/factory-hero.webp",
+    "alt": "공장청소 페이지 대표 사진",
+    "width": 1920,
+    "height": 1080
+  },
+  "화재청소": {
+    "src": "/images/hero-bg/fire-hero.webp",
+    "alt": "화재청소 페이지 대표 사진",
+    "width": 1920,
+    "height": 1015
+  },
+  "침수청소": {
+    "src": "/images/hero-bg/flood-hero.webp",
+    "alt": "침수청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "바닥-본드-제거": {
+    "src": "/images/hero-bg/floor-adhesive-hero.webp",
+    "alt": "바닥·본드·제거 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "바닥청소": {
+    "src": "/images/hero-bg/floor-clean-hero.webp",
+    "alt": "바닥청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "바닥-왁스-코팅": {
+    "src": "/images/hero-bg/floor-wax-hero.webp",
+    "alt": "바닥·왁스·코팅 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "마루코팅": {
+    "src": "/images/hero-bg/floor-wood-hero.webp",
+    "alt": "마루코팅 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "관공서청소": {
+    "src": "/images/hero-bg/government-hero.webp",
+    "alt": "관공서청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "후드청소": {
+    "src": "/images/hero-bg/hood-hero.webp",
+    "alt": "후드청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "인테리어청소": {
+    "src": "/images/hero-bg/interior-hero.webp",
+    "alt": "인테리어청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "주방청소": {
+    "src": "/images/hero-bg/kitchen-hero.webp",
+    "alt": "주방청소 페이지 대표 사진",
+    "width": 1920,
+    "height": 1072
+  },
+  "유품정리": {
+    "src": "/images/hero-bg/legacy-hero.webp",
+    "alt": "유품정리 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "고독사청소": {
+    "src": "/images/hero-bg/lonely-hero.webp",
+    "alt": "고독사청소 페이지 대표 사진",
+    "width": 1536,
+    "height": 1024
+  },
+  "곰팡이제거": {
+    "src": "/images/service-scenes/mold-under-window.webp",
+    "alt": "베란다 창 아래 벽면을 따라 퍼진 곰팡이 얼룩",
+    "width": 720,
+    "height": 1280
+  },
+  "입주청소": {
+    "src": "/images/hero-bg/movein-hero.webp",
+    "alt": "입주청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "이사청소": {
+    "src": "/images/hero-bg/moving-hero.webp",
+    "alt": "이사청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "나노코팅": {
+    "src": "/images/hero-bg/nano-hero.webp",
+    "alt": "나노코팅 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "신축준공청소": {
+    "src": "/images/hero-bg/newconstruction-hero.webp",
+    "alt": "신축준공청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "냄새-악취-제거": {
+    "src": "/images/service-scenes/odor-wall-residue.webp",
+    "alt": "벽면과 전기 설비 주변에 누렇게 남은 오염 흔적",
+    "width": 720,
+    "height": 1280
+  },
+  "사무실청소": {
+    "src": "/images/hero-bg/office-hero.webp",
+    "alt": "사무실청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "부분청소": {
+    "src": "/images/service-scenes/partial-window-track.webp",
+    "alt": "창틀 레일과 틈에 분진이 쌓여 있는 상태",
+    "width": 960,
+    "height": 1280
+  },
+  "콩자갈청소": {
+    "src": "/images/hero-bg/pebble-hero.webp",
+    "alt": "콩자갈청소 페이지 대표 사진",
+    "width": 1447,
+    "height": 1087
+  },
+  "프리미엄청소": {
+    "src": "/images/hero-bg/premium-hero.webp",
+    "alt": "프리미엄청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "정기청소": {
+    "src": "/images/hero-bg/regular-hero.webp",
+    "alt": "정기청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "거주청소": {
+    "src": "/images/hero-bg/residential-hero.webp",
+    "alt": "거주청소 페이지 대표 사진",
+    "width": 1448,
+    "height": 1086
+  },
+  "학교청소": {
+    "src": "/images/hero-bg/school-hero.webp",
+    "alt": "학교청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "석재청소": {
+    "src": "/images/service-scenes/stone-floor-condition.webp",
+    "alt": "짙은 석재 바닥 표면에 남은 희끗한 흔적",
+    "width": 960,
+    "height": 1280
+  },
+  "원룸청소": {
+    "src": "/images/service-scenes/studio-bathroom-condition.webp",
+    "alt": "원룸 욕실 세면대와 수전 주변에 남은 오염",
+    "width": 960,
+    "height": 1280
+  },
+  "쓰레기집청소": {
+    "src": "/images/hero-bg/trash-hero.webp",
+    "alt": "쓰레기집청소 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  },
+  "폐기물처리": {
+    "src": "/images/hero-bg/waste-hero.webp",
+    "alt": "폐기물처리 페이지 대표 사진",
+    "width": 1672,
+    "height": 941
+  }
+}
