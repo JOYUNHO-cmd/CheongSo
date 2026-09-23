@@ -35,7 +35,7 @@ const nanumPen = Nanum_Pen_Script({
 });
 
 const defaultTitle = `${siteConfig.name} | 입주·이사청소·사업장청소·특수청소·바닥시공`;
-const defaultDescription = "찐청소의 입주·이사청소, 사업장 정기청소, 특수청소와 바닥시공을 확인하세요. 서비스별 작업 범위·가격 기준·실제 현장 사진을 안내하며, 현장 상태와 필요한 작업을 확인해 견적을 상담합니다.";
+const defaultDescription = "찐청소의 입주·이사청소, 사업장청소, 특수청소, 바닥시공. 작업 범위·가격 기준·현장 사진을 확인하고 견적을 상담하세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
