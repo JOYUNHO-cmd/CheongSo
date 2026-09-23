@@ -49,6 +49,14 @@ export default function Footer() {
         <div className="mt-10 border-t border-white/10 pt-6 text-xs leading-6 text-slate-400">
           <p className="flex flex-wrap gap-x-5"><span>대표 {siteConfig.ceo}</span><span>사업자등록번호 {siteConfig.businessNumber}</span></p>
           <p className="mt-2">{siteConfig.copyright}</p>
+          <div id="content-usage" className="mt-5 max-w-3xl break-keep text-sm leading-7 text-slate-300">
+            <p>찐청소가 직접 제작한 작업 사진과 글의 무단 복제·재게시 및 타 업체의 홍보 목적 사용을 금합니다.</p>
+            <details className="mt-1">
+              <summary className="min-h-11 cursor-pointer rounded-sm py-2 font-semibold text-teal-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300">콘텐츠 이용 안내</summary>
+              <p>콘텐츠 이용이 필요한 경우 사전에 문의해 주세요. 법령상 허용되는 이용과 제3자 자료의 권리는 별도로 적용됩니다.</p>
+              <p className="mt-2">문의: <a href={`mailto:${siteConfig.email}`} className={`${linkClass} break-all text-teal-300 underline underline-offset-4`}>{siteConfig.email}</a></p>
+            </details>
+          </div>
         </div>
       </div>
     </footer>
