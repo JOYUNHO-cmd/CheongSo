@@ -92,14 +92,12 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
           <span className="flex min-w-0 items-center gap-2">
             <span className="h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true" />
             <span className="shrink-0 font-extrabold text-brand-dark">{activeLabel}</span>
-            <span className="truncate text-xs text-gray-400">(궁금하신 현장 사례를 선택해주세요)</span>
+            <span className="truncate text-xs font-semibold text-brand-dark">(궁금하신 현장 사례를 선택해주세요)</span>
           </span>
           <span
-            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white shadow-sm transition-transform duration-300 ${
-              filterOpen ? "rotate-180" : "animate-cute-bob"
-            }`}
+            className={`grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand text-white shadow-sm transition-transform duration-300 ${filterOpen ? "rotate-180" : ""}`}
           >
-            <ChevronDown className="h-4 w-4" strokeWidth={2.75} />
+            <ChevronDown className="block h-4 w-4" strokeWidth={2.75} aria-hidden="true" />
           </span>
         </button>
         {filterOpen && (
@@ -162,9 +160,9 @@ export default function GalleryBrowser({ initialCategory = "all", initialItem = 
             key={item.id}
             type="button"
             onClick={() => router.push(galleryHref(activeCategory, item.id), { scroll: false })}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
+            className="group flex w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white text-left shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
           >
-            <div className="grid grid-cols-2">
+            <div className="grid w-full shrink-0 grid-cols-2">
               <div className="relative aspect-square overflow-hidden bg-gray-100">
                 <Image src={`/images/gallery-v2/${item.before}`} alt={`${item.title} 시공 전`} fill className="object-cover" sizes="(min-width: 1024px) 190px, (min-width: 640px) 220px, 45vw" />
                 <Badge label="전" variant="before" />
