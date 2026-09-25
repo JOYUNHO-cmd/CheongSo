@@ -45,7 +45,7 @@ const estimateChecklist = [
   "필요한 인원과 장비·약품",
 ];
 
-const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[] }[] = [
+const scopeItems: { title: string; body: string; note?: string; photoPairs?: string[][]; beforeAfter?: { label: string; before: string; after: string }[]; video?: string }[] = [
   {
     title: "쓰레기 수거와 폐기물 처리",
     body: "합의한 폐기 대상의 분류·수거·반출·처리를 진행합니다. 큰 가구와 가전도 버리실 예정이라면 견적 상담 때 함께 알려주세요.",
@@ -88,6 +88,7 @@ const scopeItems: { title: string; body: string; note?: string; photoPairs?: str
     title: "소독과 냄새 제거",
     body: "소독과 냄새 제거는 기본 작업에 포함됩니다. 쓰레기 반출 후 남은 오염과 냄새 발생 지점을 확인하며 진행합니다.",
     note: "다만 오염이 벽지나 바닥재 등 자재 내부까지 스며든 경우에는 청소와 탈취만으로 해결하기 어려울 수 있습니다. 이런 부분은 자재 상태와 추가 조치 필요 여부를 따로 확인해야 합니다.",
+    video: "trash-disinfect",
   },
 ];
 
@@ -293,6 +294,22 @@ export default function TrashHouseCleaningLanding() {
                           ))}
                         </div>
                       ))}
+                    </div>
+                  )}
+                  {item.video && (
+                    <div className="mt-4 overflow-hidden rounded-xl border border-gray-100 bg-black">
+                      <video
+                        className="aspect-video w-full object-cover"
+                        poster={`/videos/${item.video}-poster.jpg`}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        aria-label={`${item.title} 작업 장비 사용 영상`}
+                      >
+                        <source src={`/videos/${item.video}.mp4`} type="video/mp4" />
+                      </video>
                     </div>
                   )}
                   {item.beforeAfter && (
