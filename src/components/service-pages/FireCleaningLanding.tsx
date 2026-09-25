@@ -59,11 +59,13 @@ const scopeItems: { title: string; body: string; note?: string; photos?: string[
     title: "화재 잔여물 수거와 정리",
     body: "버리기로 결정한 잔여물과 손상된 물품을 정리하고 반출합니다. 수거·처리할 대상과 물량은 작업 전에 확인합니다.",
     note: "보관할 서류, 귀중품, 사진, 집기가 있다면 미리 알려주세요. 남길 물건과 폐기할 물건을 정하기 전에 임의로 모두 비우는 방식으로 접근하지 않는 것이 중요합니다.",
+    photos: ["fire-residue-01.webp", "fire-residue-02.webp", "fire-residue-03.webp", "fire-residue-04.webp"],
   },
   {
     title: "피해 부분 철거",
     body: "손상된 마감재나 구조물 중 철거가 필요한 부분을 확인합니다. 화재가 났다는 이유만으로 모든 공간을 동일하게 철거하는 것은 아닙니다.",
     note: "철거 범위는 자재 상태와 복원 계획에 따라 정하며, 청소 비용과 구분해 견적을 확인합니다. 구조 안전에 관한 판단은 청소와 별도의 전문 점검이 필요한 영역입니다.",
+    photos: ["fire-demolition-01.webp", "fire-demolition-02.webp", "fire-demolition-03.webp", "fire-demolition-04.webp"],
   },
   {
     title: "화재청소와 그을음 제거",
@@ -80,11 +82,13 @@ const scopeItems: { title: string; body: string; note?: string; photos?: string[
     title: "복원 인테리어",
     body: "청소 후 필요한 구역의 복원 인테리어를 진행할 수 있습니다. 복원할 범위와 사용할 자재, 마감 방식은 상담을 통해 정합니다.",
     note: "기존 상태에 가깝게 복원할지, 필요한 부분의 마감을 변경할지에 따라 비용과 일정이 달라질 수 있습니다. 복원 공사는 기본 청소비와 구분해 확인합니다.",
+    photos: ["fire-restoration-01.webp", "fire-restoration-02.webp", "fire-restoration-03.webp", "fire-restoration-04.webp"],
   },
   {
     title: "복원 후 준공청소",
     body: "복원 공사 후 발생한 분진과 작업 잔여물을 정리하고, 합의한 범위의 마무리 청소를 진행합니다.",
     note: "화재 직후 오염을 제거하는 청소와 복원 공사 후 마무리하는 준공청소는 서로 다른 단계입니다. 전체 복원을 맡기실 때는 마지막 청소까지 포함되어 있는지 확인해 주세요.",
+    photos: ["fire-completion-01.webp", "fire-completion-02.webp", "fire-completion-03.webp", "fire-completion-04.webp"],
   },
 ];
 
