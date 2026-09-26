@@ -214,7 +214,7 @@ export default function StudioCleaningLanding() {
           <div className="absolute inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:aspect-[3/2] md:w-3/4 md:-translate-x-1/2 md:-translate-y-1/2">
             <Image src="/images/service-scenes/studio-bathroom-condition.webp" alt="" fill preload className="object-cover" sizes="(min-width: 768px) 75vw, 100vw" />
           </div>
-          <div className="absolute inset-0 hidden bg-gradient-to-br from-brand-dark/90 to-brand/75 md:block" />
+          <div className="absolute inset-0 hidden bg-gradient-to-br from-brand-dark/78 to-brand/60 md:block" />
         </div>
         <div className="relative mx-auto my-auto w-full max-w-5xl pt-8 md:pt-0">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
