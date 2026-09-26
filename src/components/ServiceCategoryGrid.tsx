@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { serviceCategories } from "@/lib/services-data";
 
@@ -8,8 +9,18 @@ export default function ServiceCategoryGrid() {
         <Link
           key={cat.slug}
           href={`/services#${cat.slug}`}
-          className="group rounded-2xl border border-gray-100 bg-white p-3 min-[360px]:p-3.5 sm:p-5 md:p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
+          className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-md"
         >
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+            <Image
+              src={`/images/main-services/${cat.slug}.webp`}
+              alt={`${cat.title} 작업 현장`}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              sizes="(min-width: 768px) 25vw, 50vw"
+            />
+          </div>
+          <div className="p-3 min-[360px]:p-3.5 sm:p-5 md:p-6">
           <span className="text-xs font-bold text-brand">{cat.number}</span>
           <h3 className="mt-1.5 sm:mt-2 text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-dark">
             {cat.title}
@@ -22,6 +33,7 @@ export default function ServiceCategoryGrid() {
               {cat.descLine2}
             </span>
           </p>
+          </div>
         </Link>
       ))}
     </div>
