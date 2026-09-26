@@ -34,6 +34,10 @@ export default function AreasPage() {
           <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">안양 사례와 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span>
         </div>
       </Link>
+      <Link data-region-card href="/주방청소/경기도-안양시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="bg-gray-50 p-4 sm:p-5"><Image src="/images/anyang-kitchen/009-6.jpg" alt="안양 배달 돈까스 주방의 조리기기와 통로" width={1200} height={1600} sizes="(min-width: 640px) 440px, 100vw" className="h-auto w-full rounded-lg" /></div>
+        <div className="flex flex-col justify-center p-5 sm:p-8"><p className="text-sm font-semibold text-brand">실제 작업 사진 · 작업 범위와 견적 기준</p><h3 className="mt-3 text-2xl font-bold text-brand-dark">안양 주방청소</h3><ReadingParagraph className="mt-4 text-base leading-8 text-gray-700">배달 돈까스 주방의 튀김기·후드·기기 아래 사진을 살펴보세요. 내부 세척과 기기 이동 등 별도 확인 항목, 견적 조건과 상담 준비사항을 안내합니다.</ReadingParagraph><span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">안양 주방 사진과 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span></div>
+      </Link>
       <Link data-region-card href="/쓰레기집청소/경기도-안양시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div className="grid grid-cols-2 gap-2 bg-gray-50 p-4 sm:p-5">
           {([['작업 전', '/images/regional/anyang-trash-house-01.webp'], ['작업 후', '/images/regional/anyang-trash-house-06.webp']] as const).map(([label, src]) => <figure key={src}>

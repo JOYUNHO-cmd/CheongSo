@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLanding from "@/components/ServiceLanding";
+import AnyangKitchenLanding from "@/components/service-pages/AnyangKitchenLanding";
 import { findService, normalizeSegment } from "@/lib/service-profiles";
 import { regionalPages, regionalPath } from "@/lib/regional-pages";
 import { buildMetadata } from "@/lib/seo";
@@ -22,4 +23,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
-export default async function Page({ params }: Props) { const p = await getPage(params); const s = findService(p.service); if (!s) notFound(); return <ServiceLanding service={s} regional={p} />; }
+export default async function Page({ params }: Props) { const p = await getPage(params); const s = findService(p.service); if (!s) notFound(); if (p.service === "주방청소" && p.region === "경기도-안양시") return <AnyangKitchenLanding />; return <ServiceLanding service={s} regional={p} />; }
