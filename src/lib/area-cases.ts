@@ -72,6 +72,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/ansan-trash-house-04.webp", "/images/regional/ansan-trash-house-13.webp"], "안산 상록구 원룸 쓰레기집청소"),
   },
   {
+    href: "/바닥-왁스-코팅/경기도-안산시/", province: "경기도", region: "안산시", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "안산 바닥왁스코팅",
+    body: "단원구 30평 물류회사 사무실의 회색 디럭스타일 바닥을 3명이 유리창·칸막이 샷시 청소와 선반 오일스텐까지 함께 마무리하고 코팅한 기록입니다.",
+    cta: "안산 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/ansan-floor-wax-01.webp", "/images/regional/ansan-floor-wax-12.webp"], "안산 단원구 사무실 바닥왁스코팅"),
+  },
+  {
     href: "/공장청소/경기도-시흥시/", province: "경기도", region: "시흥시", service: "공장청소",
     eyebrow: caseEyebrow, title: "시흥 공장청소",
     body: "HACCP 재심사를 앞둔 150평 빵공장을 9명이 빵 랙·벽면·천장·기계·쟁반까지 구역을 나눠 청소한 기록입니다.",
