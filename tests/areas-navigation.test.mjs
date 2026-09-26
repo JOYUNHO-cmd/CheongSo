@@ -24,7 +24,8 @@ test('region directory links directly to the real Anyang page and is discoverabl
   const doc = new JSDOM(await res.text()).window.document;
   const link = doc.querySelector('a[data-region-card]');
   assert.ok(link);
-  assert.equal(doc.querySelectorAll('a[data-region-card]').length, 1);
+  assert.equal(doc.querySelectorAll('a[data-region-card]').length, 2);
+  assert.ok(doc.querySelector('a[data-region-card][href="/주방청소/경기도-안양시/"]'));
   assert.equal(link.getAttribute('href'), '/바닥-왁스-코팅/경기도-안양시/');
   assert.ok(link.querySelector('img[alt]'));
   assert.equal((await fetch(base + encodeURI(link.getAttribute('href')))).status, 200);
