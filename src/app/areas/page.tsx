@@ -53,6 +53,23 @@ export default function AreasPage() {
         </div>
       </Link>
     </section>
+    <section aria-labelledby="gunpo-title" className="mt-10 sm:mt-14">
+      <h2 id="gunpo-title" className="flex items-center gap-2 text-xl font-bold text-brand-dark"><MapPin aria-hidden="true" className="h-5 w-5 text-brand" />경기도 · 군포시</h2>
+      <Link data-region-card href="/쓰레기집청소/경기도-군포시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="grid grid-cols-2 gap-2 bg-gray-50 p-4 sm:p-5">
+          {([['작업 전', '/images/regional/gunpo-trash-house-01.webp'], ['작업 후', '/images/regional/gunpo-trash-house-07.webp']] as const).map(([label, src]) => <figure key={src}>
+            <Image src={src} alt={`군포 산본 아파트 쓰레기집청소 · ${label}`} width={900} height={1200} sizes="(min-width: 640px) 240px, 45vw" className="h-auto w-full rounded-lg" />
+            <figcaption className="mt-2 text-center text-sm font-bold text-gray-700">{label}</figcaption>
+          </figure>)}
+        </div>
+        <div className="flex flex-col justify-center p-5 sm:p-8">
+          <p className="text-sm font-semibold text-brand">실제 작업 사례 · 비용과 견적 기준</p>
+          <h3 className="mt-3 text-2xl font-bold text-brand-dark">군포 쓰레기집청소</h3>
+          <ReadingParagraph className="mt-4 text-base leading-8 text-gray-700">기숙사로 쓰던 산본 아파트의 방 한 칸에서 3명이 8시간 동안 폐기물 처리부터 오염 제거·냄새 제거·소독까지 진행한 기록입니다. 교체가 필요했던 합지 벽지까지 그대로 담았습니다.</ReadingParagraph>
+          <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">군포 사례와 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span>
+        </div>
+      </Link>
+    </section>
     <aside className="mt-8 rounded-2xl bg-teal-50 p-5 sm:p-6">
       <h2 className="text-lg font-bold text-brand-dark">찾으시는 지역이 아직 없나요?</h2>
       <ReadingParagraph className="mt-3 text-base leading-8 text-gray-700">현재 등록된 지역별 상세 안내입니다. 목록에 없는 지역이 서비스 불가 지역이라는 뜻은 아닙니다. 주소와 필요한 작업을 알려주시면 방문 가능 여부와 일정을 확인해 드립니다.</ReadingParagraph>
