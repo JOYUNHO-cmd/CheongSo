@@ -1203,5 +1203,263 @@
       ]
     ],
     "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "경기도-안산시",
+    "title": "안산 쓰레기집청소 | 상록구 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "안산 상록구 원룸에서 4명이 3시간 동안 진행한 쓰레기집청소 기록을 사진과 영상으로 확인하세요. 안산 쓰레기집청소 업체 추천을 찾고 계신다면 날파리가 생긴 음식물 오염 처리와 폐기물 처리·오염 제거·냄새 제거·소독 순서, 고잔·중앙동·본오동 등 안산 현장의 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "안산 쓰레기집청소",
+    "intro": "안산에서 집 안에 쓰레기와 음식물이 쌓여 날파리까지 생겨 막막하신가요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 상록구 본오동·사동·월피동·성포동·부곡동·일동·이동부터 단원구 고잔동·중앙동·선부동·원곡동·초지동·와동까지 안산 곳곳에서 작업을 진행하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "날파리가 생겼다면 음식물 쓰레기와 눌어붙은 얼룩부터 처리해야 합니다",
+        "body": "날파리는 대부분 음식물이 남은 용기나 바닥·침구에 스며든 음식물 얼룩에서 생깁니다. 쓰레기만 치우고 얼룩을 남기면 냄새와 벌레가 다시 생길 수 있어, 찐청소는 폐기물을 치운 뒤 바닥과 침구, 냉장고 안쪽의 오염까지 제거하고 소독을 진행합니다."
+      },
+      {
+        "heading": "가족 방문처럼 급한 일정이 있다면 상담할 때 바로 알려주세요",
+        "body": "가족 방문이나 이사처럼 날짜가 정해진 경우에는 짧은 시간 안에 끝낼 수 있도록 인원을 늘려 진행할 수 있습니다. 원하는 완료 시간과 현장 사진을 함께 보내주시면 필요한 인원과 방문 가능한 일정을 먼저 안내합니다."
+      },
+      {
+        "heading": "원룸·오피스텔은 반출 동선과 주변 시선도 함께 확인합니다",
+        "body": "원룸 건물은 엘리베이터가 없거나 복도가 좁은 경우가 많아 폐기물을 옮기는 동선이 작업 시간에 영향을 줍니다. 건물 형태와 층수, 차량을 세울 수 있는 곳을 알려주세요. 이웃에게 알리고 싶지 않은 사정이 있다면 방문 시간과 반출 방법을 함께 상의합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상록구 원룸 쓰레기집청소 작업 전, 짐과 쓰레기가 쌓인 방 구석",
+        "caption": "작업 전 · 짐과 쓰레기가 쌓인 방 구석"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 싱크대에 쌓인 설거지거리",
+        "caption": "작업 전 · 설거지거리가 쌓인 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 매트리스에 번진 음식물 얼룩",
+        "caption": "작업 전 · 매트리스에 번진 얼룩"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 바닥에 눌어붙은 음식물 얼룩",
+        "caption": "작업 전 · 바닥에 눌어붙은 얼룩"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 냉장고 안쪽 오염",
+        "caption": "작업 전 · 냉장고 안쪽 오염"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 쓰레기집청소 중 침대 수납 서랍을 정리하는 모습",
+        "caption": "폐기물 처리 · 수납 서랍 속 물건 분리"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 싱크대 하부장을 정리하는 모습",
+        "caption": "폐기물 처리 · 싱크대 하부장 정리"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 바닥에 눌어붙은 얼룩을 스크래퍼로 긁어내는 모습",
+        "caption": "오염 제거 · 스크래퍼로 눌어붙은 얼룩 제거"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 바닥을 밀대로 닦는 모습",
+        "caption": "오염 제거 · 바닥 걸레질"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 주방 상부장과 싱크대를 닦는 모습",
+        "caption": "오염 제거 · 주방 상부장과 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 주방 소독 작업 모습",
+        "caption": "냄새 제거·소독 · 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 방 소독 작업 모습",
+        "caption": "냄새 제거·소독 · 방 전체"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-13.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상록구 원룸 쓰레기집청소 완료 후 방",
+        "caption": "작업 후 · 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-14.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 쓰레기집청소 완료 후 주방",
+        "caption": "작업 후 · 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-15.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 쓰레기집청소 완료 후 냉장고 내부",
+        "caption": "작업 후 · 냉장고 안쪽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-trash-house-16.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 쓰레기집청소 후 고객님이 보내주신 감사 메시지",
+        "caption": "작업 후 · 고객님이 보내주신 메시지"
+      },
+      {
+        "type": "video",
+        "src": "/videos/ansan-trash-house-floor.mp4",
+        "poster": "/videos/ansan-trash-house-floor-poster.jpg",
+        "alt": "안산 원룸 바닥에 눌어붙은 얼룩을 스크래퍼로 제거하는 영상",
+        "caption": "영상 · 바닥 얼룩 제거"
+      }
+    ],
+    "fieldCase": {
+      "heading": "상록구 원룸 쓰레기집청소 사례",
+      "lead": "아버님이 방문하신다는 연락을 받고 급하게 의뢰받은 현장입니다. 쓰레기와 음식물이 쌓이면서 방 안에 날파리가 생겼고, 바닥과 매트리스, 냉장고 곳곳에 음식물 얼룩이 눌어붙어 있었습니다.",
+      "facts": [
+        [
+          "위치",
+          "안산 상록구 원룸"
+        ],
+        [
+          "의뢰 배경",
+          "가족 방문을 앞둔 급한 일정"
+        ],
+        [
+          "작업 전 상태",
+          "쓰레기·음식물 오염, 날파리"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "인원·시간",
+          "4명 · 3시간"
+        ],
+        [
+          "추가 비용",
+          "없음"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방 구석에 짐과 쓰레기가 쌓여 있었고, 싱크대에는 설거지거리가 가득했습니다. 매트리스와 바닥, 냉장고 안쪽에는 음식물 얼룩이 눌어붙어 날파리가 생긴 상태였습니다.",
+          "media": [
+            "/images/regional/ansan-trash-house-01.webp",
+            "/images/regional/ansan-trash-house-02.webp",
+            "/images/regional/ansan-trash-house-03.webp",
+            "/images/regional/ansan-trash-house-04.webp",
+            "/images/regional/ansan-trash-house-05.webp"
+          ]
+        },
+        {
+          "heading": "폐기물 처리",
+          "body": "침대 수납 서랍과 싱크대 하부장까지 열어 버릴 물건과 남길 물건을 나눈 뒤 폐기물을 처리했습니다.",
+          "media": [
+            "/images/regional/ansan-trash-house-06.webp",
+            "/images/regional/ansan-trash-house-07.webp"
+          ]
+        },
+        {
+          "heading": "오염 제거",
+          "body": "바닥에 눌어붙은 얼룩은 스크래퍼로 긁어낸 뒤 걸레질로 마무리했고, 주방 상부장과 싱크대도 닦았습니다.",
+          "media": [
+            "/images/regional/ansan-trash-house-08.webp",
+            "/images/regional/ansan-trash-house-09.webp",
+            "/images/regional/ansan-trash-house-10.webp",
+            "/videos/ansan-trash-house-floor.mp4"
+          ]
+        },
+        {
+          "heading": "냄새 제거와 소독",
+          "body": "청소를 마친 뒤 주방과 방 전체에 냄새 제거와 소독을 진행했습니다.",
+          "media": [
+            "/images/regional/ansan-trash-house-11.webp",
+            "/images/regional/ansan-trash-house-12.webp"
+          ]
+        },
+        {
+          "heading": "작업 후",
+          "body": "4명이 3시간 만에 작업을 마쳤고, 추가 비용은 없었습니다. 고객님이 수고했다며 커피를 사주셨고, 집에 돌아와 깨끗해진 모습을 보고 감사 메시지도 보내주셨습니다.",
+          "media": [
+            "/images/regional/ansan-trash-house-13.webp",
+            "/images/regional/ansan-trash-house-14.webp",
+            "/images/regional/ansan-trash-house-15.webp",
+            "/images/regional/ansan-trash-house-16.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 이 사례의 시간은 참고용이며 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "안산 어느 지역까지 작업하나요?",
+        "상록구 본오동·사동·월피동·성포동·부곡동·일동·이동, 단원구 고잔동·중앙동·선부동·원곡동·초지동·와동 등 안산 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "날파리가 생긴 집도 청소할 수 있나요?",
+        "가능합니다. 이 사례도 날파리가 생긴 원룸이었으며, 음식물 폐기물과 눌어붙은 얼룩을 제거한 뒤 냄새 제거와 소독까지 진행했습니다."
+      ],
+      [
+        "급하게 오늘이나 내일 작업할 수 있나요?",
+        "일정에 여유가 있으면 가능합니다. 이 사례도 가족 방문을 앞두고 급하게 의뢰받아 4명이 3시간 만에 마쳤습니다. 원하는 완료 시간과 사진을 먼저 보내주세요."
+      ],
+      [
+        "원룸 쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ]
+    ],
+    "reviewed": true
   }
 ]
