@@ -35,18 +35,10 @@ function blocks(text: string) {
     const block = paragraphs[i].trim();
     const photo = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (photo) {
-      // 연속된 사진은 다른 지역 사례처럼 2열로 묶어 한 장이 과하게 커지지 않게 합니다.
-      const group: ReactNode[] = [];
-      let match: RegExpMatchArray | null = photo;
-      while (match) {
-        const caption = paragraphs[i+1]?.trim();
-        const hasCaption = caption?.startsWith("*") && caption.endsWith("*");
-        group.push(<KitchenPhoto key={i} src={match[2]} alt={match[1]} caption={hasCaption ? caption.slice(1,-1) : ""} />);
-        if (hasCaption) i++;
-        match = paragraphs[i+1]?.trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/) ?? null;
-        if (match) i++;
-      }
-      rendered.push(<div key={`photos-${i}`} className={styles.photoGrid}>{group}</div>);
+      const caption = paragraphs[i+1]?.trim();
+      const hasCaption = caption?.startsWith("*") && caption.endsWith("*");
+      rendered.push(<KitchenPhoto key={i} src={photo[2]} alt={photo[1]} caption={hasCaption ? caption.slice(1,-1) : ""} />);
+      if (hasCaption) i++;
     } else if (/^(?:- |\d+\. )/.test(block)) {
       const List = block.startsWith("- ") ? "ul" : "ol";
       rendered.push(<List key={i}>{block.split("\n").map((line,j)=><li key={j}>{inline(line.replace(/^(?:- |\d+\. )/,""))}</li>)}</List>);
