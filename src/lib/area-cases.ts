@@ -114,6 +114,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/suwon-office-01.webp", "/images/regional/suwon-office-10.webp"], "수원 영통구 사무실청소"),
   },
   {
+    href: "/인테리어청소/경기도-수원시-영통구/", province: "경기도", region: "수원시", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "수원 영통구 인테리어청소",
+    body: "인테리어 공사를 마친 영통구 35평 아파트를 4명이 8시간 동안 창틀 사이 좁은 틈의 분진과 욕실 백색시멘트까지 제거하고 마무리한 기록입니다.",
+    cta: "수원 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/suwon-interior-02.webp", "/images/regional/suwon-interior-05.webp"], "수원 영통구 아파트 인테리어청소"),
+  },
+  {
     href: "/바닥-왁스-코팅/경기도-용인시/", province: "경기도", region: "용인시", service: "바닥왁스코팅",
     eyebrow: caseEyebrow, title: "용인 바닥왁스코팅",
     body: "5년 만에 관리한 수지구 교회 예배당 200평 데코타일 바닥을 6명이 장의자를 옮기며 박리하고 2회 코팅한 기록입니다. 작업 영상도 함께 담았습니다.",

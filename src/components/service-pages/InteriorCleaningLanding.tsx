@@ -395,6 +395,7 @@ export default function InteriorCleaningLanding() {
             <Link href="/인테리어청소/경기도-용인시/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">용인 수지구 타운하우스 실제 작업 사례 보기 →</Link>
             <Link href="/인테리어청소/경기도-군포시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">군포 산본 코인노래방 실제 작업 사례 보기 →</Link>
             <Link href="/인테리어청소/경기도-안산시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">안산 상록구 상가 홀·주방 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/경기도-수원시-영통구/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">수원 영통구 35평 아파트 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 
