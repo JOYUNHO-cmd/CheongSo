@@ -31,6 +31,7 @@ for (const page of allRecords) {
   if (typeof page.reviewed !== "boolean") throw new Error(`검토 상태 누락: ${key}`);
   if (!page.reviewed) continue;
   if (![page.title, page.description, page.heading, page.intro].every(v => typeof v === "string" && v.trim()) || !Array.isArray(page.sections) || !page.sections.length || page.sections.some(s => !s.heading?.trim() || !s.body?.trim())) throw new Error(`지역 문서 내용 누락: ${key}`);
+  if (!["비용", "견적", "추천"].every(w => page.description.includes(w))) throw new Error(`메타 설명에 비용·견적·추천 단어 필요: ${key}`);
   if (!Array.isArray(page.media)) throw new Error(`미디어 목록 누락: ${key}`);
   for (const media of page.media) {
     const pattern = media.type === "image" ? /^\/images\/[\p{L}\p{N}_/.-]+\.(webp|jpg|jpeg|png)$/u : media.type === "video" ? /^\/videos\/[\p{L}\p{N}_/.-]+\.(mp4|webm)$/u : null;
