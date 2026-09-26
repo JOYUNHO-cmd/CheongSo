@@ -54,7 +54,7 @@ const estimateScopeItems = [
   "복원 후 준공청소",
 ];
 
-const scopeItems: { title: string; body: string; note?: string; photos?: string[] }[] = [
+const scopeItems: { title: string; body: string; note?: string; photos?: string[]; video?: string }[] = [
   {
     title: "화재 잔여물 수거와 정리",
     body: "버리기로 결정한 잔여물과 손상된 물품을 정리하고 반출합니다. 수거·처리할 대상과 물량은 작업 전에 확인합니다.",
@@ -77,6 +77,7 @@ const scopeItems: { title: string; body: string; note?: string; photos?: string[
     title: "화재 냄새 제거",
     body: "냄새가 남아 있는 위치와 오염된 물품·자재를 확인하며 냄새 제거 작업을 진행합니다.",
     note: "겉으로 보이는 그을음이 없어졌다고 해서 냄새 문제까지 해결되었다고 단정하지 않습니다. 자재 내부까지 오염된 경우에는 추가 처리나 철거·교체가 필요한지 함께 살펴봐야 합니다. 현장을 확인하지 않고 냄새가 무조건 완전히 사라진다고 약속드리지는 않습니다.",
+    video: "fire-odor",
   },
   {
     title: "복원 인테리어",
@@ -303,6 +304,22 @@ export default function FireCleaningLanding() {
                           <Image src={`/images/portfolio-v2/${photo}`} alt={`${item.title} 실제 작업 사진`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 160px, 45vw" />
                         </div>
                       ))}
+                    </div>
+                  )}
+                  {item.video && (
+                    <div className="mt-4 overflow-hidden rounded-xl border border-gray-100 bg-black">
+                      <video
+                        className="aspect-video w-full object-cover"
+                        poster={`/videos/${item.video}-poster.jpg`}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        aria-label={`${item.title} 작업 장비 사용 영상`}
+                      >
+                        <source src={`/videos/${item.video}.mp4`} type="video/mp4" />
+                      </video>
                     </div>
                   )}
                 </div>
