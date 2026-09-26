@@ -1461,5 +1461,213 @@
       ]
     ],
     "reviewed": true
+  },
+  {
+    "service": "신축준공청소",
+    "region": "경기도-안양시",
+    "title": "안양 준공청소 | 명학역 상가 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "안양 만안구 명학역 인근 상가를 새 입주자가 들어오기 전 3명이 6시간 동안 청소한 기록을 사진으로 확인하세요. 안양 준공청소 업체 추천을 찾고 계신다면 천장·창틀·유리 칸막이 양면·바닥까지의 작업 범위와 평촌·범계·석수동 등 안양 현장의 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "안양 준공청소",
+    "intro": "안양에서 공사를 마쳤거나 이전 입주자가 나간 상가를 새로 쓰기 전에 청소가 필요하신가요? 찐청소 준공청소는 천장부터 창틀, 유리, 바닥까지 위에서 아래 순서로 분진과 오염을 정리합니다. 만안구 안양동·석수동·박달동·명학역 일대부터 동안구 평촌·범계·비산동·호계동·관양동·인덕원까지 안양 곳곳에서 작업을 진행하고 있습니다. 견적은 면적과 유리 면적, 남은 오염, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "유리 칸막이가 있는 매장은 양쪽 면을 모두 닦아야 합니다",
+        "body": "매장 중간에 유리 칸막이(파티션)가 있으면 앞뒤 양면을 각각 닦아야 해서 유리 면적이 두 배로 늘어납니다. 전면 유리와 칸막이, 출입문 유리가 얼마나 있는지 사진으로 보내주시면 필요한 인원과 시간을 가늠하기 좋습니다."
+      },
+      {
+        "heading": "공장·상가 지역은 창틀과 바닥에 쌓인 분진부터 확인합니다",
+        "body": "공장과 상가가 모여 있는 지역은 바깥 먼지가 창틀과 출입구 쪽 바닥에 쉽게 쌓입니다. 창틀 레일 안쪽과 바닥 모서리의 분진은 표면만 닦아서는 남기 쉬워, 찐청소는 레일 안쪽과 가장자리까지 따로 작업합니다."
+      },
+      {
+        "heading": "오픈이나 입주 날짜가 정해졌다면 남은 공정과 함께 알려주세요",
+        "body": "가구 반입이나 인테리어 마무리 공정이 남아 있으면 청소 후 다시 오염될 수 있습니다. 오픈·입주 날짜와 남은 작업을 함께 알려주시면 청소 날짜와 순서를 맞춰 협의합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 만안구 명학역 인근 상가 청소 전, 비어 있는 매장 내부",
+        "caption": "작업 전 · 이전 입주자가 나간 뒤의 매장"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 매장 중간의 유리 칸막이와 전면 유리",
+        "caption": "작업 전 · 매장 중간의 유리 칸막이"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 창틀 레일에 쌓인 먼지",
+        "caption": "작업 전 · 창틀 레일에 쌓인 먼지"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 창틀 안쪽 먼지와 오염",
+        "caption": "작업 전 · 창틀 안쪽 먼지"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 유리 칸막이 표면의 얼룩",
+        "caption": "작업 전 · 유리 칸막이 표면 얼룩"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 바닥에 남은 먼지와 오염",
+        "caption": "작업 전 · 바닥에 남은 먼지"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 청소 후 창틀 레일",
+        "caption": "작업 후 · 창틀 레일"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 청소 후 외부 창틀",
+        "caption": "작업 후 · 바깥쪽 창틀"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 청소 후 유리 칸막이와 매장 내부",
+        "caption": "작업 후 · 유리 칸막이와 매장 내부"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 청소 후 전면 유리와 칸막이",
+        "caption": "작업 후 · 전면 유리와 칸막이"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 만안구 상가 청소 완료 후 넓은 매장 바닥",
+        "caption": "작업 후 · 매장 바닥 전체"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/anyang-completion-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안양 상가 청소 완료 후 바닥",
+        "caption": "작업 후 · 창가 쪽 바닥"
+      }
+    ],
+    "fieldCase": {
+      "heading": "명학역 인근 상가 청소 사례",
+      "lead": "이전 입주자가 나가고 새 입주자가 들어오기 전에 의뢰받은 상가입니다. 매장 중간에 유리 칸막이가 있어 양쪽 면을 모두 닦아야 했고, 창틀과 바닥에도 먼지가 쌓여 있었습니다.",
+      "facts": [
+        [
+          "위치",
+          "안양 만안구 명학역 인근 상가"
+        ],
+        [
+          "의뢰 배경",
+          "이전 입주자 퇴거 후 새 입주 전 청소"
+        ],
+        [
+          "특이 사항",
+          "매장 중간 유리 칸막이 양면 청소"
+        ],
+        [
+          "작업 범위",
+          "천장, 창틀, 유리 칸막이, 바닥"
+        ],
+        [
+          "인원·시간",
+          "3명 · 6시간"
+        ],
+        [
+          "추가 비용",
+          "없음"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "비어 있는 매장이었지만 창틀 레일과 유리 칸막이, 바닥 곳곳에 먼지와 얼룩이 남아 있었습니다.",
+          "media": [
+            "/images/regional/anyang-completion-01.webp",
+            "/images/regional/anyang-completion-02.webp",
+            "/images/regional/anyang-completion-03.webp",
+            "/images/regional/anyang-completion-04.webp",
+            "/images/regional/anyang-completion-05.webp",
+            "/images/regional/anyang-completion-06.webp"
+          ]
+        },
+        {
+          "heading": "천장과 창틀",
+          "body": "먼지가 아래로 떨어지기 때문에 천장부터 작업하고, 이어서 창틀 레일 안쪽과 바깥쪽 창틀까지 먼지를 제거했습니다.",
+          "media": [
+            "/images/regional/anyang-completion-07.webp",
+            "/images/regional/anyang-completion-08.webp"
+          ]
+        },
+        {
+          "heading": "유리 칸막이 양면",
+          "body": "매장 중간의 유리 칸막이는 앞뒤 양쪽 면을 모두 닦았고, 전면 유리도 함께 정리했습니다.",
+          "media": [
+            "/images/regional/anyang-completion-09.webp",
+            "/images/regional/anyang-completion-10.webp"
+          ]
+        },
+        {
+          "heading": "바닥 마무리",
+          "body": "위쪽 작업을 모두 마친 뒤 마지막으로 바닥을 닦아 마무리했습니다. 3명이 6시간 동안 작업했고 추가 비용은 없었습니다.",
+          "media": [
+            "/images/regional/anyang-completion-11.webp",
+            "/images/regional/anyang-completion-12.webp"
+          ]
+        }
+      ],
+      "note": "면적과 유리 면적, 남은 오염에 따라 작업 인원과 비용은 현장마다 달라집니다. 이 사례의 시간은 참고용이며 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "안양 어느 지역까지 작업하나요?",
+        "만안구 안양동·석수동·박달동·명학역 일대, 동안구 평촌·범계·비산동·호계동·관양동·인덕원 등 안양 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "유리 칸막이도 청소 범위에 포함되나요?",
+        "포함할 수 있습니다. 이 사례에서도 매장 중간의 유리 칸막이 양면을 모두 닦았습니다. 유리 면적에 따라 작업 시간이 달라지므로 사진으로 먼저 알려주세요."
+      ],
+      [
+        "이전 입주자가 나간 상가도 준공청소로 맡길 수 있나요?",
+        "가능합니다. 이 사례도 이전 입주자가 나간 뒤 새 입주자가 들어오기 전에 진행했습니다. 공사 여부와 남은 오염을 확인해 작업 범위를 정합니다."
+      ],
+      [
+        "상가 청소는 얼마나 걸리나요?",
+        "이 사례는 3명이 6시간 동안 작업했습니다. 같은 면적이라도 유리 면적과 창틀 개수, 오염 정도에 따라 시간과 인원이 달라집니다."
+      ]
+    ],
+    "reviewed": true
   }
 ]

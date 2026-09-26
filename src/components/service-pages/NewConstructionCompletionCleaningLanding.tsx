@@ -424,6 +424,7 @@ export default function NewConstructionCompletionCleaningLanding() {
             <ReadingParagraph className="mt-2">같은 구역에서 공사와 청소가 동시에 진행되면 동선이 복잡해지고 다시 오염될 수 있습니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2">작업 공간을 분리할 수 있는지, 청소한 구역을 보호할 수 있는지 확인해 순서를 정합니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2 text-[15px] text-gray-500">분리가 어렵다면 일정 조정이나 별도 마무리 작업이 필요한지 검토합니다.</ReadingParagraph>
+            <Link href="/신축준공청소/경기도-안양시/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">안양 명학역 인근 상가 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 
