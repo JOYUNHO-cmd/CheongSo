@@ -20,9 +20,8 @@ export default function ServiceCategoryGrid() {
               sizes="(min-width: 768px) 25vw, 50vw"
             />
           </div>
-          <div className="p-3 min-[360px]:p-3.5 sm:p-5 md:p-6">
-          <span className="text-xs font-bold text-brand">{cat.number}</span>
-          <h3 className="mt-1.5 sm:mt-2 text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-dark">
+          <div className="p-3 min-[360px]:p-3.5 sm:p-5 md:p-6 text-center">
+          <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand-dark">
             {cat.title}
           </h3>
           <p className="mt-2 text-[10px] min-[360px]:text-[11px] min-[390px]:text-[12px] sm:text-[12px] md:text-[12.5px] leading-snug sm:leading-relaxed text-gray-500">
