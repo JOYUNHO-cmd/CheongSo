@@ -108,7 +108,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
         <section id="scope" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{heading}, 어디까지 청소하나요?</h2><ReadingParagraph className="mt-4">다음 항목을 기준으로 현장 상태를 확인합니다. 실제 포함 범위는 상담 후 견적서에서 확인해 주세요</ReadingParagraph><ul className="mt-5 grid gap-3">{service.scope.map((item, i) => <li key={item} className="rounded-xl border border-gray-100 p-4"><span className="mr-3 font-black text-brand">0{i + 1}</span>{item}</li>)}</ul><ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-sm leading-7">{service.limitation}</ReadingParagraph><BackToContents />
           </section>
         <section id="estimate" className="scroll-mt-36">
-          <h2 className="text-2xl font-black text-brand-dark">{hasRegionalPhotos ? "안양 바닥왁스코팅 비용과 견적 기준" : "견적도 꼼꼼하게, 이 항목부터"}</h2>
+          <h2 className="text-2xl font-black text-brand-dark">{hasRegionalPhotos ? "안양 바닥왁스코팅 비용과 견적 기준" : "꼼꼼한 견적을 위해 확인해야 할 항목"}</h2>
           {hasRegionalPhotos && <AnyangWaxEstimate />}
           <ReadingParagraph className="mt-4 text-[13.5px] sm:text-[14px] md:text-[14.5px] leading-relaxed tracking-tight text-gray-700">
             <span className="block">{service.check}{hasBatchim(service.check) ? "을" : "를"} 확인합니다</span>
