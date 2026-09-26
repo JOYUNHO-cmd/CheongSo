@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 // 지역 페이지 작성용 목록은 실제 출동 가능 지역의 증거로 사용하지 않습니다.
 const organizationStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness"],
   "@id": absoluteUrl("/#organization"),
   name: siteConfig.name,
   alternateName: siteConfig.nameEn,
@@ -92,6 +92,7 @@ const organizationStructuredData = {
   telephone: siteConfig.phoneRaw,
   email: siteConfig.email,
   address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "KR" },
+  areaServed: { "@type": "AdministrativeArea", name: "경기도" },
   identifier: { "@type": "PropertyValue", propertyID: "사업자등록번호", value: siteConfig.businessNumber },
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
   sameAs: [siteConfig.kakaoUrl].filter(Boolean),
