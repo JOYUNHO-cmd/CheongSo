@@ -72,6 +72,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/gunpo-interior-01.webp", "/images/regional/gunpo-interior-12.webp"], "군포 산본 코인노래방 인테리어청소"),
   },
   {
+    href: "/바닥-왁스-코팅/경기도-군포시/", province: "경기도", region: "군포시", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "군포 바닥왁스코팅",
+    body: "산본동 70평 가라오케의 검정 데코타일 바닥을 3명이 7시간 동안 정기 관리 차원에서 연마·세척하고 첫 코팅까지 마친 기록입니다. 쉬는 날 낮 시간에 진행해 영업에 지장이 없었습니다.",
+    cta: "군포 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/gunpo-floor-wax-02.webp", "/images/regional/gunpo-floor-wax-13.webp"], "군포 산본동 가라오케 바닥왁스코팅"),
+  },
+  {
     href: "/쓰레기집청소/경기도-안산시/", province: "경기도", region: "안산시", service: "쓰레기집청소",
     eyebrow: caseEyebrow, title: "안산 쓰레기집청소",
     body: "날파리가 생긴 상록구 원룸을 가족 방문 전에 4명이 3시간 동안 폐기물 처리부터 오염 제거·냄새 제거·소독까지 진행한 기록입니다.",
