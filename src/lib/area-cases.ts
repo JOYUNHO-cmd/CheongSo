@@ -74,7 +74,7 @@ export const areaCases: AreaCase[] = [
   {
     href: "/바닥-왁스-코팅/경기도-안산시/", province: "경기도", region: "안산시", service: "바닥왁스코팅",
     eyebrow: caseEyebrow, title: "안산 바닥왁스코팅",
-    body: "단원구 30평 물류회사 사무실의 회색 디럭스타일 바닥을 3명이 유리창·칸막이 샷시 청소와 선반 오일스텐까지 함께 마무리하고 코팅한 기록입니다.",
+    body: "단원구 30평 물류회사 사무실의 회색 디럭스타일 바닥을 3명이 8시간 동안 유리창·칸막이 샷시 청소와 선반 오일스텐까지 함께 마무리하고 코팅한 기록입니다.",
     cta: "안산 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/ansan-floor-wax-01.webp", "/images/regional/ansan-floor-wax-12.webp"], "안산 단원구 사무실 바닥왁스코팅"),
   },
