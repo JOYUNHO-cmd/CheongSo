@@ -1840,6 +1840,238 @@
     "reviewed": true
   },
   {
+    "service": "인테리어청소",
+    "region": "경기도-안산시",
+    "title": "안산 인테리어청소 | 상록구 상가 홀·주방 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "안산 상록구 상가의 홀과 주방을 인테리어 공사 후 3명이 7시간 동안 청소한 기록을 사진으로 확인하세요. 안산 인테리어청소 업체 추천을 찾고 계신다면 짐 이동부터 주방 2명·홀 1명으로 나눠 진행한 순서와 본오동·사동·월피동 등 현장의 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "안산 인테리어청소",
+    "intro": "안산에서 인테리어 공사를 마친 상가의 오픈을 앞두고 계신가요? 찐청소 인테리어청소는 안쪽 짐을 먼저 옮겨 작업 공간을 확보한 뒤 주방과 홀을 나눠 공사 먼지와 잔재를 정리합니다. 상록구 본오동·사동·월피동·성포동·이동(한양대 에리카 인근)·부곡동·일동과 상록수역·한대앞역·중앙역 인근까지 안산 곳곳의 상가 현장에서 작업하고 있습니다. 견적은 면적과 주방 설비 규모, 남아 있는 짐과 공사 잔재를 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "주방이 있는 상가는 주방 설비와 집기 규모부터 알려주세요",
+        "body": "주방은 스테인리스 작업대와 선반, 싱크대 하부장, 타일 벽처럼 닦을 면이 많아 같은 평수라도 홀보다 시간이 더 걸립니다. 주방 설비와 집기가 얼마나 들어와 있는지 알려주시면 주방과 홀에 나눌 인원을 정하기 좋습니다."
+      },
+      {
+        "heading": "안에 짐이 남아 있다면 옮길 공간을 먼저 확인합니다",
+        "body": "공사 후 박스나 장비가 안쪽에 남아 있으면 청소할 면을 가립니다. 짐을 잠시 둘 수 있는 공간이 있는지 상담할 때 알려주시면 짐부터 옮겨 두고 작업을 시작합니다."
+      },
+      {
+        "heading": "오픈 날짜가 정해졌다면 공사 마무리 일정과 함께 알려주세요",
+        "body": "청소 뒤에 추가 시공이 남아 있으면 다시 먼지가 생길 수 있습니다. 공사가 끝나는 날과 오픈 예정일을 함께 알려주시면 겹치지 않게 방문 날짜를 협의합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상록구 상가 인테리어청소 작업 전, 장비와 박스가 놓인 주방 통로",
+        "caption": "작업 전 · 장비와 박스가 놓인 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 전, 보호 필름이 붙은 스테인리스 선반과 작업대",
+        "caption": "작업 전 · 보호 필름이 붙은 선반과 작업대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 전, 주방 벽 하단 턱에 남은 얼룩과 공사 먼지",
+        "caption": "작업 전 · 벽 하단 턱의 얼룩과 먼지"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 전, 공사 먼지가 남은 주방 타일 벽",
+        "caption": "작업 전 · 주방 타일 벽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 전, 공사 부스러기가 남은 싱크대 하부장 안쪽",
+        "caption": "작업 전 · 싱크대 하부장 안쪽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 중 내부 짐과 박스를 옮기는 모습",
+        "caption": "짐 이동 · 안쪽 짐을 먼저 옮기는 과정"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 중 주방 타일 벽을 닦는 모습",
+        "caption": "주방 · 타일 벽 닦기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 중 주방 밧드를 세척하는 모습",
+        "caption": "주방 · 밧드와 뚜껑 세척"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 중 홀 천장과 창가를 청소하는 모습",
+        "caption": "홀 · 천장 설비와 창가 주변"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 후, 보호 필름을 떼고 정리한 스테인리스 선반과 작업대",
+        "caption": "작업 후 · 선반과 작업대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 후, 정리된 주방 작업대와 후드 주변",
+        "caption": "작업 후 · 작업대와 후드 주변"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 후, 정리된 싱크대 하부장 안쪽",
+        "caption": "작업 후 · 싱크대 하부장 안쪽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-13.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 후, 정리된 주방 타일 벽",
+        "caption": "작업 후 · 주방 타일 벽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-interior-14.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 상가 인테리어청소 작업 후, 장비와 바닥까지 정리된 주방",
+        "caption": "작업 후 · 주방 전체"
+      }
+    ],
+    "fieldCase": {
+      "heading": "안산 상록구 상가 홀·주방 인테리어청소 사례",
+      "lead": "인테리어 공사를 마친 상록구 상가의 청소를 거래처 의뢰로 진행한 현장입니다. 작업 범위는 홀과 주방, 홀 앞 공간이었고, 가장 손이 많이 간 곳은 주방이었습니다.",
+      "facts": [
+        [
+          "위치",
+          "안산 상록구 상가"
+        ],
+        [
+          "작업 범위",
+          "홀, 주방, 홀 앞 공간"
+        ],
+        [
+          "의뢰 배경",
+          "인테리어 공사 후 청소 (거래처 의뢰)"
+        ],
+        [
+          "가장 힘든 곳",
+          "주방"
+        ],
+        [
+          "인원 배치",
+          "주방 2명 · 홀 1명"
+        ],
+        [
+          "인원·시간",
+          "3명 · 7시간"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "주방에는 장비와 박스가 놓여 있었고, 스테인리스 선반과 작업대에는 보호 필름이 붙어 있었습니다. 벽 하단 턱과 싱크대 하부장 안쪽에도 공사 먼지와 부스러기가 남아 있었습니다.",
+          "media": [
+            "/images/regional/ansan-interior-01.webp",
+            "/images/regional/ansan-interior-02.webp",
+            "/images/regional/ansan-interior-03.webp",
+            "/images/regional/ansan-interior-04.webp",
+            "/images/regional/ansan-interior-05.webp"
+          ]
+        },
+        {
+          "heading": "안쪽 짐부터 홀 앞 공간으로",
+          "body": "가장 먼저 안에 있던 짐을 홀 앞 공간으로 옮겨 청소할 면을 비웠습니다.",
+          "media": [
+            "/images/regional/ansan-interior-06.webp"
+          ]
+        },
+        {
+          "heading": "주방은 2명이 나눠서",
+          "body": "가장 손이 많이 가는 주방은 2명이 맡아 타일 벽과 작업대, 밧드 같은 집기를 닦았습니다.",
+          "media": [
+            "/images/regional/ansan-interior-07.webp",
+            "/images/regional/ansan-interior-08.webp"
+          ]
+        },
+        {
+          "heading": "홀은 1명이",
+          "body": "홀은 1명이 맡아 천장 설비와 창가 주변부터 바닥까지 정리했습니다.",
+          "media": [
+            "/images/regional/ansan-interior-09.webp"
+          ]
+        },
+        {
+          "heading": "작업 후 주방",
+          "body": "보호 필름이 붙어 있던 선반과 작업대, 싱크대 하부장 안쪽, 타일 벽까지 정리한 뒤 주방 바닥을 마무리했습니다.",
+          "media": [
+            "/images/regional/ansan-interior-10.webp",
+            "/images/regional/ansan-interior-11.webp",
+            "/images/regional/ansan-interior-12.webp",
+            "/images/regional/ansan-interior-13.webp",
+            "/images/regional/ansan-interior-14.webp"
+          ]
+        }
+      ],
+      "note": "면적과 주방 설비 규모, 남아 있는 짐과 공사 잔재에 따라 작업 시간과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "안산 어느 지역까지 작업하나요?",
+        "상록구 본오동·사동·월피동·성포동·이동(한양대 에리카 인근)·부곡동·일동과 상록수역·한대앞역·중앙역 인근 등 안산 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "주방이 있는 상가도 인테리어청소를 맡길 수 있나요?",
+        "네. 이 사례도 홀과 주방이 있는 상가였고, 주방을 2명이 맡아 작업대·선반·싱크대 하부장·타일 벽까지 정리했습니다."
+      ],
+      [
+        "안에 짐이 남아 있어도 되나요?",
+        "가능합니다. 이 사례도 안쪽 짐을 먼저 홀 앞 공간으로 옮긴 뒤 작업했습니다. 짐을 잠시 둘 공간이 있는지 미리 알려주세요."
+      ],
+      [
+        "이 정도 상가는 얼마나 걸리나요?",
+        "이 사례는 3명이 7시간 동안 작업했습니다. 같은 면적이라도 주방 설비 규모와 공사 잔재 양에 따라 인원과 시간이 달라집니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
     "service": "쓰레기집청소",
     "region": "경기도-안산시",
     "title": "안산 쓰레기집청소 | 상록구 원룸 실제 작업 사례·비용·견적 | 찐청소",
