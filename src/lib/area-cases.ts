@@ -148,6 +148,13 @@ export const areaCases: AreaCase[] = [
     cta: "의왕 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/uiwang-office-01.webp", "/images/regional/uiwang-office-12.webp"], "의왕 부곡동 지식산업센터 사무실청소"),
   },
+  {
+    href: "/바닥-왁스-코팅/경기도-의왕시/", province: "경기도", region: "의왕시", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "의왕 바닥왁스코팅",
+    body: "내손동 10평 음식점의 바닥을 2명이 4시간 동안 기름때를 제거하고 첫 코팅까지 마친 기록입니다.",
+    cta: "의왕 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/uiwang-floor-wax-04.webp", "/images/regional/uiwang-floor-wax-09.webp"], "의왕 내손동 음식점 바닥왁스코팅"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];
