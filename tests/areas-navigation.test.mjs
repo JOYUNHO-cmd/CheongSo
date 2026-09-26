@@ -22,12 +22,12 @@ test('region directory links directly to the real Anyang page and is discoverabl
   const res = await fetch(base + '/areas/');
   assert.equal(res.status, 200);
   const doc = new JSDOM(await res.text()).window.document;
-  const link = doc.querySelector('a[data-region-card]');
-  assert.ok(link);
-  assert.equal(doc.querySelectorAll('a[data-region-card]').length, 1);
-  assert.equal(link.getAttribute('href'), '/바닥-왁스-코팅/경기도-안양시/');
-  assert.ok(link.querySelector('img[alt]'));
-  assert.equal((await fetch(base + encodeURI(link.getAttribute('href')))).status, 200);
+  const links = [...doc.querySelectorAll('a[data-region-card]')];
+  assert.deepEqual(links.map(a => a.getAttribute('href')), ['/바닥-왁스-코팅/경기도-안양시/', '/쓰레기집청소/경기도-안양시/']);
+  for (const link of links) {
+    assert.ok(link.querySelector('img[alt]'));
+    assert.equal((await fetch(base + encodeURI(link.getAttribute('href')))).status, 200);
+  }
   assert.equal(doc.querySelector('link[rel="canonical"]').href, 'https://www.cheongso.co.kr/areas/');
   assert.ok((await (await fetch(base + '/sitemap.xml')).text()).includes('https://www.cheongso.co.kr/areas/'));
 });

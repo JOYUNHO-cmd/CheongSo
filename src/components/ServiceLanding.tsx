@@ -25,15 +25,41 @@ function hasBatchim(text: string): boolean {
   return code >= 0xac00 && code <= 0xd7a3 && (code - 0xac00) % 28 !== 0;
 }
 
+function RegionalFieldCase({ page, serviceName }: { page: RegionalPage; serviceName: string }) {
+  const c = page.fieldCase!;
+  const media = new Map(page.media.map(m => [m.src, m]));
+  return <section id="cases" className="scroll-mt-36" aria-labelledby="cases-title">
+    <h2 id="cases-title" className="text-2xl font-black text-brand-dark">{c.heading}</h2>
+    <ReadingParagraph className="mt-4">{c.lead}</ReadingParagraph>
+    <dl className="mt-5 grid gap-3 rounded-xl bg-brand-light/40 p-4 sm:grid-cols-2">{c.facts.map(([label, value]) => <div key={label}><dt className="font-bold text-brand-dark">{label}</dt><dd className="mt-1">{value}</dd></div>)}</dl>
+    {c.steps.map((step, i) => <div key={step.heading} className="mt-8">
+      <h3 className="text-lg font-bold text-brand-dark">{String(i + 1).padStart(2, "0")} · {step.heading}</h3>
+      <ReadingParagraph className="mt-2">{step.body}</ReadingParagraph>
+      {step.media?.length ? <div className="mt-4 grid grid-cols-2 gap-3">{step.media.map(src => {
+        const m = media.get(src)!;
+        return <figure key={src} className="min-w-0">
+          {m.type === "image" ? <Image src={m.src} alt={m.alt} width={m.width ?? 1200} height={m.height ?? 800} sizes="(min-width: 768px) 360px, 45vw" className="h-auto w-full rounded-lg" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-lg" />}
+          <figcaption className="mt-2 text-sm leading-6 text-gray-600">{m.caption}</figcaption>
+        </figure>;
+      })}</div> : null}
+    </div>)}
+    <ReadingParagraph className="mt-6 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">{c.note}</ReadingParagraph>
+    <Link href={servicePath(serviceName)} className="mt-3 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">{serviceName} 기본 범위와 추가 비용 기준 보기 →</Link>
+    <BackToContents />
+  </section>;
+}
+
 export default function ServiceLanding({ service, regional }: { service: ServiceProfile; regional?: RegionalPage }) {
   const category = serviceCategories.find(c => c.slug === service.category)!;
   const heading = regional?.heading || service.name;
   const path = regional ? regionalPath(regional) : servicePath(service.name);
   const hasRegionalPhotos = regional?.service === "바닥-왁스-코팅" && regional.region === "경기도-안양시";
-  const example = hasRegionalPhotos ? undefined : portfolio.find(p => p.id === `${portfolioGroups[service.name]}-01`);
-  const toc = [...(hasRegionalPhotos ? [["cases", "안양 실제 작업 사진"]] : []), ["scope", "작업 범위"], ["estimate", "견적 확인"], ["process", "진행 순서"], ...(regional ? [["local", "지역 상담 안내"]] : []), ["faq", "자주 묻는 질문"], ["related", "함께 살펴보기"]];
+  const fieldCase = regional?.fieldCase;
+  const example = hasRegionalPhotos || fieldCase ? undefined : portfolio.find(p => p.id === `${portfolioGroups[service.name]}-01`);
+  const toc = [...(hasRegionalPhotos ? [["cases", "안양 실제 작업 사진"]] : []), ...(fieldCase ? [["cases", "실제 작업 사례"]] : []), ["scope", "작업 범위"], ["estimate", "견적 확인"], ["process", "진행 순서"], ...(regional ? [["local", "지역 상담 안내"]] : []), ["faq", "자주 묻는 질문"], ["related", "함께 살펴보기"]];
   const faqItems: [string, string][] = [
     ...(hasRegionalPhotos ? anyangWaxFaq : []),
+    ...(regional?.faq ?? []),
     ["상담 전에 무엇을 준비하면 좋나요?", `${service.check}${hasBatchim(service.check) ? "을" : "를"} 알려주세요. 작업 대상의 전체 사진과 오염 부분 사진이 있으면 범위를 확인하는 데 도움이 됩니다`],
     ["신청하면 모든 작업이 포함되나요?", service.limitation],
     ["작업 시간과 비용은 어떻게 정하나요?", "면적만으로 확정하지 않고 오염과 소재, 필요한 인원·장비, 출입 가능한 시간을 함께 확인합니다. 작업 전 포함 범위와 완료 확인 방법을 협의해 주세요"],
@@ -77,6 +103,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
       <aside id="service-toc" tabIndex={-1} className="scroll-mt-24 md:scroll-mt-48"><nav aria-label="목차" className="rounded-2xl bg-gray-50 p-5 md:sticky md:top-36"><ReadingParagraph className="mb-3 font-bold text-brand-dark">이 페이지에서</ReadingParagraph><ol className="space-y-3 text-sm">{toc.map(([id, title]) => <li key={id}><a href={`#${id}`} className="hover:text-brand hover:underline">{title}</a></li>)}</ol></nav></aside>
       <div className={`${readability.body} space-y-12 text-gray-700`}>
         {hasRegionalPhotos && <AnyangWaxEvidence />}
+        {fieldCase && regional && <RegionalFieldCase page={regional} serviceName={service.name} />}
         {example && <section aria-label="서비스 참고 사진"><h2 className="text-2xl font-black text-brand-dark">사진으로 살펴보는 {service.name}</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">등록된 서비스 참고 사진입니다.{regional ? " 이 지역에서 촬영한 현장 사진을 의미하지 않습니다" : " 현장마다 작업 범위와 결과는 달라집니다"}</ReadingParagraph><div className="mt-5 grid gap-4 sm:grid-cols-2">{[{ label: "작업 전", file: example.before, width: example.beforeWidth, height: example.beforeHeight }, { label: "작업 후", file: example.after, width: example.afterWidth, height: example.afterHeight }].map(photo => <figure key={photo.file}><Image src={`/images/portfolio-v2/${photo.file}`} alt={`${service.name} 참고 사진 · ${photo.label}`} width={photo.width} height={photo.height} className="aspect-[4/3] w-full rounded-xl object-cover" sizes="(min-width: 768px) 340px, 100vw" /><figcaption className="mt-2 text-sm font-bold text-brand-dark">{photo.label}</figcaption></figure>)}</div></section>}
         <section id="scope" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{heading}, 어디까지 청소하나요?</h2><ReadingParagraph className="mt-4">다음 항목을 기준으로 현장 상태를 확인합니다. 실제 포함 범위는 상담 후 견적서에서 확인해 주세요</ReadingParagraph><ul className="mt-5 grid gap-3">{service.scope.map((item, i) => <li key={item} className="rounded-xl border border-gray-100 p-4"><span className="mr-3 font-black text-brand">0{i + 1}</span>{item}</li>)}</ul><ReadingParagraph className="mt-5 rounded-xl bg-amber-50 p-4 text-sm leading-7">{service.limitation}</ReadingParagraph><BackToContents />
           </section>
@@ -96,7 +123,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
           </section>
         <section id="process" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">처음부터 마무리까지, 순서대로</h2><ol className="mt-5 space-y-4">{[["상태 확인", "서비스 종류, 주소, 사진과 희망 일정을 확인합니다"], ["범위 협의", "포함 항목과 별도 작업, 비용과 출입 조건을 정리합니다"], ["작업 진행", "협의한 구역을 순서대로 진행하고 변경 사항을 확인합니다"], ["완료 확인", "작업한 부분을 확인하고 이용·관리 시 주의할 점을 안내합니다"]].map(([title, body], i) => <li key={title}><h3 className="font-bold">{i + 1}. {title}</h3><ReadingParagraph>{body}</ReadingParagraph></li>)}</ol><BackToContents />
           </section>
-        {regional && <section id="local" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{regional.region.replaceAll("-", " ")} 상담 준비</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다</ReadingParagraph>{regional.sections.map(s => <div key={s.heading} className="mt-6"><h3 className="text-lg font-bold">{s.heading}</h3><ReadingParagraph className="mt-2">{s.body}</ReadingParagraph></div>)}{regional.media.map(m => <figure key={m.src} className="mt-6">{m.type === "image" ? <Image src={m.src} alt={m.alt} width={1200} height={800} className="h-auto w-full rounded-xl" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-xl" />}<figcaption className="mt-2 text-sm text-gray-500">{m.caption}</figcaption></figure>)}<BackToContents />
+        {regional && <section id="local" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{regional.region.replaceAll("-", " ")} 상담 준비</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다</ReadingParagraph>{regional.sections.map(s => <div key={s.heading} className="mt-6"><h3 className="text-lg font-bold">{s.heading}</h3><ReadingParagraph className="mt-2">{s.body}</ReadingParagraph></div>)}{!fieldCase && regional.media.map(m => <figure key={m.src} className="mt-6">{m.type === "image" ? <Image src={m.src} alt={m.alt} width={1200} height={800} className="h-auto w-full rounded-xl" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-xl" />}<figcaption className="mt-2 text-sm text-gray-500">{m.caption}</figcaption></figure>)}<BackToContents />
           </section>}
         <section id="faq" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{service.name} 자주 묻는 질문</h2>{faqItems.map(([q, a]) => <details key={q} className="mt-4 rounded-xl border border-gray-200 p-4"><summary className="cursor-pointer font-bold">{q}</summary><ReadingParagraph className="mt-3">{a}</ReadingParagraph></details>)}<BackToContents />
           </section>

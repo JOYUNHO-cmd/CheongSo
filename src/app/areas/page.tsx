@@ -34,6 +34,20 @@ export default function AreasPage() {
           <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">안양 사례와 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span>
         </div>
       </Link>
+      <Link data-region-card href="/쓰레기집청소/경기도-안양시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="grid grid-cols-2 gap-2 bg-gray-50 p-4 sm:p-5">
+          {([['작업 전', '/images/regional/anyang-trash-house-01.webp'], ['작업 후', '/images/regional/anyang-trash-house-06.webp']] as const).map(([label, src]) => <figure key={src}>
+            <Image src={src} alt={`안양 만안구 다세대주택 쓰레기집청소 · ${label}`} width={900} height={1200} sizes="(min-width: 640px) 240px, 45vw" className="h-auto w-full rounded-lg" />
+            <figcaption className="mt-2 text-center text-sm font-bold text-gray-700">{label}</figcaption>
+          </figure>)}
+        </div>
+        <div className="flex flex-col justify-center p-5 sm:p-8">
+          <p className="text-sm font-semibold text-brand">실제 작업 사례 · 비용과 견적 기준</p>
+          <h3 className="mt-3 text-2xl font-bold text-brand-dark">안양 쓰레기집청소</h3>
+          <ReadingParagraph className="mt-4 text-base leading-8 text-gray-700">장기간 방치된 만안구 다세대주택에서 4명이 8시간 동안 폐기물 반출부터 청소·냄새 제거·소독까지 진행한 기록입니다. 청소로 해결되지 않은 벽지 얼룩까지 그대로 담았습니다.</ReadingParagraph>
+          <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">안양 사례와 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span>
+        </div>
+      </Link>
     </section>
     <aside className="mt-8 rounded-2xl bg-teal-50 p-5 sm:p-6">
       <h2 className="text-lg font-bold text-brand-dark">찾으시는 지역이 아직 없나요?</h2>

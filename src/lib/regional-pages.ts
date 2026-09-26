@@ -6,7 +6,15 @@ import { resolve } from "node:path";
 export type RegionalPage = {
   service: string; region: string; title: string; description: string; heading: string; intro: string;
   sections: { heading: string; body: string }[];
-  media: { type: "image" | "video"; src: string; alt: string; caption: string }[];
+  media: { type: "image" | "video"; src: string; alt: string; caption: string; width?: number; height?: number }[];
+  fieldCase?: {
+    heading: string;
+    lead: string;
+    facts: [string, string][];
+    steps: { heading: string; body: string; media?: string[] }[];
+    note: string;
+  };
+  faq?: [string, string][];
   reviewed: boolean;
   publicationId?: string;
 };
@@ -28,6 +36,12 @@ for (const page of allRecords) {
     const pattern = media.type === "image" ? /^\/images\/[\p{L}\p{N}_/.-]+\.(webp|jpg|jpeg|png)$/u : media.type === "video" ? /^\/videos\/[\p{L}\p{N}_/.-]+\.(mp4|webm)$/u : null;
     if (!pattern?.test(media.src) || media.src.includes("..") || !media.alt?.trim() || !media.caption?.trim() || !existsSync(resolve("public", `.${media.src}`))) throw new Error(`미디어 파일 또는 설명 확인 필요: ${key}`);
   }
+  if (page.fieldCase) {
+    const c = page.fieldCase;
+    const sources = new Set(page.media.map(m => m.src));
+    if (![c.heading, c.lead, c.note].every(v => v?.trim()) || !c.steps?.length || c.steps.some(s => !s.heading?.trim() || !s.body?.trim() || s.media?.some(src => !sources.has(src)))) throw new Error(`실제 사례 내용 확인 필요: ${key}`);
+  }
+  if (page.faq?.some(([q, a]) => !q?.trim() || !a?.trim())) throw new Error(`FAQ 내용 누락: ${key}`);
 }
 export const regionalPages = allRecords.filter(p => p.reviewed);
 export const regionalPath = (page: Pick<RegionalPage, "service" | "region">) => `/${page.service}/${page.region}/`;
