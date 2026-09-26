@@ -64,21 +64,25 @@ const scopeItems: { title: string; body: string; note?: string; photos?: string[
     title: "벽면과 바닥재 주변",
     body: "물이 닿은 벽면과 걸레받이 주변 등 피해 구역을 확인합니다. 겉으로 보이는 얼룩뿐 아니라 자재 손상이나 안쪽 상태의 추가 확인이 필요한지도 살펴봅니다.",
     note: "벽지·바닥재를 뜯어내는 작업은 기본 청소와 구분하며, 필요한 경우 별도로 범위를 협의합니다.",
+    photos: ["flood-wallfloor-01.webp", "flood-wallfloor-02.webp", "flood-wallfloor-03.webp", "flood-wallfloor-04.webp"],
   },
   {
     title: "건조",
     body: "건조는 기본 작업에 포함됩니다. 젖은 구역과 자재 상태, 환기 여건 등을 확인해 진행합니다.",
     note: "바닥 표면이 말라 보이는 것과 자재 안쪽까지 건조된 것은 다를 수 있습니다. 복원이 필요한 경우에는 청소가 끝났다는 이유만으로 바로 마감하기보다, 다음 공정에 앞서 건조 상태를 확인해야 합니다.",
+    photos: ["flood-drying-01.webp", "flood-drying-02.webp", "flood-drying-03.webp"],
   },
   {
     title: "소독",
     body: "소독은 기본 작업에 포함됩니다. 오염 상태와 작업 대상에 맞춰 청소와 함께 진행합니다.",
     note: "소독만으로 남아 있는 오염이나 습기, 손상된 자재 문제가 모두 해결되는 것은 아닙니다. 오염 제거와 건조, 필요한 자재 처리를 함께 고려해야 합니다.",
+    photos: ["flood-disinfect-01.webp", "flood-disinfect-02.webp"],
   },
   {
     title: "냄새 제거",
     body: "침수 후 남은 냄새의 발생 위치와 오염 상태를 확인하며 냄새 제거 작업을 진행합니다. 냄새 제거도 기본 포함 항목입니다.",
     note: "다만 젖은 자재 내부나 해결되지 않은 누수·역류 등이 원인이라면 추가 조치가 필요할 수 있습니다. 현장을 확인하지 않고 냄새가 무조건 완전히 사라진다고 약속드리지는 않습니다.",
+    photos: ["flood-odor-01.webp", "flood-odor-02.webp", "flood-odor-03.webp"],
   },
 ];
 
@@ -86,6 +90,7 @@ const restorationNote = {
   title: "철거와 복원 — 별도 견적",
   body: "침수로 손상된 부분의 철거와 복원 인테리어도 진행할 수 있습니다. 복원 후 준공청소까지 연결해 상담하실 수 있습니다.",
   note: "철거와 복원은 기본 청소비에 포함되지 않으며, 범위와 자재를 정해 별도로 견적을 안내합니다.",
+  photos: ["flood-restoration-01.webp", "flood-restoration-02.webp", "flood-restoration-03.webp"],
 };
 
 const separateScopeItems = [
@@ -297,6 +302,13 @@ export default function FloodCleaningLanding() {
               <h3 className="font-bold text-brand-dark">{restorationNote.title}</h3>
               <ReadingParagraph className="mt-2 text-[15.5px]">{restorationNote.body}</ReadingParagraph>
               <ReadingParagraph className="mt-2 text-[15px] text-gray-500">{restorationNote.note}</ReadingParagraph>
+              <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+                {restorationNote.photos.map(photo => (
+                  <div key={photo} className="relative flex h-40 items-center justify-center overflow-hidden rounded-lg bg-white sm:h-48">
+                    <Image src={`/images/portfolio-v2/${photo}`} alt={`${restorationNote.title} 실제 현장 사진`} width={960} height={720} className="h-full w-full object-cover object-center" sizes="(min-width: 768px) 210px, 45vw" />
+                  </div>
+                ))}
+              </div>
             </div>
 
             <h3 className="mt-8 font-bold text-brand-dark">청소와 별도로 확인할 사항</h3>
