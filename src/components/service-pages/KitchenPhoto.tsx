@@ -9,7 +9,7 @@ export function KitchenPhoto({src,alt,caption}:{src:string;alt:string;caption:st
   const [width,height]=filename==='003.jpg'||filename==='008.jpg'?[4000,2252]:filename==='009-6.jpg'?[1080,1440]:[1440,1081];
   return <figure className={styles.photo}>
     <button type="button" aria-label={`${alt} — 사진 크게 보기`} onClick={()=>dialog.current?.showModal()}>
-      <Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 1024px) 720px, 100vw" className={styles.image} />
+      <Image src={src} alt={alt} width={width} height={height} sizes="(min-width: 1024px) 360px, 50vw" className={styles.image} />
       <span>사진 크게 보기 ↗</span>
     </button>
     <figcaption>{caption}</figcaption>
