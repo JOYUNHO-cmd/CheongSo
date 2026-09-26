@@ -65,6 +65,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/gunpo-trash-house-01.webp", "/images/regional/gunpo-trash-house-07.webp"], "군포 산본 아파트 쓰레기집청소"),
   },
   {
+    href: "/인테리어청소/경기도-군포시/", province: "경기도", region: "군포시", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "군포 인테리어청소",
+    body: "산본 중심상가 빌딩의 코인노래방을 인테리어 공사 후 3명이 12시간 동안 방마다 스피커·창틀·집기·TV까지 공사 잔재를 걷어내고 청소한 기록입니다.",
+    cta: "군포 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/gunpo-interior-01.webp", "/images/regional/gunpo-interior-12.webp"], "군포 산본 코인노래방 인테리어청소"),
+  },
+  {
     href: "/쓰레기집청소/경기도-안산시/", province: "경기도", region: "안산시", service: "쓰레기집청소",
     eyebrow: caseEyebrow, title: "안산 쓰레기집청소",
     body: "날파리가 생긴 상록구 원룸을 가족 방문 전에 4명이 3시간 동안 폐기물 처리부터 오염 제거·냄새 제거·소독까지 진행한 기록입니다.",
