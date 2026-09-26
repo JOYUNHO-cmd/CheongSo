@@ -106,6 +106,13 @@ export const areaCases: AreaCase[] = [
     cta: "용인 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/yongin-interior-02.webp", "/images/regional/yongin-interior-12.webp"], "용인 수지구 타운하우스 인테리어청소"),
   },
+  {
+    href: "/사무실청소/경기도-의왕시/", province: "경기도", region: "의왕시", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "의왕 사무실청소",
+    body: "새로 준공된 부곡동 지식산업센터 250평 사무실을 8명이 천장 에어컨 디퓨저부터 유리·창틀, 시스템박스·배전반, 바닥까지 청소한 입주 전 기록입니다.",
+    cta: "의왕 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/uiwang-office-01.webp", "/images/regional/uiwang-office-12.webp"], "의왕 부곡동 지식산업센터 사무실청소"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];
