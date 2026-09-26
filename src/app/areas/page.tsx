@@ -101,6 +101,23 @@ export default function AreasPage() {
         </div>
       </Link>
     </section>
+    <section aria-labelledby="siheung-title" className="mt-10 sm:mt-14">
+      <h2 id="siheung-title" className="flex items-center gap-2 text-xl font-bold text-brand-dark"><MapPin aria-hidden="true" className="h-5 w-5 text-brand" />경기도 · 시흥시</h2>
+      <Link data-region-card href="/공장청소/경기도-시흥시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="grid grid-cols-2 gap-2 bg-gray-50 p-4 sm:p-5">
+          {([['작업 전', '/images/regional/siheung-factory-01.webp'], ['작업 후', '/images/regional/siheung-factory-15.webp']] as const).map(([label, src]) => <figure key={src}>
+            <Image src={src} alt={`시흥 은계지구 빵공장 청소 · ${label}`} width={900} height={1200} sizes="(min-width: 640px) 240px, 45vw" className="h-auto w-full rounded-lg" />
+            <figcaption className="mt-2 text-center text-sm font-bold text-gray-700">{label}</figcaption>
+          </figure>)}
+        </div>
+        <div className="flex flex-col justify-center p-5 sm:p-8">
+          <p className="text-sm font-semibold text-brand">실제 작업 사례 · 비용과 견적 기준</p>
+          <h3 className="mt-3 text-2xl font-bold text-brand-dark">시흥 공장청소</h3>
+          <ReadingParagraph className="mt-4 text-base leading-8 text-gray-700">HACCP 재심사를 앞둔 150평 빵공장을 9명이 빵 랙·벽면·천장·기계·쟁반까지 구역을 나눠 청소한 기록입니다.</ReadingParagraph>
+          <span className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-brand-dark underline underline-offset-4">시흥 사례와 견적 기준 보기<ArrowUpRight aria-hidden="true" className="h-5 w-5" /></span>
+        </div>
+      </Link>
+    </section>
     <section aria-labelledby="suwon-title" className="mt-10 sm:mt-14">
       <h2 id="suwon-title" className="flex items-center gap-2 text-xl font-bold text-brand-dark"><MapPin aria-hidden="true" className="h-5 w-5 text-brand" />경기도 · 수원시</h2>
       <Link data-region-card href="/바닥-왁스-코팅/경기도-수원시/" className="group mt-5 grid overflow-hidden rounded-2xl border border-gray-200 bg-white transition-colors hover:border-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
