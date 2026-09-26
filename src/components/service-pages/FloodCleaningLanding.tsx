@@ -64,7 +64,7 @@ const scopeItems: { title: string; body: string; note?: string; photos?: string[
     title: "벽면과 바닥재 주변",
     body: "물이 닿은 벽면과 걸레받이 주변 등 피해 구역을 확인합니다. 겉으로 보이는 얼룩뿐 아니라 자재 손상이나 안쪽 상태의 추가 확인이 필요한지도 살펴봅니다.",
     note: "벽지·바닥재를 뜯어내는 작업은 기본 청소와 구분하며, 필요한 경우 별도로 범위를 협의합니다.",
-    photos: ["flood-wallfloor-01.webp", "flood-wallfloor-02.webp", "flood-wallfloor-03.webp", "flood-wallfloor-04.webp"],
+    photos: ["flood-wallfloor-01.webp", "flood-wallfloor-03.webp", "flood-wallfloor-04.webp"],
   },
   {
     title: "건조",
