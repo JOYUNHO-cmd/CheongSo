@@ -80,12 +80,12 @@
   box-shadow: none;
 }
 /* Decorative rounded chevrons: no additional text in accessible link names. */
-.enhanced .layout > aside ol a::after {
+.enhanced .layout > aside ol a::before {
   content: "";
   flex: 0 0 1.75rem;
   width: 1.75rem;
   height: 1rem;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16' fill='none' stroke='%230096a6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 4-4 4 4 4'/%3E%3Cpath opacity='.7' d='m16 4-4 4 4 4'/%3E%3Cpath opacity='.4' d='m25 4-4 4 4 4'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16' fill='none' stroke='%230096a6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath opacity='.4' d='m3 4 4 4-4 4'/%3E%3Cpath opacity='.7' d='m12 4 4 4-4 4'/%3E%3Cpath d='m21 4 4 4-4 4'/%3E%3C/svg%3E") center / contain no-repeat;
   animation: menu-chevron-nudge 1s ease-in-out infinite;
 }
 .enhanced .layout > aside ol a:hover,
@@ -93,11 +93,11 @@
 .enhanced .layout > aside ol a:active { color: var(--brand-dark); }
 @keyframes menu-chevron-nudge {
   0%, 65%, 100% { transform: translateX(0); }
-  78% { transform: translateX(-3px); }
-  90% { transform: translateX(-1px); }
+  78% { transform: translateX(3px); }
+  90% { transform: translateX(1px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .enhanced .layout > aside ol a::after { animation: none; }
+  .enhanced .layout > aside ol a::before { animation: none; }
 }
 .enhanced .body h2 { text-wrap: balance; }
 .enhanced .body h3 { text-wrap: pretty; }
