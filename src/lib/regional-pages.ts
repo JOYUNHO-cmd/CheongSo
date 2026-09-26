@@ -6,7 +6,7 @@ import { resolve } from "node:path";
 export type RegionalPage = {
   service: string; region: string; title: string; description: string; heading: string; intro: string;
   sections: { heading: string; body: string }[];
-  media: { type: "image" | "video"; src: string; alt: string; caption: string; width?: number; height?: number }[];
+  media: { type: "image" | "video"; src: string; alt: string; caption: string; width?: number; height?: number; poster?: string }[];
   fieldCase?: {
     heading: string;
     lead: string;
@@ -34,7 +34,7 @@ for (const page of allRecords) {
   if (!Array.isArray(page.media)) throw new Error(`미디어 목록 누락: ${key}`);
   for (const media of page.media) {
     const pattern = media.type === "image" ? /^\/images\/[\p{L}\p{N}_/.-]+\.(webp|jpg|jpeg|png)$/u : media.type === "video" ? /^\/videos\/[\p{L}\p{N}_/.-]+\.(mp4|webm)$/u : null;
-    if (!pattern?.test(media.src) || media.src.includes("..") || !media.alt?.trim() || !media.caption?.trim() || !existsSync(resolve("public", `.${media.src}`))) throw new Error(`미디어 파일 또는 설명 확인 필요: ${key}`);
+    if (!pattern?.test(media.src) || media.src.includes("..") || !media.alt?.trim() || !media.caption?.trim() || !existsSync(resolve("public", `.${media.src}`)) || (media.poster && (!/^\/(images|videos)\/[\p{L}\p{N}_/.-]+\.(webp|jpg|jpeg|png)$/u.test(media.poster) || !existsSync(resolve("public", `.${media.poster}`))))) throw new Error(`미디어 파일 또는 설명 확인 필요: ${key}`);
   }
   if (page.fieldCase) {
     const c = page.fieldCase;

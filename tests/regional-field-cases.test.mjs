@@ -27,9 +27,12 @@ for (const record of records) {
     assert.ok(cases);
     for (const [, value] of record.fieldCase.facts) assert.ok(cases.textContent.includes(value), value);
     const images = [...cases.querySelectorAll('img')];
-    assert.equal(images.length, record.media.length);
+    const videos = [...cases.querySelectorAll('video')];
+    assert.equal(images.length, record.media.filter(m => m.type === 'image').length);
+    assert.equal(videos.length, record.media.filter(m => m.type === 'video').length);
     assert.ok(images.every(img => img.getAttribute('alt')));
-    for (const media of record.media) assert.equal((await fetch(base + media.src)).status, 200, media.src);
+    assert.ok(videos.every(video => video.getAttribute('aria-label') && video.getAttribute('poster')));
+    for (const media of record.media) for (const src of [media.src, media.poster].filter(Boolean)) assert.equal((await fetch(base + src)).status, 200, src);
     assert.equal(doc.querySelector('#local').querySelectorAll('img').length, 0);
     for (const link of doc.querySelectorAll('nav[aria-label="목차"] a')) {
       const section = doc.querySelector(link.hash);

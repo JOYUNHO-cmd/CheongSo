@@ -61,5 +61,6 @@ export function RegionalPhotoLinks({ path }: { path: string }) {
     <p className="mt-2 text-sm leading-7 text-gray-600">등록된 사진 제목을 그대로 안내합니다. 같은 지역이어도 현장 조건과 작업 범위는 다르며, 방문 가능 여부와 일정은 주소를 기준으로 확인합니다.</p>
     <ul className="mt-3 space-y-2">{photos.map(item => <li key={item.id}><Link href={galleryHref(item.category, item.id)} className="font-bold text-brand-dark underline underline-offset-4">{item.title} →</Link></li>)}</ul>
     {path === "/바닥-왁스-코팅/" && <p className="mt-4"><Link href="/바닥-왁스-코팅/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 바닥왁스코팅 상담 안내 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/경기도-수원시/" className="font-bold text-brand-dark underline underline-offset-4">수원 바닥왁스코팅 사례 보기 →</Link></p>}
   </div>;
 }

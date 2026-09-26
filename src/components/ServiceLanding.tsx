@@ -38,7 +38,7 @@ function RegionalFieldCase({ page, serviceName }: { page: RegionalPage; serviceN
       {step.media?.length ? <div className="mt-4 grid grid-cols-2 gap-3">{step.media.map(src => {
         const m = media.get(src)!;
         return <figure key={src} className="min-w-0">
-          {m.type === "image" ? <Image src={m.src} alt={m.alt} width={m.width ?? 1200} height={m.height ?? 800} sizes="(min-width: 768px) 360px, 45vw" className="h-auto w-full rounded-lg" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-lg" />}
+          {m.type === "image" ? <Image src={m.src} alt={m.alt} width={m.width ?? 1200} height={m.height ?? 800} sizes="(min-width: 768px) 360px, 45vw" className="h-auto w-full rounded-lg" /> : <video src={m.src} poster={m.poster} controls muted playsInline preload="metadata" aria-label={m.alt} className="aspect-[9/16] w-full rounded-lg bg-black object-cover" />}
           <figcaption className="mt-2 text-sm leading-6 text-gray-600">{m.caption}</figcaption>
         </figure>;
       })}</div> : null}
