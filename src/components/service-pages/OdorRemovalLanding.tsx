@@ -217,12 +217,13 @@ export default function OdorRemovalLanding() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 */}
-      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
-        <div className="absolute inset-0">
-          <Image src="/images/service-scenes/odor-wall-residue.webp" alt="" fill preload className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/90 to-brand/75" />
+      <section className="relative flex min-h-[calc(66.667vw+680px)] flex-col overflow-hidden bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:min-h-[650px] md:justify-center md:py-20 lg:min-h-[620px]">
+        <div className="relative -mx-6 -mt-14 aspect-[3/2] md:absolute md:inset-0 md:m-0 md:aspect-auto">
+          <Image src="/images/service-scenes/odor-wall-residue.webp" alt="" fill className="scale-110 object-cover blur-2xl" sizes="25vw" />
+          <Image src="/images/service-scenes/odor-wall-residue.webp" alt="" fill preload className="object-contain" sizes="100vw" />
+          <div className="absolute inset-0 hidden bg-gradient-to-br from-brand-dark/90 to-brand/75 md:block" />
         </div>
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto my-auto w-full max-w-5xl pt-8 md:pt-0">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>냄새악취제거</span>
           </nav>
