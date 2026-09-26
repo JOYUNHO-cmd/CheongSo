@@ -218,10 +218,12 @@ export default function SchoolCleaningLanding() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
-      <section className="relative flex min-h-[calc(66.667vw+680px)] flex-col overflow-hidden bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:min-h-[650px] md:justify-center md:py-20 lg:min-h-[620px]">
+      <section className="relative flex min-h-[calc(66.667vw+680px)] flex-col overflow-hidden bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:min-h-[max(650px,50vw)] md:justify-center md:py-20 lg:min-h-[max(620px,50vw)]">
         <div className="relative -mx-6 -mt-14 aspect-[3/2] md:absolute md:inset-0 md:m-0 md:aspect-auto">
           <Image src="/images/hero-bg/school-hero.webp" alt="" fill className="scale-110 object-cover blur-2xl" sizes="25vw" />
-          <Image src="/images/hero-bg/school-hero.webp" alt="" fill priority className="object-contain" sizes="100vw" />
+          <div className="absolute inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:aspect-[3/2] md:w-3/4 md:-translate-x-1/2 md:-translate-y-1/2">
+            <Image src="/images/hero-bg/school-hero.webp" alt="" fill priority className="object-cover" sizes="(min-width: 768px) 75vw, 100vw" />
+          </div>
           <div className="absolute inset-0 hidden bg-gradient-to-br from-brand-dark/78 to-brand/60 md:block" />
         </div>
         <div className="relative mx-auto my-auto w-full max-w-5xl pt-8 md:pt-0">
