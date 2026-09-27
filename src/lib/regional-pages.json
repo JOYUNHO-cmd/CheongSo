@@ -4325,14 +4325,6 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/suwon-cafe-08.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "수원 카페 준공청소 작업 후, 창가에서 바라본 도로",
-        "caption": "작업 후 · 창가에서 바라본 도로"
-      },
-      {
-        "type": "image",
         "src": "/images/regional/suwon-cafe-09.webp",
         "width": 900,
         "height": 1200,
@@ -4423,7 +4415,6 @@
           "heading": "유리와 출입구 마무리",
           "body": "창가 유리와 접이식 유리문, 로비 복도, 출입구까지 순서대로 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
           "media": [
-            "/images/regional/suwon-cafe-08.webp",
             "/images/regional/suwon-cafe-09.webp",
             "/images/regional/suwon-cafe-10.webp",
             "/images/regional/suwon-cafe-11.webp",
