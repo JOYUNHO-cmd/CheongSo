@@ -212,13 +212,6 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/geomdan-trash-01.webp", "/images/regional/geomdan-trash-09.webp"], "인천 검단구 빌라 원룸 쓰레기집청소"),
   },
   {
-    href: "/바닥-왁스-코팅/인천광역시-검단구/", province: "인천광역시", region: "검단구", service: "바닥왁스코팅",
-    eyebrow: caseEyebrow, title: "인천 검단구 바닥왁스코팅",
-    body: "누렇게 변색된 사무실 바닥의 기존 왁스를 박리하고 세척한 뒤 2회 코팅한 기록입니다.",
-    cta: "인천 검단구 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/geomdan-floor-wax-01.webp", "/images/regional/geomdan-floor-wax-11.webp"], "인천 검단구 사무실 바닥왁스코팅"),
-  },
-  {
     href: "/화재청소/인천광역시-남동구/", province: "인천광역시", region: "남동구", service: "화재청소",
     eyebrow: caseEyebrow, title: "인천 남동구 화재청소",
     body: "남동공단 공장에서 생산 설비를 보양한 뒤 고소 장비로 천장과 벽의 그을음을 세척한 기록입니다.",
@@ -254,13 +247,6 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/bupyeong-trash-03.webp", "/images/regional/bupyeong-trash-07.webp"], "인천 부평역 오피스텔 쓰레기집청소"),
   },
   {
-    href: "/바닥-왁스-코팅/인천광역시-부평구/", province: "인천광역시", region: "부평구", service: "바닥왁스코팅",
-    eyebrow: caseEyebrow, title: "인천 부평구 바닥왁스코팅",
-    body: "부평역 인근 상가 테라조 바닥의 찌든 때를 벗겨내고 2회 코팅한 기록입니다.",
-    cta: "인천 부평구 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/bupyeong-floor-wax-01.webp", "/images/regional/bupyeong-floor-wax-06.webp"], "인천 부평역 상가 바닥왁스코팅"),
-  },
-  {
     href: "/화재청소/인천광역시-미추홀구/", province: "인천광역시", region: "미추홀구", service: "화재청소",
     eyebrow: caseEyebrow, title: "인천 미추홀구 화재청소",
     body: "주안 상가건물 층 전체에서 천장·창틀·선반의 그을음을 닦고 바닥 세척까지 진행한 기록입니다.",
@@ -294,13 +280,6 @@ export const areaCases: AreaCase[] = [
     body: "방과 욕실, 선반까지 쌓인 짐과 쓰레기를 치우고 세면대·수납장·창틀까지 닦은 송도 오피스텔 기록입니다.",
     cta: "인천 연수구 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/songdo-trash-01.webp", "/images/regional/songdo-trash-12.webp"], "인천 송도 오피스텔 쓰레기집청소"),
-  },
-  {
-    href: "/바닥-왁스-코팅/인천광역시-연수구/", province: "인천광역시", region: "연수구", service: "바닥왁스코팅",
-    eyebrow: caseEyebrow, title: "인천 연수구 바닥왁스코팅",
-    body: "입주를 앞둔 송도 고층 오피스 바닥의 얼룩을 제거하고 2회 코팅한 기록입니다.",
-    cta: "인천 연수구 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/songdo-floor-wax-01.webp", "/images/regional/songdo-floor-wax-07.webp"], "인천 송도 오피스 바닥왁스코팅"),
   },
   {
     href: "/바닥-왁스-코팅/경기도-수원시/", province: "경기도", region: "수원시", service: "바닥왁스코팅",
