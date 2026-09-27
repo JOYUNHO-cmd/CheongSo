@@ -94,8 +94,8 @@ const organizationStructuredData = {
   email: siteConfig.email,
   address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "KR" },
   areaServed: [
-    { "@type": "AdministrativeArea", name: "경기도" },
-    ...[...new Set(regionalPages.map(p => p.region.split("-")[1]))].sort().map(name => ({ "@type": "City", name })),
+    ...[...new Set(regionalPages.map(p => p.region.split("-")[0]))].map(name => ({ "@type": "AdministrativeArea", name })),
+    ...[...new Set(regionalPages.map(p => { const [province, city] = p.region.split("-"); return province === "경기도" ? city : `${province} ${city}`; }))].sort().map(name => ({ "@type": "City", name })),
   ],
   identifier: { "@type": "PropertyValue", propertyID: "사업자등록번호", value: siteConfig.businessNumber },
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,

@@ -132,6 +132,12 @@ export default function AreaFinder() {
           {shown.filter(c => c.region === r).map(c => <CaseCard key={c.href} item={c} />)}
         </div>
       </section>)}
+      {!region && areaProvinces.filter(p => p !== province).map(p => <section key={p} aria-label={`${p} 사례`} className="mt-14 border-t border-gray-200 pt-10 sm:mt-20 sm:pt-14">
+        <h2 className="flex items-center gap-2 text-xl font-bold text-brand-dark"><MapPin aria-hidden="true" className="h-5 w-5 text-brand" />다른 광역 지역 · {p}</h2>
+        <div className="mt-5 grid gap-5 sm:gap-6">
+          {areaCases.filter(c => c.province === p).map(c => <CaseCard key={c.href} item={c} />)}
+        </div>
+      </section>)}
     </div>
   </>;
 }
