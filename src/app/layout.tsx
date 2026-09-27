@@ -8,6 +8,7 @@ import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl, absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { defaultOgImage } from "@/lib/seo";
+import { regionalPages } from "@/lib/regional-pages";
 
 // 한 패밀리 안에서 본문과 제목 굵기를 선택합니다. 분리하면 본문에도 700이 적용됩니다.
 const notoSansKr = Noto_Sans_KR({
@@ -92,10 +93,13 @@ const organizationStructuredData = {
   telephone: siteConfig.phoneRaw,
   email: siteConfig.email,
   address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "KR" },
-  areaServed: { "@type": "AdministrativeArea", name: "경기도" },
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "경기도" },
+    ...[...new Set(regionalPages.map(p => p.region.split("-")[1]))].sort().map(name => ({ "@type": "City", name })),
+  ],
   identifier: { "@type": "PropertyValue", propertyID: "사업자등록번호", value: siteConfig.businessNumber },
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
-  sameAs: [siteConfig.kakaoUrl].filter(Boolean),
+  sameAs: [siteConfig.kakaoUrl, siteConfig.naverPlaceUrl].filter(Boolean),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

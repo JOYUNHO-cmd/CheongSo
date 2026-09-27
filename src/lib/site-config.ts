@@ -11,6 +11,7 @@ export const siteConfig = {
   phone: "010.9882.8882",
   phoneRaw: "01098828882",
   kakaoUrl: "https://open.kakao.com/o/srNJGmpg",
+  naverPlaceUrl: "https://map.naver.com/p/entry/place/1901781586",
   email: "danger3662@naver.com",
   hours: {
     weekday: "연중무휴 전화상담가능",
