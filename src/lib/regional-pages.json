@@ -6162,5 +6162,961 @@
       ]
     ],
     "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "인천광역시-검단구",
+    "title": "인천 검단구 쓰레기집청소 | 검단 빌라 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 검단구 빌라 원룸에서 방과 주방을 가득 채운 폐기물을 트럭으로 반출하고 욕실·바닥 오염 제거까지 마친 쓰레기집청소 기록을 사진으로 확인하세요. 인천 검단구 쓰레기집청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 검단구 쓰레기집청소",
+    "intro": "방과 주방에 쓰레기가 발 디딜 틈 없이 쌓여 어디서부터 손대야 할지 막막하신가요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 검단신도시와 마전동·당하동·원당동·불로동·오류동 일대까지 인천 검단구의 빌라·원룸·오피스텔 현장에서 상담하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "쌓인 양이 많으면 트럭 반출 동선부터 확인합니다",
+        "body": "방 전체를 채운 폐기물은 차량으로 여러 번 옮겨야 할 수 있습니다. 건물 앞 차량을 세울 곳과 계단·엘리베이터 여부를 알려주시면 반출 시간을 가늠하기 좋습니다."
+      },
+      {
+        "heading": "욕실과 바닥에 스며든 얼룩까지 제거합니다",
+        "body": "쓰레기 아래에 가려져 있던 바닥 얼룩과 욕실 오염은 폐기물을 치운 뒤에야 드러납니다. 이 현장도 반출 뒤 바닥과 욕실, 주방을 차례로 정리했습니다."
+      },
+      {
+        "heading": "폐기물 처리 뒤 오염 제거와 소독까지 진행합니다",
+        "body": "쓰레기만 치우고 끝내면 바닥과 욕실에 스며든 얼룩과 냄새가 남습니다. 찐청소는 폐기물 처리 뒤 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 전, 방 안에 쌓인 폐기물과 빈 병",
+        "caption": "작업 전 · 방 안에 쌓인 폐기물과 빈 병"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 전, 천장 가까이 쌓인 쓰레기",
+        "caption": "작업 전 · 천장 가까이 쌓인 쓰레기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 전, 오염된 주방 싱크대",
+        "caption": "작업 전 · 오염된 주방 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 전, 물건으로 덮인 주방",
+        "caption": "작업 전 · 물건으로 덮인 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 전, 오염된 욕실",
+        "caption": "작업 전 · 오염된 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 중, 폐기물을 치운 뒤 드러난 바닥 얼룩",
+        "caption": "작업 중 · 치운 뒤 드러난 바닥 얼룩"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 중, 건물 앞으로 옮긴 폐기물",
+        "caption": "작업 중 · 건물 앞으로 옮긴 폐기물"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 중, 트럭으로 폐기물 반출",
+        "caption": "작업 중 · 트럭으로 폐기물 반출"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 깨끗해진 방 바닥",
+        "caption": "작업 후 · 깨끗해진 방 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 비워진 방",
+        "caption": "작업 후 · 비워진 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 정리된 욕실",
+        "caption": "작업 후 · 정리된 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/geomdan-trash-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 정리된 주방",
+        "caption": "작업 후 · 정리된 주방"
+      }
+    ],
+    "fieldCase": {
+      "heading": "검단 빌라 원룸 쓰레기집청소 사례",
+      "lead": "방과 주방이 폐기물로 가득 차 바닥이 보이지 않던 빌라 원룸에서 의뢰받은 현장입니다. 빈 병과 생활 쓰레기가 천장 가까이 쌓여 있었고, 욕실과 주방도 오염돼 있었습니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 검단구 빌라 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "방·주방 가득 쌓인 폐기물, 욕실·바닥 오염"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "특이 사항",
+          "트럭으로 폐기물 반출"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방과 주방에 폐기물이 가득 쌓였고, 싱크대와 욕실이 오염돼 있었습니다.",
+          "media": [
+            "/images/regional/geomdan-trash-01.webp",
+            "/images/regional/geomdan-trash-02.webp",
+            "/images/regional/geomdan-trash-03.webp",
+            "/images/regional/geomdan-trash-04.webp",
+            "/images/regional/geomdan-trash-05.webp"
+          ]
+        },
+        {
+          "heading": "폐기물 반출",
+          "body": "폐기물을 건물 앞으로 옮겨 트럭으로 반출했습니다. 치운 뒤 드러난 바닥 얼룩도 확인했습니다.",
+          "media": [
+            "/images/regional/geomdan-trash-06.webp",
+            "/images/regional/geomdan-trash-07.webp",
+            "/images/regional/geomdan-trash-08.webp"
+          ]
+        },
+        {
+          "heading": "오염 제거와 마무리",
+          "body": "바닥과 욕실, 주방의 오염을 제거하고 냄새 제거와 소독까지 마쳤습니다.",
+          "media": [
+            "/images/regional/geomdan-trash-09.webp",
+            "/images/regional/geomdan-trash-10.webp",
+            "/images/regional/geomdan-trash-11.webp",
+            "/images/regional/geomdan-trash-12.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "인천 검단구 어느 지역까지 작업하나요?",
+        "검단신도시와 마전동·당하동·원당동·불로동·오류동 일대까지 인천 검단구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "쓰레기가 천장까지 쌓였어도 작업할 수 있나요?",
+        "가능합니다. 이 사례도 방 전체를 채운 폐기물을 트럭으로 반출한 뒤 오염 제거와 소독까지 진행했습니다."
+      ],
+      [
+        "쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ],
+      [
+        "이웃에게 알리지 않고 진행할 수 있나요?",
+        "방문 시간과 반출 방법을 상담할 때 함께 정합니다. 다만 공동현관과 복도, 엘리베이터를 이용해야 하므로 주변에서 작업 사실을 전혀 알 수 없다고 약속드리기는 어렵습니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "인천광역시-남동구",
+    "title": "인천 남동구 쓰레기집청소 | 구월동 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 남동구 구월동 원룸에서 바닥을 덮은 생활 쓰레기와 옷가지를 치우고 변기·창틀 오염까지 제거한 쓰레기집청소 기록을 사진으로 확인하세요. 인천 남동구 쓰레기집청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 남동구 쓰레기집청소",
+    "intro": "혼자 사는 원룸 바닥이 배달 용기와 옷가지로 덮여 치울 엄두가 나지 않으시나요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 구월동 로데오거리와 인천터미널 주변 원룸촌부터 간석동·만수동·논현동 일대까지 인천 남동구의 원룸·오피스텔 현장에서 상담하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "배달 용기와 생활 쓰레기가 섞인 원룸은 분류부터 합니다",
+        "body": "음식물이 남은 배달 용기와 옷가지, 생활 쓰레기가 섞여 있으면 먼저 분류해야 반출과 냄새 제거가 수월합니다."
+      },
+      {
+        "heading": "변기와 창틀처럼 눈에 덜 띄는 곳도 닦습니다",
+        "body": "쓰레기를 치운 뒤에는 변기 오염과 창틀 먼지처럼 생활하면서 쌓인 오염까지 함께 정리합니다."
+      },
+      {
+        "heading": "폐기물 처리 뒤 오염 제거와 소독까지 진행합니다",
+        "body": "쓰레기만 치우고 끝내면 바닥과 욕실에 스며든 얼룩과 냄새가 남습니다. 찐청소는 폐기물 처리 뒤 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 전, 바닥을 덮은 생활 쓰레기",
+        "caption": "작업 전 · 바닥을 덮은 생활 쓰레기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 전, 책상 주변에 쌓인 쓰레기",
+        "caption": "작업 전 · 책상 주변에 쌓인 쓰레기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 전, 옷가지와 짐이 쌓인 방",
+        "caption": "작업 전 · 옷가지와 짐이 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 전, 방 한쪽에 쌓인 짐",
+        "caption": "작업 전 · 방 한쪽에 쌓인 짐"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 전, 오염된 변기",
+        "caption": "작업 전 · 오염된 변기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 정리된 선반",
+        "caption": "작업 후 · 정리된 선반"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 정리된 책상",
+        "caption": "작업 후 · 정리된 책상"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 깨끗해진 바닥",
+        "caption": "작업 후 · 깨끗해진 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 닦은 창문",
+        "caption": "작업 후 · 닦은 창문"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 깨끗해진 변기",
+        "caption": "작업 후 · 깨끗해진 변기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-trash-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 원룸 쓰레기집청소 작업 후, 정리된 창틀",
+        "caption": "작업 후 · 정리된 창틀"
+      }
+    ],
+    "fieldCase": {
+      "heading": "구월동 원룸 쓰레기집청소 사례",
+      "lead": "바닥이 배달 용기와 생활 쓰레기, 옷가지로 덮인 원룸에서 의뢰받은 현장입니다. 변기도 오염이 심한 상태였습니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 남동구 구월동 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "바닥을 덮은 생활 쓰레기·옷가지, 변기 오염"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "바닥과 책상 주변이 생활 쓰레기와 옷가지로 덮여 있었고, 변기도 오염돼 있었습니다.",
+          "media": [
+            "/images/regional/namdong-trash-01.webp",
+            "/images/regional/namdong-trash-02.webp",
+            "/images/regional/namdong-trash-03.webp",
+            "/images/regional/namdong-trash-04.webp",
+            "/images/regional/namdong-trash-05.webp"
+          ]
+        },
+        {
+          "heading": "폐기물 처리와 오염 제거",
+          "body": "쓰레기를 분류해 반출하고 선반과 책상, 바닥을 정리했습니다.",
+          "media": [
+            "/images/regional/namdong-trash-06.webp",
+            "/images/regional/namdong-trash-07.webp",
+            "/images/regional/namdong-trash-08.webp"
+          ]
+        },
+        {
+          "heading": "변기·창틀 마무리",
+          "body": "창문과 창틀, 변기까지 닦고 냄새 제거와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/namdong-trash-09.webp",
+            "/images/regional/namdong-trash-10.webp",
+            "/images/regional/namdong-trash-11.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "인천 남동구 어느 지역까지 작업하나요?",
+        "구월동 로데오거리와 인천터미널 주변 원룸촌부터 간석동·만수동·논현동 일대까지 인천 남동구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "원룸 하나도 쓰레기집청소를 맡길 수 있나요?",
+        "가능합니다. 이 사례도 혼자 사는 원룸이었으며, 폐기물 처리부터 변기·창틀 오염 제거와 소독까지 진행했습니다."
+      ],
+      [
+        "쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ],
+      [
+        "이웃에게 알리지 않고 진행할 수 있나요?",
+        "방문 시간과 반출 방법을 상담할 때 함께 정합니다. 다만 공동현관과 복도, 엘리베이터를 이용해야 하므로 주변에서 작업 사실을 전혀 알 수 없다고 약속드리기는 어렵습니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "인천광역시-부평구",
+    "title": "인천 부평구 쓰레기집청소 | 부평역 오피스텔 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 부평역 인근 오피스텔에서 물건이 쌓인 방과 오염된 세면대·욕실을 정리하고 냉장고와 바닥까지 닦은 쓰레기집청소 기록을 사진으로 확인하세요. 인천 부평구 쓰레기집청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 부평구 쓰레기집청소",
+    "intro": "오피스텔 방과 세탁기 앞까지 짐과 쓰레기가 쌓여 이사나 퇴실 날짜가 걱정되시나요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 부평역 상권과 부평 문화의거리 주변 오피스텔부터 부평동·십정동·산곡동·삼산동 일대까지 인천 부평구의 오피스텔·원룸 현장에서 상담하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "퇴실 전이라면 냉장고와 싱크대까지 확인합니다",
+        "body": "오피스텔 퇴실 전에는 방뿐 아니라 냉장고 안쪽과 싱크대 상태도 확인하는 경우가 많습니다. 이 현장도 냉장고를 비워 닦고 싱크대까지 정리했습니다."
+      },
+      {
+        "heading": "세면대와 욕실 바닥의 찌든 오염을 제거합니다",
+        "body": "세면대에 쌓인 찌꺼기와 욕실 바닥 오염은 폐기물을 치운 뒤 별도로 세척합니다."
+      },
+      {
+        "heading": "폐기물 처리 뒤 오염 제거와 소독까지 진행합니다",
+        "body": "쓰레기만 치우고 끝내면 바닥과 욕실에 스며든 얼룩과 냄새가 남습니다. 찐청소는 폐기물 처리 뒤 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 전, 찌꺼기가 쌓인 세면대",
+        "caption": "작업 전 · 찌꺼기가 쌓인 세면대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 전, 오염된 욕실 바닥",
+        "caption": "작업 전 · 오염된 욕실 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 전, 물건과 옷가지가 쌓인 방",
+        "caption": "작업 전 · 물건과 옷가지가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 전, 세탁기 위까지 쌓인 짐",
+        "caption": "작업 전 · 세탁기 위까지 쌓인 짐"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 전, 세탁기 앞을 막은 쓰레기",
+        "caption": "작업 전 · 세탁기 앞을 막은 쓰레기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 깨끗해진 변기",
+        "caption": "작업 후 · 깨끗해진 변기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 정리된 방 바닥",
+        "caption": "작업 후 · 정리된 방 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 비우고 닦은 냉장고",
+        "caption": "작업 후 · 비우고 닦은 냉장고"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 정리된 싱크대",
+        "caption": "작업 후 · 정리된 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 깨끗해진 현관과 복도",
+        "caption": "작업 후 · 깨끗해진 현관과 복도"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bupyeong-trash-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 부평구 오피스텔 쓰레기집청소 작업 후, 정리된 실내",
+        "caption": "작업 후 · 정리된 실내"
+      }
+    ],
+    "fieldCase": {
+      "heading": "부평역 오피스텔 쓰레기집청소 사례",
+      "lead": "방과 세탁기 앞까지 짐과 쓰레기가 쌓인 오피스텔에서 의뢰받은 현장입니다. 세면대와 욕실 바닥에도 찌든 오염이 있었습니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 부평구 부평역 인근 오피스텔"
+        ],
+        [
+          "작업 전 상태",
+          "방·세탁기 주변 쌓인 짐, 세면대·욕실 오염"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "세면대와 욕실 바닥이 오염돼 있었고, 방과 세탁기 주변에 짐과 쓰레기가 쌓여 있었습니다.",
+          "media": [
+            "/images/regional/bupyeong-trash-01.webp",
+            "/images/regional/bupyeong-trash-02.webp",
+            "/images/regional/bupyeong-trash-03.webp",
+            "/images/regional/bupyeong-trash-04.webp",
+            "/images/regional/bupyeong-trash-05.webp"
+          ]
+        },
+        {
+          "heading": "욕실과 방 정리",
+          "body": "폐기물을 반출하고 욕실과 방 바닥을 정리했습니다.",
+          "media": [
+            "/images/regional/bupyeong-trash-06.webp",
+            "/images/regional/bupyeong-trash-07.webp"
+          ]
+        },
+        {
+          "heading": "냉장고·싱크대 마무리",
+          "body": "냉장고를 비워 닦고 싱크대와 현관까지 정리한 뒤 냄새 제거와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/bupyeong-trash-08.webp",
+            "/images/regional/bupyeong-trash-09.webp",
+            "/images/regional/bupyeong-trash-10.webp",
+            "/images/regional/bupyeong-trash-11.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "인천 부평구 어느 지역까지 작업하나요?",
+        "부평역 상권과 부평 문화의거리 주변, 부평동·십정동·산곡동·삼산동 일대까지 인천 부평구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "냉장고 안쪽 음식물도 처리해주나요?",
+        "네, 이 사례도 냉장고를 비우고 안쪽 선반까지 닦아 정리했습니다."
+      ],
+      [
+        "쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ],
+      [
+        "이웃에게 알리지 않고 진행할 수 있나요?",
+        "방문 시간과 반출 방법을 상담할 때 함께 정합니다. 다만 공동현관과 복도, 엘리베이터를 이용해야 하므로 주변에서 작업 사실을 전혀 알 수 없다고 약속드리기는 어렵습니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "인천광역시-미추홀구",
+    "title": "인천 미추홀구 쓰레기집청소 | 주안 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 미추홀구 주안 원룸에서 페트병과 박스가 쌓인 방, 심하게 오염된 욕실을 정리하고 소독까지 마친 쓰레기집청소 기록을 사진으로 확인하세요. 인천 미추홀구 쓰레기집청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 미추홀구 쓰레기집청소",
+    "intro": "방에는 페트병과 박스가, 욕실에는 휴지와 오물이 쌓여 문을 열기도 어려우신가요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 주안역 상권과 주안동·도화동 원룸촌부터 용현동·학익동 일대까지 인천 미추홀구의 원룸·빌라 현장에서 상담하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "욕실 오염이 심하면 보호구를 갖추고 작업합니다",
+        "body": "휴지와 오물이 쌓인 욕실은 위생 문제가 있어 보호구를 갖추고 폐기물부터 처리한 뒤 바닥과 변기, 세면대를 세척합니다."
+      },
+      {
+        "heading": "마지막에 소독기로 공간 전체를 소독합니다",
+        "body": "폐기물과 오염을 제거한 뒤 소독기로 방과 욕실, 주방을 소독해 냄새와 세균 걱정을 줄였습니다."
+      },
+      {
+        "heading": "폐기물 처리 뒤 오염 제거와 소독까지 진행합니다",
+        "body": "쓰레기만 치우고 끝내면 바닥과 욕실에 스며든 얼룩과 냄새가 남습니다. 찐청소는 폐기물 처리 뒤 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 페트병과 쓰레기가 쌓인 방",
+        "caption": "작업 전 · 페트병과 쓰레기가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 물건이 쌓인 주방",
+        "caption": "작업 전 · 물건이 쌓인 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 휴지와 오물이 쌓인 욕실",
+        "caption": "작업 전 · 휴지와 오물이 쌓인 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 오염된 세면대와 욕실 바닥",
+        "caption": "작업 전 · 오염된 세면대와 욕실 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 박스와 옷가지가 쌓인 방",
+        "caption": "작업 전 · 박스와 옷가지가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 뜯긴 박스가 쌓인 방",
+        "caption": "작업 전 · 뜯긴 박스가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 닦은 창틀",
+        "caption": "작업 후 · 닦은 창틀"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 정리된 욕실",
+        "caption": "작업 후 · 정리된 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 정리된 싱크대",
+        "caption": "작업 후 · 정리된 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 정리된 주방",
+        "caption": "작업 후 · 정리된 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 세척한 욕실 바닥",
+        "caption": "작업 후 · 세척한 욕실 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-trash-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 후, 소독기로 마무리 소독",
+        "caption": "작업 후 · 소독기로 마무리 소독"
+      }
+    ],
+    "fieldCase": {
+      "heading": "주안 원룸 쓰레기집청소 사례",
+      "lead": "방에 페트병과 박스, 옷가지가 쌓이고 욕실에는 휴지와 오물이 쌓인 원룸에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 미추홀구 주안 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "방·주방 쌓인 폐기물, 욕실 오물 오염"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방과 주방에 폐기물이 쌓였고, 욕실은 휴지와 오물로 오염이 심했습니다.",
+          "media": [
+            "/images/regional/michuhol-trash-01.webp",
+            "/images/regional/michuhol-trash-02.webp",
+            "/images/regional/michuhol-trash-03.webp",
+            "/images/regional/michuhol-trash-04.webp",
+            "/images/regional/michuhol-trash-05.webp",
+            "/images/regional/michuhol-trash-06.webp"
+          ]
+        },
+        {
+          "heading": "오염 제거",
+          "body": "폐기물을 반출한 뒤 창틀과 욕실, 싱크대와 주방을 세척했습니다.",
+          "media": [
+            "/images/regional/michuhol-trash-07.webp",
+            "/images/regional/michuhol-trash-08.webp",
+            "/images/regional/michuhol-trash-09.webp",
+            "/images/regional/michuhol-trash-10.webp",
+            "/images/regional/michuhol-trash-11.webp"
+          ]
+        },
+        {
+          "heading": "소독",
+          "body": "마지막으로 소독기로 공간 전체를 소독했습니다.",
+          "media": [
+            "/images/regional/michuhol-trash-12.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "인천 미추홀구 어느 지역까지 작업하나요?",
+        "주안역 상권과 주안동·도화동 원룸촌부터 용현동·학익동 일대까지 인천 미추홀구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "욕실 오염이 심해도 작업할 수 있나요?",
+        "가능합니다. 이 사례도 휴지와 오물이 쌓인 욕실을 보호구를 갖추고 정리한 뒤 세척과 소독까지 진행했습니다."
+      ],
+      [
+        "쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ],
+      [
+        "이웃에게 알리지 않고 진행할 수 있나요?",
+        "방문 시간과 반출 방법을 상담할 때 함께 정합니다. 다만 공동현관과 복도, 엘리베이터를 이용해야 하므로 주변에서 작업 사실을 전혀 알 수 없다고 약속드리기는 어렵습니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "쓰레기집청소",
+    "region": "인천광역시-연수구",
+    "title": "인천 연수구 쓰레기집청소 | 송도 오피스텔 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 송도 오피스텔에서 방과 욕실, 선반에 쌓인 짐과 쓰레기를 치우고 세면대·수납장·창틀까지 닦은 쓰레기집청소 기록을 사진으로 확인하세요. 인천 연수구 쓰레기집청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 연수구 쓰레기집청소",
+    "intro": "오피스텔 방과 욕실, 수납 선반까지 짐과 쓰레기로 가득해 퇴실이나 입주 점검이 걱정되시나요? 찐청소 쓰레기집청소는 폐기물 처리부터 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다. 송도국제도시 센트럴파크 주변 오피스텔부터 연수동·옥련동·동춘동 일대까지 인천 연수구의 오피스텔·원룸 현장에서 상담하고 있습니다. 견적은 방 개수보다 쌓인 양과 오염 상태, 필요한 인원을 보고 정합니다.",
+    "sections": [
+      {
+        "heading": "오피스텔은 복도 반출 동선을 먼저 확인합니다",
+        "body": "대형 오피스텔은 긴 복도와 엘리베이터로 폐기물을 옮겨야 합니다. 관리사무소 규정과 이용 가능한 시간을 알려주시면 반출 일정을 맞춥니다."
+      },
+      {
+        "heading": "수납장과 창틀까지 비우고 닦습니다",
+        "body": "쓰레기를 치운 뒤 수납장 안쪽과 세면대, 창틀 레일까지 닦아 입주 점검에서 확인하는 곳을 정리했습니다."
+      },
+      {
+        "heading": "폐기물 처리 뒤 오염 제거와 소독까지 진행합니다",
+        "body": "쓰레기만 치우고 끝내면 바닥과 욕실에 스며든 얼룩과 냄새가 남습니다. 찐청소는 폐기물 처리 뒤 오염 제거, 냄새 제거, 소독까지 기본으로 진행합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 짐과 쓰레기가 쌓인 방",
+        "caption": "작업 전 · 짐과 쓰레기가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 세탁기 앞까지 쌓인 짐",
+        "caption": "작업 전 · 세탁기 앞까지 쌓인 짐"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 창가까지 쌓인 쓰레기",
+        "caption": "작업 전 · 창가까지 쌓인 쓰레기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 물건이 흩어진 욕실",
+        "caption": "작업 전 · 물건이 흩어진 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 물건이 쌓인 선반",
+        "caption": "작업 전 · 물건이 쌓인 선반"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 전, 옷가지와 짐이 쌓인 창가",
+        "caption": "작업 전 · 옷가지와 짐이 쌓인 창가"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 중, 복도로 이어지는 반출 동선",
+        "caption": "작업 중 · 복도로 이어지는 반출 동선"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 후, 깨끗해진 세면대",
+        "caption": "작업 후 · 깨끗해진 세면대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 후, 비우고 닦은 수납장",
+        "caption": "작업 후 · 비우고 닦은 수납장"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 후, 정리된 욕실",
+        "caption": "작업 후 · 정리된 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 후, 닦은 창틀 레일",
+        "caption": "작업 후 · 닦은 창틀 레일"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/songdo-trash-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 연수구 오피스텔 쓰레기집청소 작업 후, 비워진 방 바닥",
+        "caption": "작업 후 · 비워진 방 바닥"
+      }
+    ],
+    "fieldCase": {
+      "heading": "송도 오피스텔 쓰레기집청소 사례",
+      "lead": "방과 욕실, 수납 선반까지 짐과 쓰레기가 쌓인 오피스텔에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 연수구 송도 오피스텔"
+        ],
+        [
+          "작업 전 상태",
+          "방·욕실·선반에 쌓인 짐과 쓰레기"
+        ],
+        [
+          "작업 순서",
+          "폐기물 처리 → 오염 제거 → 냄새 제거 → 소독"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방과 창가, 세탁기 앞과 욕실, 선반까지 짐과 쓰레기가 쌓여 있었습니다.",
+          "media": [
+            "/images/regional/songdo-trash-01.webp",
+            "/images/regional/songdo-trash-02.webp",
+            "/images/regional/songdo-trash-03.webp",
+            "/images/regional/songdo-trash-04.webp",
+            "/images/regional/songdo-trash-05.webp",
+            "/images/regional/songdo-trash-06.webp"
+          ]
+        },
+        {
+          "heading": "폐기물 반출",
+          "body": "오피스텔 복도를 따라 폐기물을 반출했습니다.",
+          "media": [
+            "/images/regional/songdo-trash-07.webp"
+          ]
+        },
+        {
+          "heading": "오염 제거와 마무리",
+          "body": "세면대와 수납장, 욕실과 창틀 레일, 방 바닥까지 닦고 냄새 제거와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/songdo-trash-08.webp",
+            "/images/regional/songdo-trash-09.webp",
+            "/images/regional/songdo-trash-10.webp",
+            "/images/regional/songdo-trash-11.webp",
+            "/images/regional/songdo-trash-12.webp"
+          ]
+        }
+      ],
+      "note": "쌓인 양과 오염 상태, 해충 여부, 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 사진 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "인천 연수구 어느 지역까지 작업하나요?",
+        "송도국제도시와 연수동·옥련동·동춘동 일대까지 인천 연수구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "오피스텔 관리사무소 규정이 있어도 작업할 수 있나요?",
+        "가능합니다. 엘리베이터 사용 시간과 반출 규정을 알려주시면 그에 맞춰 일정을 정합니다."
+      ],
+      [
+        "쓰레기집청소 비용은 어떻게 정하나요?",
+        "방 크기보다 쌓인 양과 오염 상태, 해충 여부, 필요한 인원으로 정합니다. 방 전체와 가장 심한 곳의 사진을 보내주시면 견적을 안내합니다."
+      ],
+      [
+        "이웃에게 알리지 않고 진행할 수 있나요?",
+        "방문 시간과 반출 방법을 상담할 때 함께 정합니다. 다만 공동현관과 복도, 엘리베이터를 이용해야 하므로 주변에서 작업 사실을 전혀 알 수 없다고 약속드리기는 어렵습니다."
+      ]
+    ],
+    "reviewed": true
   }
 ]

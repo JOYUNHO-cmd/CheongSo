@@ -205,11 +205,25 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/geomdan-fire-01.webp", "/images/regional/geomdan-fire-09.webp"], "인천 검단구 상가건물 화재청소"),
   },
   {
+    href: "/쓰레기집청소/인천광역시-검단구/", province: "인천광역시", region: "검단구", service: "쓰레기집청소",
+    eyebrow: caseEyebrow, title: "인천 검단구 쓰레기집청소",
+    body: "방과 주방을 채운 폐기물을 트럭으로 반출하고 바닥·욕실·주방 오염까지 정리한 빌라 원룸 기록입니다.",
+    cta: "인천 검단구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/geomdan-trash-01.webp", "/images/regional/geomdan-trash-09.webp"], "인천 검단구 빌라 원룸 쓰레기집청소"),
+  },
+  {
     href: "/화재청소/인천광역시-남동구/", province: "인천광역시", region: "남동구", service: "화재청소",
     eyebrow: caseEyebrow, title: "인천 남동구 화재청소",
     body: "남동공단 공장에서 생산 설비를 보양한 뒤 고소 장비로 천장과 벽의 그을음을 세척한 기록입니다.",
     cta: "인천 남동구 사례와 견적 기준 보기",
     photos: pair(["작업 준비", "작업 중"] as const, ["/images/regional/namdong-fire-01.webp", "/images/regional/namdong-fire-04.webp"], "인천 남동공단 공장 화재청소"),
+  },
+  {
+    href: "/쓰레기집청소/인천광역시-남동구/", province: "인천광역시", region: "남동구", service: "쓰레기집청소",
+    eyebrow: caseEyebrow, title: "인천 남동구 쓰레기집청소",
+    body: "바닥을 덮은 생활 쓰레기와 옷가지를 치우고 변기·창틀까지 정리한 구월동 원룸 기록입니다.",
+    cta: "인천 남동구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/namdong-trash-01.webp", "/images/regional/namdong-trash-08.webp"], "인천 남동구 구월동 원룸 쓰레기집청소"),
   },
   {
     href: "/화재청소/인천광역시-부평구/", province: "인천광역시", region: "부평구", service: "화재청소",
@@ -219,6 +233,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/bupyeong-fire-01.webp", "/images/regional/bupyeong-fire-02.webp"], "인천 부평역 상가 창고 화재청소"),
   },
   {
+    href: "/쓰레기집청소/인천광역시-부평구/", province: "인천광역시", region: "부평구", service: "쓰레기집청소",
+    eyebrow: caseEyebrow, title: "인천 부평구 쓰레기집청소",
+    body: "짐과 쓰레기가 쌓인 오피스텔을 정리하고 세면대·욕실·냉장고까지 닦은 기록입니다.",
+    cta: "인천 부평구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/bupyeong-trash-03.webp", "/images/regional/bupyeong-trash-07.webp"], "인천 부평역 오피스텔 쓰레기집청소"),
+  },
+  {
     href: "/화재청소/인천광역시-미추홀구/", province: "인천광역시", region: "미추홀구", service: "화재청소",
     eyebrow: caseEyebrow, title: "인천 미추홀구 화재청소",
     body: "주안 상가건물 층 전체에서 천장·창틀·선반의 그을음을 닦고 바닥 세척까지 진행한 기록입니다.",
@@ -226,11 +247,25 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/michuhol-fire-01.webp", "/images/regional/michuhol-fire-11.webp"], "인천 주안 상가건물 화재청소"),
   },
   {
+    href: "/쓰레기집청소/인천광역시-미추홀구/", province: "인천광역시", region: "미추홀구", service: "쓰레기집청소",
+    eyebrow: caseEyebrow, title: "인천 미추홀구 쓰레기집청소",
+    body: "페트병과 박스가 쌓인 방과 오물로 오염된 욕실을 정리하고 소독까지 마친 주안 원룸 기록입니다.",
+    cta: "인천 미추홀구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/michuhol-trash-01.webp", "/images/regional/michuhol-trash-09.webp"], "인천 주안 원룸 쓰레기집청소"),
+  },
+  {
     href: "/화재청소/인천광역시-연수구/", province: "인천광역시", region: "연수구", service: "화재청소",
     eyebrow: caseEyebrow, title: "인천 연수구 화재청소",
     body: "송도 오피스에서 책상·컴퓨터 주변과 사무실·복도 바닥에 내려앉은 그을음을 제거한 기록입니다.",
     cta: "인천 연수구 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/songdo-fire-01.webp", "/images/regional/songdo-fire-11.webp"], "인천 송도 오피스 화재청소"),
+  },
+  {
+    href: "/쓰레기집청소/인천광역시-연수구/", province: "인천광역시", region: "연수구", service: "쓰레기집청소",
+    eyebrow: caseEyebrow, title: "인천 연수구 쓰레기집청소",
+    body: "방과 욕실, 선반까지 쌓인 짐과 쓰레기를 치우고 세면대·수납장·창틀까지 닦은 송도 오피스텔 기록입니다.",
+    cta: "인천 연수구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/songdo-trash-01.webp", "/images/regional/songdo-trash-12.webp"], "인천 송도 오피스텔 쓰레기집청소"),
   },
   {
     href: "/바닥-왁스-코팅/경기도-수원시/", province: "경기도", region: "수원시", service: "바닥왁스코팅",
