@@ -72,6 +72,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional-wax/gwacheon/01-red-paint-before.webp", "/images/regional-wax/gwacheon/06-wax-after.webp"], "과천 지식산업센터 페인트 제거와 바닥왁스코팅"),
   },
   {
+    href: "/인테리어청소/경기도-과천시/", province: "경기도", region: "과천시", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "과천 인테리어청소",
+    body: "술집 주방의 기름때와 흡연실 니코틴 오염을 확인하며 3명이 9시간 동안 작업한 기록입니다.",
+    cta: "과천 술집 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/gwacheon-interior/02-kitchen-floor-before.webp", "/images/gwacheon-interior/04-kitchen-after.webp"], "과천 술집 인테리어청소"),
+  },
+  {
     href: "/상가청소/경기도-의왕시/", province: "경기도", region: "의왕시", service: "상가청소",
     eyebrow: caseEyebrow, title: "의왕 상가청소",
     body: "내손동 상가의 공사 분진과 바닥·창가·유리 구역을 나누어 3명이 9시간 동안 복원청소한 기록입니다.",
@@ -329,6 +336,34 @@ export const areaCases: AreaCase[] = [
     body: "내손동 10평 음식점의 바닥을 2명이 4시간 동안 기름때를 제거하고 첫 코팅까지 마친 기록입니다.",
     cta: "의왕 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/uiwang-floor-wax-02.webp", "/images/regional/uiwang-floor-wax-11.webp"], "의왕 내손동 음식점 바닥왁스코팅"),
+  },
+  {
+    href: "/인테리어청소/경기도-양주시/", province: "경기도", region: "양주시", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "양주 인테리어청소",
+    body: "레드랩 댄스스튜디오의 높은 천장 에어컨과 스피커를 LS 사다리로 청소하고, 푹신한 바닥에 자국이 남지 않도록 사다리 접촉 부분을 보호하며 4명이 8시간 작업한 기록입니다.",
+    cta: "양주 사례와 견적 기준 보기",
+    photos: pair(["현장 사진", "작업 기록"] as const, ["/images/interior-cases/yangju/03-studio.webp", "/images/interior-cases/yangju/05-speaker.webp"], "양주 레드랩 댄스스튜디오 인테리어청소"),
+  },
+  {
+    href: "/인테리어청소/경기도-남양주시/", province: "경기도", region: "남양주시 화도읍", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "화도읍 인테리어청소",
+    body: "카페의 범위가 넓은 천장 인테리어 조형물과 실내, 옥상까지 3명이 9시간 동안 청소한 기록입니다.",
+    cta: "화도읍 사례와 견적 기준 보기",
+    photos: pair(["천장 조형물", "옥상"] as const, ["/images/interior-cases/hwado/02-ceiling-structure.webp", "/images/interior-cases/hwado/05-rooftop.webp"], "남양주 화도읍 카페 인테리어청소"),
+  },
+  {
+    href: "/인테리어청소/서울특별시-서초구/", province: "서울특별시", region: "서초구", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "서초 인테리어청소",
+    body: "스튜디오 내부의 많은 짐을 옮겨가며 작업 구역을 확보해 4명이 8시간 동안 청소한 기록입니다.",
+    cta: "서초 사례와 견적 기준 보기",
+    photos: pair(["작업 전", "작업 기록"] as const, ["/images/interior-cases/seocho/02-stored-items.webp", "/images/interior-cases/seocho/06-equipment-area.webp"], "서초 스튜디오 인테리어청소"),
+  },
+  {
+    href: "/인테리어청소/경기도-화성시-동탄구/", province: "경기도", region: "화성시 동탄구", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "동탄 인테리어청소",
+    body: "BAR 내부의 큰 고급 주류병을 모두 치우고, 일반 분리수거가 어려운 병을 폐기물 처리로 마무리하며 3명이 8시간 작업한 기록입니다.",
+    cta: "동탄 사례와 견적 기준 보기",
+    photos: pair(["반출 준비", "현장 사진"] as const, ["/images/interior-cases/dongtan/05-bottles.webp", "/images/interior-cases/dongtan/06-shelves.webp"], "동탄 BAR 인테리어청소"),
   },
 ];
 

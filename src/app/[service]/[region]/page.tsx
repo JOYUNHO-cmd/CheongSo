@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceLanding from "@/components/ServiceLanding";
 import AnyangKitchenLanding from "@/components/service-pages/AnyangKitchenLanding";
+import GwacheonInteriorLanding from "@/components/service-pages/GwacheonInteriorLanding";
+import RegionalInteriorCaseLanding, { hasRegionalInteriorCase } from "@/components/service-pages/RegionalInteriorCaseLanding";
 import RegionalWaxCaseLanding, { hasRegionalWaxCase } from "@/components/service-pages/RegionalWaxCaseLanding";
 import UiwangStoreLanding from "@/components/service-pages/UiwangStoreLanding";
 import { findService, normalizeSegment } from "@/lib/service-profiles";
@@ -25,4 +27,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   };
 }
-export default async function Page({ params }: Props) { const p = await getPage(params); const s = findService(p.service); if (!s) notFound(); if (p.service === "주방청소" && p.region === "경기도-안양시") return <AnyangKitchenLanding />; if (p.service === "상가청소" && p.region === "경기도-의왕시") return <UiwangStoreLanding />; if (p.service === "바닥-왁스-코팅" && hasRegionalWaxCase(p.region)) return <RegionalWaxCaseLanding region={p.region} />; return <ServiceLanding service={s} regional={p} />; }
+export default async function Page({ params }: Props) { const p = await getPage(params); const s = findService(p.service); if (!s) notFound(); if (p.service === "주방청소" && p.region === "경기도-안양시") return <AnyangKitchenLanding />; if (p.service === "인테리어청소" && p.region === "경기도-과천시") return <GwacheonInteriorLanding />; if (p.service === "인테리어청소" && hasRegionalInteriorCase(p.region)) return <RegionalInteriorCaseLanding region={p.region} />; if (p.service === "상가청소" && p.region === "경기도-의왕시") return <UiwangStoreLanding />; if (p.service === "바닥-왁스-코팅" && hasRegionalWaxCase(p.region)) return <RegionalWaxCaseLanding region={p.region} />; return <ServiceLanding service={s} regional={p} />; }

@@ -32,6 +32,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/경기도-성남시/',
     '/바닥-왁스-코팅/경기도-성남시-판교/',
     '/바닥-왁스-코팅/경기도-과천시/',
+    '/인테리어청소/경기도-과천시/',
     '/상가청소/경기도-의왕시/',
     '/신축준공청소/경기도-의왕시/',
     '/사무실청소/경기도-의왕시/',
@@ -55,6 +56,9 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/경기도-용인시/',
     '/인테리어청소/경기도-용인시/',
     '/공장청소/경기도-시흥시/',
+    '/인테리어청소/경기도-양주시/',
+    '/인테리어청소/경기도-남양주시/',
+    '/인테리어청소/경기도-화성시-동탄구/',
     '/화재청소/인천광역시-검단구/',
     '/쓰레기집청소/인천광역시-검단구/',
     '/화재청소/인천광역시-남동구/',
@@ -67,6 +71,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/인천광역시-미추홀구/',
     '/화재청소/인천광역시-연수구/',
     '/쓰레기집청소/인천광역시-연수구/',
+    '/인테리어청소/서울특별시-서초구/',
   ]);
   for (const link of links) {
     assert.ok(link.querySelector('img[alt]'));
