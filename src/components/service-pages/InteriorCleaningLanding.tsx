@@ -216,12 +216,15 @@ export default function InteriorCleaningLanding() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structured).replace(/</g, "\\u003c") }} />
 
       {/* 히어로 - 배경 사진 위에 브랜드 그라디언트를 반투명하게 얹어 사진이 비쳐 보이도록 처리 */}
-      <section className="relative overflow-hidden px-6 py-14 text-white md:py-20">
-        <div className="absolute inset-0">
-          <Image src="/images/hero-bg/interior-hero.webp" alt="" fill priority className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/78 to-brand/60" />
+      <section className="relative flex min-h-[calc(66.667vw+680px)] flex-col overflow-hidden bg-gradient-to-br from-brand-dark to-brand px-6 py-14 text-white md:min-h-[max(650px,50vw)] md:justify-center md:py-20 lg:min-h-[max(620px,50vw)]">
+        <div className="relative -mx-6 -mt-14 aspect-[3/2] md:absolute md:inset-0 md:m-0 md:aspect-auto">
+          <Image src="/images/hero-bg/interior-hero.webp" alt="" fill className="scale-110 object-cover blur-2xl" sizes="25vw" />
+          <div className="absolute inset-0 md:inset-auto md:left-1/2 md:top-1/2 md:aspect-[3/2] md:w-3/4 md:-translate-x-1/2 md:-translate-y-1/2">
+            <Image src="/images/hero-bg/interior-hero.webp" alt="" fill priority className="object-cover" sizes="(min-width: 768px) 75vw, 100vw" />
+          </div>
+          <div className="absolute inset-0 hidden bg-gradient-to-br from-brand-dark/78 to-brand/60 md:block" />
         </div>
-        <div className="relative mx-auto max-w-5xl">
+        <div className="relative mx-auto my-auto w-full max-w-5xl pt-8 md:pt-0">
           <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80">
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>인테리어청소</span>
           </nav>
@@ -389,6 +392,10 @@ export default function InteriorCleaningLanding() {
             <h3 className="mt-6 text-lg font-bold text-brand-dark">살고 있는 집의 부분공사라면</h3>
             <ReadingParagraph className="mt-2">가족이 사용할 공간과 청소할 구역을 나누어 검토합니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2 text-[15px] text-gray-500">아이와 반려동물의 생활 동선, 재택근무 시간, 물품을 옮길 위치 등을 미리 알려주시면 작업 가능 여부와 순서를 정하는 데 도움이 됩니다.</ReadingParagraph>
+            <Link href="/인테리어청소/경기도-용인시/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">용인 수지구 타운하우스 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/경기도-군포시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">군포 산본 코인노래방 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/경기도-안산시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">안산 상록구 상가 홀·주방 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/경기도-수원시-영통구/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">수원 영통구 35평 아파트 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 

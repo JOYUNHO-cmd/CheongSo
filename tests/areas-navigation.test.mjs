@@ -22,13 +22,49 @@ test('region directory links directly to the real Anyang page and is discoverabl
   const res = await fetch(base + '/areas/');
   assert.equal(res.status, 200);
   const doc = new JSDOM(await res.text()).window.document;
-  const link = doc.querySelector('a[data-region-card]');
-  assert.ok(link);
-  assert.equal(doc.querySelectorAll('a[data-region-card]').length, 2);
-  assert.ok(doc.querySelector('a[data-region-card][href="/주방청소/경기도-안양시/"]'));
-  assert.equal(link.getAttribute('href'), '/바닥-왁스-코팅/경기도-안양시/');
-  assert.ok(link.querySelector('img[alt]'));
-  assert.equal((await fetch(base + encodeURI(link.getAttribute('href')))).status, 200);
+  const links = [...doc.querySelectorAll('a[data-region-card]')];
+  assert.deepEqual(links.map(a => a.getAttribute('href')), [
+    '/바닥-왁스-코팅/경기도-안양시/',
+    '/주방청소/경기도-안양시/',
+    '/쓰레기집청소/경기도-안양시/',
+    '/신축준공청소/경기도-안양시/',
+    '/바닥-왁스-코팅/경기도-성남시-분당구/',
+    '/바닥-왁스-코팅/경기도-성남시/',
+    '/바닥-왁스-코팅/경기도-성남시-판교/',
+    '/바닥-왁스-코팅/경기도-과천시/',
+    '/상가청소/경기도-의왕시/',
+    '/신축준공청소/경기도-의왕시/',
+    '/사무실청소/경기도-의왕시/',
+    '/바닥-왁스-코팅/경기도-의왕시/',
+    '/신축준공청소/경기도-안산시/',
+    '/바닥-본드-제거/경기도-안산시/',
+    '/쓰레기집청소/경기도-안산시/',
+    '/바닥-왁스-코팅/경기도-안산시/',
+    '/인테리어청소/경기도-안산시/',
+    '/신축준공청소/경기도-군포시/',
+    '/쓰레기집청소/경기도-군포시/',
+    '/인테리어청소/경기도-군포시/',
+    '/바닥-왁스-코팅/경기도-군포시/',
+    '/사무실청소/경기도-군포시/',
+    '/신축준공청소/경기도-수원시/',
+    '/바닥-왁스-코팅/경기도-수원시/',
+    '/사무실청소/경기도-수원시-영통구/',
+    '/인테리어청소/경기도-수원시-영통구/',
+    '/신축준공청소/경기도-용인시/',
+    '/바닥-본드-제거/경기도-용인시/',
+    '/바닥-왁스-코팅/경기도-용인시/',
+    '/인테리어청소/경기도-용인시/',
+    '/공장청소/경기도-시흥시/',
+    '/화재청소/인천광역시-검단구/',
+    '/화재청소/인천광역시-남동구/',
+    '/화재청소/인천광역시-부평구/',
+    '/화재청소/인천광역시-미추홀구/',
+    '/화재청소/인천광역시-연수구/',
+  ]);
+  for (const link of links) {
+    assert.ok(link.querySelector('img[alt]'));
+    assert.equal((await fetch(base + encodeURI(link.getAttribute('href')))).status, 200);
+  }
   assert.equal(doc.querySelector('link[rel="canonical"]').href, 'https://www.cheongso.co.kr/areas/');
   assert.ok((await (await fetch(base + '/sitemap.xml')).text()).includes('https://www.cheongso.co.kr/areas/'));
 });
