@@ -3920,8 +3920,8 @@
         "src": "/images/regional/uiwang-golf-10.webp",
         "width": 900,
         "height": 1200,
-        "alt": "의왕 골프연습장 준공청소 작업 후, 정리된 골프클럽 진열 선반",
-        "caption": "작업 후 · 정리된 진열 선반"
+        "alt": "의왕 골프연습장 준공청소 작업 후, 깨끗하게 정리된 스크린골프 부스 내부",
+        "caption": "작업 후 · 깨끗해진 스크린골프 부스"
       },
       {
         "type": "image",
@@ -3998,8 +3998,8 @@
           ]
         },
         {
-          "heading": "진열 선반과 창고 마무리",
-          "body": "골프클럽 진열 선반과 작업대, 창고 공간까지 정리해 오픈 전 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
+          "heading": "스크린골프 부스와 창고 마무리",
+          "body": "스크린골프 부스 내부를 깨끗하게 정리하고, 작업대와 창고 공간까지 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
           "media": [
             "/images/regional/uiwang-golf-10.webp",
             "/images/regional/uiwang-golf-11.webp",
@@ -4108,8 +4108,8 @@
         "src": "/images/regional/gunpo-gym-07.webp",
         "width": 900,
         "height": 1200,
-        "alt": "군포 피트니스센터 준공청소 작업 후, 새로 설치된 개인 사물함",
-        "caption": "작업 후 · 새로 설치된 개인 사물함"
+        "alt": "군포 피트니스센터 준공청소 작업 후, 깨끗하게 정리된 헬스장 내부",
+        "caption": "작업 후 · 깨끗해진 헬스장 내부"
       },
       {
         "type": "image",
@@ -4209,8 +4209,8 @@
           ]
         },
         {
-          "heading": "사물함과 마무리",
-          "body": "새로 설치된 개인 사물함 내부까지 확인하며 정리해 오픈 전 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
+          "heading": "헬스장 내부와 사물함 마무리",
+          "body": "운동기구가 놓인 헬스장 내부를 깨끗하게 정리하고, 새로 설치된 개인 사물함 내부까지 확인하며 오픈 전 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
           "media": [
             "/images/regional/gunpo-gym-07.webp",
             "/images/regional/gunpo-gym-10.webp",
@@ -4472,30 +4472,6 @@
     "media": [
       {
         "type": "image",
-        "src": "/images/regional/yongin-office-01.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 수지구 오피스 준공청소 작업 전, 바닥 타일 이음새 확인",
-        "caption": "작업 전 · 바닥 타일 이음새 확인"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/yongin-office-02.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 전, 로비 유리 출입문",
-        "caption": "작업 전 · 로비 유리 출입문"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/yongin-office-03.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 전, 포세린타일 바닥",
-        "caption": "작업 전 · 포세린타일 바닥"
-      },
-      {
-        "type": "image",
         "src": "/images/regional/yongin-office-04.webp",
         "width": 900,
         "height": 1200,
@@ -4512,14 +4488,6 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/yongin-office-06.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 전, 소화기와 자재 박스가 놓인 통로",
-        "caption": "작업 전 · 소화기와 자재 박스가 놓인 통로"
-      },
-      {
-        "type": "image",
         "src": "/images/regional/yongin-office-07.webp",
         "width": 900,
         "height": 1200,
@@ -4528,19 +4496,67 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/yongin-office-08.webp",
+        "src": "/images/regional/yongin-office-11.webp",
         "width": 900,
         "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 중, 열린 창문 확인",
-        "caption": "작업 중 · 열린 창문 확인"
+        "alt": "용인 오피스 준공청소 작업 전, 소화기 점검",
+        "caption": "작업 전 · 소화기 점검"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 오피스 준공청소 작업 전, 창틀과 유리 모서리에 남은 오염",
+        "caption": "작업 전 · 창틀과 유리 모서리 오염"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 수지구 오피스 준공청소 작업 후, 광택이 올라온 바닥 타일 이음새",
+        "caption": "작업 후 · 광택이 올라온 바닥 타일 이음새"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 오피스 준공청소 작업 후, 깨끗해진 포세린타일 바닥",
+        "caption": "작업 후 · 깨끗해진 포세린타일 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 오피스 준공청소 작업 후, 정리된 통로",
+        "caption": "작업 후 · 정리된 통로"
       },
       {
         "type": "image",
         "src": "/images/regional/yongin-office-09.webp",
         "width": 900,
         "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 후, 광택이 올라온 바닥 타일 이음새",
-        "caption": "작업 후 · 광택이 올라온 바닥 타일"
+        "alt": "용인 오피스 준공청소 작업 후, 광택이 올라온 복도 바닥",
+        "caption": "작업 후 · 광택이 올라온 복도 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 오피스 준공청소 작업 후, 깨끗해진 로비 유리 출입문",
+        "caption": "작업 후 · 깨끗해진 로비 유리 출입문"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongin-office-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "용인 오피스 준공청소 작업 후, 창문 상태 확인",
+        "caption": "작업 후 · 창문 상태 확인"
       },
       {
         "type": "image",
@@ -4549,27 +4565,11 @@
         "height": 1200,
         "alt": "용인 오피스 준공청소 작업 후, 새로 설치된 소화기",
         "caption": "작업 후 · 새로 설치된 소화기"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/yongin-office-11.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 중, 소화기 점검",
-        "caption": "작업 중 · 소화기 점검"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/yongin-office-12.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 오피스 준공청소 작업 후, 정리된 창틀과 유리 모서리",
-        "caption": "작업 후 · 정리된 창틀과 유리 모서리"
       }
     ],
     "fieldCase": {
       "heading": "수지구 오피스 준공청소 사례",
-      "lead": "인테리어 공사를 마친 사무실에서 입주를 앞두고 의뢰받은 현장입니다. 바닥 타일 이음새와 창틀, 환기 필터에 시공 잔재와 분진이 남아 있었습니다.",
+      "lead": "인테리어 공사를 마친 사무실에서 입주를 앞두고 의뢰받은 현장입니다. 창틀과 환기 필터에 분진이 남아 있었고, 소화기와 창틀·유리 모서리에도 시공 오염이 있었습니다.",
       "facts": [
         [
           "위치",
@@ -4599,38 +4599,32 @@
       "steps": [
         {
           "heading": "작업 전 상태",
-          "body": "공사가 끝난 직후라 바닥 타일 이음새와 로비 유리문 주변에 시공 자재와 얼룩이 남아 있었습니다.",
-          "media": [
-            "/images/regional/yongin-office-01.webp",
-            "/images/regional/yongin-office-02.webp",
-            "/images/regional/yongin-office-03.webp"
-          ]
-        },
-        {
-          "heading": "창틀과 환기 필터 분진 제거",
-          "body": "창틀 레일과 환기 필터에 낀 미세먼지를 별도로 제거했습니다.",
+          "body": "공사가 끝난 직후라 창틀 레일과 환기 필터에 미세먼지가 남아 있었고, 소화기와 창틀·유리 모서리에도 오염이 있었습니다.",
           "media": [
             "/images/regional/yongin-office-04.webp",
             "/images/regional/yongin-office-05.webp",
-            "/images/regional/yongin-office-07.webp"
-          ]
-        },
-        {
-          "heading": "통로와 비품 정리",
-          "body": "소화기와 자재 박스가 놓인 통로를 정리하고 창문 상태까지 확인했습니다.",
-          "media": [
-            "/images/regional/yongin-office-06.webp",
-            "/images/regional/yongin-office-08.webp"
-          ]
-        },
-        {
-          "heading": "바닥과 비품 마무리",
-          "body": "바닥 타일 이음새까지 마무리하고 새로 설치된 소화기를 점검한 뒤 창틀과 유리 모서리를 정리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
-          "media": [
-            "/images/regional/yongin-office-09.webp",
-            "/images/regional/yongin-office-10.webp",
+            "/images/regional/yongin-office-07.webp",
             "/images/regional/yongin-office-11.webp",
             "/images/regional/yongin-office-12.webp"
+          ]
+        },
+        {
+          "heading": "바닥 타일과 통로 마무리",
+          "body": "바닥 타일 이음새까지 마무리하고 포세린타일 바닥과 통로를 정리했습니다.",
+          "media": [
+            "/images/regional/yongin-office-01.webp",
+            "/images/regional/yongin-office-03.webp",
+            "/images/regional/yongin-office-06.webp",
+            "/images/regional/yongin-office-09.webp"
+          ]
+        },
+        {
+          "heading": "출입구와 비품 마무리",
+          "body": "로비 유리 출입문과 창문 상태를 확인하고, 새로 설치된 소화기까지 점검하며 마무리했습니다. 3~4명이 8시간 동안 작업했고 추가 비용은 없었습니다.",
+          "media": [
+            "/images/regional/yongin-office-02.webp",
+            "/images/regional/yongin-office-08.webp",
+            "/images/regional/yongin-office-10.webp"
           ]
         }
       ],
