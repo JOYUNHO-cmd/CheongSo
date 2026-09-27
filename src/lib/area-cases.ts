@@ -76,7 +76,7 @@ export const areaCases: AreaCase[] = [
     eyebrow: caseEyebrow, title: "군포 바닥왁스코팅",
     body: "산본동 70평 가라오케의 검정 데코타일 바닥을 3명이 7시간 동안 정기 관리 차원에서 연마·세척하고 첫 코팅까지 마친 기록입니다. 쉬는 날 낮 시간에 진행해 영업에 지장이 없었습니다.",
     cta: "군포 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/gunpo-floor-wax-02.webp", "/images/regional/gunpo-floor-wax-13.webp"], "군포 산본동 가라오케 바닥왁스코팅"),
+    photos: pair(beforeAfter, ["/images/regional/gunpo-floor-wax-02.webp", "/images/regional/gunpo-floor-wax-11.webp"], "군포 산본동 가라오케 바닥왁스코팅"),
   },
   {
     href: "/사무실청소/경기도-군포시/", province: "경기도", region: "군포시", service: "사무실청소",
