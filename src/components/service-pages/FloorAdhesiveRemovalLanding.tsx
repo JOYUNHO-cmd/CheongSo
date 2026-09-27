@@ -388,6 +388,8 @@ export default function FloorAdhesiveRemovalLanding() {
                 <li key={item} className="rounded-xl border border-gray-100 bg-gray-50/60 px-4 py-3">{item}</li>
               ))}
             </ul>
+            <Link href="/바닥-본드-제거/경기도-용인시/" className="mt-5 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">용인 수지구 상가 화강암 바닥 실제 작업 사례 보기 →</Link>
+            <Link href="/바닥-본드-제거/경기도-안산시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">안산 단원구 상가 계단 실제 작업 사례 보기 →</Link>
 
             <h3 className="mt-6 text-lg font-bold text-brand-dark">철거가 아직 끝나지 않았어도 상담할 수 있나요?</h3>
             <ReadingParagraph className="mt-2">네. 현재 상태로 상담할 수 있습니다. 다만 바닥재 아래의 본드 상태는 철거 후에야 확인할 수 있어, 최종 범위와 견적에 추가 확인이 필요할 수 있습니다. 철거가 필요하다는 사실도 미리 알려주세요. 철거는 기본 본드 제거 비용에 포함되지 않습니다.</ReadingParagraph>

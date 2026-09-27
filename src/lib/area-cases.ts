@@ -65,6 +65,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/ansan-shop-02.webp", "/images/regional/ansan-shop-11.webp"], "안산 상록구 옥된장 준공청소"),
   },
   {
+    href: "/바닥-본드-제거/경기도-안산시/", province: "경기도", region: "안산시", service: "바닥본드제거",
+    eyebrow: caseEyebrow, title: "안산 바닥본드제거",
+    body: "단원구 상가건물 계단에서 카펫을 걷어낸 뒤 남은 본드를 2~3명이 8시간 동안 제거하고 세척까지 마친 기록입니다.",
+    cta: "안산 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/ansan-bond-01.webp", "/images/regional/ansan-bond-06.webp"], "안산 단원구 상가 계단 본드제거"),
+  },
+  {
     href: "/신축준공청소/경기도-의왕시/", province: "경기도", region: "의왕시", service: "신축준공청소",
     eyebrow: caseEyebrow, title: "의왕 준공청소",
     body: "청계동 골프연습장을 3~4명이 8시간 동안 보양재 제거부터 수납장·콘센트 주변·바닥까지 정리한 준공청소 기록입니다.",
@@ -91,6 +98,13 @@ export const areaCases: AreaCase[] = [
     body: "수지구 오피스를 3~4명이 8시간 동안 바닥 타일 이음새부터 창틀·환기 필터·소화기까지 정리한 준공청소 기록입니다.",
     cta: "용인 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/yongin-office-01.webp", "/images/regional/yongin-office-09.webp"], "용인 수지구 오피스 준공청소"),
+  },
+  {
+    href: "/바닥-본드-제거/경기도-용인시/", province: "경기도", region: "용인시", service: "바닥본드제거",
+    eyebrow: caseEyebrow, title: "용인 바닥본드제거",
+    body: "수지구 상가 로비 화강암 바닥에 남은 본드를 2~3명이 8시간 동안 바닥광택기와 스크래퍼로 제거하고 세척까지 마친 기록입니다.",
+    cta: "용인 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/yongin-bond-01.webp", "/images/regional/yongin-bond-06.webp"], "용인 수지구 상가 바닥본드제거"),
   },
   {
     href: "/쓰레기집청소/경기도-군포시/", province: "경기도", region: "군포시", service: "쓰레기집청소",
