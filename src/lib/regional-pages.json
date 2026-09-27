@@ -1008,6 +1008,10 @@
       {
         "heading": "복도처럼 좁은 구간은 물걸레로 마무리합니다",
         "body": "복도나 통로처럼 폭이 좁은 구간은 바닥광택기가 들어가기 어려워 코팅 후 물걸레로 자국을 닦아내며 마무리합니다."
+      },
+      {
+        "heading": "왁스를 바르기 전 바닥을 완전히 말려야 합니다",
+        "body": "세척과 헹굼을 마친 뒤에는 물기가 남지 않도록 물걸레로 완전히 닦아 말립니다. 바닥에 물기가 남은 채로 코팅하면 코팅막 아래에 습기가 갇혀 바닥이 들뜨는 원인이 될 수 있어, 건조 상태를 확인한 뒤 마지막에 왁스코팅을 바릅니다."
       }
     ],
     "media": [
@@ -1112,24 +1116,24 @@
         "src": "/images/regional/uiwang-floor-wax-13.webp",
         "width": 900,
         "height": 1200,
-        "alt": "의왕 음식점 복도, 왁스코팅 후 물걸레로 마무리하는 모습",
-        "caption": "작업 후 · 물걸레로 마무리"
+        "alt": "의왕 음식점 복도, 세척 후 물기를 물걸레로 닦아내는 모습",
+        "caption": "헹굼 후 물기 제거"
       },
       {
         "type": "image",
         "src": "/images/regional/uiwang-floor-wax-14.webp",
         "width": 900,
         "height": 1200,
-        "alt": "의왕 음식점 복도, 벽돌무늬 벽과 함께 물걸레로 마무리하는 모습",
-        "caption": "작업 후 · 물걸레로 마무리"
+        "alt": "의왕 음식점 복도, 벽돌무늬 벽 앞에서 물기를 닦아내는 모습",
+        "caption": "헹굼 후 물기 제거"
       },
       {
         "type": "image",
         "src": "/images/regional/uiwang-floor-wax-15.webp",
         "width": 900,
         "height": 1200,
-        "alt": "의왕 음식점 복도, 물걸레로 마무리한 뒤 광택이 오른 바닥",
-        "caption": "작업 후 · 물걸레로 마무리"
+        "alt": "의왕 음식점 복도, 물기를 완전히 닦아 말리는 모습",
+        "caption": "물기를 완전히 제거"
       }
     ],
     "fieldCase": {
@@ -1191,20 +1195,20 @@
           ]
         },
         {
-          "heading": "복도 작업 후",
-          "body": "복도에 왁스코팅을 마치자 조명이 선명하게 반사될 만큼 광택이 올라왔습니다.",
-          "media": [
-            "/images/regional/uiwang-floor-wax-11.webp",
-            "/images/regional/uiwang-floor-wax-12.webp"
-          ]
-        },
-        {
-          "heading": "물걸레로 마무리",
-          "body": "코팅 후 남은 자국은 물걸레로 닦아 마무리했습니다.",
+          "heading": "헹굼과 건조",
+          "body": "세척 후 남은 세제와 오염수를 깨끗이 헹궈내고, 물걸레로 물기까지 완전히 닦아 말렸습니다. 물기가 남은 채로 코팅하면 바닥이 들뜰 수 있어 완전히 마른 상태를 확인한 뒤 다음 단계로 넘어갔습니다.",
           "media": [
             "/images/regional/uiwang-floor-wax-13.webp",
             "/images/regional/uiwang-floor-wax-14.webp",
             "/images/regional/uiwang-floor-wax-15.webp"
+          ]
+        },
+        {
+          "heading": "복도 왁스코팅 완료",
+          "body": "바닥이 완전히 마른 것을 확인한 뒤 마지막으로 왁스코팅을 발라, 조명이 선명하게 반사될 만큼 복도에 광택이 올라왔습니다.",
+          "media": [
+            "/images/regional/uiwang-floor-wax-11.webp",
+            "/images/regional/uiwang-floor-wax-12.webp"
           ]
         }
       ],
