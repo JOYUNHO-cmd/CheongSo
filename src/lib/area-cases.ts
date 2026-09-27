@@ -58,6 +58,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/anyang-completion-02.webp", "/images/regional/anyang-completion-09.webp"], "안양 명학역 인근 상가 준공청소"),
   },
   {
+    href: "/신축준공청소/경기도-안산시/", province: "경기도", region: "안산시", service: "신축준공청소",
+    eyebrow: caseEyebrow, title: "안산 준공청소",
+    body: "상록구 한대앞역 인근 20평 복층 식당 옥된장을 2명이 8시간 동안 지붕구조 분진 제거부터 정문 유리까지 청소한 기록입니다.",
+    cta: "안산 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/ansan-shop-02.webp", "/images/regional/ansan-shop-11.webp"], "안산 상록구 옥된장 준공청소"),
+  },
+  {
     href: "/쓰레기집청소/경기도-군포시/", province: "경기도", region: "군포시", service: "쓰레기집청소",
     eyebrow: caseEyebrow, title: "군포 쓰레기집청소",
     body: "기숙사로 쓰던 산본 아파트의 방 한 칸에서 3명이 8시간 동안 폐기물 처리부터 오염 제거·냄새 제거·소독까지 진행한 기록입니다. 교체가 필요했던 합지 벽지까지 그대로 담았습니다.",
