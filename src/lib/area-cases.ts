@@ -153,7 +153,7 @@ export const areaCases: AreaCase[] = [
     eyebrow: caseEyebrow, title: "의왕 바닥왁스코팅",
     body: "내손동 10평 음식점의 바닥을 2명이 4시간 동안 기름때를 제거하고 첫 코팅까지 마친 기록입니다.",
     cta: "의왕 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/uiwang-floor-wax-04.webp", "/images/regional/uiwang-floor-wax-09.webp"], "의왕 내손동 음식점 바닥왁스코팅"),
+    photos: pair(beforeAfter, ["/images/regional/uiwang-floor-wax-02.webp", "/images/regional/uiwang-floor-wax-11.webp"], "의왕 내손동 음식점 바닥왁스코팅"),
   },
 ];
 
