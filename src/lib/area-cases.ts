@@ -79,6 +79,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/gunpo-floor-wax-02.webp", "/images/regional/gunpo-floor-wax-13.webp"], "군포 산본동 가라오케 바닥왁스코팅"),
   },
   {
+    href: "/사무실청소/경기도-군포시/", province: "경기도", region: "군포시", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "군포 사무실청소",
+    body: "당동 지식산업센터 50평 사무실을 인테리어 공사 직후 새벽 안에 4명이 8시간 동안 입주청소한 기록입니다. 사무실 앞 공동복도까지 공사 잔재가 심해 함께 청소했습니다.",
+    cta: "군포 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/gunpo-office-01.webp", "/images/regional/gunpo-office-13.webp"], "군포 당동 지식산업센터 사무실청소"),
+  },
+  {
     href: "/쓰레기집청소/경기도-안산시/", province: "경기도", region: "안산시", service: "쓰레기집청소",
     eyebrow: caseEyebrow, title: "안산 쓰레기집청소",
     body: "날파리가 생긴 상록구 원룸을 가족 방문 전에 4명이 3시간 동안 폐기물 처리부터 오염 제거·냄새 제거·소독까지 진행한 기록입니다.",
