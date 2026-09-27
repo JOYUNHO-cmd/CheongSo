@@ -5010,14 +5010,6 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/yongin-bond-02.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "용인 상가 본드제거 작업 중, 긁어낸 본드 잔여물을 쓸어 담는 모습",
-        "caption": "작업 중 · 긁어낸 본드 잔여물 수거"
-      },
-      {
-        "type": "image",
         "src": "/images/regional/yongin-bond-03.webp",
         "width": 900,
         "height": 1200,
@@ -5099,8 +5091,7 @@
           "heading": "작업 전 상태",
           "body": "화강암 바닥 전체에 본드 자국이 하얗게 남아 있었습니다.",
           "media": [
-            "/images/regional/yongin-bond-01.webp",
-            "/images/regional/yongin-bond-02.webp"
+            "/images/regional/yongin-bond-01.webp"
           ]
         },
         {
@@ -6292,8 +6283,8 @@
         "src": "/images/regional/geomdan-trash-08.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 검단구 원룸 쓰레기집청소 작업 중, 트럭으로 폐기물 반출",
-        "caption": "작업 중 · 트럭으로 폐기물 반출"
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 중, 봉투에 담아 모아 둔 폐기물",
+        "caption": "작업 중 · 봉투에 담아 모아 둔 폐기물"
       },
       {
         "type": "image",
@@ -6308,8 +6299,8 @@
         "src": "/images/regional/geomdan-trash-10.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 비워진 방",
-        "caption": "작업 후 · 비워진 방"
+        "alt": "인천 검단구 원룸 쓰레기집청소 작업 후, 오염을 닦아낸 문 레일과 바닥",
+        "caption": "작업 후 · 오염을 닦아낸 문 레일과 바닥"
       },
       {
         "type": "image",
@@ -6817,14 +6808,6 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/michuhol-trash-03.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "인천 미추홀구 원룸 쓰레기집청소 작업 전, 휴지와 오물이 쌓인 욕실",
-        "caption": "작업 전 · 휴지와 오물이 쌓인 욕실"
-      },
-      {
-        "type": "image",
         "src": "/images/regional/michuhol-trash-04.webp",
         "width": 900,
         "height": 1200,
@@ -6924,7 +6907,6 @@
           "media": [
             "/images/regional/michuhol-trash-01.webp",
             "/images/regional/michuhol-trash-02.webp",
-            "/images/regional/michuhol-trash-03.webp",
             "/images/regional/michuhol-trash-04.webp",
             "/images/regional/michuhol-trash-05.webp",
             "/images/regional/michuhol-trash-06.webp"
