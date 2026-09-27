@@ -6,7 +6,12 @@
     "description": "분당 사무실의 왁스가 고르게 자리 잡기 까다로운 회색 데코타일을 세척·코팅한 실제 사례입니다. 업체 추천 전 확인할 비용·견적 조건과 6명 9시간 작업 기록을 안내합니다.",
     "heading": "분당 바닥왁스코팅, 데코타일 사무실 실제 사례",
     "intro": "분당 사무실의 회색 데코타일을 세척하고 왁스코팅한 현장입니다. 6명이 9시간 작업했습니다.",
-    "sections": [{ "heading": "분당 데코타일 사무실 사례", "body": "소재 자체가 왁스를 잘 먹지 않아 작업이 까다로웠던 사례입니다. 6명이 9시간 작업했습니다." }],
+    "sections": [
+      {
+        "heading": "분당 데코타일 사무실 사례",
+        "body": "소재 자체가 왁스를 잘 먹지 않아 작업이 까다로웠던 사례입니다. 6명이 9시간 작업했습니다."
+      }
+    ],
     "media": [],
     "reviewed": true
   },
@@ -17,7 +22,12 @@
     "description": "성남 지식산업센터 100평 사무실의 디럭스타일 의자 바퀴자국을 세척하고 코팅한 퇴거청소 사례입니다. 업체 추천 전 확인할 비용·견적 조건과 3명 8시간 작업 기록을 안내합니다.",
     "heading": "성남 바닥왁스코팅, 100평 지식산업센터 퇴거청소 사례",
     "intro": "성남 지식산업센터 100평 사무실의 퇴거청소와 바닥왁스코팅 사례입니다. 3명이 8시간 작업했습니다.",
-    "sections": [{ "heading": "성남 지식산업센터 퇴거청소 사례", "body": "밝은색 디럭스타일에 의자 바퀴자국과 사용 오염이 심했던 실제 현장입니다." }],
+    "sections": [
+      {
+        "heading": "성남 지식산업센터 퇴거청소 사례",
+        "body": "밝은색 디럭스타일에 의자 바퀴자국과 사용 오염이 심했던 실제 현장입니다."
+      }
+    ],
     "media": [],
     "reviewed": true
   },
@@ -28,7 +38,12 @@
     "description": "판교 현장의 돌타일처럼 보이는 데코타일 오염을 약품으로 제거하고 은은하게 왁스코팅한 사례입니다. 업체 추천 전 확인할 비용·견적 조건과 3명 6시간 작업 기록을 안내합니다.",
     "heading": "판교 바닥왁스코팅, 돌타일처럼 보이는 데코타일 사례",
     "intro": "판교 현장의 돌타일처럼 보이는 데코타일을 약품으로 세척하고 은은하게 왁스코팅한 사례입니다. 3명이 6시간 작업했습니다.",
-    "sections": [{ "heading": "판교 돌무늬 데코타일 사례", "body": "데코타일에 약품 세척과 은은한 왁스코팅을 진행한 실제 현장입니다. 3명이 6시간 작업했습니다." }],
+    "sections": [
+      {
+        "heading": "판교 돌무늬 데코타일 사례",
+        "body": "데코타일에 약품 세척과 은은한 왁스코팅을 진행한 실제 현장입니다. 3명이 6시간 작업했습니다."
+      }
+    ],
     "media": [],
     "reviewed": true
   },
@@ -39,7 +54,12 @@
     "description": "과천 지식산업센터에서 문을 붉게 칠하며 바닥까지 날린 페인트를 제거하고 왁스코팅한 사례입니다. 업체 추천 전 확인할 비용·견적 조건과 3명 7시간 작업 기록을 안내합니다.",
     "heading": "과천 바닥왁스코팅, 지식산업센터 바닥 페인트 제거 사례",
     "intro": "과천 지식산업센터 바닥에 날린 붉은 페인트를 제거하고 왁스코팅한 사례입니다. 3명이 7시간 작업했습니다.",
-    "sections": [{ "heading": "과천 지식산업센터 페인트 제거 사례", "body": "문을 붉게 칠하면서 바닥까지 날린 페인트를 제거하고 왁스코팅을 함께 진행한 실제 현장입니다." }],
+    "sections": [
+      {
+        "heading": "과천 지식산업센터 페인트 제거 사례",
+        "body": "문을 붉게 칠하면서 바닥까지 날린 페인트를 제거하고 왁스코팅을 함께 진행한 실제 현장입니다."
+      }
+    ],
     "media": [],
     "reviewed": true
   },
@@ -51,7 +71,10 @@
     "heading": "의왕 상가청소, 내손동 상가 복원청소 실제 사례",
     "intro": "의왕시 내손동 상가 복원청소 현장의 실제 사진을 바탕으로 공사 분진과 바닥·창가·유리 구역의 상태, 작업 범위와 견적 확인 항목을 안내합니다.",
     "sections": [
-      { "heading": "내손동 상가 복원청소 현장입니다", "body": "경기도 의왕시 내손동 상가 복원청소 사례입니다. 사진에서 확인되는 상태와 일반적인 상담 안내를 구분하며, 인원·시간·금액은 임의로 추가하지 않습니다." }
+      {
+        "heading": "내손동 상가 복원청소 현장입니다",
+        "body": "경기도 의왕시 내손동 상가 복원청소 사례입니다. 사진에서 확인되는 상태와 일반적인 상담 안내를 구분하며, 인원·시간·금액은 임의로 추가하지 않습니다."
+      }
     ],
     "media": [],
     "reviewed": true
@@ -63,7 +86,12 @@
     "description": "안양 배달 돈까스 주방의 튀김기·후드·기기 하부 사진으로 주방청소 범위를 살펴보세요. 업체 추천 전 확인할 비용·견적 조건, 영업 전후 일정 및 상담 준비사항을 안내합니다.",
     "heading": "안양 주방청소",
     "intro": "안양 배달 돈까스 주방의 실제 사진을 바탕으로 튀김기·후드·기기 하부의 청소 범위와 견적 조건을 안내합니다.",
-    "sections": [{"heading":"안양 현장 사진과 상담 안내","body":"안양 현장에서 촬영한 실제 사진입니다. 사진에서 확인되는 상태와 일반적인 상담 안내를 구분하며, 인원·시간·금액과 구체적인 작업 방법을 임의로 추가하지 않습니다."}],
+    "sections": [
+      {
+        "heading": "안양 현장 사진과 상담 안내",
+        "body": "안양 현장에서 촬영한 실제 사진입니다. 사진에서 확인되는 상태와 일반적인 상담 안내를 구분하며, 인원·시간·금액과 구체적인 작업 방법을 임의로 추가하지 않습니다."
+      }
+    ],
     "media": [],
     "reviewed": true
   },
@@ -5524,31 +5552,31 @@
         "src": "/images/regional/namdong-fire-01.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 비닐로 보양한 생산 탱크",
-        "caption": "작업 준비 · 비닐로 보양한 생산 탱크"
+        "alt": "인천 남동구 공장 화재청소, 비닐로 보양한 제어반",
+        "caption": "작업 준비 · 제어반 보양"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-02.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 비닐로 보양한 모터와 배관",
-        "caption": "작업 준비 · 모터와 배관 보양"
+        "alt": "인천 남동구 공장 화재청소, 비닐로 보양한 생산 설비",
+        "caption": "작업 준비 · 생산 설비 보양"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-03.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 비닐로 보양한 제어반",
-        "caption": "작업 준비 · 제어반 보양"
+        "alt": "인천 남동구 공장 화재청소, 보양을 마친 설비 사이 통로",
+        "caption": "작업 준비 · 보양을 마친 설비 구역"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-04.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 고소 장비로 천장 세척",
+        "alt": "인천 남동구 공장 화재청소, 고소 장비로 천장 그을음 세척",
         "caption": "작업 중 · 고소 장비로 천장 세척"
       },
       {
@@ -5556,48 +5584,64 @@
         "src": "/images/regional/namdong-fire-05.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 천장 구조물 그을음 세척",
-        "caption": "작업 중 · 천장 구조물 세척"
+        "alt": "인천 남동구 공장 화재청소, 고소 장비로 높은 벽면 세척",
+        "caption": "작업 중 · 높은 벽면 세척"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-06.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 작업대를 올려 벽면 세척",
-        "caption": "작업 중 · 작업대를 올려 벽면 세척"
+        "alt": "인천 남동구 공장 화재청소, 작업대를 올려 천장 배관 주변 세척",
+        "caption": "작업 중 · 천장 배관 주변 세척"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-07.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 높은 벽면 그을음 제거",
-        "caption": "작업 중 · 높은 벽면 그을음 제거"
+        "alt": "인천 남동구 공장 화재청소, 고소작업대에서 벽면 그을음 제거",
+        "caption": "작업 중 · 고소작업대로 벽면 작업"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-08.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 설비 위쪽 벽면 세척",
-        "caption": "작업 중 · 설비 위쪽 벽면 세척"
+        "alt": "인천 남동구 공장 화재청소, 작업대 위에서 설비 상부 세척",
+        "caption": "작업 중 · 설비 상부 세척"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-09.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 배관 주변 벽면을 손으로 닦는 모습",
-        "caption": "작업 중 · 배관 주변 벽면 닦기"
+        "alt": "인천 남동구 공장 화재청소, 고소 장비로 천장 구조물 세척",
+        "caption": "작업 중 · 천장 구조물 세척"
       },
       {
         "type": "image",
         "src": "/images/regional/namdong-fire-10.webp",
         "width": 900,
         "height": 1200,
-        "alt": "인천 남동구 공장 화재청소, 고소 장비로 마무리 작업",
-        "caption": "작업 중 · 고소 장비로 마무리"
+        "alt": "인천 남동구 공장 화재청소, 설비 옆 벽면을 긴 도구로 닦는 모습",
+        "caption": "마무리 · 설비 옆 벽면 닦기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-fire-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 공장 화재청소, 설비 주변 바닥과 벽면 세척",
+        "caption": "마무리 · 설비 주변 바닥 세척"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/namdong-fire-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 남동구 공장 화재청소, 2층 작업대와 설비 주변 세척",
+        "caption": "마무리 · 2층 작업대 주변 세척"
       }
     ],
     "fieldCase": {
@@ -5628,7 +5672,7 @@
       "steps": [
         {
           "heading": "설비 보양",
-          "body": "생산 탱크와 모터, 제어반을 비닐로 감싸 세척 중 오염을 막았습니다.",
+          "body": "생산 설비와 제어반을 비닐로 감싸 세척 중 물과 그을음이 튀지 않도록 했습니다.",
           "media": [
             "/images/regional/namdong-fire-01.webp",
             "/images/regional/namdong-fire-02.webp",
@@ -5637,21 +5681,23 @@
         },
         {
           "heading": "천장과 벽 그을음 세척",
-          "body": "고소 장비로 천장 구조물과 높은 벽면의 그을음을 세척했습니다.",
+          "body": "고소 장비와 고소작업대를 올려 천장 구조물과 배관, 높은 벽면의 그을음을 세척했습니다.",
           "media": [
             "/images/regional/namdong-fire-04.webp",
             "/images/regional/namdong-fire-05.webp",
             "/images/regional/namdong-fire-06.webp",
             "/images/regional/namdong-fire-07.webp",
-            "/images/regional/namdong-fire-08.webp"
+            "/images/regional/namdong-fire-08.webp",
+            "/images/regional/namdong-fire-09.webp"
           ]
         },
         {
-          "heading": "배관 주변 마무리",
-          "body": "배관 주변 벽면을 손으로 닦고, 고소 장비로 남은 구간까지 마무리했습니다.",
+          "heading": "설비 주변 마무리",
+          "body": "설비 옆 벽면과 2층 작업대, 바닥까지 세척해 마무리했습니다.",
           "media": [
-            "/images/regional/namdong-fire-09.webp",
-            "/images/regional/namdong-fire-10.webp"
+            "/images/regional/namdong-fire-10.webp",
+            "/images/regional/namdong-fire-11.webp",
+            "/images/regional/namdong-fire-12.webp"
           ]
         }
       ],
