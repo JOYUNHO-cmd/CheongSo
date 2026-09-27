@@ -26,7 +26,7 @@ export function AnyangWaxEvidence() {
   return <section id="cases" className="scroll-mt-36" aria-label="안양 바닥왁스코팅 현장 사진">
     <h2 className="text-2xl font-black text-brand-dark">안양 바닥왁스코팅 실제 작업 사진</h2>
     <ReadingParagraph className="mt-4">안양 학원·음식점·업무시설·사무실로 등록된 작업 전후 사진입니다. 내 현장과 비슷한 공간부터 살펴보세요.</ReadingParagraph>
-    <ReadingParagraph className="mt-3 text-sm text-gray-500">현장 이름과 작업명은 기존 등록 자료를 따릅니다. 한식뷔페 사례에는 대표님이 확인한 작업 과정을 담았으며, 다른 사진 아래에는 비슷한 공간을 의뢰할 때의 상담 확인사항을 안내합니다.</ReadingParagraph>
+    <ReadingParagraph className="mt-3 text-sm text-gray-500">현장 이름과 작업명은 기존 등록 자료를 따릅니다. 한식뷔페 사례에는 실제 작업 과정을 담았으며, 다른 사진 아래에는 비슷한 공간을 의뢰할 때의 상담 확인사항을 안내합니다.</ReadingParagraph>
     <div className="mt-6 grid gap-6 lg:grid-cols-2">
       {[caseQuestions[1], caseQuestions[0], ...caseQuestions.slice(2)].map(([id, question, note]) => {
         const item = items.find(photo => photo.id === id)!;

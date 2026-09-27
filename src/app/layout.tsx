@@ -36,6 +36,7 @@ const nanumPen = Nanum_Pen_Script({
 
 const defaultTitle = `${siteConfig.name} | 입주·이사청소·사업장청소·특수청소·바닥시공`;
 const defaultDescription = "찐청소의 입주·이사청소, 사업장청소, 특수청소, 바닥시공. 작업 범위·가격 기준·현장 사진을 확인하고 견적을 상담하세요.";
+const clarityProjectId = "yo5g06xb3i";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -99,6 +100,15 @@ const organizationStructuredData = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={`${notoSansKr.variable} ${nanumBrush.variable} ${nanumPen.variable} h-full antialiased`}>
+      <head>
+        <script
+          id="microsoft-clarity"
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${clarityProjectId}");`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"

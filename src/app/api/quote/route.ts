@@ -26,23 +26,27 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "성함, 연락처, 서비스, 지역은 필수입니다" }, { status: 400 });
   }
 
-  if (!process.env.RESEND_API_KEY || !process.env.QUOTE_EMAIL_TO) {
-    return Response.json({ ok: false, error: "현재 메일 접수가 어렵습니다. 전화로 문의해 주세요" }, { status: 503 });
-  }
-
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    // Same owner-managed Formspree form as neutiul-website. The recipient is
+    // configured in Formspree, not in the site's email environment variables.
+    const res = await fetch("https://formspree.io/f/xqeqoorz", {
       method: "POST",
       signal: AbortSignal.timeout(15000),
       headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        Accept: "application/json",
         "Content-Type": "application/json",
+        ...(request.headers.get("referer") ? { Referer: request.headers.get("referer")! } : {}),
       },
       body: JSON.stringify({
-        from: "찐청소 견적 문의 <onboarding@resend.dev>",
-        to: process.env.QUOTE_EMAIL_TO,
         subject: `[찐청소] 견적 문의 - ${service}`,
-        text: [
+        website: "찐청소 — https://www.cheongso.co.kr",
+        name,
+        phone,
+        service_type: service,
+        location: region,
+        area_size: area || "확인 필요",
+        target_date: schedule || "협의",
+        message: [
           "찐청소 견적 문의",
           `성함(업체명): ${name}`,
           `연락처: ${phone}`,
@@ -55,8 +59,9 @@ export async function POST(request: Request) {
       }),
     });
 
-    if (!res.ok) {
-      console.error("[quote email] resend failed", res.status);
+    const result = await res.json().catch(() => null);
+    if (!res.ok || result?.ok !== true) {
+      console.error("[quote email] formspree failed", res.status);
       return Response.json({ ok: false, error: "메일 발송에 실패했습니다" }, { status: 502 });
     }
 

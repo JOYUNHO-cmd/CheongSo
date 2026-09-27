@@ -39,7 +39,7 @@ export const serviceCategories: ServiceCategory[] = [
     description: "사무실, 관공서, 학교, 공장등 다양한 사업장을 관리합니다",
     descLine1: "사무실, 관공서, 학교, 공장등",
     descLine2: "다양한 사업장을 관리합니다",
-    items: ["사무실청소", "관공서청소", "학교청소", "공장청소", "주방청소", "후드청소", "정기청소"],
+    items: ["사무실청소", "상가청소", "관공서청소", "학교청소", "공장청소", "주방청소", "후드청소", "정기청소"],
   },
   {
     slug: "hygiene",

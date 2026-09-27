@@ -6,7 +6,9 @@
     "dev": "next dev -p 3000 -H 0.0.0.0",
     "build": "next build",
     "start": "next start -p 3000 -H 0.0.0.0",
-    "lint": "eslint"
+    "lint": "eslint",
+    "research:naver": "node scripts/naver-customer-needs.mjs",
+    "research:naver:services": "node scripts/naver-all-services-needs.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.43.0",

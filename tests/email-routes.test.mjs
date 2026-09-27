@@ -20,11 +20,12 @@ for (const handler of handlers) {
     assert.equal(fetchMock.mock.callCount(), 0);
   });
 
-  test(`${handler.name}: missing configuration returns JSON 503`, async t => {
+  test(`${handler.name}: works without a Resend API key`, async t => {
     const originalKey = process.env.RESEND_API_KEY;
     delete process.env.RESEND_API_KEY;
     t.after(() => { if (originalKey === undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY = originalKey; });
-    assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 503);
+    t.mock.method(globalThis, 'fetch', async () => Response.json({ ok: true }));
+    assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 200);
   });
 
   test(`${handler.name}: success and provider failures are handled without real delivery`, async t => {
@@ -37,12 +38,21 @@ for (const handler of handlers) {
     });
     t.mock.method(console, 'error', () => {});
     const send = t.mock.method(globalThis, 'fetch', async (url, options) => {
-      assert.equal(url, 'https://api.resend.com/emails');
-      assert.equal(JSON.parse(options.body).to, 'test@example.invalid');
+      assert.equal(url, 'https://formspree.io/f/xqeqoorz');
+      const body = JSON.parse(options.body);
+      assert.match(body.subject, /^\[찐청소\]/);
+      assert.ok(body.message);
+      assert.equal(body.to, undefined);
+      assert.equal(options.headers.Authorization, undefined);
+      assert.equal(options.headers.Accept, 'application/json');
       assert.ok(options.signal instanceof AbortSignal);
-      return Response.json({ id: 'mock-only' });
+      return Response.json({ ok: true });
     });
     assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 200);
+    send.mock.mockImplementation(async () => Response.json({ ok: false }));
+    assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 502);
+    send.mock.mockImplementation(async () => new Response('<html>captcha</html>'));
+    assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 502);
     send.mock.mockImplementation(async () => Response.json({ error: 'unavailable' }, { status: 429 }));
     assert.equal((await handler.post(request(JSON.stringify(handler.valid)))).status, 502);
     send.mock.mockImplementation(async () => { throw new Error('network unavailable'); });
