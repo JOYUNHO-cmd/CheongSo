@@ -53,8 +53,13 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-2 w-full">
-          {/* H1 메인 헤드라인 (모바일 기준 21px, PC는 이전의 웅장한 56px 스케일로 완벽 복원) */}
-          <h1 className="mx-auto max-w-4xl text-[21px] font-black leading-[1.25] tracking-tight [text-shadow:0_4px_24px_rgba(0,0,0,0.8)] sm:text-4xl md:text-5xl lg:text-[56px]">
+          {/* H1: 서비스 범위 문구 (기존 서브 문구와 같은 크기·색상 유지) */}
+          <h1 className="mx-auto max-w-3xl break-keep text-sm sm:text-xl md:text-2xl lg:text-[26px] font-semibold leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+            <span className="block">{siteConfig.heroH1}</span>
+          </h1>
+
+          {/* 메인 헤드라인 (모바일 기준 21px, PC는 이전의 웅장한 56px 스케일로 완벽 복원) */}
+          <p className="mx-auto mt-4 sm:mt-7 max-w-4xl text-[21px] font-black leading-[1.25] tracking-tight [text-shadow:0_4px_24px_rgba(0,0,0,0.8)] sm:text-4xl md:text-5xl lg:text-[56px]">
             {siteConfig.heroHeadline.map((line) => (
               <span
                 key={line}
@@ -63,7 +68,7 @@ export default function Home() {
                 {line}
               </span>
             ))}
-          </h1>
+          </p>
 
           {/* 서브 문구 (모바일 text-sm, PC 이전 크기인 lg:text-[26px] 복원) */}
           <p className="mx-auto mt-4 sm:mt-7 max-w-3xl text-sm sm:text-xl md:text-2xl lg:text-[26px] font-semibold leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
