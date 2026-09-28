@@ -261,6 +261,13 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/michuhol-trash-01.webp", "/images/regional/michuhol-trash-09.webp"], "인천 주안 원룸 쓰레기집청소"),
   },
   {
+    href: "/고독사청소/인천광역시-미추홀구/", province: "인천광역시", region: "미추홀구", service: "고독사청소",
+    eyebrow: caseEyebrow, title: "인천 미추홀구 고독사청소",
+    body: "다세대주택에서 사다리차로 가구와 물품을 반출하고 오염된 장판과 주방 벽을 걷어낸 뒤 소독까지 마친 기록입니다.",
+    cta: "인천 미추홀구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/michuhol-lonely-01.webp", "/images/regional/michuhol-lonely-10.webp"], "인천 미추홀구 다세대주택 고독사청소"),
+  },
+  {
     href: "/바닥-왁스-코팅/인천광역시-미추홀구/", province: "인천광역시", region: "미추홀구", service: "바닥왁스코팅",
     eyebrow: caseEyebrow, title: "인천 미추홀구 바닥왁스코팅",
     body: "학교 복도와 교실, 나무 바닥을 박리·세척하고 2회 코팅한 기록입니다.",
@@ -329,6 +336,48 @@ export const areaCases: AreaCase[] = [
     body: "내손동 10평 음식점의 바닥을 2명이 4시간 동안 기름때를 제거하고 첫 코팅까지 마친 기록입니다.",
     cta: "의왕 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/uiwang-floor-wax-02.webp", "/images/regional/uiwang-floor-wax-11.webp"], "의왕 내손동 음식점 바닥왁스코팅"),
+  },
+  {
+    href: "/고독사청소/경기도-수원시/", province: "경기도", region: "수원시", service: "고독사청소",
+    eyebrow: caseEyebrow, title: "수원 고독사청소",
+    body: "가정집 바닥에 남은 옷가지와 생활용품, 냉장고 음식물을 수거하고 방과 주방, 베란다를 비운 기록입니다.",
+    cta: "수원 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/suwon-lonely-01.webp", "/images/regional/suwon-lonely-06.webp"], "수원 가정집 고독사청소"),
+  },
+  {
+    href: "/유품정리/경기도-안산시/", province: "경기도", region: "안산시", service: "유품정리",
+    eyebrow: caseEyebrow, title: "안산 유품정리",
+    body: "원룸에 남은 생활용품과 보일러실 짐을 분류해 수거하고 주방과 창틀까지 닦아 비운 기록입니다.",
+    cta: "안산 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/ansan-legacy-01.webp", "/images/regional/ansan-legacy-09.webp"], "안산 원룸 유품정리"),
+  },
+  {
+    href: "/고독사청소/경기도-이천시/", province: "경기도", region: "이천시", service: "고독사청소",
+    eyebrow: caseEyebrow, title: "이천 고독사청소",
+    body: "원룸 바닥의 물품을 수거하고 오염된 바닥재를 걷어낸 뒤 벽면 소독과 주방 세척까지 진행한 기록입니다.",
+    cta: "이천 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/icheon-lonely-02.webp", "/images/regional/icheon-lonely-05.webp"], "이천 원룸 고독사청소"),
+  },
+  {
+    href: "/고독사청소/경기도-부천시/", province: "경기도", region: "부천시", service: "고독사청소",
+    eyebrow: caseEyebrow, title: "부천 고독사청소",
+    body: "아파트 바닥과 베란다, 수납장, 욕실, 창틀까지 작업 전에 오염 범위를 하나씩 확인한 기록입니다.",
+    cta: "부천 사례와 견적 기준 보기",
+    photos: pair(["작업 전 확인", "작업 전 확인"] as const, ["/images/regional/bucheon-lonely-01.webp", "/images/regional/bucheon-lonely-02.webp"], "부천 아파트 고독사청소 오염 확인"),
+  },
+  {
+    href: "/고독사청소/서울특별시-도봉구/", province: "서울특별시", region: "도봉구", service: "고독사청소",
+    eyebrow: caseEyebrow, title: "서울 도봉구 고독사청소",
+    body: "다세대주택 원룸에서 물품을 분류해 수거하고 곰팡이가 번진 벽면을 닦은 뒤 주방과 욕실까지 정리한 기록입니다.",
+    cta: "도봉구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/dobong-lonely-01.webp", "/images/regional/dobong-lonely-09.webp"], "서울 도봉구 다세대주택 원룸 고독사청소"),
+  },
+  {
+    href: "/유품정리/서울특별시-용산구/", province: "서울특별시", region: "용산구", service: "유품정리",
+    eyebrow: caseEyebrow, title: "서울 용산구 유품정리",
+    body: "주택에 남은 장롱과 옷가지, 생활용품을 정리하고 가구를 해체해 반출한 뒤 바닥 청소까지 마친 기록입니다.",
+    cta: "용산구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/yongsan-legacy-01.webp", "/images/regional/yongsan-legacy-10.webp"], "서울 용산구 주택 유품정리"),
   },
 ];
 

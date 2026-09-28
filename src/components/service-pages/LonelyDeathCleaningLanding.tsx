@@ -450,6 +450,15 @@ export default function LonelyDeathCleaningLanding() {
               <ReadingParagraph className="text-[15.5px]">방문 시간과 반출 동선 등 걱정되는 부분을 알려주세요. 현장 여건에서 조정할 수 있는 내용을 함께 확인하겠습니다.</ReadingParagraph>
               <ReadingParagraph className="mt-2 text-[15.5px]">다만 복도와 엘리베이터 등 공용 공간을 사용해야 할 수 있어, 주변에서 작업 사실을 전혀 알 수 없다고 보장하지는 않습니다.</ReadingParagraph>
             </div>
+            <Link href="/고독사청소/경기도-수원시/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">수원 가정집 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/고독사청소/서울특별시-도봉구/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 도봉구 다세대주택 원룸 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/고독사청소/경기도-이천시/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">이천 원룸 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/고독사청소/인천광역시-미추홀구/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">인천 미추홀구 다세대주택 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/고독사청소/경기도-부천시/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">부천 아파트 작업 전 오염 확인 사례 보기 →</Link>
           <BackToContents />
           </section>
 
