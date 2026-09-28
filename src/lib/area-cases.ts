@@ -414,6 +414,27 @@ export const areaCases: AreaCase[] = [
     cta: "용산구 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/yongsan-legacy-01.webp", "/images/regional/yongsan-legacy-10.webp"], "서울 용산구 주택 유품정리"),
   },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-서초구/", province: "서울특별시", region: "서초구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 서초구 바닥왁스코팅",
+    body: "사무실 창문 시트지를 제거하고 얼룩진 바닥을 장비로 세척한 뒤 왁스를 코팅한 기록입니다.",
+    cta: "서초구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/seocho-floor-wax-02.webp", "/images/regional/seocho-floor-wax-12.webp"], "서울 서초구 사무실 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-송파구/", province: "서울특별시", region: "송파구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 송파구 바닥왁스코팅",
+    body: "넓은 사무 공간의 기존 왁스를 장비로 박리하고 잔여물을 걷어낸 뒤 새로 코팅한 기록입니다.",
+    cta: "송파구 사례와 견적 기준 보기",
+    photos: pair(["작업 전", "코팅 중"] as const, ["/images/regional/songpa-floor-wax-01.webp", "/images/regional/songpa-floor-wax-10.webp"], "서울 송파구 사무 공간 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-구로구/", province: "서울특별시", region: "구로구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 구로구 바닥왁스코팅",
+    body: "사무실 바닥을 장비로 세척하고 유리 파티션 아래 가장자리까지 정리한 뒤 왁스를 코팅한 기록입니다.",
+    cta: "구로구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/guro-floor-wax-01.webp", "/images/regional/guro-floor-wax-11.webp"], "서울 구로구 사무실 바닥왁스코팅"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];
