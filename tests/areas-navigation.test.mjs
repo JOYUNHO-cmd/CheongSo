@@ -82,6 +82,8 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/서울특별시-서초구/',
     '/바닥-왁스-코팅/서울특별시-송파구/',
     '/바닥-왁스-코팅/서울특별시-구로구/',
+    '/바닥-왁스-코팅/서울특별시-강남구/',
+    '/바닥-왁스-코팅/서울특별시-동대문구/',
   ]);
   for (const link of links) {
     assert.ok(link.querySelector('img[alt]'));

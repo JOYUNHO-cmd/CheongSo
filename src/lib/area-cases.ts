@@ -435,6 +435,20 @@ export const areaCases: AreaCase[] = [
     cta: "구로구 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/guro-floor-wax-01.webp", "/images/regional/guro-floor-wax-11.webp"], "서울 구로구 사무실 바닥왁스코팅"),
   },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-강남구/", province: "서울특별시", region: "강남구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 강남구 바닥왁스코팅",
+    body: "파티션 사이와 집기 자리에 얼룩이 번진 사무실 바닥을 장비로 세척하고 왁스를 코팅한 기록입니다.",
+    cta: "강남구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/gangnam-floor-wax-01.webp", "/images/regional/gangnam-floor-wax-09.webp"], "서울 강남구 사무실 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-동대문구/", province: "서울특별시", region: "동대문구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 동대문구 바닥왁스코팅",
+    body: "병원 대기실·복도의 포세린 타일과 진료실 데코타일을 바닥재별로 세척하고 코팅한 기록입니다.",
+    cta: "동대문구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/dongdaemun-floor-wax-03.webp", "/images/regional/dongdaemun-floor-wax-14.webp"], "서울 동대문구 병원 바닥왁스코팅"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];
