@@ -42,6 +42,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/쓰레기집청소/경기도-안산시/',
     '/바닥-왁스-코팅/경기도-안산시/',
     '/인테리어청소/경기도-안산시/',
+    '/유품정리/경기도-안산시/',
     '/신축준공청소/경기도-군포시/',
     '/쓰레기집청소/경기도-군포시/',
     '/인테리어청소/경기도-군포시/',
@@ -51,6 +52,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/경기도-수원시/',
     '/사무실청소/경기도-수원시-영통구/',
     '/인테리어청소/경기도-수원시-영통구/',
+    '/고독사청소/경기도-수원시/',
     '/신축준공청소/경기도-용인시/',
     '/바닥-본드-제거/경기도-용인시/',
     '/바닥-왁스-코팅/경기도-용인시/',
@@ -59,6 +61,8 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/인테리어청소/경기도-양주시/',
     '/인테리어청소/경기도-남양주시/',
     '/인테리어청소/경기도-화성시-동탄구/',
+    '/고독사청소/경기도-이천시/',
+    '/고독사청소/경기도-부천시/',
     '/화재청소/인천광역시-검단구/',
     '/쓰레기집청소/인천광역시-검단구/',
     '/화재청소/인천광역시-남동구/',
@@ -68,10 +72,13 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/쓰레기집청소/인천광역시-부평구/',
     '/화재청소/인천광역시-미추홀구/',
     '/쓰레기집청소/인천광역시-미추홀구/',
+    '/고독사청소/인천광역시-미추홀구/',
     '/바닥-왁스-코팅/인천광역시-미추홀구/',
     '/화재청소/인천광역시-연수구/',
     '/쓰레기집청소/인천광역시-연수구/',
     '/인테리어청소/서울특별시-서초구/',
+    '/고독사청소/서울특별시-도봉구/',
+    '/유품정리/서울특별시-용산구/',
   ]);
   for (const link of links) {
     assert.ok(link.querySelector('img[alt]'));

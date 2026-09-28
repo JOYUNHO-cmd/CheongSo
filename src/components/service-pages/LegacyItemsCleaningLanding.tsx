@@ -404,6 +404,9 @@ export default function LegacyItemsCleaningLanding() {
             </ul>
             <h3 className="mt-6 text-lg font-bold text-brand-dark">현장을 계속 지켜봐야 하나요?</h3>
             <ReadingParagraph className="mt-2">아닙니다. 작업 중 확인이 필요한 사항은 전화나 사진으로 연락드립니다. 작업 후에는 상세한 전후 사진으로 결과를 확인하실 수 있습니다.</ReadingParagraph>
+            <Link href="/유품정리/서울특별시-용산구/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 용산구 주택 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/유품정리/경기도-안산시/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">안산 원룸 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 

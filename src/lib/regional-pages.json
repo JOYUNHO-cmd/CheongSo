@@ -7611,5 +7611,1264 @@
     ],
     "media": [],
     "reviewed": true
+  },
+  {
+    "service": "고독사청소",
+    "region": "경기도-수원시",
+    "title": "수원 고독사청소 | 가정집 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "수원 가정집에서 바닥에 남은 옷가지와 생활용품, 냉장고 음식물을 수거하고 방과 주방, 베란다를 비운 고독사청소 기록을 사진으로 확인하세요. 수원 고독사청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "수원 고독사청소",
+    "intro": "갑작스러운 일로 집 안을 어디서부터 정리해야 할지 막막하신가요? 찐청소는 현장 인계와 출입 가능 여부를 확인한 뒤 남은 물품 수거와 폐기물 처리, 청소, 소독, 냄새 제거까지 차례로 진행합니다. 원룸과 다세대주택이 많은 인계동·매탄동·권선동·세류동부터 수원 전 지역의 가정집·원룸 현장에서 상담하고 있습니다. 견적은 오염 범위와 남은 물품의 양을 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "수거·폐기물 처리부터 소독·냄새 제거까지 기본으로 진행합니다",
+        "body": "현장 인계와 출입 가능 여부를 확인한 뒤 남은 물품을 수거하고 폐기물을 처리합니다. 이후 오염 구역 청소와 소독, 냄새 제거까지 기본 범위로 진행합니다."
+      },
+      {
+        "heading": "보관할 물품은 따로 확인합니다",
+        "body": "정리 중 발견한 서류나 귀중품, 사진처럼 보관이 필요해 보이는 물품은 버리지 않고 따로 모아 의뢰인에게 확인합니다."
+      },
+      {
+        "heading": "멀리 계셔도 비대면으로 맡기실 수 있습니다",
+        "body": "출입 방법과 보관 기준을 미리 정하면 현장에 오지 않으셔도 작업할 수 있습니다. 작업 중 확인할 내용은 연락드리고, 작업 전후 사진으로 결과를 전달합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 전, 바닥에 흩어진 옷가지와 물품",
+        "caption": "작업 전 · 바닥에 흩어진 옷가지와 물품"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 전, 침대 옆 바닥에 남은 오염",
+        "caption": "작업 전 · 침대 옆 바닥에 남은 오염"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 전, 물건이 남아 있는 거실",
+        "caption": "작업 전 · 물건이 남아 있는 거실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 전, 음식물이 남은 냉장고",
+        "caption": "작업 전 · 음식물이 남은 냉장고"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 전, 매트와 생활용품이 놓인 방",
+        "caption": "작업 전 · 매트와 생활용품이 놓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 후, 물품을 비운 방",
+        "caption": "작업 후 · 물품을 비운 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 후, 가구 외 물품을 비운 방",
+        "caption": "작업 후 · 가구 외 물품을 비운 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 후, 물품을 비운 거실",
+        "caption": "작업 후 · 물품을 비운 거실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 후, 정리한 베란다",
+        "caption": "작업 후 · 정리한 베란다"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/suwon-lonely-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "수원 가정집 고독사청소 작업 후, 물품을 비운 주방",
+        "caption": "작업 후 · 물품을 비운 주방"
+      }
+    ],
+    "fieldCase": {
+      "heading": "수원 가정집 고독사청소 사례",
+      "lead": "방과 거실에 생활용품이 흩어져 있고 바닥에 오염이 남은 가정집에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "경기 수원 가정집"
+        ],
+        [
+          "작업 전 상태",
+          "바닥 오염, 옷가지·생활용품·냉장고 음식물"
+        ],
+        [
+          "작업 순서",
+          "물품 수거 → 폐기물 처리 → 청소 → 소독·냄새 제거"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방과 거실 바닥에 옷가지와 생활용품이 흩어져 있었고, 침대 옆 바닥에 오염이 남아 있었습니다. 냉장고에도 음식물이 그대로 있었습니다.",
+          "media": [
+            "/images/regional/suwon-lonely-01.webp",
+            "/images/regional/suwon-lonely-02.webp",
+            "/images/regional/suwon-lonely-03.webp",
+            "/images/regional/suwon-lonely-04.webp",
+            "/images/regional/suwon-lonely-05.webp"
+          ]
+        },
+        {
+          "heading": "수거와 정리 후 상태",
+          "body": "남은 물품과 음식물을 수거하고 방과 거실, 베란다, 주방을 비운 뒤 청소와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/suwon-lonely-06.webp",
+            "/images/regional/suwon-lonely-07.webp",
+            "/images/regional/suwon-lonely-08.webp",
+            "/images/regional/suwon-lonely-09.webp",
+            "/images/regional/suwon-lonely-10.webp"
+          ]
+        }
+      ],
+      "note": "오염 범위와 스며든 깊이, 남은 물품의 양, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "수원 어느 지역까지 고독사청소가 가능한가요?",
+        "인계동·매탄동·권선동·세류동 등 원룸과 다세대주택이 많은 지역부터 수원 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "정리하다 나온 귀중품이나 서류는 어떻게 하나요?",
+        "버리지 않고 따로 모아 의뢰인에게 확인합니다. 보관하거나 전달할 물품 기준은 작업 전에 함께 정합니다."
+      ],
+      [
+        "고독사청소 비용은 어떻게 정해지나요?",
+        "오염이 번진 범위와 깊이, 남은 물품의 양, 바닥재나 벽지 철거가 필요한지에 따라 달라집니다. 현장 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 진행할 수 있나요?",
+        "가능합니다. 출입 방법과 보관할 물품 기준을 미리 정하면 비대면으로 진행하고, 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "고독사청소",
+    "region": "서울특별시-도봉구",
+    "title": "서울 도봉구 고독사청소 | 다세대주택 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "서울 도봉구 다세대주택 원룸에서 남은 물품을 분류해 수거하고, 곰팡이가 번진 벽면을 닦은 뒤 주방과 욕실까지 정리한 고독사청소 기록을 사진으로 확인하세요. 도봉구 고독사청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "서울 도봉구 고독사청소",
+    "intro": "좁은 원룸에 남은 짐과 벽면 곰팡이를 어떻게 정리해야 할지 고민되시나요? 찐청소는 현장 인계를 확인한 뒤 물품을 분류해 수거하고, 청소와 소독, 냄새 제거까지 진행합니다. 다세대주택과 원룸이 많은 쌍문동·방학동·창동·도봉동 일대까지 서울 도봉구의 원룸·빌라 현장에서 상담하고 있습니다. 견적은 오염 범위와 남은 물품의 양을 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "물품을 분류하면서 수거합니다",
+        "body": "원룸이라도 서류와 귀중품이 섞여 있을 수 있습니다. 이 현장에서도 물품을 하나씩 분류하며 수거했고, 정리 중 발견한 외국 지폐는 따로 보관해 확인했습니다."
+      },
+      {
+        "heading": "벽면 오염과 곰팡이를 확인하고 닦습니다",
+        "body": "에어컨 주변과 벽면에 번진 곰팡이와 오염을 확인하고 닦아냈습니다. 벽지 교체나 도배가 필요한 부분은 작업 전에 상담합니다."
+      },
+      {
+        "heading": "멀리 계셔도 비대면으로 맡기실 수 있습니다",
+        "body": "출입 방법과 보관 기준을 미리 정하면 현장에 오지 않으셔도 작업할 수 있습니다. 작업 중 확인할 내용은 연락드리고, 작업 전후 사진으로 결과를 전달합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 전, 캐리어와 짐이 남은 현관과 주방",
+        "caption": "작업 전 · 캐리어와 짐이 남은 현관과 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 전, 사용하던 물건이 남은 욕실",
+        "caption": "작업 전 · 사용하던 물건이 남은 욕실"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 전, 에어컨 주변 벽에 번진 곰팡이",
+        "caption": "작업 전 · 에어컨 주변 벽에 번진 곰팡이"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 전, 벽지가 떨어지고 곰팡이가 번진 벽",
+        "caption": "작업 전 · 벽지가 떨어지고 곰팡이가 번진 벽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 중, 물품 분류와 수거",
+        "caption": "작업 중 · 물품 분류와 수거"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 중, 정리 중 발견한 외국 지폐",
+        "caption": "작업 중 · 정리 중 발견한 외국 지폐"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 중, 박스에 담아 옮기는 물품",
+        "caption": "작업 중 · 박스에 담아 옮기는 물품"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 중, 벽면 오염 닦기",
+        "caption": "작업 중 · 벽면 오염 닦기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 후, 물품을 비운 주방",
+        "caption": "작업 후 · 물품을 비운 주방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 후, 정리한 싱크대와 현관",
+        "caption": "작업 후 · 정리한 싱크대와 현관"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/dobong-lonely-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 도봉구 다세대주택 원룸 고독사청소 작업 후, 정리한 욕실",
+        "caption": "작업 후 · 정리한 욕실"
+      }
+    ],
+    "fieldCase": {
+      "heading": "도봉구 다세대주택 원룸 고독사청소 사례",
+      "lead": "벽면에 곰팡이가 번지고 생활하던 물건이 그대로 남은 다세대주택 원룸에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "서울 도봉구 다세대주택 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "남은 생활용품, 벽면 곰팡이·오염"
+        ],
+        [
+          "작업 순서",
+          "물품 분류·수거 → 폐기물 처리 → 청소 → 소독·냄새 제거"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "현관과 주방, 욕실에 쓰던 물건이 그대로 남아 있었고 벽면에는 곰팡이가 번져 있었습니다.",
+          "media": [
+            "/images/regional/dobong-lonely-01.webp",
+            "/images/regional/dobong-lonely-02.webp",
+            "/images/regional/dobong-lonely-03.webp",
+            "/images/regional/dobong-lonely-04.webp"
+          ]
+        },
+        {
+          "heading": "물품 분류와 수거",
+          "body": "물품을 분류하며 수거했고, 정리 중 발견한 지폐는 따로 보관했습니다. 벽면 오염도 닦아냈습니다.",
+          "media": [
+            "/images/regional/dobong-lonely-05.webp",
+            "/images/regional/dobong-lonely-06.webp",
+            "/images/regional/dobong-lonely-07.webp",
+            "/images/regional/dobong-lonely-08.webp"
+          ]
+        },
+        {
+          "heading": "정리 후 상태",
+          "body": "주방과 현관, 욕실을 비우고 청소와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/dobong-lonely-09.webp",
+            "/images/regional/dobong-lonely-10.webp",
+            "/images/regional/dobong-lonely-11.webp"
+          ]
+        }
+      ],
+      "note": "오염 범위와 스며든 깊이, 남은 물품의 양, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "도봉구 어느 지역까지 고독사청소가 가능한가요?",
+        "쌍문동·방학동·창동·도봉동 일대까지 서울 도봉구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "정리하다 나온 귀중품이나 서류는 어떻게 하나요?",
+        "버리지 않고 따로 모아 의뢰인에게 확인합니다. 보관하거나 전달할 물품 기준은 작업 전에 함께 정합니다."
+      ],
+      [
+        "고독사청소 비용은 어떻게 정해지나요?",
+        "오염이 번진 범위와 깊이, 남은 물품의 양, 바닥재나 벽지 철거가 필요한지에 따라 달라집니다. 현장 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 진행할 수 있나요?",
+        "가능합니다. 출입 방법과 보관할 물품 기준을 미리 정하면 비대면으로 진행하고, 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "고독사청소",
+    "region": "경기도-이천시",
+    "title": "이천 고독사청소 | 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "이천 원룸에서 바닥에 흩어진 물품을 수거하고 오염된 바닥재를 걷어낸 뒤 벽면 소독과 주방 세척까지 진행한 고독사청소 기록을 사진으로 확인하세요. 이천 고독사청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "이천 고독사청소",
+    "intro": "원룸 바닥까지 오염이 스며들어 어디까지 정리해야 할지 걱정되시나요? 찐청소는 현장 인계를 확인한 뒤 물품 수거와 폐기물 처리, 청소, 소독, 냄새 제거를 진행하고, 바닥재처럼 걷어내야 하는 부분은 작업 전에 상담합니다. 1인 가구 원룸이 많은 부발읍·대월면부터 중리동·증포동·창전동까지 이천 곳곳의 원룸 현장에서 상담하고 있습니다. 견적은 오염 범위와 남은 물품의 양을 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "바닥에 남은 물품부터 수거합니다",
+        "body": "바닥에 흩어진 옷가지와 물건을 봉투에 나눠 담아 수거한 뒤 오염 범위를 확인했습니다."
+      },
+      {
+        "heading": "오염이 스며든 바닥재는 걷어냅니다",
+        "body": "오염이 바닥재 아래까지 스며든 경우 청소만으로는 냄새가 남습니다. 이 현장은 바닥재를 걷어낸 뒤 벽면과 바닥을 소독했습니다. 철거가 필요한 범위는 작업 전에 안내합니다."
+      },
+      {
+        "heading": "주방까지 세척하고 마무리합니다",
+        "body": "싱크대와 가스레인지 주변에 남은 음식물과 오염을 정리하고 세척했습니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 전, 봉투와 물건이 놓인 현관 복도",
+        "caption": "작업 전 · 봉투와 물건이 놓인 현관 복도"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 전, 옷가지와 물건이 흩어진 방",
+        "caption": "작업 전 · 옷가지와 물건이 흩어진 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 전, 설거지감이 남은 싱크대",
+        "caption": "작업 전 · 설거지감이 남은 싱크대"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 바닥 물품 수거",
+        "caption": "작업 중 · 바닥 물품 수거"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 오염된 바닥재를 걷어낸 방",
+        "caption": "작업 중 · 오염된 바닥재를 걷어낸 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 벽면 소독",
+        "caption": "작업 중 · 벽면 소독"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 벽면 오염 확인",
+        "caption": "작업 중 · 벽면 오염 확인"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 싱크대 세척",
+        "caption": "작업 중 · 싱크대 세척"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/icheon-lonely-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "이천 원룸 고독사청소 작업 중, 주방 정리",
+        "caption": "작업 중 · 주방 정리"
+      }
+    ],
+    "fieldCase": {
+      "heading": "이천 원룸 고독사청소 사례",
+      "lead": "방 바닥과 주방에 물건과 음식물이 남고 바닥까지 오염이 스며든 원룸에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "경기 이천 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "바닥 오염, 흩어진 옷가지·생활용품, 주방 음식물"
+        ],
+        [
+          "작업 순서",
+          "물품 수거 → 바닥재 제거 → 소독 → 주방 세척"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "현관 복도와 방 바닥에 옷가지와 물건이 흩어져 있었고, 싱크대에도 음식물이 남아 있었습니다.",
+          "media": [
+            "/images/regional/icheon-lonely-01.webp",
+            "/images/regional/icheon-lonely-02.webp",
+            "/images/regional/icheon-lonely-03.webp"
+          ]
+        },
+        {
+          "heading": "물품 수거와 바닥재 제거",
+          "body": "바닥의 물품을 수거하고 오염이 스며든 바닥재를 걷어냈습니다.",
+          "media": [
+            "/images/regional/icheon-lonely-04.webp",
+            "/images/regional/icheon-lonely-05.webp"
+          ]
+        },
+        {
+          "heading": "소독과 주방 세척",
+          "body": "벽면을 소독하고 오염을 확인한 뒤 싱크대와 주방을 세척했습니다.",
+          "media": [
+            "/images/regional/icheon-lonely-06.webp",
+            "/images/regional/icheon-lonely-07.webp",
+            "/images/regional/icheon-lonely-08.webp",
+            "/images/regional/icheon-lonely-09.webp"
+          ]
+        }
+      ],
+      "note": "오염 범위와 스며든 깊이, 남은 물품의 양, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "이천 어느 지역까지 고독사청소가 가능한가요?",
+        "부발읍·대월면과 중리동·증포동·창전동 일대까지 이천 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "바닥재를 꼭 걷어내야 하나요?",
+        "오염이 바닥재 아래까지 스며들었는지에 따라 다릅니다. 현장을 확인한 뒤 걷어낼 범위와 비용을 먼저 안내하고 진행합니다."
+      ],
+      [
+        "고독사청소 비용은 어떻게 정해지나요?",
+        "오염이 번진 범위와 깊이, 남은 물품의 양, 바닥재나 벽지 철거가 필요한지에 따라 달라집니다. 현장 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 진행할 수 있나요?",
+        "가능합니다. 출입 방법과 보관할 물품 기준을 미리 정하면 비대면으로 진행하고, 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "고독사청소",
+    "region": "인천광역시-미추홀구",
+    "title": "인천 미추홀구 고독사청소 | 다세대주택 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "인천 미추홀구 다세대주택에서 사다리차로 가구와 물품을 반출하고, 오염된 장판과 주방 벽을 걷어낸 뒤 소독까지 마친 고독사청소 기록을 사진으로 확인하세요. 미추홀구 고독사청소 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "인천 미추홀구 고독사청소",
+    "intro": "계단이 좁은 빌라에 가구와 짐이 가득 남아 반출이 걱정되시나요? 찐청소는 현장 인계를 확인한 뒤 반출 동선을 정하고, 물품 수거와 폐기물 처리, 청소, 소독, 냄새 제거까지 진행합니다. 오래된 빌라와 다세대주택이 많은 주안동·숭의동·용현동·도화동 일대까지 인천 미추홀구의 빌라·원룸 현장에서 상담하고 있습니다. 견적은 남은 물품의 양과 오염 범위, 층수를 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "계단이 좁으면 사다리차로 반출합니다",
+        "body": "냉장고와 가구처럼 큰 물건은 좁은 계단으로 옮기기 어렵습니다. 이 현장은 사다리차를 이용해 창문으로 물품을 내렸습니다."
+      },
+      {
+        "heading": "오염된 장판과 벽은 걷어냅니다",
+        "body": "장판과 벽지 아래까지 오염이 스며든 부분은 걷어낸 뒤 청소와 소독을 진행했습니다. 철거가 필요한 범위는 작업 전에 안내합니다."
+      },
+      {
+        "heading": "소독과 냄새 제거로 마무리합니다",
+        "body": "물품을 비운 뒤 방과 베란다를 청소하고 소독과 냄새 제거로 마무리했습니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 전, 이불과 옷가지가 쌓인 방",
+        "caption": "작업 전 · 이불과 옷가지가 쌓인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 전, 물건이 흩어진 방 바닥",
+        "caption": "작업 전 · 물건이 흩어진 방 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 전, 음식물이 남은 냉장고",
+        "caption": "작업 전 · 음식물이 남은 냉장고"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 전, 옷과 물품이 남은 붙박이장 방",
+        "caption": "작업 전 · 옷과 물품이 남은 붙박이장 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 중, 사다리차로 물품 반출",
+        "caption": "작업 중 · 사다리차로 물품 반출"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 중, 사다리차로 내리는 냉장고",
+        "caption": "작업 중 · 사다리차로 내리는 냉장고"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 중, 오염된 장판을 걷어낸 바닥",
+        "caption": "작업 중 · 오염된 장판을 걷어낸 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 중, 주방 벽 타일과 벽지 철거",
+        "caption": "작업 중 · 주방 벽 타일과 벽지 철거"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 후, 비워진 베란다 바닥",
+        "caption": "작업 후 · 비워진 베란다 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 후, 비워진 방",
+        "caption": "작업 후 · 비워진 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/michuhol-lonely-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "인천 미추홀구 다세대주택 고독사청소 작업 후, 소독으로 마무리",
+        "caption": "작업 후 · 소독으로 마무리"
+      }
+    ],
+    "fieldCase": {
+      "heading": "미추홀구 다세대주택 고독사청소 사례",
+      "lead": "방마다 물건이 가득하고 장판과 벽까지 오염이 스며든 다세대주택에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "인천 미추홀구 다세대주택"
+        ],
+        [
+          "작업 전 상태",
+          "방마다 쌓인 물품, 장판·벽 오염"
+        ],
+        [
+          "작업 순서",
+          "사다리차 반출 → 오염 부위 철거 → 청소 → 소독·냄새 제거"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방마다 이불과 옷가지, 생활용품이 쌓여 있었고 냉장고에도 음식물이 남아 있었습니다.",
+          "media": [
+            "/images/regional/michuhol-lonely-01.webp",
+            "/images/regional/michuhol-lonely-02.webp",
+            "/images/regional/michuhol-lonely-03.webp",
+            "/images/regional/michuhol-lonely-04.webp"
+          ]
+        },
+        {
+          "heading": "사다리차 반출",
+          "body": "좁은 계단 대신 사다리차로 냉장고와 가구, 물품을 내렸습니다.",
+          "media": [
+            "/images/regional/michuhol-lonely-05.webp",
+            "/images/regional/michuhol-lonely-06.webp"
+          ]
+        },
+        {
+          "heading": "오염 부위 철거",
+          "body": "오염이 스며든 장판과 주방 벽을 걷어냈습니다.",
+          "media": [
+            "/images/regional/michuhol-lonely-07.webp",
+            "/images/regional/michuhol-lonely-08.webp"
+          ]
+        },
+        {
+          "heading": "정리 후 상태",
+          "body": "베란다와 방을 비우고 청소와 소독으로 마무리했습니다.",
+          "media": [
+            "/images/regional/michuhol-lonely-09.webp",
+            "/images/regional/michuhol-lonely-10.webp",
+            "/images/regional/michuhol-lonely-11.webp"
+          ]
+        }
+      ],
+      "note": "오염 범위와 스며든 깊이, 남은 물품의 양, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "미추홀구 어느 지역까지 고독사청소가 가능한가요?",
+        "주안동·숭의동·용현동·도화동 일대까지 인천 미추홀구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "사다리차가 필요한지는 어떻게 정하나요?",
+        "층수와 계단 폭, 옮길 가구의 크기, 차량을 세울 공간을 보고 정합니다. 건물 입구와 계단 사진을 보내주시면 함께 확인합니다."
+      ],
+      [
+        "고독사청소 비용은 어떻게 정해지나요?",
+        "오염이 번진 범위와 깊이, 남은 물품의 양, 바닥재나 벽지 철거가 필요한지에 따라 달라집니다. 현장 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 진행할 수 있나요?",
+        "가능합니다. 출입 방법과 보관할 물품 기준을 미리 정하면 비대면으로 진행하고, 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "고독사청소",
+    "region": "경기도-부천시",
+    "title": "부천 고독사청소 | 아파트 작업 전 오염 확인 사례·비용·견적 | 찐청소",
+    "description": "부천 아파트 고독사청소 현장에서 작업 전에 바닥과 베란다, 수납장, 욕실, 창틀의 오염을 하나씩 확인한 기록을 사진으로 살펴보세요. 부천 고독사청소 업체 추천을 찾고 계신다면 오염 범위를 확인하는 방법과 비용·견적 기준을 먼저 확인하세요.",
+    "heading": "부천 고독사청소",
+    "intro": "눈에 보이는 얼룩 말고도 어디까지 오염됐는지 알기 어려우신가요? 찐청소는 현장 인계를 확인한 뒤 바닥과 벽, 수납장 안쪽과 욕실, 창틀까지 오염 범위를 먼저 살펴보고 작업 범위를 정합니다. 빌라와 아파트가 모여 있는 심곡동·소사본동·원종동·중동 일대까지 부천 곳곳의 주거 현장에서 상담하고 있습니다. 견적은 오염 범위와 남은 물품의 양을 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "작업 전에 오염 범위를 먼저 확인합니다",
+        "body": "바닥 얼룩뿐 아니라 베란다 벽의 곰팡이, 수납장 안쪽, 욕실과 창틀 레일까지 살펴봐야 작업 범위를 정할 수 있습니다."
+      },
+      {
+        "heading": "확인한 범위에 따라 작업을 진행합니다",
+        "body": "물품 수거와 폐기물 처리, 청소, 소독, 냄새 제거를 기본으로 진행하고, 바닥재처럼 걷어내야 하는 부분이 있으면 작업 전에 범위와 비용을 안내합니다."
+      },
+      {
+        "heading": "멀리 계셔도 비대면으로 맡기실 수 있습니다",
+        "body": "출입 방법과 보관 기준을 미리 정하면 현장에 오지 않으셔도 작업할 수 있습니다. 작업 중 확인할 내용은 연락드리고, 작업 전후 사진으로 결과를 전달합니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 마룻바닥에 남은 오염 흔적",
+        "caption": "작업 전 · 마룻바닥에 남은 오염 흔적"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 곰팡이가 번진 베란다 벽",
+        "caption": "작업 전 · 곰팡이가 번진 베란다 벽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 베란다 바닥과 창틀",
+        "caption": "작업 전 · 베란다 바닥과 창틀"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 얼룩이 남은 수납장 안쪽",
+        "caption": "작업 전 · 얼룩이 남은 수납장 안쪽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 오염이 남은 수납장 바닥",
+        "caption": "작업 전 · 오염이 남은 수납장 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 욕실 바닥",
+        "caption": "작업 전 · 욕실 바닥"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 세면대 주변",
+        "caption": "작업 전 · 세면대 주변"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/bucheon-lonely-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "부천 아파트 고독사청소 작업 전, 먼지와 오염이 쌓인 창틀 레일",
+        "caption": "작업 전 · 먼지와 오염이 쌓인 창틀 레일"
+      }
+    ],
+    "fieldCase": {
+      "heading": "부천 아파트 고독사청소 오염 확인 사례",
+      "lead": "작업 전에 집 안 곳곳의 오염을 하나씩 확인한 부천 아파트 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "경기 부천 아파트"
+        ],
+        [
+          "작업 전 상태",
+          "바닥 오염 흔적, 베란다 곰팡이, 수납장·욕실·창틀 오염"
+        ],
+        [
+          "작업 순서",
+          "오염 범위 확인 → 물품 수거 → 청소 → 소독·냄새 제거"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "바닥과 베란다 확인",
+          "body": "마룻바닥의 오염 흔적과 베란다 벽의 곰팡이, 바닥과 창틀 상태를 확인했습니다.",
+          "media": [
+            "/images/regional/bucheon-lonely-01.webp",
+            "/images/regional/bucheon-lonely-02.webp",
+            "/images/regional/bucheon-lonely-03.webp"
+          ]
+        },
+        {
+          "heading": "수납장과 욕실 확인",
+          "body": "수납장 안쪽과 바닥, 욕실 바닥과 세면대 주변의 오염을 확인했습니다.",
+          "media": [
+            "/images/regional/bucheon-lonely-04.webp",
+            "/images/regional/bucheon-lonely-05.webp",
+            "/images/regional/bucheon-lonely-06.webp",
+            "/images/regional/bucheon-lonely-07.webp"
+          ]
+        },
+        {
+          "heading": "창틀 확인",
+          "body": "창틀 레일에 쌓인 먼지와 오염까지 확인해 작업 범위에 포함했습니다.",
+          "media": [
+            "/images/regional/bucheon-lonely-08.webp"
+          ]
+        }
+      ],
+      "note": "오염 범위와 스며든 깊이, 남은 물품의 양, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "부천 어느 지역까지 고독사청소가 가능한가요?",
+        "심곡동·소사본동·원종동·중동 일대까지 부천 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "사진만 보내도 견적을 받을 수 있나요?",
+        "가능합니다. 방 전체와 가장 오염이 심한 곳, 베란다와 욕실 사진을 보내주시면 범위를 확인해 견적을 안내합니다. 필요하면 방문 확인 후 확정합니다."
+      ],
+      [
+        "고독사청소 비용은 어떻게 정해지나요?",
+        "오염이 번진 범위와 깊이, 남은 물품의 양, 바닥재나 벽지 철거가 필요한지에 따라 달라집니다. 현장 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 진행할 수 있나요?",
+        "가능합니다. 출입 방법과 보관할 물품 기준을 미리 정하면 비대면으로 진행하고, 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "유품정리",
+    "region": "서울특별시-용산구",
+    "title": "서울 용산구 유품정리 | 주택 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "서울 용산구 주택에서 병풍과 장롱, 옷가지와 생활용품을 정리하고 큰 가구를 해체해 반출한 뒤 바닥 청소까지 마친 유품정리 기록을 사진으로 확인하세요. 용산구 유품정리 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "서울 용산구 유품정리",
+    "intro": "오래 사신 집에 장롱과 옷가지, 살림살이가 가득 남아 어디서부터 정리해야 할지 막막하신가요? 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정한 뒤 물품 분류와 가구 해체, 반출, 청소까지 진행합니다. 오래된 주택과 다세대주택이 많은 후암동·청파동·원효로·용문동 일대까지 서울 용산구의 주택 현장에서 상담하고 있습니다. 견적은 물품의 양과 가구 해체 여부를 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "보관할 물품 기준부터 정합니다",
+        "body": "작업 전에 권한 있는 의뢰인과 보관하거나 전달할 물품 기준을 정합니다. 정리 중 서류나 사진, 귀중품으로 보이는 물건이 나오면 따로 모아 확인합니다."
+      },
+      {
+        "heading": "큰 가구는 해체해서 반출합니다",
+        "body": "장롱처럼 크고 무거운 가구는 그대로 옮기기 어렵습니다. 이 현장은 방 안에서 가구를 해체한 뒤 옮겨 차량에 실었습니다."
+      },
+      {
+        "heading": "비운 뒤 바닥까지 청소합니다",
+        "body": "물품과 가구를 모두 반출한 뒤 방 바닥을 청소해 마무리했습니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 전, 병풍과 생활용품이 남은 방",
+        "caption": "작업 전 · 병풍과 생활용품이 남은 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 전, 장롱과 이불이 남은 방",
+        "caption": "작업 전 · 장롱과 이불이 남은 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 전, 옷과 물품이 가득한 방",
+        "caption": "작업 전 · 옷과 물품이 가득한 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 전, 장롱 앞에 쌓인 박스와 짐",
+        "caption": "작업 전 · 장롱 앞에 쌓인 박스와 짐"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 중, 장롱 해체",
+        "caption": "작업 중 · 장롱 해체"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 중, 가구 해체",
+        "caption": "작업 중 · 가구 해체"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 중, 차량에 물품 싣기",
+        "caption": "작업 중 · 차량에 물품 싣기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 중, 마대에 담아 옮긴 물품",
+        "caption": "작업 중 · 마대에 담아 옮긴 물품"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 중, 해체한 가구 반출",
+        "caption": "작업 중 · 해체한 가구 반출"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 후, 가구를 비운 방",
+        "caption": "작업 후 · 가구를 비운 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 후, 비운 방 바닥 정리",
+        "caption": "작업 후 · 비운 방 바닥 정리"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/yongsan-legacy-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "서울 용산구 주택 유품정리 작업 후, 바닥 청소",
+        "caption": "작업 후 · 바닥 청소"
+      }
+    ],
+    "fieldCase": {
+      "heading": "용산구 주택 유품정리 사례",
+      "lead": "장롱과 옷가지, 살림살이가 방마다 가득 남은 주택에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "서울 용산구 주택"
+        ],
+        [
+          "작업 전 상태",
+          "방마다 남은 장롱·병풍·옷가지·생활용품"
+        ],
+        [
+          "작업 순서",
+          "보관 기준 확인 → 물품 분류 → 가구 해체·반출 → 청소"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방마다 병풍과 장롱, 옷가지와 생활용품이 가득 남아 있었습니다.",
+          "media": [
+            "/images/regional/yongsan-legacy-01.webp",
+            "/images/regional/yongsan-legacy-02.webp",
+            "/images/regional/yongsan-legacy-03.webp",
+            "/images/regional/yongsan-legacy-04.webp"
+          ]
+        },
+        {
+          "heading": "가구 해체와 반출",
+          "body": "장롱과 가구를 해체하고 물품을 마대에 나눠 담아 차량으로 반출했습니다.",
+          "media": [
+            "/images/regional/yongsan-legacy-05.webp",
+            "/images/regional/yongsan-legacy-06.webp",
+            "/images/regional/yongsan-legacy-07.webp",
+            "/images/regional/yongsan-legacy-08.webp",
+            "/images/regional/yongsan-legacy-09.webp"
+          ]
+        },
+        {
+          "heading": "정리 후 상태",
+          "body": "가구와 물품을 비운 방 바닥을 청소해 마무리했습니다.",
+          "media": [
+            "/images/regional/yongsan-legacy-10.webp",
+            "/images/regional/yongsan-legacy-11.webp",
+            "/images/regional/yongsan-legacy-12.webp"
+          ]
+        }
+      ],
+      "note": "물품의 양과 가구 해체 여부, 보관·인계할 물품, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "용산구 어느 지역까지 유품정리가 가능한가요?",
+        "후암동·청파동·원효로·용문동 일대까지 서울 용산구 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "남길 물건은 어떻게 구분하나요?",
+        "작업 전에 권한 있는 의뢰인과 보관·전달할 물품 기준을 정합니다. 정리 중 서류나 사진, 귀중품으로 보이는 물건이 나오면 따로 모아 확인합니다."
+      ],
+      [
+        "유품정리 비용은 어떻게 정해지나요?",
+        "물품의 양과 가구 해체 여부, 보관하거나 전달할 물품, 층수와 반출 동선에 따라 달라집니다. 방마다 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 맡길 수 있나요?",
+        "가능합니다. 출입 방법과 물품 확인 기준, 연락할 담당자를 미리 정하면 비대면으로 진행하고 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
+  },
+  {
+    "service": "유품정리",
+    "region": "경기도-안산시",
+    "title": "안산 유품정리 | 원룸 실제 작업 사례·비용·견적 | 찐청소",
+    "description": "안산 원룸에서 남은 생활용품과 보일러실 짐을 분류해 수거하고 현관문과 주방, 창틀까지 닦아 비운 유품정리 기록을 사진으로 확인하세요. 안산 유품정리 업체 추천을 찾고 계신다면 작업 순서와 비용·견적 기준을 먼저 살펴보세요.",
+    "heading": "안산 유품정리",
+    "intro": "혼자 사시던 원룸에 남은 짐을 정리하고 방을 비워야 하는데 시간이 부족하신가요? 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정한 뒤 물품 분류와 수거, 폐기물 처리, 청소까지 진행합니다. 원룸과 다세대주택이 많은 원곡동·선부동·고잔동·본오동 일대까지 안산 곳곳의 원룸 현장에서 상담하고 있습니다. 견적은 물품의 양과 오염 상태를 사진으로 확인한 뒤 안내합니다.",
+    "sections": [
+      {
+        "heading": "보관할 물품 기준부터 정합니다",
+        "body": "작업 전에 권한 있는 의뢰인과 보관하거나 전달할 물품 기준을 정합니다. 정리 중 서류나 사진, 귀중품으로 보이는 물건이 나오면 따로 모아 확인합니다."
+      },
+      {
+        "heading": "물품을 분류해 봉투에 나눠 담습니다",
+        "body": "방과 보일러실에 남은 물건을 분류해 봉투에 나눠 담아 수거했습니다."
+      },
+      {
+        "heading": "방을 비운 뒤 곳곳을 닦습니다",
+        "body": "현관문과 주방 벽, 가스레인지 주변, 방범창이 있는 창틀까지 닦아 다음 입주를 준비할 수 있게 정리했습니다."
+      }
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-01.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 전, 생활용품이 남은 원룸",
+        "caption": "작업 전 · 생활용품이 남은 원룸"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-02.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 전, 보일러실에 쌓인 물건",
+        "caption": "작업 전 · 보일러실에 쌓인 물건"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-03.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 전, 얼룩이 남은 현관문 안쪽",
+        "caption": "작업 전 · 얼룩이 남은 현관문 안쪽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-04.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 전, 얼룩이 튄 주방 벽",
+        "caption": "작업 전 · 얼룩이 튄 주방 벽"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-05.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 중, 물품 분류와 수거",
+        "caption": "작업 중 · 물품 분류와 수거"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-06.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 중, 물품을 정리 중인 방",
+        "caption": "작업 중 · 물품을 정리 중인 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-07.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 중, 봉투에 나눠 담은 물품",
+        "caption": "작업 중 · 봉투에 나눠 담은 물품"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-08.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 중, 창틀 닦기",
+        "caption": "작업 중 · 창틀 닦기"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-09.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 후, 비워진 방",
+        "caption": "작업 후 · 비워진 방"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-10.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 후, 가스레인지 주변 청소",
+        "caption": "작업 후 · 가스레인지 주변 청소"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-11.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 후, 닦은 창틀",
+        "caption": "작업 후 · 닦은 창틀"
+      },
+      {
+        "type": "image",
+        "src": "/images/regional/ansan-legacy-12.webp",
+        "width": 900,
+        "height": 1200,
+        "alt": "안산 원룸 유품정리 작업 후, 정리한 창가",
+        "caption": "작업 후 · 정리한 창가"
+      }
+    ],
+    "fieldCase": {
+      "heading": "안산 원룸 유품정리 사례",
+      "lead": "생활용품이 방과 보일러실에 남아 있던 원룸에서 의뢰받은 현장입니다.",
+      "facts": [
+        [
+          "위치",
+          "경기 안산 원룸"
+        ],
+        [
+          "작업 전 상태",
+          "방·보일러실에 남은 생활용품, 현관문·주방 얼룩"
+        ],
+        [
+          "작업 순서",
+          "보관 기준 확인 → 물품 분류·수거 → 청소"
+        ],
+        [
+          "인원·시간",
+          "현장 규모에 따라 상담 후 결정"
+        ]
+      ],
+      "steps": [
+        {
+          "heading": "작업 전 상태",
+          "body": "방과 보일러실에 생활용품이 남아 있었고 현관문과 주방 벽에도 얼룩이 있었습니다.",
+          "media": [
+            "/images/regional/ansan-legacy-01.webp",
+            "/images/regional/ansan-legacy-02.webp",
+            "/images/regional/ansan-legacy-03.webp",
+            "/images/regional/ansan-legacy-04.webp"
+          ]
+        },
+        {
+          "heading": "물품 분류와 수거",
+          "body": "물품을 분류해 봉투에 나눠 담아 수거하고 창틀을 닦았습니다.",
+          "media": [
+            "/images/regional/ansan-legacy-05.webp",
+            "/images/regional/ansan-legacy-06.webp",
+            "/images/regional/ansan-legacy-07.webp",
+            "/images/regional/ansan-legacy-08.webp"
+          ]
+        },
+        {
+          "heading": "정리 후 상태",
+          "body": "방을 비우고 주방과 창틀까지 청소해 마무리했습니다.",
+          "media": [
+            "/images/regional/ansan-legacy-09.webp",
+            "/images/regional/ansan-legacy-10.webp",
+            "/images/regional/ansan-legacy-11.webp",
+            "/images/regional/ansan-legacy-12.webp"
+          ]
+        }
+      ],
+      "note": "물품의 양과 가구 해체 여부, 보관·인계할 물품, 층수와 반출 동선에 따라 작업 인원과 비용은 현장마다 달라집니다. 정확한 견적은 현장 사진이나 방문 확인 후 안내합니다."
+    },
+    "faq": [
+      [
+        "안산 어느 지역까지 유품정리가 가능한가요?",
+        "원곡동·선부동·고잔동·본오동 일대까지 안산 전 지역에서 상담할 수 있습니다. 일정과 현장 조건을 확인한 뒤 방문 일정을 협의합니다."
+      ],
+      [
+        "남길 물건은 어떻게 구분하나요?",
+        "작업 전에 권한 있는 의뢰인과 보관·전달할 물품 기준을 정합니다. 정리 중 서류나 사진, 귀중품으로 보이는 물건이 나오면 따로 모아 확인합니다."
+      ],
+      [
+        "유품정리 비용은 어떻게 정해지나요?",
+        "물품의 양과 가구 해체 여부, 보관하거나 전달할 물품, 층수와 반출 동선에 따라 달라집니다. 방마다 사진을 보내주시거나 방문 확인 후 견적을 안내합니다."
+      ],
+      [
+        "가족이 멀리 있어도 맡길 수 있나요?",
+        "가능합니다. 출입 방법과 물품 확인 기준, 연락할 담당자를 미리 정하면 비대면으로 진행하고 작업 전후 사진으로 결과를 전달합니다."
+      ]
+    ],
+    "reviewed": true
   }
 ]
