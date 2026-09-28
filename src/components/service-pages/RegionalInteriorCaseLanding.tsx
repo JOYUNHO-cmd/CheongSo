@@ -18,6 +18,7 @@ type CaseData = {
   lead: string;
   difficulty: string;
   caseParagraphs: string[];
+  relatedServices: readonly (readonly [href: string, label: string, reason: string])[];
   photos: Photo[];
   galleryPhotoIndexes: readonly number[];
   evidencePhotoIndexes: readonly [number, number, number];
@@ -39,6 +40,10 @@ const cases: Record<string, CaseData> = {
       "천장이 높아 에어컨과 스피커를 청소하려면 LS 사다리가 필요했습니다. 높은 곳의 작업 범위뿐 아니라 사다리가 닿는 바닥 상태도 함께 살펴야 했습니다.",
       "바닥은 푹신한 소재여서 사다리를 그대로 놓으면 자국이 생길 수 있었습니다. 사다리의 바닥 접촉 부분에 장갑을 여러 겹 끼워 자국이 나지 않도록 신경 썼습니다.",
       "이 현장은 4명이 8시간 작업했습니다. 같은 댄스스튜디오라도 천장 높이와 바닥 재질, 고소 구역의 범위에 따라 인원과 시간은 달라집니다.",
+    ],
+    relatedServices: [
+      ["/외창청소/", "외창청소", "통유리 바깥 면까지 필요하면 창 구조와 장비 설치 공간을 별도로 확인합니다."],
+      ["/정기청소/", "정기청소", "운영을 시작한 뒤 바닥과 공용부를 반복 관리할 때 방문 주기와 범위를 정합니다."],
     ],
     photos: [
       ["01-common-area.webp", "양주 레드랩 댄스스튜디오 인테리어청소 중 공용부 바닥 정리", "작업 기록 · 스튜디오로 이어지는 공용부 바닥을 정리하는 모습입니다."],
@@ -67,6 +72,11 @@ const cases: Record<string, CaseData> = {
       "실내 계단과 창가, 출입구뿐 아니라 옥상까지 청소 범위에 포함됐습니다. 한 공간의 평수만으로 작업량을 판단하기 어려운 이유입니다.",
       "이 현장은 3명이 9시간 작업했습니다. 다른 카페는 천장 구조와 층별 범위, 외부·옥상 포함 여부에 따라 인원과 시간이 달라집니다.",
     ],
+    relatedServices: [
+      ["/외창청소/", "외창청소", "카페 유리의 바깥 면까지 필요하면 높이와 접근 조건을 따로 확인합니다."],
+      ["/외벽청소/", "외벽청소", "외부 벽면 세척은 실내 인테리어청소와 구분해 재질과 장비 접근을 확인합니다."],
+      ["/정기청소/", "정기청소", "영업 시작 후 홀·화장실·공용부를 반복 관리할 때 함께 상담할 수 있습니다."],
+    ],
     photos: [
       ["01-entrance.webp", "남양주 화도읍 카페 인테리어청소 현장의 벽돌 외벽과 유리 출입문", "현장 외부 · 벽돌 외벽과 유리 출입문, 외부 공간이 함께 보입니다."],
       ["02-ceiling-structure.webp", "남양주 화도읍 카페 인테리어청소 대상인 천장 인테리어 조형물", "작업 범위 · 여러 방향으로 이어진 천장 인테리어 조형물입니다."],
@@ -94,6 +104,11 @@ const cases: Record<string, CaseData> = {
       "짐을 옮기며 작업 구역을 만들고, 가려져 있던 바닥과 설비 주변을 순서대로 확인했습니다. 사진에는 배관과 환풍기, 바닥 주변의 오염도 보입니다.",
       "이 현장은 4명이 8시간 작업했습니다. 다른 스튜디오는 짐의 양과 이동 조건, 설비 주변 접근 범위에 따라 인원과 시간이 달라집니다.",
     ],
+    relatedServices: [
+      ["/폐기물처리/", "폐기물처리", "사용하지 않을 장비나 물품이 있다면 품목과 양, 반출 동선을 먼저 확인합니다."],
+      ["/외창청소/", "외창청소", "유리 바깥 면은 실내 유리와 작업 조건이 달라 별도로 확인합니다."],
+      ["/정기청소/", "정기청소", "스튜디오 운영 중 바닥과 공용부를 관리할 방문 주기와 범위를 정합니다."],
+    ],
     photos: [
       ["01-entrance.webp", "서초 스튜디오 인테리어청소 현장의 유리 출입문과 내부", "현장 입구 · 유리 출입문 너머로 내부 공간과 짐이 보입니다."],
       ["02-stored-items.webp", "서초 스튜디오 인테리어청소 전 선반에 놓인 짐", "작업 전 · 선반과 통로에 여러 짐이 놓여 있습니다."],
@@ -120,6 +135,13 @@ const cases: Record<string, CaseData> = {
       "BAR 내부 선반과 작업 구역에는 주류병이 많이 놓여 있었습니다. 청소할 면을 확보하려면 병을 먼저 모두 치워야 했습니다.",
       "병 대부분은 크기가 큰 고급 주류병이어서 일반적인 분리수거가 어려운 상황이었습니다. 현장에서는 폐기물 처리로 마무리했습니다.",
       "이 현장은 3명이 8시간 작업했습니다. 다른 BAR는 병과 집기의 양, 반출 동선, 폐기물 처리 범위에 따라 인원과 시간이 달라집니다.",
+    ],
+    relatedServices: [
+      ["/폐기물처리/", "폐기물처리", "주류병과 집기처럼 일반 분리수거가 어려운 품목은 종류·양과 반출 조건을 확인합니다."],
+      ["/주방청소/", "주방청소", "조리 공간의 벽·바닥·조리대 기름때는 BAR 내부 청소와 범위를 나눠 확인합니다."],
+      ["/후드청소/", "후드청소", "후드 본체·필터·기름받이와 덕트 내부는 각각 포함 범위를 확인합니다."],
+      ["/냄새-악취-제거/", "냄새·악취 제거", "냄새가 남아 있다면 발생 위치와 흡수된 소재를 확인해 청소와 탈취 범위를 나눕니다."],
+      ["/정기청소/", "정기청소", "영업 중 홀·바닥·화장실을 반복 관리할 때 방문 주기와 범위를 정합니다."],
     ],
     photos: [
       ["01-bar-floor.webp", "동탄 BAR 인테리어청소 현장의 바닥과 선반", "현장 내부 · 바닥과 벽면 선반이 있는 BAR 공간입니다."],
@@ -174,14 +196,14 @@ export default function RegionalInteriorCaseLanding({ region }: { region: string
       <aside id="service-toc" tabIndex={-1} className={styles.toc}><h2>이 페이지에서</h2><nav aria-label="페이지 목차">{menu.map(([id, label]) => <a key={id} href={`#${id}`}><svg aria-hidden="true" width="28" height="16" viewBox="0 0 28 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path opacity=".4" d="m3 4 4 4-4 4"/><path opacity=".7" d="m12 4 4 4-4 4"/><path d="m21 4 4 4-4 4"/></svg>{label}</a>)}</nav></aside>
       <div className={styles.body} data-regional-interior-body>
         <ReadingParagraph>{data.region} {data.space} 인테리어청소 현장입니다. {data.difficulty}</ReadingParagraph>
-        <dl className={styles.factList}><div><dt>현장</dt><dd>{data.region} · {data.space}</dd></div><div><dt>인원·시간</dt><dd>{data.crew} · {data.hours}</dd></div><div><dt>작업량에 영향을 준 조건</dt><dd>{data.difficulty}</dd></div></dl>
+        <dl className={`${styles.factList} ${styles.interiorFactList}`}><div><dt>현장</dt><dd>{data.region} · {data.space}</dd></div><div><dt>인원·시간</dt><dd>{data.crew} · {data.hours}</dd></div><div><dt>작업량에 영향을 준 조건</dt><dd>{data.difficulty}</dd></div></dl>
         <aside className={styles.notice}><ReadingParagraph>🔎 {data.crew}이 {data.hours} 작업했습니다.</ReadingParagraph></aside>
 
-        <section id="photos"><h2>{data.pathLabel} 실제 작업 사진</h2><ReadingParagraph>같은 현장의 작업 기록입니다. 촬영 위치와 각도, 조명이 서로 달라 사진의 밝기만으로 결과를 판단하지 않습니다.</ReadingParagraph><div className={styles.galleryGrid}>{data.galleryPhotoIndexes.map(index => { const [file, alt, caption] = data.photos[index]; return <KitchenPhoto key={file} src={`${imageBase}/${file}`} alt={alt} caption={caption} width={1200} height={1600} />; })}</div><BackToContents /></section>
+        <section id="photos"><h2>{data.pathLabel} 실제 작업 사진</h2><ReadingParagraph>같은 현장의 작업 기록입니다. 촬영 위치와 각도, 조명이 서로 달라 사진의 밝기만으로 결과를 판단하지 않습니다.</ReadingParagraph><div className={styles.galleryGrid}>{data.galleryPhotoIndexes.map(index => { const [file, alt, caption] = data.photos[index]; return <KitchenPhoto key={file} src={`${imageBase}/${file}`} alt={alt} caption={caption} width={1200} height={1600} plain />; })}</div><BackToContents /></section>
 
-        <section id="case"><h2>{data.space} 인테리어청소, 무엇이 어려웠나요?</h2>{data.caseParagraphs.map(paragraph => <ReadingParagraph key={paragraph}>{paragraph}</ReadingParagraph>)}<h3>사진으로 확인하는 작업 조건</h3><div className={styles.galleryGrid}>{data.evidencePhotoIndexes.map(index => { const [file, alt, caption] = data.photos[index]; return <KitchenPhoto key={`evidence-${file}`} src={`${imageBase}/${file}`} alt={alt} caption={caption} width={1200} height={1600} />; })}</div><aside className={styles.notice}><ReadingParagraph>⚠️ 사진만으로 재질의 손상 여부나 다른 현장의 작업 결과를 확정하지 않습니다. 청소로 바뀌는 오염과 보수·교체가 필요한 부분을 구분합니다.</ReadingParagraph></aside><BackToContents /></section>
+        <section id="case"><h2>{data.space} 인테리어청소, 무엇이 어려웠나요?</h2>{data.caseParagraphs.map(paragraph => <ReadingParagraph key={paragraph}>{paragraph}</ReadingParagraph>)}<h3>사진으로 확인하는 작업 조건</h3><div className={styles.galleryGrid}>{data.evidencePhotoIndexes.map(index => { const [file, alt, caption] = data.photos[index]; return <KitchenPhoto key={`evidence-${file}`} src={`${imageBase}/${file}`} alt={alt} caption={caption} width={1200} height={1600} plain />; })}</div><h3>이 현장과 함께 확인할 서비스</h3><ul className={styles.serviceLinks} data-service-links>{data.relatedServices.map(([href, label, reason]) => <li key={href}><Link href={href}>{label} 바로가기 →</Link><span>{reason}</span></li>)}</ul><aside className={styles.notice}><ReadingParagraph>⚠️ 사진만으로 재질의 손상 여부나 다른 현장의 작업 결과를 확정하지 않습니다. 청소로 바뀌는 오염과 보수·교체가 필요한 부분을 구분합니다.</ReadingParagraph></aside><BackToContents /></section>
 
-        <section id="scope"><h2>인테리어청소 작업 범위와 별도 확인 항목</h2><h3>기본 범위는 상담에서 합의한 구역입니다</h3><ul><li>바닥·벽면·창과 창틀 등 요청한 실내 구역</li><li>접근 가능한 집기와 설비의 외부 표면</li><li>사진과 현장 확인을 통해 합의한 공사 분진과 표면 오염</li><li>상담에서 포함하기로 한 부대공간</li></ul><h3>다음 항목은 별도로 확인합니다</h3><ul><li>높은 천장과 별도 장비가 필요한 고소 구역</li><li>무거운 집기 이동과 파손 우려 물품의 보관</li><li>설비 분해와 내부 청소, 전기 설비 주변 작업</li><li>외부·옥상·공용부처럼 실내와 구분되는 구역</li><li>폐기물 반출과 처리</li><li>찍힘·변색·파손 등 청소가 아닌 보수나 교체</li></ul><BackToContents /></section>
+        <section id="scope"><h2>인테리어청소 작업 범위와 별도 확인 항목</h2><h3>기본 범위는 상담에서 합의한 구역입니다</h3><ul><li><strong>실내 바닥청소는 인테리어청소의 기본 범위에 포함됩니다.</strong></li><li>벽면·창과 창틀 등 요청한 실내 구역</li><li>접근 가능한 집기와 설비의 외부 표면</li><li>사진과 현장 확인을 통해 합의한 공사 분진과 표면 오염</li><li>상담에서 포함하기로 한 부대공간</li></ul><h3>다음 항목은 별도로 확인합니다</h3><ul><li>높은 천장과 별도 장비가 필요한 고소 구역</li><li>무거운 집기 이동과 파손 우려 물품의 보관</li><li>설비 분해와 내부 청소, 전기 설비 주변 작업</li><li>외부·옥상·공용부처럼 실내와 구분되는 구역</li><li>폐기물 반출과 처리</li><li>찍힘·변색·파손, 바닥 코팅·연마 등 청소가 아닌 보수·시공</li></ul><BackToContents /></section>
 
         <section id="estimate"><h2>{data.pathLabel} 인테리어청소 비용과 견적 확인</h2><ReadingParagraph>평수만 보고 가격부터 정하지 않습니다. 같은 면적이라도 높은 구역, 천장 구조, 집기와 폐기물, 외부·옥상 포함 여부에 따라 작업량이 달라집니다.</ReadingParagraph><ul><li><strong>공간 상태:</strong> 공사가 끝났는지와 다른 공정의 출입 여부를 확인합니다.</li><li><strong>작업 범위:</strong> 실내와 고소 구역, 외부·옥상, 집기와 설비 중 필요한 구역을 나눕니다.</li><li><strong>이동·반출:</strong> 옮길 짐과 폐기물의 종류·양, 보관 위치와 반출 동선을 확인합니다.</li><li><strong>현장 조건:</strong> 주차·승강기·층수·물 사용·장비 반입과 작업 가능 시간을 봅니다.</li></ul><ReadingParagraph>이 사례는 {data.crew}이 {data.hours} 작업했습니다. 다른 현장의 비용과 인원·시간은 사진과 요청 범위를 확인한 뒤 안내합니다.</ReadingParagraph><Link href="/pricing/">찐청소 견적 기준 자세히 보기 →</Link><BackToContents /></section>
 

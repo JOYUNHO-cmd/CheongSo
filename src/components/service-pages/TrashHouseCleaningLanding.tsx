@@ -28,7 +28,7 @@ const toc = [
 
 const quickFacts: [string, string][] = [
   ["청소 대상", "쓰레기와 생활용품이 쌓여 혼자 정리하기 어려운 주거 공간"],
-  ["기본 포함", "쓰레기 수거, 폐기물 처리, 청소, 소독, 냄새 제거"],
+  ["기본 포함", "쓰레기 수거, 폐기물 처리, 실내 청소(바닥청소 포함), 소독, 냄새 제거"],
   ["견적 기준", "필요한 인원, 장비·약품, 폐기물의 종류와 양, 오염 상태, 반출 조건"],
   ["비대면 진행", "요청 시 가능하며 출입 방법과 정리 범위를 사전 협의"],
   ["결과 확인", "상세한 작업 전후 사진 전달"],
@@ -156,7 +156,7 @@ const contactChecklist = [
 const faqItems: [string, string][] = [
   ["집 상태가 많이 심해도 상담할 수 있나요?", "네. 미리 정리한 모습이 아니라 현재 상태를 기준으로 상담합니다. 쓰레기의 양과 오염 정도를 알려주시면 필요한 작업을 확인하겠습니다."],
   ["사진을 찍을 공간도 부족한데 먼저 정리해야 하나요?", "작업을 위해 미리 모두 정리하실 필요는 없습니다. 안전하게 찍을 수 있는 출입구와 각 구역 사진부터 보내주세요. 사진으로 보이지 않는 물량과 오염은 추가 확인이 필요할 수 있습니다."],
-  ["폐기물 처리비와 소독비가 별도인가요?", "찐청소의 쓰레기집청소는 수거·폐기물 처리·청소·소독·냄새 제거가 기본에 포함됩니다. 다만 실제 물량과 작업 범위에 따라 전체 견적은 달라집니다."],
+  ["폐기물 처리비와 소독비가 별도인가요?", "찐청소의 쓰레기집청소는 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거가 기본에 포함됩니다. 다만 실제 물량과 작업 범위에 따라 전체 견적은 달라집니다."],
   ["원룸이면 정해진 가격이 있나요?", "같은 원룸이라도 쓰레기 양, 분류에 필요한 시간, 오염 상태, 반출 조건이 달라 평수만으로 비용을 정하지 않습니다."],
   ["제가 현장에 없어도 되나요?", "네. 비대면 진행이 가능합니다. 출입 방법과 정리 범위를 사전에 협의하고, 작업 전후 사진을 자세히 보내드립니다."],
   ["남기고 싶은 물건이나 찾아야 할 물건이 있으면요?", "작업 전에 목록과 특징을 알려주세요. 물건을 찾을 수 있다고 무조건 보장할 수는 없지만, 분류 기준과 확인 방법을 미리 협의할 수 있습니다."],
@@ -185,7 +185,7 @@ export default function TrashHouseCleaningLanding() {
       "@type": "Service",
       name: "쓰레기집청소",
       serviceType: "쓰레기집청소·폐기물 처리",
-      description: "원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
+      description: "원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.",
       url: absoluteUrl(path),
       provider: { "@id": absoluteUrl("/#organization"), "@type": "Organization", name: siteConfig.name, url: absoluteUrl("/") },
     },
@@ -225,7 +225,7 @@ export default function TrashHouseCleaningLanding() {
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
           <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">쓰레기가 쌓인 원룸·주거 공간, 남길 물건부터 확인합니다</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·청소·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.</ReadingParagraph>
+            <ReadingParagraph>원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">쓰레기집청소 견적 문의하기 →</CtaButton>
         </div>
@@ -261,7 +261,7 @@ export default function TrashHouseCleaningLanding() {
             </ul>
 
             <h3 className="mt-6 font-bold text-brand-dark">폐기물 처리와 소독도 포함된 견적인가요?</h3>
-            <ReadingParagraph className="mt-2">찐청소의 쓰레기집청소는 수거·폐기물 처리·청소·소독·냄새 제거가 기본에 포함됩니다.</ReadingParagraph>
+            <ReadingParagraph className="mt-2">찐청소의 쓰레기집청소는 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거가 기본에 포함됩니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2">다만 기본 포함이라는 말이 폐기물의 양이나 작업 범위에 관계없이 같은 금액이라는 뜻은 아닙니다. 상담 때 확인한 현장 상태와 처리 범위를 기준으로 견적을 산정합니다.</ReadingParagraph>
             <ReadingParagraph className="mt-4 rounded-xl bg-amber-50 p-4 text-[15.5px] leading-7">다른 견적과 비교하실 때도 금액뿐 아니라 폐기물 처리, 소독, 냄새 제거가 어디까지 포함되어 있는지 함께 확인해 주세요.</ReadingParagraph>
 
@@ -531,7 +531,7 @@ export default function TrashHouseCleaningLanding() {
                   </li>
                 ))}
               </ul>
-              <ReadingParagraph className="mt-4 text-white/80">찐청소는 쓰레기 수거와 폐기물 처리부터 청소·소독·냄새 제거까지 진행합니다. 필요한 작업과 견적에 포함되는 범위를 확인한 뒤 결정하세요.</ReadingParagraph>
+              <ReadingParagraph className="mt-4 text-white/80">찐청소는 쓰레기 수거와 폐기물 처리부터 실내 청소(바닥청소 포함)·소독·냄새 제거까지 진행합니다. 필요한 작업과 견적에 포함되는 범위를 확인한 뒤 결정하세요.</ReadingParagraph>
               <div className="mt-5 flex flex-wrap gap-3">
                 <CtaButton>쓰레기집청소 견적 문의하기 →</CtaButton>
                 <a href="tel:010-9882-8882" className="inline-flex items-center rounded-full border border-white/40 px-6 py-3.5 text-base font-bold text-white hover:bg-white/10">

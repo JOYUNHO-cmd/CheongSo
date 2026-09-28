@@ -13,10 +13,15 @@ test('Gwacheon interior page exposes the confirmed pub case, photos, navigation 
   assert.equal(doc.querySelector('h1').textContent, '과천 인테리어청소, 술집 주방·흡연실 실제 사례');
   assert.equal(doc.querySelector('link[rel="canonical"]').href, 'https://www.cheongso.co.kr' + encodeURI(path));
   assert.equal(doc.querySelectorAll('[data-gwacheon-interior-body] figure').length, 7);
-  assert.equal(doc.querySelectorAll('[data-gwacheon-interior-body] img[alt*="과천 술집"]').length, 14);
+  assert.equal(doc.querySelectorAll('[data-gwacheon-interior-body] img[alt*="과천 술집"]').length, 7);
+  assert.equal(doc.body.textContent.includes('사진 크게 보기'), false);
   assert.ok(doc.body.textContent.includes('3명 · 9시간'));
   assert.ok(doc.body.textContent.includes('주방 기름때'));
   assert.ok(doc.body.textContent.includes('흡연실 니코틴'));
+  assert.deepEqual([...doc.querySelectorAll('#case [data-service-links] a')].map(link => link.getAttribute('href')), [
+    '/주방청소/', '/후드청소/', '/냄새-악취-제거/', '/외창청소/', '/폐기물처리/', '/정기청소/',
+  ]);
+  assert.ok(doc.body.textContent.includes('실내 구역의 바닥청소'));
 
   const items = [...doc.querySelectorAll('#faq details')];
   assert.equal(items.length, 6);

@@ -61,20 +61,29 @@ export default function GwacheonInteriorLanding() {
         </ul>
         <aside className={styles.notice}><ReadingParagraph>🔎 3명이 9시간 작업했습니다.</ReadingParagraph></aside>
 
-        <section id="photos"><h2>과천 술집 실제 작업 사진</h2><ReadingParagraph>같은 현장의 작업 전·후 기록입니다. 사진마다 촬영 위치와 각도, 조명이 달라 밝기만으로 결과를 판단하지 않습니다.</ReadingParagraph><div className={styles.galleryGrid}>{photos.map(([file, alt, caption]) => <KitchenPhoto key={file} src={`/images/gwacheon-interior/${file}`} alt={alt} caption={caption} width={1200} height={1600} />)}</div><BackToContents /></section>
+        <section id="photos"><h2>과천 술집 실제 작업 사진</h2><ReadingParagraph>같은 현장의 작업 전·후 기록입니다. 사진마다 촬영 위치와 각도, 조명이 달라 밝기만으로 결과를 판단하지 않습니다.</ReadingParagraph><div className={styles.galleryGrid}>{photos.map(([file, alt, caption]) => <KitchenPhoto key={file} src={`/images/gwacheon-interior/${file}`} alt={alt} caption={caption} width={1200} height={1600} plain />)}</div><BackToContents /></section>
 
         <section id="case"><h2>주방 기름때와 흡연실 니코틴이 함께 있던 현장</h2>
           <ReadingParagraph>주방에는 기름때가 제법 쌓여 있어 쉽지 않은 상태였습니다. 사진에서는 벽면과 바닥, 설비 주변, 필터에 남은 오염을 확인할 수 있습니다.</ReadingParagraph>
           <ReadingParagraph>흡연실에는 니코틴 오염이 심했습니다. 니코틴은 묻은 표면과 재질에 따라 청소 가능한 범위와 남는 흔적이 달라질 수 있으므로, 상담할 때 오염 부위의 전체 사진과 근접 사진을 함께 확인해야 합니다.</ReadingParagraph>
           <ReadingParagraph>주방과 흡연실처럼 성격이 다른 오염이 한 공간에 있으면 면적만으로 작업량을 판단하기 어렵습니다. 이 과천 술집은 3명이 9시간 작업했으며, 다른 현장의 표준 인원이나 시간으로 보장하지 않습니다.</ReadingParagraph>
+          <h3>이 현장과 함께 확인할 서비스</h3>
+          <ul className={styles.serviceLinks} data-service-links>
+            <li><Link href="/주방청소/">주방청소 바로가기 →</Link><span>주방 벽·바닥·조리대의 기름때를 별도 범위로 확인합니다.</span></li>
+            <li><Link href="/후드청소/">후드청소 바로가기 →</Link><span>후드 본체·필터·기름받이와 덕트 내부의 포함 범위를 나눠 확인합니다.</span></li>
+            <li><Link href="/냄새-악취-제거/">냄새·악취 제거 바로가기 →</Link><span>흡연실 냄새가 남아 있다면 발생 위치와 흡수된 소재를 확인합니다.</span></li>
+            <li><Link href="/외창청소/">외창청소 바로가기 →</Link><span>유리 바깥 면까지 필요하면 층수와 접근 조건을 별도로 확인합니다.</span></li>
+            <li><Link href="/폐기물처리/">폐기물처리 바로가기 →</Link><span>남은 집기나 영업 폐기물이 있다면 품목과 반출 조건을 확인합니다.</span></li>
+            <li><Link href="/정기청소/">정기청소 바로가기 →</Link><span>영업 시작 후 홀·바닥·화장실을 반복 관리할 주기와 범위를 정합니다.</span></li>
+          </ul>
           <aside className={styles.notice}><ReadingParagraph>⚠️ 청소로 바뀌는 표면 오염과 재질의 변색·손상은 구분해야 합니다. 사진만으로 제거 정도나 다른 현장의 결과를 확정하지 않습니다.</ReadingParagraph></aside><BackToContents />
         </section>
 
         <section id="scope"><h2>인테리어청소 작업 범위와 별도 확인 항목</h2>
           <h3>기본 범위는 상담에서 합의한 구역입니다</h3>
-          <ul><li>홀과 주방 등 요청한 실내 구역의 접근 가능한 표면</li><li>바닥·벽면·창과 창틀의 합의한 범위</li><li>접근 가능한 집기와 설비 외부 표면</li><li>흡연실 등 별도로 요청한 부대공간</li></ul>
+          <ul><li><strong>홀과 주방 등 합의한 실내 구역의 바닥청소</strong></li><li>벽면·창과 창틀의 합의한 범위</li><li>접근 가능한 집기와 설비 외부 표면</li><li>흡연실 등 별도로 요청한 부대공간</li></ul>
           <h3>다음 항목은 별도로 확인합니다</h3>
-          <ul><li>후드·덕트 내부와 설비 분해가 필요한 작업</li><li>집기 이동과 내부 청소, 전기·가스 설비 주변 작업</li><li>별도의 냄새 제거 작업</li><li>외부 유리와 고소 장비가 필요한 구역</li><li>변색·손상·도장처럼 청소가 아닌 보수나 교체가 필요한 부분</li><li>폐기물 반출과 처리</li></ul><BackToContents />
+          <ul><li>후드·덕트 내부와 설비 분해가 필요한 작업</li><li>집기 이동과 내부 청소, 전기·가스 설비 주변 작업</li><li>별도의 냄새 제거 작업</li><li>외부 유리와 고소 장비가 필요한 구역</li><li>변색·손상·도장·바닥 코팅처럼 청소가 아닌 보수나 시공</li><li>폐기물 반출과 처리</li></ul><BackToContents />
         </section>
 
         <section id="estimate"><h2>과천 인테리어청소 비용과 견적 확인</h2>

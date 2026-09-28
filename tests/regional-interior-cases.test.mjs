@@ -10,6 +10,7 @@ const cases = [
     area: '경기도 양주시', marker: '4명 · 8시간', imageAlt: '양주',
     fact: '사다리의 바닥 접촉 부분에 장갑을 여러 겹 끼워',
     figures: 6,
+    related: ['/외창청소/', '/정기청소/'],
   },
   {
     path: '/인테리어청소/경기도-남양주시/',
@@ -17,6 +18,7 @@ const cases = [
     area: '경기도 남양주시', marker: '3명 · 9시간', imageAlt: '화도읍',
     fact: '옥상 청소도 진행했습니다',
     figures: 6,
+    related: ['/외창청소/', '/외벽청소/', '/정기청소/'],
   },
   {
     path: '/인테리어청소/서울특별시-서초구/',
@@ -24,6 +26,7 @@ const cases = [
     area: '서울특별시 서초구', marker: '4명 · 8시간', imageAlt: '서초',
     fact: '짐을 옮겨가며 진행해야 해서',
     figures: 6,
+    related: ['/폐기물처리/', '/외창청소/', '/정기청소/'],
   },
   {
     path: '/인테리어청소/경기도-화성시-동탄구/',
@@ -31,6 +34,7 @@ const cases = [
     area: '경기도 화성시 동탄구', marker: '3명 · 8시간', imageAlt: '동탄',
     fact: '폐기물 처리로 마무리했습니다',
     figures: 9,
+    related: ['/폐기물처리/', '/주방청소/', '/후드청소/', '/냄새-악취-제거/', '/정기청소/'],
   },
 ];
 
@@ -46,8 +50,11 @@ for (const page of cases) {
     assert.ok(doc.body.textContent.includes(page.fact));
     assert.equal(doc.querySelectorAll('[data-regional-interior-body] figure').length, page.figures);
     assert.equal(doc.querySelectorAll('#case figure').length, 3);
-    assert.equal(doc.querySelectorAll(`[data-regional-interior-body] img[alt*="${page.imageAlt}"]`).length, page.figures * 2);
+    assert.equal(doc.querySelectorAll(`[data-regional-interior-body] img[alt*="${page.imageAlt}"]`).length, page.figures);
+    assert.equal(doc.body.textContent.includes('사진 크게 보기'), false);
     assert.equal(new Set([...doc.querySelectorAll('#photos img, #case img')].map(img => img.getAttribute('src'))).size, page.figures);
+    assert.deepEqual([...doc.querySelectorAll('#case [data-service-links] a')].map(link => link.getAttribute('href')), page.related);
+    assert.ok(doc.body.textContent.includes('실내 바닥청소는 인테리어청소의 기본 범위에 포함됩니다'));
 
     const faqItems = [...doc.querySelectorAll('#faq details')];
     assert.equal(faqItems.length, 6);
