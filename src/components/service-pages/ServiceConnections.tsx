@@ -68,6 +68,11 @@ export function RegionalPhotoLinks({ path }: { path: string }) {
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/경기도-의왕시/" className="font-bold text-brand-dark underline underline-offset-4">의왕 내손동 음식점 바닥왁스코팅 사례 보기 →</Link></p>}
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/인천광역시-남동구/" className="font-bold text-brand-dark underline underline-offset-4">인천 남동구 구월동 영업점 바닥왁스코팅 사례 보기 →</Link></p>}
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/인천광역시-미추홀구/" className="font-bold text-brand-dark underline underline-offset-4">인천 미추홀구 학교 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 사무실 시트지 제거·바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-송파구/" className="font-bold text-brand-dark underline underline-offset-4">서울 송파구 사무 공간 박리·바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-구로구/" className="font-bold text-brand-dark underline underline-offset-4">서울 구로구 사무실 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-강남구/" className="font-bold text-brand-dark underline underline-offset-4">서울 강남구 사무실 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-동대문구/" className="font-bold text-brand-dark underline underline-offset-4">서울 동대문구 병원 포세린·데코타일 코팅 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-4"><Link href="/사무실청소/경기도-수원시-영통구/" className="font-bold text-brand-dark underline underline-offset-4">수원 영통구 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-의왕시/" className="font-bold text-brand-dark underline underline-offset-4">의왕 지식산업센터 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-군포시/" className="font-bold text-brand-dark underline underline-offset-4">군포 당동 지식산업센터 사무실청소 사례 보기 →</Link></p>}
