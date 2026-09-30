@@ -70,6 +70,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/화재청소/경기도-김포시/',
     '/사무실청소/경기도-고양시/',
     '/사무실청소/경기도-화성시/',
+    '/인테리어청소/경기도-평택시/',
     '/화재청소/인천광역시-검단구/',
     '/쓰레기집청소/인천광역시-검단구/',
     '/화재청소/인천광역시-남동구/',
@@ -105,6 +106,8 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/사무실청소/서울특별시-서초구/',
     '/사무실청소/서울특별시-종로구/',
     '/사무실청소/서울특별시-용산구/',
+    '/인테리어청소/서울특별시-영등포구/',
+    '/인테리어청소/서울특별시-동대문구/',
   ]);
   for (const link of links) {
     assert.ok(link.querySelector('img[alt]'));

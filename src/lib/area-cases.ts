@@ -596,6 +596,27 @@ export const areaCases: AreaCase[] = [
     cta: "화성 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/hwaseong-office-04.webp", "/images/regional/hwaseong-office-12.webp"], "화성 사무실·기숙사 청소"),
   },
+  {
+    href: "/인테리어청소/서울특별시-영등포구/", province: "서울특별시", region: "영등포구", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "영등포구 인테리어청소",
+    body: "약국 진열 선반과 수납장 안쪽, 매장 바닥을 공사 후 청소한 기록입니다.",
+    cta: "영등포구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/yeouido-interior-02.webp", "/images/regional/yeouido-interior-09.webp"], "서울 영등포구 약국 인테리어청소"),
+  },
+  {
+    href: "/인테리어청소/서울특별시-동대문구/", province: "서울특별시", region: "동대문구", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "동대문구 인테리어청소",
+    body: "김밥집 주방 설비 주변과 유리창, 홀 바닥을 공사 후 청소한 기록입니다.",
+    cta: "동대문구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/imun-interior-01.webp", "/images/regional/imun-interior-09.webp"], "서울 동대문구 김밥집 인테리어청소"),
+  },
+  {
+    href: "/인테리어청소/경기도-평택시/", province: "경기도", region: "평택시", service: "인테리어청소",
+    eyebrow: caseEyebrow, title: "평택 인테리어청소",
+    body: "피부과 복도와 진료 공간, 화장실을 공사 후 청소한 기록입니다.",
+    cta: "평택 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/pyeongtaek-interior-01.webp", "/images/regional/pyeongtaek-interior-10.webp"], "경기 평택 피부과 인테리어청소"),
+  }
 ];
 
 const unique = (values: string[]) => [...new Set(values)];

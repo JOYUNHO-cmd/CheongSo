@@ -407,6 +407,9 @@ export default function InteriorCleaningLanding() {
             <Link href="/인테리어청소/서울특별시-용산구/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 용산구 음식점 홀·오픈 주방 실제 작업 사례 보기 →</Link>
             <Link href="/인테리어청소/경기도-의정부시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">의정부 병원 수납장·진료실 실제 작업 사례 보기 →</Link>
             <Link href="/인테리어청소/경기도-부천시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">부천 상가 화장실·전면 유리창 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/서울특별시-영등포구/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 영등포구 약국 진열장·수납장 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/서울특별시-동대문구/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 동대문구 김밥집 주방·유리창 실제 작업 사례 보기 →</Link>
+            <Link href="/인테리어청소/경기도-평택시/" className="mt-2 flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">평택 피부과 복도·화장실 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 
