@@ -460,6 +460,8 @@ export default function TrashHouseCleaningLanding() {
             <Link href="/쓰레기집청소/인천광역시-미추홀구/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">인천 주안 원룸 실제 작업 사례 보기 →</Link>
             <br />
             <Link href="/쓰레기집청소/인천광역시-연수구/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">인천 송도 오피스텔 실제 작업 사례 보기 →</Link>
+            <br />
+            <Link href="/쓰레기집청소/경기도-의정부시/" className="inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">의정부 아파트 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 

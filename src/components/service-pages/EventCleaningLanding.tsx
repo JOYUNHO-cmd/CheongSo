@@ -383,6 +383,7 @@ export default function EventCleaningLanding() {
             <ReadingParagraph className="mt-5 text-[15px] text-gray-500">기록 사진이 필요하면 촬영 구역과 전달 방식을 사전에 협의해주세요. 참석자 얼굴과 행사 자료가 불필요하게 담기지 않도록 범위를 정하는 것이 좋습니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2 text-[15px] text-gray-500">청소 완료 상태와 대관 계약상의 원상복구 의무는 같지 않을 수 있습니다. 대관처의 반납 기준을 미리 공유해주세요.</ReadingParagraph>
             <ServicePhotoLinks path={path} />
+            <Link href="/행사장청소/서울특별시-송파구/" className="mt-5 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 송파구 공원 광장 행사 후 청소 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 
