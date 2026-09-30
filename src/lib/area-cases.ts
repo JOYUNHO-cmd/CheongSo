@@ -520,20 +520,6 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/bucheon-interior-03.webp", "/images/regional/bucheon-interior-05.webp"], "경기 부천 상가 인테리어청소"),
   },
   {
-    href: "/화재청소/서울특별시-강서구/", province: "서울특별시", region: "강서구", service: "화재청소",
-    eyebrow: caseEyebrow, title: "서울 강서구 화재청소",
-    body: "화재 후 그을린 짐과 통이 쌓인 창고 통로를 비우고 바닥까지 정리한 기록입니다.",
-    cta: "강서구 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/gangseo-fire-01.webp", "/images/regional/gangseo-fire-02.webp"], "서울 강서구 창고 통로 화재청소"),
-  },
-  {
-    href: "/화재청소/경기도-성남시-분당구/", province: "경기도", region: "분당구", service: "화재청소",
-    eyebrow: caseEyebrow, title: "성남 분당구 화재청소",
-    body: "화재 후 사무실과 복도 바닥, 책상 아래에 내려앉은 그을음을 닦고 세척한 기록입니다.",
-    cta: "분당 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/bundang-fire-01.webp", "/images/regional/bundang-fire-07.webp"], "성남 분당구 사무실 화재청소"),
-  },
-  {
     href: "/화재청소/경기도-김포시/", province: "경기도", region: "김포시", service: "화재청소",
     eyebrow: caseEyebrow, title: "김포 화재청소",
     body: "화재 후 음식점 주방 벽면과 선반, 작업대, 후드 필터를 함께 청소한 기록입니다.",

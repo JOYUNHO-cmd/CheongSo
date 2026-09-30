@@ -81,8 +81,6 @@ export function RegionalPhotoLinks({ path }: { path: string }) {
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/인천광역시-부평구/" className="font-bold text-brand-dark underline underline-offset-4">인천 부평구 부평역 상가 창고 화재청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/인천광역시-미추홀구/" className="font-bold text-brand-dark underline underline-offset-4">인천 미추홀구 주안 상가건물 화재청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/인천광역시-연수구/" className="font-bold text-brand-dark underline underline-offset-4">인천 연수구 송도 오피스 화재청소 사례 보기 →</Link></p>}
-    {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/서울특별시-강서구/" className="font-bold text-brand-dark underline underline-offset-4">서울 강서구 창고 통로 화재청소 사례 보기 →</Link></p>}
-    {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/경기도-성남시-분당구/" className="font-bold text-brand-dark underline underline-offset-4">성남 분당구 사무실 화재청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/경기도-김포시/" className="font-bold text-brand-dark underline underline-offset-4">김포 음식점 주방 화재청소 사례 보기 →</Link></p>}
     {path === "/공장청소/" && <p className="mt-4"><Link href="/공장청소/경기도-시흥시/" className="font-bold text-brand-dark underline underline-offset-4">시흥 은계지구 빵공장 청소 사례 보기 →</Link></p>}
   </div>;
