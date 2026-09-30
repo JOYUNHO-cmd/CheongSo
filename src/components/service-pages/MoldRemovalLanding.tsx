@@ -337,6 +337,10 @@ export default function MoldRemovalLanding() {
             <ReadingParagraph className="mt-5 text-[15px] text-gray-500">사진에서 얼룩이 옅어졌다는 사실만으로 벽체 내부 상태나 이후 재발 여부까지 판단할 수는 없습니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2 text-[15px] text-gray-500">전후 비교와 함께 작업 범위, 남은 문제, 이후 필요한 조치를 확인하는 것이 중요합니다.</ReadingParagraph>
             <ServicePhotoLinks path={path} />
+            <p className="mt-4"><Link href="/곰팡이제거/경기도-광주시/" className="font-bold text-brand-dark underline underline-offset-4">경기 광주 주택 벽지 뒤 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/경기도-성남시-분당구/" className="font-bold text-brand-dark underline underline-offset-4">분당 주택 수납장 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 주택 바닥 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/경기도-용인시/" className="font-bold text-brand-dark underline underline-offset-4">용인 베란다 곰팡이제거 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 

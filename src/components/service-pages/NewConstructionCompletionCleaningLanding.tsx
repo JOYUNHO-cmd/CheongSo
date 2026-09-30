@@ -433,6 +433,8 @@ export default function NewConstructionCompletionCleaningLanding() {
             <Link href="/신축준공청소/경기도-군포시/" className="mt-2 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">군포 송정지구 피트니스센터 실제 작업 사례 보기 →</Link>
             <Link href="/신축준공청소/경기도-수원시/" className="mt-2 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">수원 인계동 카페 실제 작업 사례 보기 →</Link>
             <Link href="/신축준공청소/경기도-용인시/" className="mt-2 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">용인 수지구 오피스 실제 작업 사례 보기 →</Link>
+            <Link href="/신축준공청소/서울특별시-구로구/" className="mt-2 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">서울 구로구 카페 실제 작업 사례 보기 →</Link>
+            <Link href="/신축준공청소/인천광역시-제물포구/" className="mt-2 inline-flex min-h-11 items-center font-bold text-brand-dark underline underline-offset-4">인천 신포동 상가 실제 작업 사례 보기 →</Link>
           <BackToContents />
           </section>
 
