@@ -580,7 +580,7 @@ export const areaCases: AreaCase[] = [
     eyebrow: caseEyebrow, title: "안양 사무실청소",
     body: "평촌 지식산업센터 사무실의 창가 턱과 바닥 콘센트 박스, 복도와 방 바닥을 입주 전에 청소한 기록입니다.",
     cta: "안양 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/pyeongchon-office-01.webp", "/images/regional/pyeongchon-office-10.webp"], "안양 평촌 지식산업센터 사무실청소"),
+    photos: pair(beforeAfter, ["/images/regional/pyeongchon-office-01.webp", "/images/regional/pyeongchon-office-09.webp"], "안양 평촌 지식산업센터 사무실청소"),
   },
   {
     href: "/사무실청소/서울특별시-용산구/", province: "서울특별시", region: "용산구", service: "사무실청소",
@@ -594,7 +594,7 @@ export const areaCases: AreaCase[] = [
     eyebrow: caseEyebrow, title: "화성 사무실청소",
     body: "사무실과 기숙사 건물의 로비와 세면대, 화장실 바닥, 방과 복도를 청소한 기록입니다.",
     cta: "화성 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/hwaseong-office-04.webp", "/images/regional/hwaseong-office-13.webp"], "화성 사무실·기숙사 청소"),
+    photos: pair(beforeAfter, ["/images/regional/hwaseong-office-04.webp", "/images/regional/hwaseong-office-12.webp"], "화성 사무실·기숙사 청소"),
   },
 ];
 

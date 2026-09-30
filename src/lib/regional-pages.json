@@ -12696,20 +12696,12 @@
         "src": "/images/regional/jongno-office-09.webp",
         "width": 900,
         "height": 1200,
-        "alt": "서울 종로구 사무실 사무실청소 작업 후, 분리해 닦은 디퓨저",
-        "caption": "작업 후 · 분리해 닦은 디퓨저"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/jongno-office-10.webp",
-        "width": 900,
-        "height": 1200,
         "alt": "서울 종로구 사무실 사무실청소 작업 후, 천장 조명",
         "caption": "작업 후 · 천장 조명"
       },
       {
         "type": "image",
-        "src": "/images/regional/jongno-office-11.webp",
+        "src": "/images/regional/jongno-office-10.webp",
         "width": 900,
         "height": 1200,
         "alt": "서울 종로구 사무실 사무실청소 작업 후, 창가까지 이어진 사무실 바닥",
@@ -12717,7 +12709,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/jongno-office-12.webp",
+        "src": "/images/regional/jongno-office-11.webp",
         "width": 900,
         "height": 1200,
         "alt": "서울 종로구 사무실 사무실청소 작업 후, 넓은 사무실 바닥",
@@ -12725,7 +12717,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/jongno-office-13.webp",
+        "src": "/images/regional/jongno-office-12.webp",
         "width": 900,
         "height": 1200,
         "alt": "서울 종로구 사무실 사무실청소 작업 후, 유리 파티션이 있는 방",
@@ -12733,7 +12725,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/jongno-office-14.webp",
+        "src": "/images/regional/jongno-office-13.webp",
         "width": 900,
         "height": 1200,
         "alt": "서울 종로구 사무실 사무실청소 작업 후, 출입구 바닥",
@@ -12773,21 +12765,20 @@
         },
         {
           "heading": "설비 분리 청소",
-          "body": "디퓨저와 그릴을 분리해 닦고 조명을 정리했습니다.",
+          "body": "그릴을 분리해 닦고 조명을 정리했습니다.",
           "media": [
             "/images/regional/jongno-office-08.webp",
-            "/images/regional/jongno-office-09.webp",
-            "/images/regional/jongno-office-10.webp"
+            "/images/regional/jongno-office-09.webp"
           ]
         },
         {
           "heading": "바닥 마감",
           "body": "사무실과 방, 출입구 바닥까지 마무리했습니다.",
           "media": [
+            "/images/regional/jongno-office-10.webp",
             "/images/regional/jongno-office-11.webp",
             "/images/regional/jongno-office-12.webp",
-            "/images/regional/jongno-office-13.webp",
-            "/images/regional/jongno-office-14.webp"
+            "/images/regional/jongno-office-13.webp"
           ]
         }
       ],
@@ -13020,20 +13011,12 @@
         "src": "/images/regional/pyeongchon-office-07.webp",
         "width": 900,
         "height": 1200,
-        "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 배전반",
-        "caption": "작업 후 · 배전반"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/pyeongchon-office-08.webp",
-        "width": 900,
-        "height": 1200,
         "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 유리 파티션 옆 복도",
         "caption": "작업 후 · 유리 파티션 옆 복도"
       },
       {
         "type": "image",
-        "src": "/images/regional/pyeongchon-office-09.webp",
+        "src": "/images/regional/pyeongchon-office-08.webp",
         "width": 900,
         "height": 1200,
         "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 방 바닥",
@@ -13041,7 +13024,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/pyeongchon-office-10.webp",
+        "src": "/images/regional/pyeongchon-office-09.webp",
         "width": 900,
         "height": 1200,
         "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 넓은 사무 공간",
@@ -13049,19 +13032,11 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/pyeongchon-office-11.webp",
+        "src": "/images/regional/pyeongchon-office-10.webp",
         "width": 900,
         "height": 1200,
         "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 사무 공간 바닥",
         "caption": "작업 후 · 사무 공간 바닥"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/pyeongchon-office-12.webp",
-        "width": 900,
-        "height": 1200,
-        "alt": "안양 평촌 지식산업센터 사무실 사무실청소 작업 후, 유리 파티션이 이어진 복도",
-        "caption": "작업 후 · 유리 파티션이 이어진 복도"
       }
     ],
     "fieldCase": {
@@ -13094,22 +13069,20 @@
           ]
         },
         {
-          "heading": "복도와 설비 정리",
-          "body": "복도와 탕비 공간, 배전반 주변을 정리했습니다.",
+          "heading": "복도 정리",
+          "body": "탕비 공간이 있는 복도와 유리 파티션 옆 복도를 정리했습니다.",
           "media": [
             "/images/regional/pyeongchon-office-06.webp",
-            "/images/regional/pyeongchon-office-07.webp",
-            "/images/regional/pyeongchon-office-08.webp"
+            "/images/regional/pyeongchon-office-07.webp"
           ]
         },
         {
           "heading": "바닥 마감",
-          "body": "방과 넓은 사무 공간, 유리 파티션이 이어진 복도 바닥까지 마무리했습니다.",
+          "body": "방과 넓은 사무 공간 바닥까지 마무리했습니다.",
           "media": [
+            "/images/regional/pyeongchon-office-08.webp",
             "/images/regional/pyeongchon-office-09.webp",
-            "/images/regional/pyeongchon-office-10.webp",
-            "/images/regional/pyeongchon-office-11.webp",
-            "/images/regional/pyeongchon-office-12.webp"
+            "/images/regional/pyeongchon-office-10.webp"
           ]
         }
       ],
@@ -13403,20 +13376,12 @@
         "src": "/images/regional/hwaseong-office-09.webp",
         "width": 900,
         "height": 1200,
-        "alt": "화성 사무실·기숙사 사무실청소 작업 후, 화장실",
-        "caption": "작업 후 · 화장실"
-      },
-      {
-        "type": "image",
-        "src": "/images/regional/hwaseong-office-10.webp",
-        "width": 900,
-        "height": 1200,
         "alt": "화성 사무실·기숙사 사무실청소 작업 후, 창이 있는 방",
         "caption": "작업 후 · 창이 있는 방"
       },
       {
         "type": "image",
-        "src": "/images/regional/hwaseong-office-11.webp",
+        "src": "/images/regional/hwaseong-office-10.webp",
         "width": 900,
         "height": 1200,
         "alt": "화성 사무실·기숙사 사무실청소 작업 후, 세면대와 칸막이",
@@ -13424,7 +13389,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/hwaseong-office-12.webp",
+        "src": "/images/regional/hwaseong-office-11.webp",
         "width": 900,
         "height": 1200,
         "alt": "화성 사무실·기숙사 사무실청소 작업 후, 창가 복도",
@@ -13432,7 +13397,7 @@
       },
       {
         "type": "image",
-        "src": "/images/regional/hwaseong-office-13.webp",
+        "src": "/images/regional/hwaseong-office-12.webp",
         "width": 900,
         "height": 1200,
         "alt": "화성 사무실·기숙사 사무실청소 작업 후, 세면대",
@@ -13474,9 +13439,8 @@
           "heading": "화장실 청소",
           "body": "세면대와 칸막이, 화장실 바닥을 청소했습니다.",
           "media": [
-            "/images/regional/hwaseong-office-09.webp",
-            "/images/regional/hwaseong-office-11.webp",
-            "/images/regional/hwaseong-office-13.webp"
+            "/images/regional/hwaseong-office-10.webp",
+            "/images/regional/hwaseong-office-12.webp"
           ]
         },
         {
@@ -13484,8 +13448,8 @@
           "body": "방과 창가 복도 바닥까지 마무리했습니다.",
           "media": [
             "/images/regional/hwaseong-office-08.webp",
-            "/images/regional/hwaseong-office-10.webp",
-            "/images/regional/hwaseong-office-12.webp"
+            "/images/regional/hwaseong-office-09.webp",
+            "/images/regional/hwaseong-office-11.webp"
           ]
         }
       ],
