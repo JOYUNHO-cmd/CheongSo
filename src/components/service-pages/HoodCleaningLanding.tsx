@@ -355,6 +355,9 @@ export default function HoodCleaningLanding() {
               </div>
             )}
             <ServicePhotoLinks path={path} />
+            <p className="mt-4"><Link href="/후드청소/경기도-화성시/" className="font-bold text-brand-dark underline underline-offset-4">화성 어린이집 후드청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/후드청소/서울특별시-영등포구/" className="font-bold text-brand-dark underline underline-offset-4">서울 영등포구 어린이집 후드청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/후드청소/인천광역시-연수구/" className="font-bold text-brand-dark underline underline-offset-4">인천 연수구 복지시설 후드청소 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 

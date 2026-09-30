@@ -406,6 +406,7 @@ export default function SchoolCleaningLanding() {
               </div>
             )}
             <ServicePhotoLinks path={path} />
+            <p className="mt-4"><Link href="/학교청소/경기도-용인시/" className="font-bold text-brand-dark underline underline-offset-4">용인 초등학교 교실 학교청소 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 

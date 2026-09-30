@@ -472,6 +472,13 @@ export default function KitchenCleaningLanding() {
             </div>
           </section>
           <ReadingParagraph className="mt-6"><Link href="/주방청소/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 주방청소 실제 사진과 견적 안내 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-부천시/" className="font-bold text-brand-dark underline underline-offset-4">부천 구내식당 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-수원시/" className="font-bold text-brand-dark underline underline-offset-4">수원 음식점 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-의정부시/" className="font-bold text-brand-dark underline underline-offset-4">의정부 음식점 후드·주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-화성시/" className="font-bold text-brand-dark underline underline-offset-4">화성 고깃집 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 소형 매장 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/서울특별시-영등포구/" className="font-bold text-brand-dark underline underline-offset-4">서울 영등포구 음식점 퇴거 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/인천광역시-미추홀구/" className="font-bold text-brand-dark underline underline-offset-4">인천 미추홀구 음식점 홀·주방청소 사례 보기 →</Link></ReadingParagraph>
           <BackToTopButton />
         </div>
       </div>
