@@ -76,6 +76,14 @@ export function RegionalPhotoLinks({ path }: { path: string }) {
     {path === "/사무실청소/" && <p className="mt-4"><Link href="/사무실청소/경기도-수원시-영통구/" className="font-bold text-brand-dark underline underline-offset-4">수원 영통구 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-의왕시/" className="font-bold text-brand-dark underline underline-offset-4">의왕 지식산업센터 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-군포시/" className="font-bold text-brand-dark underline underline-offset-4">군포 당동 지식산업센터 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/서울특별시-강남구/" className="font-bold text-brand-dark underline underline-offset-4">서울 강남구 사무실 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-고양시/" className="font-bold text-brand-dark underline underline-offset-4">고양 일산 신축 사무실 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 4층 건물 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/서울특별시-종로구/" className="font-bold text-brand-dark underline underline-offset-4">서울 종로구 사무실 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/인천광역시-서해구/" className="font-bold text-brand-dark underline underline-offset-4">인천 서해구 청라 사무실 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 평촌 지식산업센터 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/서울특별시-용산구/" className="font-bold text-brand-dark underline underline-offset-4">서울 용산구 주택 사무실 사무실청소 사례 보기 →</Link></p>}
+    {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-화성시/" className="font-bold text-brand-dark underline underline-offset-4">화성 사무실·기숙사 사무실청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-4"><Link href="/화재청소/인천광역시-검단구/" className="font-bold text-brand-dark underline underline-offset-4">인천 검단구 상가건물 화재청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/인천광역시-남동구/" className="font-bold text-brand-dark underline underline-offset-4">인천 남동구 남동공단 공장 화재청소 사례 보기 →</Link></p>}
     {path === "/화재청소/" && <p className="mt-2"><Link href="/화재청소/인천광역시-부평구/" className="font-bold text-brand-dark underline underline-offset-4">인천 부평구 부평역 상가 창고 화재청소 사례 보기 →</Link></p>}

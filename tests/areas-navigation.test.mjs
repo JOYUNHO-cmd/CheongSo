@@ -28,6 +28,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/주방청소/경기도-안양시/',
     '/쓰레기집청소/경기도-안양시/',
     '/신축준공청소/경기도-안양시/',
+    '/사무실청소/경기도-안양시/',
     '/바닥-왁스-코팅/경기도-성남시-분당구/',
     '/바닥-왁스-코팅/경기도-성남시/',
     '/바닥-왁스-코팅/경기도-성남시-판교/',
@@ -67,6 +68,8 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/인테리어청소/경기도-의정부시/',
     '/쓰레기집청소/경기도-의정부시/',
     '/화재청소/경기도-김포시/',
+    '/사무실청소/경기도-고양시/',
+    '/사무실청소/경기도-화성시/',
     '/화재청소/인천광역시-검단구/',
     '/쓰레기집청소/인천광역시-검단구/',
     '/화재청소/인천광역시-남동구/',
@@ -80,6 +83,7 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/바닥-왁스-코팅/인천광역시-미추홀구/',
     '/화재청소/인천광역시-연수구/',
     '/쓰레기집청소/인천광역시-연수구/',
+    '/사무실청소/인천광역시-서해구/',
     '/인테리어청소/서울특별시-서초구/',
     '/고독사청소/서울특별시-도봉구/',
     '/유품정리/서울특별시-용산구/',
@@ -97,6 +101,10 @@ test('region directory links directly to the real Anyang page and is discoverabl
     '/인테리어청소/서울특별시-강동구/',
     '/인테리어청소/서울특별시-용산구/',
     '/행사장청소/서울특별시-송파구/',
+    '/사무실청소/서울특별시-강남구/',
+    '/사무실청소/서울특별시-서초구/',
+    '/사무실청소/서울특별시-종로구/',
+    '/사무실청소/서울특별시-용산구/',
   ]);
   for (const link of links) {
     assert.ok(link.querySelector('img[alt]'));

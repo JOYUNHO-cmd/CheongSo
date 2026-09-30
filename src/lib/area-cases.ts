@@ -540,6 +540,62 @@ export const areaCases: AreaCase[] = [
     cta: "송파구 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/songpa-event-01.webp", "/images/regional/songpa-event-08.webp"], "서울 송파구 공원 광장 행사장청소"),
   },
+  {
+    href: "/사무실청소/서울특별시-강남구/", province: "서울특별시", region: "강남구", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "서울 강남구 사무실청소",
+    body: "공사를 마친 사무실의 천장 그릴과 창틀 레일, 수납장과 화장실, 바닥까지 입주 전에 청소한 기록입니다.",
+    cta: "강남구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/nonhyeon-office-01.webp", "/images/regional/nonhyeon-office-08.webp"], "서울 강남구 사무실청소"),
+  },
+  {
+    href: "/사무실청소/경기도-고양시/", province: "경기도", region: "고양시", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "고양 사무실청소",
+    body: "일산 복층 신축 사무실의 보와 천장 배관 위 먼지를 걷어내고 바닥과 탕비 공간까지 청소한 기록입니다.",
+    cta: "고양 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/ilsan-office-03.webp", "/images/regional/ilsan-office-11.webp"], "고양 일산 사무실청소"),
+  },
+  {
+    href: "/사무실청소/서울특별시-서초구/", province: "서울특별시", region: "서초구", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "서울 서초구 사무실청소",
+    body: "4층 건물의 계단과 화장실, 층별 홀 바닥을 동선을 나눠 청소한 기록입니다.",
+    cta: "서초구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/jamwon-office-02.webp", "/images/regional/jamwon-office-07.webp"], "서울 서초구 건물 사무실청소"),
+  },
+  {
+    href: "/사무실청소/서울특별시-종로구/", province: "서울특별시", region: "종로구", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "서울 종로구 사무실청소",
+    body: "천장 디퓨저와 창가 그릴을 분리해 닦고 조명과 사무실 바닥까지 청소한 기록입니다.",
+    cta: "종로구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/jongno-office-04.webp", "/images/regional/jongno-office-08.webp"], "서울 종로구 사무실청소"),
+  },
+  {
+    href: "/사무실청소/인천광역시-서해구/", province: "인천광역시", region: "서해구", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "인천 서해구 사무실청소",
+    body: "청라 사무실의 블라인드와 스위치, 창틀을 닦고 넓은 바닥까지 청소한 기록입니다.",
+    cta: "서해구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/cheongna-office-01.webp", "/images/regional/cheongna-office-04.webp"], "인천 서해구 사무실청소"),
+  },
+  {
+    href: "/사무실청소/경기도-안양시/", province: "경기도", region: "안양시", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "안양 사무실청소",
+    body: "평촌 지식산업센터 사무실의 창가 턱과 바닥 콘센트 박스, 복도와 방 바닥을 입주 전에 청소한 기록입니다.",
+    cta: "안양 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/pyeongchon-office-01.webp", "/images/regional/pyeongchon-office-10.webp"], "안양 평촌 지식산업센터 사무실청소"),
+  },
+  {
+    href: "/사무실청소/서울특별시-용산구/", province: "서울특별시", region: "용산구", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "서울 용산구 사무실청소",
+    body: "2층 주택 사무실의 주방과 환풍기, 창틀, 붙박이 수납장까지 청소한 기록입니다.",
+    cta: "용산구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/hannam-office-02.webp", "/images/regional/hannam-office-07.webp"], "서울 용산구 주택 사무실청소"),
+  },
+  {
+    href: "/사무실청소/경기도-화성시/", province: "경기도", region: "화성시", service: "사무실청소",
+    eyebrow: caseEyebrow, title: "화성 사무실청소",
+    body: "사무실과 기숙사 건물의 로비와 세면대, 화장실 바닥, 방과 복도를 청소한 기록입니다.",
+    cta: "화성 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/hwaseong-office-04.webp", "/images/regional/hwaseong-office-13.webp"], "화성 사무실·기숙사 청소"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];
