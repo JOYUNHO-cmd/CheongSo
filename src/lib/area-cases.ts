@@ -813,6 +813,48 @@ export const areaCases: AreaCase[] = [
     cta: "수원 사례와 견적 기준 보기",
     photos: pair(beforeAfter, ["/images/regional/suwon-nicotine-04.webp", "/images/regional/suwon-nicotine-06.webp"], "수원 원룸 니코틴 청소"),
   },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-마포구/", province: "서울특별시", region: "마포구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 마포구 바닥왁스코팅",
+    body: "집기를 모두 뺀 빌딩 5층 사무실 바닥의 얼룩과 자국을 세척하고 왁스를 코팅한 기록입니다.",
+    cta: "마포구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/mapo-wax-01.webp", "/images/regional/mapo-wax-12.webp"], "서울 마포구 빈 사무실 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/인천광역시-영종구/", province: "인천광역시", region: "영종구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "인천 영종구 바닥왁스코팅",
+    body: "검은 얼룩과 자국이 남은 실내 바닥을 세척하고 왁스를 코팅한 기록입니다.",
+    cta: "영종구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/yeongjong-wax-01.webp", "/images/regional/yeongjong-wax-03.webp"], "인천 영종구 실내 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/인천광역시-부평구/", province: "인천광역시", region: "부평구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "인천 부평구 바닥왁스코팅",
+    body: "검은 얼룩이 번진 사무실 바닥을 세척하고 왁스를 코팅해 복원한 기록입니다.",
+    cta: "부평구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/bupyeong-wax-04.webp", "/images/regional/bupyeong-wax-06.webp"], "인천 부평구 사무실 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/서울특별시-강동구/", province: "서울특별시", region: "강동구", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "서울 강동구 바닥왁스코팅",
+    body: "때가 쌓여 검게 변한 학원 교실과 자습실 바닥을 세척하고 왁스를 코팅한 기록입니다.",
+    cta: "강동구 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/gangdong-wax-01.webp", "/images/regional/gangdong-wax-11.webp"], "서울 강동구 학원 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/경기도-파주시/", province: "경기도", region: "파주시", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "파주 바닥왁스코팅",
+    body: "복도와 출입문 주변, 창가 쪽 실내 바닥을 세척하고 왁스를 코팅한 기록입니다.",
+    cta: "파주 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/paju-wax-01.webp", "/images/regional/paju-wax-05.webp"], "파주 실내 바닥왁스코팅"),
+  },
+  {
+    href: "/바닥-왁스-코팅/경기도-이천시/", province: "경기도", region: "이천시", service: "바닥왁스코팅",
+    eyebrow: caseEyebrow, title: "이천 바닥왁스코팅",
+    body: "때가 짙게 쌓인 물류창고 바닥을 반복 세척으로 걷어내고 왁스를 코팅한 기록입니다.",
+    cta: "이천 사례와 견적 기준 보기",
+    photos: pair(beforeAfter, ["/images/regional/icheon-wax-01.webp", "/images/regional/icheon-wax-08.webp"], "이천 물류창고 바닥왁스코팅"),
+  },
 ];
 
 const unique = (values: string[]) => [...new Set(values)];

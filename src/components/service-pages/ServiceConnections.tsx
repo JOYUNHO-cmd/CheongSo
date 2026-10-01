@@ -73,6 +73,12 @@ export function RegionalPhotoLinks({ path }: { path: string }) {
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-구로구/" className="font-bold text-brand-dark underline underline-offset-4">서울 구로구 사무실 바닥왁스코팅 사례 보기 →</Link></p>}
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-강남구/" className="font-bold text-brand-dark underline underline-offset-4">서울 강남구 사무실 바닥왁스코팅 사례 보기 →</Link></p>}
     {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-동대문구/" className="font-bold text-brand-dark underline underline-offset-4">서울 동대문구 병원 포세린·데코타일 코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-마포구/" className="font-bold text-brand-dark underline underline-offset-4">서울 마포구 빈 사무실 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/서울특별시-강동구/" className="font-bold text-brand-dark underline underline-offset-4">서울 강동구 학원 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/인천광역시-부평구/" className="font-bold text-brand-dark underline underline-offset-4">인천 부평구 사무실 바닥 복원·코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/인천광역시-영종구/" className="font-bold text-brand-dark underline underline-offset-4">인천 영종구 실내 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/경기도-파주시/" className="font-bold text-brand-dark underline underline-offset-4">파주 실내 바닥왁스코팅 사례 보기 →</Link></p>}
+    {path === "/바닥-왁스-코팅/" && <p className="mt-2"><Link href="/바닥-왁스-코팅/경기도-이천시/" className="font-bold text-brand-dark underline underline-offset-4">이천 물류창고 바닥 복원·코팅 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-4"><Link href="/사무실청소/경기도-수원시-영통구/" className="font-bold text-brand-dark underline underline-offset-4">수원 영통구 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-의왕시/" className="font-bold text-brand-dark underline underline-offset-4">의왕 지식산업센터 사무실청소 사례 보기 →</Link></p>}
     {path === "/사무실청소/" && <p className="mt-2"><Link href="/사무실청소/경기도-군포시/" className="font-bold text-brand-dark underline underline-offset-4">군포 당동 지식산업센터 사무실청소 사례 보기 →</Link></p>}
