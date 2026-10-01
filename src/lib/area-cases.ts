@@ -786,18 +786,11 @@ export const areaCases: AreaCase[] = [
     photos: pair(beforeAfter, ["/images/regional/indeogwon-flood-04.webp", "/images/regional/indeogwon-flood-10.webp"], "안양 아파트 싱크대 역류 청소"),
   },
   {
-    href: "/화재청소/경기도-성남시-분당구/", province: "경기도", region: "분당구", service: "화재청소",
-    eyebrow: caseEyebrow, title: "분당 화재청소",
-    body: "화재 후 사무실 바닥과 복도에 번진 그을음과 분진을 청소한 기록입니다.",
-    cta: "분당 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/bundang-fire-01.webp", "/images/regional/bundang-fire-06.webp"], "성남 분당 사무실 건물 화재청소"),
-  },
-  {
     href: "/화재청소/경기도-화성시/", province: "경기도", region: "화성시", service: "화재청소",
     eyebrow: caseEyebrow, title: "화성 화재청소",
     body: "노래방 룸에 덮인 소화기 분말을 테이블과 소파, 바닥까지 청소한 기록입니다.",
     cta: "화성 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/dongtan-powder-01.webp", "/images/regional/dongtan-powder-04.webp"], "화성 동탄 노래방 소화기 분말 청소"),
+    photos: pair(beforeAfter, ["/images/regional/dongtan-powder-01.webp", "/images/regional/dongtan-powder-06.webp"], "화성 동탄 노래방 소화기 분말 청소"),
   },
   {
     href: "/냄새-악취-제거/경기도-고양시/", province: "경기도", region: "고양시", service: "냄새악취제거",
@@ -811,7 +804,7 @@ export const areaCases: AreaCase[] = [
     eyebrow: caseEyebrow, title: "군포 산본 냄새·악취 제거",
     body: "담뱃진이 앉은 환기 덕트와 천장 조명, 벽면을 청소한 기록입니다.",
     cta: "군포 사례와 견적 기준 보기",
-    photos: pair(beforeAfter, ["/images/regional/sanbon-nicotine-01.webp", "/images/regional/sanbon-nicotine-08.webp"], "군포 산본 주택 니코틴 청소"),
+    photos: pair(beforeAfter, ["/images/regional/sanbon-nicotine-01.webp", "/images/regional/sanbon-nicotine-07.webp"], "군포 산본 주택 니코틴 청소"),
   },
   {
     href: "/냄새-악취-제거/경기도-수원시/", province: "경기도", region: "수원시", service: "냄새악취제거",
