@@ -439,6 +439,10 @@ export default function FloodCleaningLanding() {
               <ReadingParagraph className="mt-2 text-[15px] text-gray-500">완료 사진이 필요하다면 촬영 구역과 전달 방법을 상담 시 협의하실 수 있습니다.</ReadingParagraph>
               <Link href="#cases" className="mt-4 inline-block font-bold text-brand">침수·누수청소 현장 사진 보기 →</Link>
             <ServicePhotoLinks path={path} />
+            <p className="mt-4"><Link href="/침수청소/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 지하 주점 침수청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/침수청소/인천광역시-남동구/" className="font-bold text-brand-dark underline underline-offset-4">인천 남동공단 공장 오수 침수청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/침수청소/경기도-부천시/" className="font-bold text-brand-dark underline underline-offset-4">부천 원미구 지하 작업장 침수청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/침수청소/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 아파트 싱크대 역류 청소 사례 보기 →</Link></p>
             <BackToContents />
           </section>
           )}

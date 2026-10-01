@@ -364,6 +364,9 @@ export default function OdorRemovalLanding() {
             <ReadingParagraph className="mt-2">냄새가 줄었다는 것만으로 모든 오염물질이 제거됐거나 실내가 무조건 안전하다고 판단할 수는 없습니다.</ReadingParagraph>
             <ReadingParagraph className="mt-2 text-[15px] text-gray-500">특정 물질의 측정이 필요하면 제공 가능 여부와 측정 항목·조건·비용을 별도로 확인해야 합니다. 측정이나 수치 보고서가 기본 포함된 것으로 안내하지 않습니다.</ReadingParagraph>
             <ServicePhotoLinks path={path} />
+            <p className="mt-4"><Link href="/냄새-악취-제거/경기도-고양시/" className="font-bold text-brand-dark underline underline-offset-4">고양 일산 원룸 담배 냄새 제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/냄새-악취-제거/경기도-군포시/" className="font-bold text-brand-dark underline underline-offset-4">군포 산본 환기 덕트 니코틴 청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/냄새-악취-제거/경기도-수원시/" className="font-bold text-brand-dark underline underline-offset-4">수원 원룸 담배 냄새 제거 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 
