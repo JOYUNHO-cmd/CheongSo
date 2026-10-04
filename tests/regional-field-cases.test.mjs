@@ -34,6 +34,8 @@ for (const record of records) {
     assert.ok(videos.every(video => video.getAttribute('aria-label') && video.getAttribute('poster')));
     for (const media of record.media) for (const src of [media.src, media.poster].filter(Boolean)) assert.equal((await fetch(base + src)).status, 200, src);
     assert.equal(doc.querySelector('#local').querySelectorAll('img').length, 0);
+    assert.match(doc.querySelector('#local').textContent, /실제 작업 사례와 구분되는 일반적인 지역 상담 안내/);
+    assert.doesNotMatch(doc.body.textContent, /이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다/);
     for (const link of doc.querySelectorAll('nav[aria-label="목차"] a')) {
       const section = doc.querySelector(link.hash);
       assert.ok(section, link.hash);

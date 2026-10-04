@@ -113,7 +113,7 @@ export default function GwacheonInteriorLanding() {
           <li><Link href="/인테리어청소/">인테리어청소 전체 범위 안내 →</Link></li>
           <li><Link href="/주방청소/">주방청소 범위와 견적 조건 →</Link></li>
           <li><Link href="/후드청소/">후드청소 별도 확인 항목 →</Link></li>
-          <li><Link href="/냄새악취제거/">냄새·악취 제거 상담 안내 →</Link></li>
+          <li><Link href="/냄새-악취-제거/">냄새·악취 제거 상담 안내 →</Link></li>
         </ul><ReadingParagraph><strong>청소는 찐하게, 견적은 이유 있게.</strong></ReadingParagraph><Link href="/contact/">과천 인테리어청소 견적 문의 →</Link><BackToContents /></section>
       </div>
     </div>

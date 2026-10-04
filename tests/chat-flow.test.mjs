@@ -49,3 +49,10 @@ test("backtracking allows replacing a prior answer", () => {
 test("only jjin contact and no inherited third-party claims", () => {
   assert.doesNotMatch(JSON.stringify({ situations, chatFaq }), /한스클린|hans|channel\.io|1688/);
 });
+test("privacy guidance explains manual email transmission without promising server-side storage behavior", () => {
+  const answer = chatFaq.find(item => item.question === "선택한 내용이 저장되나요?").answer;
+  assert.match(answer, /선택 내용은 자동 전송되지 않습니다/);
+  assert.match(answer, /상담 내용 이메일로 보내기를 누르면 찐청소로 전달됩니다/);
+  assert.match(answer, /새로고침하면 초기화/);
+  assert.doesNotMatch(answer, /서버로 전송하거나 저장하지 않습니다|저장되지 않습니다/);
+});

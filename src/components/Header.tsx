@@ -276,7 +276,7 @@ export default function Header() {
                   type="button"
                   id="mobile-all-menu-btn"
                   onClick={openMenu}
-                  className="flex min-h-[38px] items-center gap-1.5 rounded-lg bg-brand px-3.5 py-2 text-xs font-bold text-white shadow-xs active:scale-95 cursor-pointer touch-manipulation hover:bg-brand-dark select-none relative z-50"
+                  className="flex min-h-11 items-center gap-1.5 rounded-lg bg-brand px-3 min-[360px]:px-3.5 py-2 text-xs font-bold text-white shadow-xs active:scale-95 cursor-pointer touch-manipulation hover:bg-brand-dark select-none relative z-50"
                   aria-label="전체 메뉴 열기"
                 >
                   <svg
@@ -291,7 +291,7 @@ export default function Header() {
                     <line x1="3" y1="18" x2="21" y2="18" strokeLinecap="round" />
                   </svg>
                   <span className="whitespace-nowrap font-bold text-xs pointer-events-none">
-                    전체 메뉴
+                    <span className="hidden min-[360px]:inline">전체 </span>메뉴
                   </span>
                 </button>
               </div>

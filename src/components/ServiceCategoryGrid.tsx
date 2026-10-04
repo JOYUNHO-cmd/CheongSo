@@ -25,10 +25,10 @@ export default function ServiceCategoryGrid() {
             {cat.title}
           </h3>
           <p className="mt-2 text-[10px] min-[360px]:text-[11px] min-[390px]:text-[12px] sm:text-[12px] md:text-[12.5px] leading-snug sm:leading-relaxed text-gray-500">
-            <span className="block whitespace-nowrap sm:whitespace-normal tracking-tight">
+            <span className="block break-keep whitespace-normal tracking-tight">
               {cat.descLine1}
             </span>
-            <span className="block mt-0.5 whitespace-nowrap sm:whitespace-normal tracking-tight">
+            <span className="block mt-0.5 break-keep whitespace-normal tracking-tight">
               {cat.descLine2}
             </span>
           </p>

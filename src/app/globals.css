@@ -33,6 +33,16 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* 모바일 상담 바의 높이를 확보해 페이지 끝과 앵커 대상이 가려지지 않게 합니다. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+  html {
+    scroll-padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}
+
 .input {
   border-radius: 0.5rem;
   border: 1px solid #e5e7eb;
@@ -173,6 +183,11 @@ details > summary {
 
 .animate-kakao-ring {
   animation: mobile-wiggle-ring 3.8s ease-in-out infinite 0.7s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-phone-ring,
+  .animate-kakao-ring { animation: none; }
 }
 
 /* 고객 후기 섹션 별 다섯개 — 가운데가 가장 크게, 가장자리로 갈수록 작아지는 로고 아치 형태 */

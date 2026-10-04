@@ -1,4 +1,5 @@
 import { serviceCategories } from "./services-data";
+import serviceSlugOverrides from "./service-slugs.json";
 
 export type ServiceProfile = {
   name: string; slug: string; category: string; headline: string; intro: string;
@@ -41,7 +42,7 @@ const rows: [string, string, string, string, string, string][] = [
   ["콩자갈청소", "카페·매장 콩자갈청소, 틈새 오염과 바닥 상태를 함께 확인합니다", "콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.", "자갈 틈새 먼지·이물질 제거|고정·배수 상태에 맞춘 세척|잔수와 세척 후 상태 확인", "면적, 오염 정도, 배수 상태, 장비 접근", "고압 세척은 고정 상태와 구조·배수 조건에 따라 제한될 수 있습니다. 자갈 보충과 재시공, 방수층 보수는 일반 청소와 구분합니다."],
   ["바닥청소", "데코타일·포세린타일 바닥청소, 닦아도 남는 오염을 살펴봅니다", "사무실 데코타일의 묵은 때, 매장 타일의 발자국과 줄눈 오염이 고민이신가요? 찐청소는 바닥 재질과 기존 코팅, 집기 배치를 확인해 세척 범위와 필요한 작업을 안내합니다.", "노출된 바닥 세척|모서리와 통행 구역|마무리 오염 확인", "재질, 면적, 오염 종류, 장비 접근, 가구", "광택 복원과 코팅, 본드 제거는 일반 바닥 청소와 구분해 협의합니다."],
 ];
-const slugOverrides: Record<string, string> = { "소독&방역": "소독-방역", "냄새악취제거": "냄새-악취-제거", "바닥본드제거": "바닥-본드-제거", "바닥왁스코팅": "바닥-왁스-코팅" };
+const slugOverrides: Record<string, string> = serviceSlugOverrides;
 export const serviceProfiles: ServiceProfile[] = rows.map(([name, headline, intro, scope, check, limitation]) => ({
   name, slug: slugOverrides[name] || name, headline, intro, scope: scope.split("|"), check, limitation,
   category: serviceCategories.find(c => c.items.includes(name))!.slug,

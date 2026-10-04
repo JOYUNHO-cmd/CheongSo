@@ -55,6 +55,9 @@ export default function ServiceLanding({ service, regional }: { service: Service
   const path = regional ? regionalPath(regional) : servicePath(service.name);
   const hasRegionalPhotos = regional?.service === "바닥-왁스-코팅" && regional.region === "경기도-안양시";
   const fieldCase = regional?.fieldCase;
+  const localGuidanceNotice = hasRegionalPhotos || fieldCase
+    ? "아래는 실제 작업 사례와 구분되는 일반적인 지역 상담 안내입니다"
+    : "이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다";
   const example = hasRegionalPhotos || fieldCase ? undefined : portfolio.find(p => p.id === `${portfolioGroups[service.name]}-01`);
   const toc = [...(hasRegionalPhotos ? [["cases", "안양 실제 작업 사진"]] : []), ...(fieldCase ? [["cases", "실제 작업 사례"]] : []), ["scope", "작업 범위"], ["estimate", "견적 확인"], ["process", "진행 순서"], ...(regional ? [["local", "지역 상담 안내"]] : []), ["faq", "자주 묻는 질문"], ["related", "함께 살펴보기"]];
   const faqItems: [string, string][] = [
@@ -123,7 +126,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
           </section>
         <section id="process" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">처음부터 마무리까지, 순서대로</h2><ol className="mt-5 space-y-4">{[["상태 확인", "서비스 종류, 주소, 사진과 희망 일정을 확인합니다"], ["범위 협의", "포함 항목과 별도 작업, 비용과 출입 조건을 정리합니다"], ["작업 진행", "협의한 구역을 순서대로 진행하고 변경 사항을 확인합니다"], ["완료 확인", "작업한 부분을 확인하고 이용·관리 시 주의할 점을 안내합니다"]].map(([title, body], i) => <li key={title}><h3 className="font-bold">{i + 1}. {title}</h3><ReadingParagraph>{body}</ReadingParagraph></li>)}</ol><BackToContents />
           </section>
-        {regional && <section id="local" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{regional.region.replaceAll("-", " ")} 상담 준비</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다</ReadingParagraph>{regional.sections.map(s => <div key={s.heading} className="mt-6"><h3 className="text-lg font-bold">{s.heading}</h3><ReadingParagraph className="mt-2">{s.body}</ReadingParagraph></div>)}{!fieldCase && regional.media.map(m => <figure key={m.src} className="mt-6">{m.type === "image" ? <Image src={m.src} alt={m.alt} width={1200} height={800} className="h-auto w-full rounded-xl" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-xl" />}<figcaption className="mt-2 text-sm text-gray-500">{m.caption}</figcaption></figure>)}<BackToContents />
+        {regional && <section id="local" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{regional.region.replaceAll("-", " ")} 상담 준비</h2><ReadingParagraph className="mt-3 text-sm text-gray-500">{localGuidanceNotice}</ReadingParagraph>{regional.sections.map(s => <div key={s.heading} className="mt-6"><h3 className="text-lg font-bold">{s.heading}</h3><ReadingParagraph className="mt-2">{s.body}</ReadingParagraph></div>)}{!fieldCase && regional.media.map(m => <figure key={m.src} className="mt-6">{m.type === "image" ? <Image src={m.src} alt={m.alt} width={1200} height={800} className="h-auto w-full rounded-xl" /> : <video src={m.src} controls preload="metadata" aria-label={m.alt} className="w-full rounded-xl" />}<figcaption className="mt-2 text-sm text-gray-500">{m.caption}</figcaption></figure>)}<BackToContents />
           </section>}
         <section id="faq" className="scroll-mt-36"><h2 className="text-2xl font-black text-brand-dark">{service.name} 자주 묻는 질문</h2>{faqItems.map(([q, a]) => <details key={q} className="mt-4 rounded-xl border border-gray-200 p-4"><summary className="cursor-pointer font-bold">{q}</summary><ReadingParagraph className="mt-3">{a}</ReadingParagraph></details>)}<BackToContents />
           </section>

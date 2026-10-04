@@ -54,7 +54,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-2 w-full">
           {/* H1: 서비스 범위 문구 (기존 서브 문구와 같은 크기·색상 유지) */}
-          <h1 className="mx-auto max-w-3xl break-keep whitespace-nowrap sm:whitespace-normal text-[length:min(14px,calc((100vw_-_48px)*0.038))] sm:text-xl md:text-2xl lg:text-[26px] font-semibold leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+          <h1 className="mx-auto max-w-3xl break-keep whitespace-normal text-[length:min(14px,calc((100vw_-_48px)*0.038))] sm:text-xl md:text-2xl lg:text-[26px] font-semibold leading-relaxed text-teal-300 [text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
             <span className="block">{siteConfig.heroH1}</span>
           </h1>
 
@@ -175,8 +175,8 @@ export default function Home() {
               title="청소의 이론을 이해하고 현장에 적용합니다"
               description={
                 <>
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
-                  <span className="block whitespace-nowrap sm:whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
+                  <span className="block break-keep whitespace-normal sm:inline">등록된 자격증 자료를 확인하실 수 있습니다.</span>{" "}
+                  <span className="block break-keep whitespace-normal sm:inline">이미지를 누르면 크게 볼 수 있어요</span>
                 </>
               }
             />

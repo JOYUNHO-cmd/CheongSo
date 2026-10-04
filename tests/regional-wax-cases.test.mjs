@@ -46,6 +46,10 @@ for (const page of cases) {
     assert.doesNotMatch(doc.body.textContent, /대표님이|대표님은|대표가 확인|대표가 기록/);
     assert.equal(doc.querySelectorAll('[data-regional-wax-case] figure').length, 6);
     assert.equal(doc.querySelectorAll(`[data-regional-wax-case] img[alt*="${page.imageAlt}"]`).length, 12);
+    const adhesiveLink = doc.querySelector('#related a[href="/바닥-본드-제거/"]');
+    assert.ok(adhesiveLink, 'related adhesive removal uses its published URL');
+    assert.equal(doc.querySelector('#related a[href="/바닥본드제거/"]'), null);
+    assert.equal((await fetch(base + encodeURI(adhesiveLink.getAttribute('href')))).status, 200);
 
     const faqItems = [...doc.querySelectorAll('#faq details')];
     assert.equal(faqItems.length, 6);

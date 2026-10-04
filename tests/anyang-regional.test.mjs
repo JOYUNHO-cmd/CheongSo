@@ -24,6 +24,8 @@ test('Anyang evidence includes five attributed local pairs and working section n
     assert.ok(section.querySelector('[data-back-to-contents]'));
   }
   assert.equal(doc.querySelector('link[rel="canonical"]').href, 'https://www.cheongso.co.kr'+encodeURI(path));
+  assert.match(doc.querySelector('#local').textContent, /실제 작업 사례와 구분되는 일반적인 지역 상담 안내/);
+  assert.doesNotMatch(doc.body.textContent, /이 글은 서비스 이용 안내이며 특정 현장의 시공 후기가 아닙니다/);
 });
 test('Anyang price questions use the same answers in visible FAQ and structured data', async () => {
   const doc = await page();

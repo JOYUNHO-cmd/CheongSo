@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { usePathname } from "next/navigation";
 import {
   MessageCircle,
   ChevronLeft,
@@ -21,7 +20,6 @@ import {
   PawPrint,
   Check,
   HelpCircle,
-  Headset,
   Mail,
 } from "lucide-react";
 import { chatFaq, choose, getPrompt, summaryText, type Choice } from "./chat-flow";
@@ -53,30 +51,13 @@ const situationIcons = [
   PawPrint,
 ];
 
-export default function ConsultationBot() {
-  const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [open, setOpen] = useState(false);
-  const [launcherHovered, setLauncherHovered] = useState(false);
-  const [scrolledOnHome, setScrolledOnHome] = useState(false);
-  const isScrolled = isHome ? scrolledOnHome : true;
+export default function ConsultationBot({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [answers, setAnswers] = useState<Choice[]>([]);
   const [view, setView] = useState<"chat" | "faq">("chat");
   const [emailStatus, setEmailStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  useEffect(() => {
-    if (!isHome) return;
-    const handleScroll = () => {
-      setScrolledOnHome(window.scrollY > 40);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome]);
-
   const scrollRef = useRef<HTMLDivElement>(null);
   const currentRef = useRef<HTMLDivElement>(null);
-  const launcherRef = useRef<HTMLButtonElement>(null);
 
   const prompt = getPrompt(answers);
 
@@ -106,55 +87,44 @@ export default function ConsultationBot() {
     setView("chat");
   }, []);
 
-  const handleClose = useCallback(() => {
-    setOpen(false);
-  }, []);
-
-  const toggle = useCallback((forcedState?: boolean) => {
-    setOpen((prev) => (typeof forcedState === "boolean" ? forcedState : !prev));
-  }, []);
-
   // Lock body scroll when open (ref-counted so Header's mobile drawer can be open at the same time)
   useEffect(() => {
-    if (open) {
-      lockBodyScroll();
-    } else {
-      unlockBodyScroll();
-    }
-    return () => {
-      if (open) unlockBodyScroll();
-    };
+    if (!open) return;
+    lockBodyScroll();
+    return () => unlockBodyScroll();
   }, [open]);
 
-  // Expose global control APIs for Header and other triggers
+  // Keep keyboard focus inside the modal and restore the invoking button on close.
   useEffect(() => {
-    const openBot = () => setOpen(true);
-    const closeBot = () => setOpen(false);
-    const toggleBot = () => setOpen((prev) => !prev);
-
-    (window as unknown as { openConsultationBot?: () => void }).openConsultationBot = openBot;
-    (window as unknown as { closeConsultationBot?: () => void }).closeConsultationBot = closeBot;
-    (window as unknown as { toggleConsultationBot?: () => void }).toggleConsultationBot = toggleBot;
-
-    window.addEventListener("open-consultation-bot", openBot);
-    window.addEventListener("close-consultation-bot", closeBot);
-
+    if (!open) return;
+    const dialog = document.getElementById("jjin-consultation-dialog");
+    const previous = document.activeElement;
+    const focusable = () => Array.from(dialog?.querySelectorAll<HTMLElement>("a[href], button:not([disabled]), summary, [tabindex]:not([tabindex='-1'])") ?? []).filter(element => element.getClientRects().length > 0);
+    (dialog?.querySelector<HTMLElement>(".jjin-chat-choices button") ?? focusable()[0])?.focus();
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && open) {
-        setOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+      } else if (e.key === "Tab") {
+        const items = focusable();
+        const first = items[0];
+        const last = items.at(-1);
+        if (e.shiftKey && (document.activeElement === first || !dialog?.contains(document.activeElement))) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && (document.activeElement === last || !dialog?.contains(document.activeElement))) {
+          e.preventDefault();
+          first?.focus();
+        }
       }
     };
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      delete (window as unknown as { openConsultationBot?: () => void }).openConsultationBot;
-      delete (window as unknown as { closeConsultationBot?: () => void }).closeConsultationBot;
-      delete (window as unknown as { toggleConsultationBot?: () => void }).toggleConsultationBot;
-      window.removeEventListener("open-consultation-bot", openBot);
-      window.removeEventListener("close-consultation-bot", closeBot);
       window.removeEventListener("keydown", handleKeyDown);
+      if (previous instanceof HTMLElement && previous.isConnected) previous.focus({ preventScroll: true });
     };
-  }, [open]);
+  }, [open, onClose]);
 
   // Auto-scroll on answers or view change
   useEffect(() => {
@@ -193,49 +163,6 @@ export default function ConsultationBot() {
 
   return (
     <>
-      {/* Floating launcher - hidden when dialog is open */}
-      {!open && (
-        <div className={`jjin-launcher-wrapper ${isScrolled ? "is-scrolled" : ""}`}>
-          {/* Floating hint bubble */}
-          <button
-            type="button"
-            id="jjin-launcher-bubble-btn"
-            className={`jjin-launcher-bubble ${launcherHovered ? "is-launcher-hovered" : ""}`}
-            onClick={() => toggle(true)}
-            aria-label="1분 맞춤견적 자동상담 열기"
-          >
-            <span>1분 맞춤견적</span>
-          </button>
-
-          {/* Launcher Button Container */}
-          <div className="jjin-launcher-btn-container">
-            <button
-              ref={launcherRef}
-              type="button"
-              id="jjin-chat-launcher-btn"
-              className="jjin-chat-launcher cursor-pointer"
-              aria-label="찐청소 간편 자동상담 열기"
-              aria-haspopup="dialog"
-              aria-expanded={open}
-              aria-controls="jjin-consultation-dialog"
-              onClick={() => toggle(true)}
-              onMouseEnter={() => setLauncherHovered(true)}
-              onMouseLeave={() => setLauncherHovered(false)}
-            >
-              <div className="jjin-launcher-icon-box">
-                <Headset strokeWidth={2.2} className="pointer-events-none jjin-launcher-icon" />
-              </div>
-
-              {/* Alive notification alert badge with ripple */}
-              <span className="jjin-live-alert-badge" aria-label="상담 준비완료">
-                <span className="jjin-live-alert-ping" />
-                <span className="jjin-live-alert-core" />
-              </span>
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Backdrop overlay */}
       {open && (
         <div
@@ -243,7 +170,7 @@ export default function ConsultationBot() {
           className="jjin-chat-backdrop is-open"
           style={{ display: "block" }}
           aria-hidden="true"
-          onClick={() => setOpen(false)}
+          onClick={onClose}
         />
       )}
 
@@ -262,7 +189,8 @@ export default function ConsultationBot() {
           찐청소 선택형 자동상담
         </h2>
         <p className="jjin-chat-sr-only" id="jjin-consultation-description">
-          상황과 서비스를 선택해 상담을 준비하세요. 선택 내용은 저장하거나 전송하지 않습니다
+          상황과 서비스를 선택해 상담을 준비하세요. 선택 내용은 자동 전송되지 않습니다.
+          상담 내용 이메일로 보내기를 누르면 찐청소로 전달됩니다.
         </p>
 
         <div className="jjin-chat-shell">
@@ -291,7 +219,7 @@ export default function ConsultationBot() {
               type="button"
               id="jjin-chat-close-btn"
               aria-label="상담창 닫기"
-              onClick={handleClose}
+              onClick={onClose}
             >
               <X />
             </button>
@@ -452,7 +380,7 @@ export default function ConsultationBot() {
                 이용 안내
               </button>
             </nav>
-            <p>찐청소 · 선택 내용은 전송·저장되지 않습니다</p>
+            <p>찐청소 · 선택 내용은 자동 전송되지 않습니다. 상담 내용 이메일로 보내기를 누르면 찐청소로 전달됩니다.</p>
           </footer>
         </div>
       </div>

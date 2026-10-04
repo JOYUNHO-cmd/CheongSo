@@ -33,15 +33,15 @@ export default function TrustFeatures() {
       {features.map((feature) => (
         <div
           key={feature.title}
-          className="group rounded-2xl border border-gray-100 bg-white px-2.5 py-4 shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-lg sm:p-5 md:p-8"
+          className="group min-w-0 rounded-2xl border border-gray-100 bg-white px-2.5 py-4 shadow-sm transition-all hover:-translate-y-1 hover:border-brand hover:shadow-lg sm:p-5 md:p-8"
         >
           <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-light text-brand transition-all group-hover:bg-brand group-hover:text-white md:mb-6 md:h-16 md:w-16">
             <feature.icon className="h-6 w-6 md:h-8 md:w-8" strokeWidth={2.5} />
           </div>
           <h3 className="mb-2 text-sm font-extrabold text-gray-900 md:mb-3 md:text-lg">{feature.title}</h3>
           <p className="text-[11.5px] min-[360px]:text-[12px] leading-snug text-gray-600 sm:text-[13px] md:text-sm md:leading-relaxed">
-            <span className="block whitespace-nowrap tracking-tight">{feature.line1}</span>
-            <span className="block mt-0.5 md:mt-1 whitespace-nowrap tracking-tight">{feature.line2}</span>
+            <span className="block break-keep whitespace-normal tracking-tight sm:whitespace-nowrap">{feature.line1}</span>
+            <span className="block mt-0.5 break-keep whitespace-normal tracking-tight sm:whitespace-nowrap md:mt-1">{feature.line2}</span>
           </p>
         </div>
       ))}

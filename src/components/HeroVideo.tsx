@@ -8,7 +8,8 @@ interface HeroVideoProps {
 }
 
 const HD_SOURCES = ["/videos/hero-hd.mp4", "/videos/hero-web.mp4"];
-const MOBILE_SOURCES = ["/videos/hero-web.mp4", "/videos/hero-hd.mp4"];
+// 원본 전체 장면과 화면비를 유지한 모바일 전용 인코딩을 먼저 사용합니다.
+const MOBILE_SOURCES = ["/videos/hero-mobile.mp4", "/videos/hero-web.mp4"];
 
 function BackgroundVideo({ objectPositionClass, sources, media = "all", inline = false }: {
   objectPositionClass: string;
@@ -17,7 +18,30 @@ function BackgroundVideo({ objectPositionClass, sources, media = "all", inline =
   inline?: boolean;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [readyToPlay, setReadyToPlay] = useState(false);
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    let timer: number | undefined;
+    let idle: number | undefined;
+    // 먼저 포스터와 본문을 표시한 뒤 장식 영상을 내려받습니다.
+    const prepare = () => {
+      timer = window.setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          idle = window.requestIdleCallback(() => setReadyToPlay(true), { timeout: 2000 });
+        } else {
+          setReadyToPlay(true);
+        }
+      }, 500);
+    };
+    if (document.readyState === "complete") prepare();
+    else window.addEventListener("load", prepare, { once: true });
+    return () => {
+      window.removeEventListener("load", prepare);
+      if (timer !== undefined) window.clearTimeout(timer);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+    };
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -47,7 +71,7 @@ function BackgroundVideo({ objectPositionClass, sources, media = "all", inline =
     if (!video) return;
     // 숨김 영상의 다운로드와 디코딩을 중단합니다. 포스터와 기존 크롭은 유지됩니다.
     video.load();
-    if (!active) return;
+    if (!active || !readyToPlay) return;
     const play = () => { void video.play().catch(() => {}); };
     play();
     window.addEventListener("pointerdown", play, { once: true });
@@ -57,21 +81,21 @@ function BackgroundVideo({ objectPositionClass, sources, media = "all", inline =
       window.removeEventListener("pointerdown", play);
       window.removeEventListener("keydown", play);
     };
-  }, [active]);
+  }, [active, readyToPlay]);
 
   return (
     <video
       ref={videoRef}
       className={`${inline ? "w-full aspect-video" : "absolute inset-0 h-full w-full scale-[1.01] contrast-[1.04] brightness-[1.02]"} object-cover pointer-events-none ${objectPositionClass}`}
       poster="/videos/hero-poster.jpg"
-      autoPlay={active}
+      autoPlay={active && readyToPlay}
       muted
       loop
       playsInline
       preload="none"
       aria-hidden="true"
     >
-      {active && sources.map((src) => <source key={src} src={src} type="video/mp4" />)}
+      {active && readyToPlay && sources.map((src) => <source key={src} src={src} type="video/mp4" />)}
     </video>
   );
 }
@@ -93,13 +117,8 @@ export default function HeroVideo({ mode = "background", className = "" }: HeroV
   }
   return (
     <>
-      <div className="grid h-full w-full grid-cols-2 md:hidden">
-        <div className="relative h-full w-full overflow-hidden">
-          <BackgroundVideo objectPositionClass="object-[20%_35%]" sources={MOBILE_SOURCES} media="(max-width: 767px)" />
-        </div>
-        <div className="relative h-full w-full overflow-hidden">
-          <BackgroundVideo objectPositionClass="object-[80%_35%]" sources={MOBILE_SOURCES} media="(max-width: 767px)" />
-        </div>
+      <div className="relative h-full w-full overflow-hidden md:hidden">
+        <BackgroundVideo objectPositionClass="object-[center_35%]" sources={MOBILE_SOURCES} media="(max-width: 767px)" />
       </div>
       <div className="relative hidden h-full w-full md:block">
         <BackgroundVideo objectPositionClass={className || "object-[center_35%]"} sources={HD_SOURCES} media="(min-width: 768px)" />

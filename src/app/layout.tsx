@@ -8,7 +8,6 @@ import MobileQuickContact from "@/components/MobileQuickContact";
 import { siteUrl, absoluteUrl } from "@/lib/site-url";
 import { siteConfig } from "@/lib/site-config";
 import { defaultOgImage } from "@/lib/seo";
-import { regionalPages } from "@/lib/regional-pages";
 
 // 한 패밀리 안에서 본문과 제목 굵기를 선택합니다. 분리하면 본문에도 700이 적용됩니다.
 const notoSansKr = Noto_Sans_KR({
@@ -93,10 +92,8 @@ const organizationStructuredData = {
   telephone: siteConfig.phoneRaw,
   email: siteConfig.email,
   address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "KR" },
-  areaServed: [
-    ...[...new Set(regionalPages.map(p => p.region.split("-")[0]))].map(name => ({ "@type": "AdministrativeArea", name })),
-    ...[...new Set(regionalPages.map(p => { const [province, city] = p.region.split("-"); return province === "경기도" ? city : `${province} ${city}`; }))].sort().map(name => ({ "@type": "City", name })),
-  ],
+  // 과거 사례의 위치만으로 현재 업체 전체의 출동 가능 지역을 추정하지 않습니다.
+  // 업체 차원의 areaServed는 실제 상담 가능 범위를 별도로 확인한 뒤 추가합니다.
   identifier: { "@type": "PropertyValue", propertyID: "사업자등록번호", value: siteConfig.businessNumber },
   founder: siteConfig.ceo ? { "@type": "Person", name: siteConfig.ceo } : undefined,
   sameAs: [siteConfig.kakaoUrl, siteConfig.naverPlaceUrl].filter(Boolean),

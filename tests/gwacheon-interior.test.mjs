@@ -22,6 +22,10 @@ test('Gwacheon interior page exposes the confirmed pub case, photos, navigation 
     '/주방청소/', '/후드청소/', '/냄새-악취-제거/', '/외창청소/', '/폐기물처리/', '/정기청소/',
   ]);
   assert.ok(doc.body.textContent.includes('실내 구역의 바닥청소'));
+  const odorLink = doc.querySelector('#related a[href="/냄새-악취-제거/"]');
+  assert.ok(odorLink, 'related odor service uses its published URL');
+  assert.equal(doc.querySelector('#related a[href="/냄새악취제거/"]'), null);
+  assert.equal((await fetch(base + encodeURI(odorLink.getAttribute('href')))).status, 200);
 
   const items = [...doc.querySelectorAll('#faq details')];
   assert.equal(items.length, 6);

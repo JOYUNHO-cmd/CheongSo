@@ -205,7 +205,7 @@ export default function RegionalWaxCaseLanding({ region }: { region: string }) {
         <section id="local"><h2>{item.shortRegion} 바닥왁스코팅 상담 준비</h2><ReadingParagraph>{item.region} 내 정확한 주소와 건물 층수, 주차와 승강기 이용 조건을 알려주세요. 장비 반입 가능 시간과 물 사용 조건도 함께 확인합니다.</ReadingParagraph><ReadingParagraph>바닥 전체가 보이는 사진, 오염과 기존 피막의 근접 사진, 모서리와 집기 아래 사진을 나누어 보내주세요. 마지막 이용 시간과 다음 보행·영업·출근 시간을 알려주시면 건조 시간을 포함해 일정을 검토할 수 있습니다.</ReadingParagraph><ReadingParagraph>이 글에는 {item.shortRegion} 현장에서 촬영한 사진과 작업 기록을 사용했습니다. 다른 지역이나 다른 바닥에는 현장 조건을 다시 확인합니다.</ReadingParagraph><BackToContents /></section>
 
         <section id="faq"><h2>{item.shortRegion} 바닥왁스코팅 자주 묻는 질문</h2>{faq.map(([question, answer]) => <details key={question}><summary>{question}</summary><ReadingParagraph>{answer}</ReadingParagraph></details>)}<BackToContents /></section>
-        <section id="related"><h2>함께 살펴보기</h2><ul><li><Link href="/바닥-왁스-코팅/">바닥왁스코팅 전체 안내 →</Link></li><li><Link href="/바닥청소/">바닥청소 범위와 견적 조건 →</Link></li><li><Link href="/바닥본드제거/">바닥본드제거 안내 →</Link></li><li><Link href="/사무실청소/">사무실청소 안내 →</Link></li></ul><ReadingParagraph><strong>청소는 찐하게, 견적은 이유 있게.</strong></ReadingParagraph><Link href="/contact/">{item.shortRegion} 바닥왁스코팅 견적 문의 →</Link><BackToContents /></section>
+        <section id="related"><h2>함께 살펴보기</h2><ul><li><Link href="/바닥-왁스-코팅/">바닥왁스코팅 전체 안내 →</Link></li><li><Link href="/바닥청소/">바닥청소 범위와 견적 조건 →</Link></li><li><Link href="/바닥-본드-제거/">바닥본드제거 안내 →</Link></li><li><Link href="/사무실청소/">사무실청소 안내 →</Link></li></ul><ReadingParagraph><strong>청소는 찐하게, 견적은 이유 있게.</strong></ReadingParagraph><Link href="/contact/">{item.shortRegion} 바닥왁스코팅 견적 문의 →</Link><BackToContents /></section>
       </div>
     </div>
   </article>;

@@ -25,7 +25,7 @@ export default function SectionHeading({
       <Heading
         className={`${eyebrow ? "mt-2" : ""} ${
           titleClassName || "text-[15.5px] min-[360px]:text-[16.5px] min-[390px]:text-[18px] sm:text-2xl md:text-3xl"
-        } font-black tracking-tight whitespace-nowrap sm:whitespace-normal ${light ? "text-white" : "text-gray-900"}`}
+        } min-w-0 break-keep font-black tracking-tight whitespace-normal ${light ? "text-white" : "text-gray-900"}`}
       >
         {title}
       </Heading>
