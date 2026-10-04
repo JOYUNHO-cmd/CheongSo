@@ -407,6 +407,11 @@ export default function SchoolCleaningLanding() {
             )}
             <ServicePhotoLinks path={path} />
             <p className="mt-4"><Link href="/학교청소/경기도-용인시/" className="font-bold text-brand-dark underline underline-offset-4">용인 초등학교 교실 학교청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/학교청소/경기도-수원시/" className="font-bold text-brand-dark underline underline-offset-4">수원 초등학교 창틀·복도 학교청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/학교청소/경기도-하남시/" className="font-bold text-brand-dark underline underline-offset-4">하남 중학교 교실 학교청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/학교청소/경기도-안산시/" className="font-bold text-brand-dark underline underline-offset-4">안산 중학교 교실·복도 학교청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/학교청소/경기도-파주시/" className="font-bold text-brand-dark underline underline-offset-4">파주 고등학교 복도·계단 학교청소 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/학교청소/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 병설유치원 학교청소 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 

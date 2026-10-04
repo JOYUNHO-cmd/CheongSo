@@ -341,6 +341,10 @@ export default function MoldRemovalLanding() {
             <p className="mt-2"><Link href="/곰팡이제거/경기도-성남시-분당구/" className="font-bold text-brand-dark underline underline-offset-4">분당 주택 수납장 곰팡이제거 사례 보기 →</Link></p>
             <p className="mt-2"><Link href="/곰팡이제거/경기도-안양시/" className="font-bold text-brand-dark underline underline-offset-4">안양 주택 바닥 곰팡이제거 사례 보기 →</Link></p>
             <p className="mt-2"><Link href="/곰팡이제거/경기도-용인시/" className="font-bold text-brand-dark underline underline-offset-4">용인 베란다 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/경기도-군포시/" className="font-bold text-brand-dark underline underline-offset-4">군포 산본 베란다 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/서울특별시-양천구/" className="font-bold text-brand-dark underline underline-offset-4">서울 양천구 벽면 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/서울특별시-송파구/" className="font-bold text-brand-dark underline underline-offset-4">서울 송파구 잠실 벽면·천장 곰팡이제거 사례 보기 →</Link></p>
+            <p className="mt-2"><Link href="/곰팡이제거/서울특별시-관악구/" className="font-bold text-brand-dark underline underline-offset-4">서울 관악구 스튜디오 곰팡이제거 사례 보기 →</Link></p>
           <BackToContents />
           </section>
 

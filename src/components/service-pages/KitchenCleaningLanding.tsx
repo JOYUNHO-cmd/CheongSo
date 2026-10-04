@@ -479,6 +479,8 @@ export default function KitchenCleaningLanding() {
           <ReadingParagraph className="mt-2"><Link href="/주방청소/서울특별시-서초구/" className="font-bold text-brand-dark underline underline-offset-4">서울 서초구 소형 매장 주방청소 사례 보기 →</Link></ReadingParagraph>
           <ReadingParagraph className="mt-2"><Link href="/주방청소/서울특별시-영등포구/" className="font-bold text-brand-dark underline underline-offset-4">서울 영등포구 음식점 퇴거 주방청소 사례 보기 →</Link></ReadingParagraph>
           <ReadingParagraph className="mt-2"><Link href="/주방청소/인천광역시-미추홀구/" className="font-bold text-brand-dark underline underline-offset-4">인천 미추홀구 음식점 홀·주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-안산시/" className="font-bold text-brand-dark underline underline-offset-4">안산 배달 음식점 주방청소 사례 보기 →</Link></ReadingParagraph>
+          <ReadingParagraph className="mt-2"><Link href="/주방청소/경기도-이천시/" className="font-bold text-brand-dark underline underline-offset-4">이천 분식집 주방청소 사례 보기 →</Link></ReadingParagraph>
           <BackToTopButton />
         </div>
       </div>
