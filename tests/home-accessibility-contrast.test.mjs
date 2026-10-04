@@ -45,6 +45,22 @@ test('readable teal token meets normal-text contrast while the decorative brand 
   }
 });
 
+test('desktop header notice and telephone action use readable teal while keeping the text and link', () => {
+  const header = elements('src/components/Header.tsx');
+  const notice = header.find(node => node.tag === 'span' && node.text.includes('전국 24시간 긴급 청소·시공 출동망 운영'));
+  assert.equal(notice.attrs.className, 'inline-flex items-center gap-1.5 font-bold text-brand-readable');
+  assert.ok(notice.text.includes('rounded-full bg-brand animate-pulse'), 'the decorative status dot keeps its original brand color');
+
+  const telephone = header.find(node => node.tag === 'a' && node.attrs['aria-label']?.includes('24시 빠른 전화상담'));
+  assert.ok(telephone.attrs.className.includes('bg-brand-readable'));
+  assert.ok(telephone.attrs.className.includes('sm:inline-flex'));
+  assert.equal(telephone.attrs.href, '{`tel:${siteConfig.phoneRaw}`}');
+  assert.equal(telephone.attrs['aria-label'], '{`24시 빠른 전화상담 ${siteConfig.phone}`}');
+  assert.ok(telephone.text.includes('24시 빠른 전화상담'));
+  assert.ok(telephone.text.includes('{siteConfig.phone}'));
+  assert.ok(telephone.attrs.className.includes('hover:bg-brand-dark'));
+});
+
 test('reported navigation and contact controls use readable teal without changing their destinations', () => {
   const header = elements('src/components/Header.tsx').find(node => node.attrs.id === 'mobile-all-menu-btn');
   assert.ok(header.attrs.className.includes('bg-brand-readable'));

@@ -42,20 +42,20 @@ function fontCalls() {
   return calls;
 }
 
-test('inline CSS applies in production without enabling local-only worker settings on Vercel', () => {
+test('production keeps cacheable external CSS and does not enable local-only worker settings on Vercel', () => {
   for (const env of [{}, { VERCEL: '1' }, { VERCEL: '1', CHEONGSO_LOCAL_WORKER_THREADS: '0' }]) {
     const actual = config(env);
-    assert.equal(actual.experimental.inlineCss, true);
-    assert.equal(actual.experimental.workerThreads, undefined);
-    assert.equal(actual.experimental.useTypeScriptCli, undefined);
-    assert.equal(actual.experimental.cpus, undefined);
+    assert.notEqual(actual.experimental?.inlineCss, true);
+    assert.equal(actual.experimental?.workerThreads, undefined);
+    assert.equal(actual.experimental?.useTypeScriptCli, undefined);
+    assert.equal(actual.experimental?.cpus, undefined);
     assert.notEqual(actual.typescript?.ignoreBuildErrors, true);
     assert.equal(actual.trailingSlash, true);
     assert.equal(actual.images.unoptimized, true);
     assert.equal(actual.output, env.VERCEL ? undefined : 'standalone');
   }
   const local = config({ CHEONGSO_LOCAL_WORKER_THREADS: '1' });
-  assert.equal(local.experimental.inlineCss, true);
+  assert.notEqual(local.experimental.inlineCss, true);
   assert.equal(local.experimental.workerThreads, true);
   assert.equal(local.experimental.useTypeScriptCli, false);
   assert.equal(local.experimental.cpus, 2);
@@ -114,39 +114,38 @@ test('font optimization preserves the original CSS family variables and fallback
 
 // Run after the production build, not against next dev or stale build output:
 // CHEONGSO_VERIFY_CRITICAL_BUILD=1 node --test tests/critical-styles.test.mjs
-// inlineCss deliberately duplicates CSS in SSR and RSC on first load. This
-// check compares the SSR copy with the emitted CSS rather than forbidding that
-// documented duplication or claiming an unmeasured Lighthouse improvement.
-test('production SSR includes the emitted CSS unchanged, with reachable fonts and no blocking CSS links', {
+// inlineCss was removed after measured SSR/RSC duplication substantially grew
+// this site's first-response HTML without a confirmed performance benefit.
+// Keep the variable-font improvement and independently cacheable CSS instead.
+test('production SSR links to emitted CSS with variable fonts and reachable font files', {
   skip: process.env.CHEONGSO_VERIFY_CRITICAL_BUILD !== '1' ? 'enable CHEONGSO_VERIFY_CRITICAL_BUILD=1 after a fresh production build' : false,
 }, async t => {
   const requiredFiles = JSON.parse(read('.next/required-server-files.json'));
-  assert.equal(requiredFiles.config.experimental.inlineCss, true, 'stale or non-inline production build');
+  assert.notEqual(requiredFiles.config.experimental.inlineCss, true, 'stale inline-CSS production build');
   for (const page of ['index.html', 'services.html', '바닥-왁스-코팅/경기도-안양시.html', '인테리어청소/경기도-과천시.html']) {
     await t.test(page, () => {
       const html = read(`.next/server/app/${page}`);
       const dom = new JSDOM(html);
       try {
         const document = dom.window.document;
-        assert.equal(document.querySelectorAll('link[rel="stylesheet"][href*="/_next/"]').length, 0, 'first-load CSS must be inline');
-        const styles = [...document.querySelectorAll('style[data-href][data-precedence="next"]')];
-        assert.ok(styles.length > 0, 'production SSR must contain the actual CSS, not an empty placeholder');
+        assert.equal(document.querySelectorAll('style[data-href][data-precedence="next"]').length, 0, 'built CSS must not be duplicated inline in SSR');
+        const links = [...document.querySelectorAll('link[rel="stylesheet"][href*="/_next/"]')];
+        assert.ok(links.length > 0, 'production SSR must link to its emitted stylesheets');
+        const pageUrl = `https://www.cheongso.co.kr${page === 'index.html' ? '/' : `/${page.slice(0, -'.html'.length)}/`}`;
         const seen = new Set();
-        const cssText = styles.map(style => {
-          // React combines adjacent resources with the same precedence into one
-          // style tag. Its data-href lists their URLs in their concatenation order.
-          const hrefs = style.getAttribute('data-href').split(/\s+/).filter(Boolean);
-          assert.ok(hrefs.length > 0, 'an inline resource must identify its CSS files');
-          const emittedCss = hrefs.map(href => {
-            assert.ok(!seen.has(href), `duplicate SSR style resource: ${href}`);
-            seen.add(href);
-            const pathname = new URL(href, 'https://www.cheongso.co.kr/').pathname;
-            assert.ok(pathname.startsWith('/_next/static/') && pathname.endsWith('.css'), `unexpected CSS resource: ${pathname}`);
-            return read(`.next/${decodeURIComponent(pathname.slice('/_next/'.length))}`);
-          }).join('');
-          assert.ok(style.textContent === emittedCss, `SSR CSS changed for ${hrefs.length} resources: ${hrefs.join(', ')}`);
-          return style.textContent;
-        }).join('\n');
+        const resources = links.map(link => {
+          const href = link.getAttribute('href');
+          assert.ok(!seen.has(href), `duplicate stylesheet resource: ${href}`);
+          seen.add(href);
+          const url = new URL(href, pageUrl);
+          assert.ok(url.pathname.startsWith('/_next/static/') && url.pathname.endsWith('.css'), `unexpected CSS resource: ${url.pathname}`);
+          const path = resolve(root, '.next', decodeURIComponent(url.pathname.slice('/_next/'.length)));
+          assert.ok(existsSync(path), `missing emitted stylesheet: ${url.pathname}`);
+          const content = readFileSync(path, 'utf8');
+          assert.ok(content.trim().length > 0, `empty emitted stylesheet: ${url.pathname}`);
+          return { url, content };
+        });
+        const cssText = resources.map(resource => resource.content).join('\n');
 
         const faces = [...cssText.matchAll(/@font-face\s*\{[^}]*\}/g)].map(match => match[0]);
         const notoFaces = faces.filter(face => /font-family:\s*["']?Noto Sans KR["']?;/.test(face));
@@ -163,13 +162,20 @@ test('production SSR includes the emitted CSS unchanged, with reachable fonts an
 
         const fontPreloads = [...document.querySelectorAll('link[rel="preload"][as="font"]')];
         assert.equal(fontPreloads.length, 1, 'only the body font latin subset should be preloaded');
-        const pageUrl = `https://www.cheongso.co.kr${page === 'index.html' ? '/' : `/${page.slice(0, -'.html'.length)}/`}`;
-        for (const match of cssText.matchAll(/url\((?:["']?)([^\s)'";]+)(?:["']?)\)/g)) {
-          if (!/\.woff2(?:[?#]|$)/.test(match[1])) continue;
-          const pathname = new URL(match[1], pageUrl).pathname;
-          assert.ok(pathname.startsWith('/_next/static/media/'), `inline font URL must resolve on the nested page too: ${match[1]}`);
-          assert.ok(existsSync(resolve(root, '.next', pathname.slice('/_next/'.length))), `missing emitted font: ${pathname}`);
+        const resolvedFonts = new Set();
+        for (const resource of resources) {
+          for (const match of resource.content.matchAll(/url\((?:["']?)([^\s)'";]+)(?:["']?)\)/g)) {
+            if (!/\.woff2(?:[?#]|$)/.test(match[1])) continue;
+            // External CSS resolves relative font URLs against its own URL,
+            // not the document URL, including on nested Korean service paths.
+            const pathname = new URL(match[1], resource.url).pathname;
+            assert.ok(pathname.startsWith('/_next/static/media/'), `font URL must resolve to a self-hosted asset: ${match[1]}`);
+            assert.ok(existsSync(resolve(root, '.next', decodeURIComponent(pathname.slice('/_next/'.length)))), `missing emitted font: ${pathname}`);
+            resolvedFonts.add(pathname);
+          }
         }
+        const preloadPath = new URL(fontPreloads[0].getAttribute('href'), pageUrl).pathname;
+        assert.ok(resolvedFonts.has(preloadPath), 'the preloaded font must be used by the emitted CSS');
       } finally {
         dom.window.close();
       }

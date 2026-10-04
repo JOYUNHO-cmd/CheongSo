@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   output: process.env.VERCEL ? undefined : "standalone",
   trailingSlash: true,
   experimental: {
-    // 첫 방문에 스타일 추가 요청을 기다리지 않도록 기존 CSS를 HTML과 함께 제공합니다.
-    // 스타일 내용은 같으며, 다음 페이지 클라이언트 이동은 Next의 캐시를 사용합니다.
-    inlineCss: true,
     // 프로세스 생성이 제한된 로컬 검증 환경에서만 스레드 워커를 사용합니다.
     // Vercel의 기본 워커 설정과 타입 검사는 변경하지 않습니다.
     ...(process.env.CHEONGSO_LOCAL_WORKER_THREADS === "1" ? {

@@ -174,7 +174,7 @@ export default function Header() {
         <div className="hidden border-b border-gray-100 bg-gray-50/90 md:block">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-1.5 text-xs text-gray-500">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 font-bold text-brand">
+              <span className="inline-flex items-center gap-1.5 font-bold text-brand-readable">
                 <span className="inline-block h-2 w-2 rounded-full bg-brand animate-pulse" />
                 전국 24시간 긴급 청소·시공 출동망 운영
               </span>
@@ -232,7 +232,7 @@ export default function Header() {
               {siteConfig.phoneRaw && (
                 <a
                   href={`tel:${siteConfig.phoneRaw}`}
-                  className="group hidden whitespace-nowrap rounded-full bg-brand px-2.5 py-1 md:px-2 md:py-1 md:gap-1 lg:px-3.5 lg:py-1.5 lg:gap-2 xl:px-4.5 xl:py-2 xl:gap-2.5 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center select-none"
+                  className="group hidden whitespace-nowrap rounded-full bg-brand-readable px-2.5 py-1 md:px-2 md:py-1 md:gap-1 lg:px-3.5 lg:py-1.5 lg:gap-2 xl:px-4.5 xl:py-2 xl:gap-2.5 text-white shadow-sm transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-md active:scale-95 cursor-pointer sm:inline-flex items-center select-none"
                   aria-label={`24시 빠른 전화상담 ${siteConfig.phone}`}
                 >
                   <span className="shrink-0 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-12">
