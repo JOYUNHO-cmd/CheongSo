@@ -19,7 +19,7 @@ export default function Certifications() {
             aria-label={`${cert.title} 자격증 크게 보기`}
           >
             <div className="relative mb-2 aspect-[3/4] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all group-hover:border-brand group-hover:shadow-lg">
-              <Image src={cert.image} alt={cert.title} fill className="object-cover" sizes="150px" />
+              <Image src={cert.image} alt={`${cert.title} 자격증 자료`} fill className="object-cover" sizes="150px" />
             </div>
             <p className="text-[11px] font-bold leading-tight text-gray-700 md:text-sm">{cert.title}</p>
           </button>
@@ -42,7 +42,7 @@ export default function Certifications() {
           <div className="flex max-h-full flex-col items-center gap-4" onClick={(e) => e.stopPropagation()}>
             <Image
               src={certifications[openIdx].image}
-              alt={certifications[openIdx].title}
+              alt={`${certifications[openIdx].title} 자격증 자료`}
               width={800}
               height={1100}
               className="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl object-contain"

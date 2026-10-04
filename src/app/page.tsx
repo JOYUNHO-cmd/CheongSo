@@ -86,7 +86,7 @@ export default function Home() {
           <div className="mt-6 sm:mt-12 flex items-center justify-center">
             <Link
               href="/contact"
-              className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-brand px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-2xl font-extrabold text-white shadow-[0_10px_35px_rgba(13,148,136,0.6)] transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-[0_15px_45px_rgba(13,148,136,0.8)] active:scale-95 cursor-pointer"
+              className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-brand-readable px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-2xl font-extrabold text-white shadow-[0_10px_35px_rgba(13,148,136,0.6)] transition-all duration-200 hover:scale-105 hover:bg-brand-dark hover:shadow-[0_15px_45px_rgba(13,148,136,0.8)] active:scale-95 cursor-pointer"
             >
               <span>무료견적신청</span>
               <svg
@@ -253,7 +253,7 @@ export default function Home() {
         <div className="mt-8 flex justify-center md:hidden">
           <Link
             href="/services"
-            className="flex items-center gap-2 rounded-2xl bg-brand px-6 py-3.5 text-sm font-extrabold text-white shadow-md active:scale-95 hover:bg-brand-dark cursor-pointer touch-manipulation select-none"
+            className="flex items-center gap-2 rounded-2xl bg-brand-readable px-6 py-3.5 text-sm font-extrabold text-white shadow-md active:scale-95 hover:bg-brand-dark cursor-pointer touch-manipulation select-none"
           >
             <span>📋 {totalServiceCount}개 전체 서비스 세부목록 보기</span>
             <svg className="h-4 w-4 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

@@ -26,7 +26,7 @@ export default function SafetyCertifications() {
             <div className="border-t border-gray-100 px-4 py-3.5">
               <p className="text-sm font-bold text-gray-900 group-hover:text-brand-dark sm:text-base">{doc.title}</p>
               <p className="mt-1 text-xs text-gray-500 sm:text-sm">{doc.description}</p>
-              <span className="mt-2 inline-block text-xs font-bold text-brand">문서 크게 보기 →</span>
+              <span className="mt-2 inline-block text-xs font-bold text-brand-readable">문서 크게 보기 →</span>
             </div>
           </button>
         ))}

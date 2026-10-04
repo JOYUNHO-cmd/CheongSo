@@ -37,7 +37,7 @@ export default function PricingTransparency() {
         ))}
       </dl>
       <p className="mt-6 text-center">
-        <Link href="/pricing/" className="font-bold text-brand">
+        <Link href="/pricing/" className="font-bold text-brand-readable">
           서비스별 견적 기준 확인 →
         </Link>
       </p>

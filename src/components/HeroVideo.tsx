@@ -8,8 +8,8 @@ interface HeroVideoProps {
 }
 
 const HD_SOURCES = ["/videos/hero-hd.mp4", "/videos/hero-web.mp4"];
-// 원본 전체 장면과 화면비를 유지한 모바일 전용 인코딩을 먼저 사용합니다.
-const MOBILE_SOURCES = ["/videos/hero-mobile.mp4", "/videos/hero-web.mp4"];
+// 모바일은 검증한 경량 영상만 사용합니다. 재생할 수 없으면 기존 포스터를 유지합니다.
+const MOBILE_SOURCES = ["/videos/hero-mobile.mp4"];
 
 function BackgroundVideo({ objectPositionClass, sources, media = "all", inline = false }: {
   objectPositionClass: string;
@@ -69,9 +69,14 @@ function BackgroundVideo({ objectPositionClass, sources, media = "all", inline =
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    // 숨김 영상의 다운로드와 디코딩을 중단합니다. 포스터와 기존 크롭은 유지됩니다.
-    video.load();
-    if (!active || !readyToPlay) return;
+    if (!active || !readyToPlay) {
+      // source를 제거한 비활성 영상만 초기화해 숨김 영상의 다운로드를 중단합니다.
+      video.pause();
+      video.load();
+      return;
+    }
+    // source를 삽입한 직후 load()를 반복하면 진행 중인 선택·다운로드가 초기화됩니다.
+    // 활성 영상은 브라우저의 source 선택을 그대로 두고 재생만 요청합니다.
     const play = () => { void video.play().catch(() => {}); };
     play();
     window.addEventListener("pointerdown", play, { once: true });

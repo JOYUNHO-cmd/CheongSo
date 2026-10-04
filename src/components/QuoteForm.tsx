@@ -44,7 +44,7 @@ export default function QuoteForm() {
         </p>
         <a
           href={`tel:${siteConfig.phoneRaw}`}
-          className="mt-4 flex items-center justify-center gap-1.5 rounded-xl bg-brand px-3 py-2 font-black text-white shadow-sm transition-transform hover:scale-[1.02] active:scale-95 sm:gap-2 sm:px-4 sm:py-3 sm:text-base"
+          className="mt-4 flex items-center justify-center gap-1.5 rounded-xl bg-brand-readable px-3 py-2 font-black text-white shadow-sm transition-transform hover:scale-[1.02] active:scale-95 sm:gap-2 sm:px-4 sm:py-3 sm:text-base"
         >
           <Phone className="h-[clamp(10px,3.2vw,13px)] w-[clamp(10px,3.2vw,13px)] shrink-0 sm:h-5 sm:w-5" strokeWidth={2.6} />
           <span className="whitespace-nowrap text-[clamp(10px,3.2vw,13px)] sm:text-base">긴급 상황시 {siteConfig.phone}(빠른연결)</span>
@@ -123,7 +123,7 @@ export default function QuoteForm() {
       </label>
 
       <button
-        className="rounded-full bg-brand px-6 py-3 font-bold text-white hover:bg-brand-dark disabled:opacity-60"
+        className="rounded-full bg-brand-readable px-6 py-3 font-bold text-white hover:bg-brand-dark disabled:opacity-60"
         type="submit"
         disabled={status === "sending"}
       >

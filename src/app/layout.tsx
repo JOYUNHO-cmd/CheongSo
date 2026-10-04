@@ -13,7 +13,8 @@ import { defaultOgImage } from "@/lib/seo";
 const notoSansKr = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  // 같은 가변 폰트의 굵기별 중복 @font-face를 줄이고 기존 400~900 굵기를 유지합니다.
+  weight: "variable",
   display: "swap",
 });
 

@@ -40,7 +40,7 @@ export default function FaqAccordion() {
             onClick={() => selectCategory(cat.categoryName)}
             className={`rounded-full px-4 py-2 text-sm font-bold transition-all cursor-pointer ${
               activeCategory === cat.categoryName
-                ? "bg-brand text-white shadow-md"
+                ? "bg-brand-readable text-white shadow-md"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >

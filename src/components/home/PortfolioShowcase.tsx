@@ -141,7 +141,7 @@ export default function PortfolioShowcase() {
           type="button"
           onClick={() => selectFilter("all")}
           className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-extrabold transition-all sm:text-sm ${
-            activeFilter === "all" ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+            activeFilter === "all" ? "bg-brand-readable text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-readable"
           }`}
         >
           전체
@@ -152,7 +152,7 @@ export default function PortfolioShowcase() {
             type="button"
             onClick={() => selectFilter(cat.slug)}
             className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-extrabold transition-all sm:text-sm ${
-              activeFilter === cat.slug ? "bg-brand text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand"
+              activeFilter === cat.slug ? "bg-brand-readable text-white shadow-sm" : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-brand-readable"
             }`}
           >
             {cat.title}

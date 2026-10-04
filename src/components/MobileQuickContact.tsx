@@ -19,7 +19,7 @@ export default function MobileQuickContact() {
         <a
           href={`tel:${siteConfig.phoneRaw}`}
           title="24시 빠른 전화상담 연결"
-          className="group flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1 rounded-xl bg-brand px-1.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark"
+          className="group flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1 rounded-xl bg-brand-readable px-1.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark"
           aria-label={`24시 빠른 전화상담 연결 (${siteConfig.phone})`}
         >
           <Phone
@@ -52,7 +52,7 @@ export default function MobileQuickContact() {
         aria-haspopup="dialog"
         aria-controls="jjin-consultation-dialog"
         onClick={() => window.dispatchEvent(new Event("open-consultation-bot"))}
-        className="group flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1 rounded-xl bg-[#0096a6] px-1.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark"
+        className="group flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1 rounded-xl bg-brand-readable px-1.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-brand-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-dark"
       >
         <Headset className="h-5 w-5 shrink-0" aria-hidden="true" />
         <span className="whitespace-nowrap">자동상담</span>

@@ -22,11 +22,33 @@ test('hero renders only one mobile background playback instance and keeps deskto
   assert.match(source, /active && readyToPlay && sources\.map/);
   assert.match(source, /document\.readyState === "complete"/);
   assert.match(source, /prefers-reduced-motion: reduce/);
-  assert.match(source, /const MOBILE_SOURCES = \["\/videos\/hero-mobile\.mp4", "\/videos\/hero-web\.mp4"\]/);
+  assert.match(source, /const MOBILE_SOURCES = \["\/videos\/hero-mobile\.mp4"\]/);
   assert.match(source, /const HD_SOURCES = \["\/videos\/hero-hd\.mp4", "\/videos\/hero-web\.mp4"\]/);
   const mobileBytes = readFileSync(new URL('../public/videos/hero-mobile.mp4', import.meta.url));
   assert.ok(mobileBytes.length < 2_000_000, '모바일 영상은 2MB 미만이어야 합니다');
   assert.ok(mobileBytes.indexOf(Buffer.from('moov')) < mobileBytes.indexOf(Buffer.from('mdat')), '재생 메타데이터가 영상 데이터 앞에 있어야 합니다');
+});
+
+test('mobile playback has no large-video fallback and active playback is not reset with load()', () => {
+  const source = read('src/components/HeroVideo.tsx');
+  const ast = ts.createSourceFile('HeroVideo.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const videoLoads = [];
+  function visit(node) {
+    if (ts.isCallExpression(node) && node.expression.getText(ast) === 'video.load') videoLoads.push(node);
+    if (ts.isVariableDeclaration(node) && node.name.getText(ast) === 'MOBILE_SOURCES') {
+      assert.ok(ts.isArrayLiteralExpression(node.initializer));
+      assert.deepEqual(node.initializer.elements.map(item => item.text), ['/videos/hero-mobile.mp4']);
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(ast);
+  assert.equal(videoLoads.length, 1);
+  let branch = videoLoads[0].parent;
+  while (branch && !ts.isIfStatement(branch)) branch = branch.parent;
+  assert.ok(branch);
+  assert.equal(branch.expression.getText(ast), '!active || !readyToPlay');
+  assert.match(branch.thenStatement.getText(ast), /video\.pause\(\)/);
+  assert.match(branch.thenStatement.getText(ast), /return;/);
 });
 
 test('consultation dialog and its stylesheet are requested only after opening', () => {

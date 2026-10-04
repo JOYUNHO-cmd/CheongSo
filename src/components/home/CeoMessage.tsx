@@ -17,7 +17,7 @@ export default function CeoMessage() {
           </div>
 
           <div>
-            <p className="mt-5 text-center text-xs font-bold tracking-widest text-brand md:mt-0 md:text-left md:text-sm">
+            <p className="mt-5 text-center text-xs font-bold tracking-widest text-brand-readable md:mt-0 md:text-left md:text-sm">
               CEO MESSAGE
             </p>
 
