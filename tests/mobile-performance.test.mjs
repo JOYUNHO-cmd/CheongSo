@@ -19,7 +19,11 @@ test('hero renders only one mobile background playback instance and keeps deskto
   assert.equal(players.filter(node => /\binline\s*\/>/.test(node)).length, 1);
   assert.match(source, /poster="\/videos\/hero-poster.jpg"/);
   assert.match(source, /preload="none"/);
-  assert.match(source, /active && readyToPlay && sources\.map/);
+  assert.match(source, /shouldPlay && sources\.map/);
+  assert.match(source, /const shouldPlay = active && readyToPlay && \(!waitForInteraction \|\| interacted\)/);
+  const mobilePlayer = players.find(node => node.includes('media="(max-width: 767px)"'));
+  assert.match(mobilePlayer, /\bwaitForInteraction\s*\/>/);
+  assert.ok(players.filter(node => !node.includes('media="(max-width: 767px)"')).every(node => !node.includes('waitForInteraction')));
   assert.match(source, /document\.readyState === "complete"/);
   assert.match(source, /prefers-reduced-motion: reduce/);
   assert.match(source, /const MOBILE_SOURCES = \["\/videos\/hero-mobile\.mp4"\]/);
@@ -46,7 +50,7 @@ test('mobile playback has no large-video fallback and active playback is not res
   let branch = videoLoads[0].parent;
   while (branch && !ts.isIfStatement(branch)) branch = branch.parent;
   assert.ok(branch);
-  assert.equal(branch.expression.getText(ast), '!active || !readyToPlay');
+  assert.equal(branch.expression.getText(ast), '!shouldPlay');
   assert.match(branch.thenStatement.getText(ast), /video\.pause\(\)/);
   assert.match(branch.thenStatement.getText(ast), /return;/);
 });
