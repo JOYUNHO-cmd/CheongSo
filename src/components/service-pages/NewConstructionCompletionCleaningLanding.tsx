@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -244,12 +246,13 @@ export default function NewConstructionCompletionCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>신축준공청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">신축청소부터 준공청소까지, 건물 인계에 필요한 범위를 정합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("신축준공청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>공사가 끝난 건물의 바닥·창틀 분진, 보양재와 마감 잔여물을 확인합니다. 찐청소는 실내 전용 공간과 복도·계단 등 공용부를 나눠 작업 범위를 정하고, 공정 종료와 검수·인계 일정에 맞춰 상담합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("신축준공청소", "공사가 끝난 건물의 바닥·창틀 분진, 보양재와 마감 잔여물을 확인합니다. 찐청소는 실내 전용 공간과 복도·계단 등 공용부를 나눠 작업 범위를 정하고, 공정 종료와 검수·인계 일정에 맞춰 상담합니다.")}</ReadingParagraph>
             <ReadingParagraph>공정표에는 &lsquo;청소&rsquo; 두 글자지만, 실제 작업은 구역별로 꼼꼼하게 나누겠습니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">신축준공청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="신축준공청소" />
         </div>
       </section>
 

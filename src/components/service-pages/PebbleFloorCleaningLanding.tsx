@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -238,12 +240,13 @@ export default function PebbleFloorCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>콩자갈청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">카페·매장 콩자갈청소, 틈새 오염과 바닥 상태를 함께 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("콩자갈청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("콩자갈청소", "콩자갈 틈에 먼지와 음료 오염이 남거나 출입구 주변이 짙어졌나요? 찐청소는 자갈 고정 상태, 기존 마감과 실내외 환경을 확인해 세척 가능한 범위와 마무리 방법을 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>바닥이 예뻐서 선택했는데 청소가 숙제가 됐다면, 현재 상태부터 보여주세요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">콩자갈청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="콩자갈청소" />
         </div>
       </section>
 

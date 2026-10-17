@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -225,11 +227,12 @@ export default function WasteDisposalLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>폐기물처리</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">가구 수거부터 사무실 폐기물까지, 품목과 반출 조건을 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("폐기물처리").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>이사 후 남은 가구나 사무실 정리 중 나온 물품을 처리해야 하나요? 찐청소는 수거 대상과 물량을 확인해 직접 수집·운반하고, 종류에 맞는 협력 처리업체와 연계합니다. 반출 조건과 처리 비용을 구분해 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("폐기물처리", "이사 후 남은 가구나 사무실 정리 중 나온 물품을 처리해야 하나요? 찐청소는 수거 대상과 물량을 확인해 직접 수집·운반하고, 종류에 맞는 협력 처리업체와 연계합니다. 반출 조건과 처리 비용을 구분해 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">폐기물처리 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="폐기물처리" />
         </div>
       </section>
 

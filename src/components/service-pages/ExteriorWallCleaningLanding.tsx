@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -224,12 +226,13 @@ export default function ExteriorWallCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>외벽청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">건물 외벽청소, 재질과 빗물·묵은 오염을 함께 살펴봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("외벽청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>창 아래 검은 줄과 외벽에 쌓인 먼지, 빗물 자국이 남아 있나요? 찐청소는 석재·타일·패널 등 마감재 상태와 건물 높이, 접근 조건을 확인해 작업 가능한 면과 세척 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("외벽청소", "창 아래 검은 줄과 외벽에 쌓인 먼지, 빗물 자국이 남아 있나요? 찐청소는 석재·타일·패널 등 마감재 상태와 건물 높이, 접근 조건을 확인해 작업 가능한 면과 세척 범위를 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>건물도 첫인상이 있으니까요. 묵은 때는 정리하고, 외벽 상태에 맞춰 무리하지 않고 작업하겠습니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">외벽청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="외벽청소" />
         </div>
       </section>
 

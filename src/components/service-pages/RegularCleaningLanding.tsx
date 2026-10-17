@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -242,12 +244,13 @@ export default function RegularCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>정기청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">사무실·상가 정기청소, 구역별 이용량에 맞춰 주기를 정합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("정기청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>사무실 바닥과 휴게 공간, 건물 계단과 화장실처럼 자주 쓰는 구역을 주기적으로 관리합니다. 찐청소는 필요한 인원과 작업 시간, 방문 횟수를 기준으로 매회 작업과 주기별 집중 청소를 나눠 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("정기청소", "사무실 바닥과 휴게 공간, 건물 계단과 화장실처럼 자주 쓰는 구역을 주기적으로 관리합니다. 찐청소는 필요한 인원과 작업 시간, 방문 횟수를 기준으로 매회 작업과 주기별 집중 청소를 나눠 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>직원들끼리 청소 당번 정하는 회의는 줄이고, 본업에 쓸 시간을 늘려보세요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">정기청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="정기청소" />
         </div>
       </section>
 

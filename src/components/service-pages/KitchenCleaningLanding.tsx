@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -227,12 +229,13 @@ export default function KitchenCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>주방청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">식당 주방청소, 바닥·벽면·조리대의 기름때를 구분해 정리합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("주방청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>닦아도 끈적이는 주방 바닥, 조리대와 벽면에 쌓인 기름때가 고민이신가요? 찐청소는 음식점·업소의 주방 구조와 기기 배치, 오염 상태를 확인하고 영업 일정에 맞춰 작업 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("주방청소", "닦아도 끈적이는 주방 바닥, 조리대와 벽면에 쌓인 기름때가 고민이신가요? 찐청소는 음식점·업소의 주방 구조와 기기 배치, 오염 상태를 확인하고 영업 일정에 맞춰 작업 범위를 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>맛을 내는 일도 바쁘신데, 묵은 기름때와 씨름하는 일까지 떠안지 마세요. 어디까지 청소할지부터 분명하게 맞추겠습니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">주방청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="주방청소" />
         </div>
       </section>
 

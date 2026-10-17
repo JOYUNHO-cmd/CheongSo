@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -230,11 +232,12 @@ export default function OdorRemovalLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>냄새악취제거</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">담배·반려동물 냄새, 향으로 덮기 전에 발생 위치부터 살펴봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("냄새악취제거").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>집에 밴 담배 냄새, 강아지·고양이 소변 냄새, 반복되는 실내 악취가 고민이신가요? 찐청소는 냄새가 느껴지는 위치와 오염된 소재, 발생 이력을 확인해 청소와 탈취 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("냄새악취제거", "집에 밴 담배 냄새, 강아지·고양이 소변 냄새, 반복되는 실내 악취가 고민이신가요? 찐청소는 냄새가 느껴지는 위치와 오염된 소재, 발생 이력을 확인해 청소와 탈취 범위를 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">냄새·악취 제거 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="냄새악취제거" />
         </div>
       </section>
 

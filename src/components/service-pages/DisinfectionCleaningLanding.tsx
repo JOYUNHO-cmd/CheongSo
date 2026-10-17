@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -211,11 +213,12 @@ export default function DisinfectionCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>소독&방역</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">공간 소독부터 바퀴벌레·빈대·쥐 방제까지, 대상을 구분합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("소독&방역").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>벌레를 발견한 위치, 반복되는 시간과 공간 용도를 알려주세요. 소독업 신고를 마친 찐청소는 공간·표면 소독과 바퀴벌레·개미·빈대·모기, 쥐 방제를 구분해 상담합니다. 실제 진행한 소독 내용에 따른 소독증명서 발급도 가능합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("소독&방역", "벌레를 발견한 위치, 반복되는 시간과 공간 용도를 알려주세요. 소독업 신고를 마친 찐청소는 공간·표면 소독과 바퀴벌레·개미·빈대·모기, 쥐 방제를 구분해 상담합니다. 실제 진행한 소독 내용에 따른 소독증명서 발급도 가능합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">소독·방역 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="소독&방역" />
         </div>
       </section>
 

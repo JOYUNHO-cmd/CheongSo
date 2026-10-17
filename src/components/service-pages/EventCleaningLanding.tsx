@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -241,12 +243,13 @@ export default function EventCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>행사장청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">외부·공간청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">행사 전 준비부터 종료 후 청소까지, 반납 시간을 함께 맞춥니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("행사장청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>전시장 부스 주변 먼지, 공연장 객석 아래 쓰레기, 취식 구역의 바닥 오염을 구역별로 확인합니다. 찐청소는 행사 전·종료 후 작업과 운영 중 관리 필요 여부를 나눠 상담하고, 철거와 대관 반납 일정에 맞춰 범위를 정합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("행사장청소", "전시장 부스 주변 먼지, 공연장 객석 아래 쓰레기, 취식 구역의 바닥 오염을 구역별로 확인합니다. 찐청소는 행사 전·종료 후 작업과 운영 중 관리 필요 여부를 나눠 상담하고, 철거와 대관 반납 일정에 맞춰 범위를 정합니다.")}</ReadingParagraph>
             <ReadingParagraph>행사의 여운은 남아도, 컵과 포장지까지 남을 필요는 없으니까요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">행사장청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="행사장청소" />
         </div>
       </section>
 

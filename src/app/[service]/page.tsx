@@ -35,14 +35,16 @@ import MoldRemovalLanding from "@/components/service-pages/MoldRemovalLanding";
 import ExteriorWallCleaningLanding from "@/components/service-pages/ExteriorWallCleaningLanding";
 import EventCleaningLanding from "@/components/service-pages/EventCleaningLanding";
 import StoneCleaningLanding from "@/components/service-pages/StoneCleaningLanding";
-import { serviceProfiles, findService, servicePath } from "@/lib/service-profiles";
+import { serviceProfiles, findService, servicePath, normalizeSegment } from "@/lib/service-profiles";
 import { serviceCategories } from "@/lib/services-data";
 import { buildMetadata } from "@/lib/seo";
 import representativeImages from "@/lib/service-representative-images.json";
 import { siteConfig } from "@/lib/site-config";
+import { serviceSearchCopy, specialService } from '@/lib/service-search-copy';
+import ServiceRegionLinks from '@/components/service-pages/ServiceRegionLinks';
 // 목록 밖 주소는 아래 조회에서 404로 처리합니다. 한글 경로도 같은 조회를 거칩니다.
 export const dynamicParams = true;
-export function generateStaticParams() { return serviceProfiles.map(s => ({ service: s.slug })); }
+export function generateStaticParams() { return [...serviceProfiles, specialService].map(s => ({ service: s.slug })); }
 type Props = { params: Promise<{ service: string }> };
 
 // 상세 콘텐츠를 직접 작성한 서비스는 여기서 커스텀 메타데이터/컴포넌트로 분기합니다.
@@ -220,18 +222,17 @@ const customLandingPages: Record<string, { title: string; description: string; c
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const s = findService((await params).service); if (!s) notFound();
-  const custom = customLandingPages[s.name];
-  const title = custom?.title ?? `${s.name} | 작업 범위·견적 안내 | 찐청소`;
-  const description = custom?.description ?? s.intro;
+  const slug = (await params).service;
+  const s = findService(slug) ?? (normalizeSegment(slug) === '특수청소' ? specialService : undefined); if (!s) notFound();
+  const { title, description } = serviceSearchCopy(s);
   const category = serviceCategories.find(c => c.slug === s.category);
   const keywords = [s.name, `${s.name} 가격`, `${s.name} 비용`, `${s.name} 견적`, category?.title, siteConfig.name].filter((v): v is string => !!v);
   const image = (representativeImages as Record<string, { src: string; alt: string; width: number; height: number }>)[s.slug];
   return buildMetadata({ title, description, keywords, path: servicePath(s.name), image });
 }
 export default async function Page({ params }: Props) {
-  const s = findService((await params).service); if (!s) notFound();
+  const slug = (await params).service;
+  const s = findService(slug) ?? (normalizeSegment(slug) === '특수청소' ? specialService : undefined); if (!s) notFound();
   const custom = customLandingPages[s.name];
-  if (custom) return custom.component();
-  return <ServiceLanding service={s} />;
+  return <>{custom ? custom.component() : <ServiceLanding service={s} />}<ServiceRegionLinks service={s.slug} /></>;
 }

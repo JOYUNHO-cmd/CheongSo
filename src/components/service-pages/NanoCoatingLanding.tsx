@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -249,11 +251,12 @@ export default function NanoCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>나노코팅</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">포세린타일 바닥 나노코팅, 얼룩과 기존 마감부터 살펴봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("나노코팅").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("나노코팅", "포세린타일 바닥을 닦아도 발자국과 얼룩이 남아 코팅을 고민하고 계신가요? 찐청소 나노코팅은 포세린타일 바닥 전문입니다. 오염 원인과 기존 코팅, 제품 적합성을 확인해 필요한 세척과 시공 범위를 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">포세린타일 나노코팅 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="나노코팅" />
         </div>
       </section>
 

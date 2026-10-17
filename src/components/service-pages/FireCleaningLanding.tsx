@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -219,11 +221,12 @@ export default function FireCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>화재청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">화재 그을음·냄새 제거부터 철거·복원까지 필요한 순서로</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("화재청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>화재가 난 방이나 주방뿐 아니라 주변 공간에 번진 그을음과 탄 냄새도 함께 확인해야 합니다. 찐청소는 현장 출입과 안전조치가 확인된 뒤 잔여물 수거, 청소, 필요한 철거·복원과 마무리 청소를 연결해 상담합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("화재청소", "화재가 난 방이나 주방뿐 아니라 주변 공간에 번진 그을음과 탄 냄새도 함께 확인해야 합니다. 찐청소는 현장 출입과 안전조치가 확인된 뒤 잔여물 수거, 청소, 필요한 철거·복원과 마무리 청소를 연결해 상담합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">화재청소·복원 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="화재청소" />
         </div>
       </section>
 

@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -214,12 +216,13 @@ export default function HoodCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>후드청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">식당 후드청소, 본체·필터·기름받이 범위를 먼저 확인하세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("후드청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>후드 표면의 끈적임과 필터에 쌓인 기름때, 기름받이 오염을 구분해 살펴봅니다. 찐청소는 업소용 주방 후드의 크기와 구조, 분리 가능한 부품을 확인하고 영업 종료·조리 준비 시간에 맞춰 청소를 상담합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("후드청소", "후드 표면의 끈적임과 필터에 쌓인 기름때, 기름받이 오염을 구분해 살펴봅니다. 찐청소는 업소용 주방 후드의 크기와 구조, 분리 가능한 부품을 확인하고 영업 종료·조리 준비 시간에 맞춰 청소를 상담합니다.")}</ReadingParagraph>
             <ReadingParagraph>메뉴는 다양해도 괜찮지만, 청소 범위까지 헷갈릴 필요는 없으니까요.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">후드청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="후드청소" />
         </div>
       </section>
 

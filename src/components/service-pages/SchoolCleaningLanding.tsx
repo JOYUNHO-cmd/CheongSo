@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -231,11 +233,12 @@ export default function SchoolCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>학교청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">학교 방학 대청소, 교실·복도별로 필요한 작업을 정합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("학교청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>교실 바닥의 묵은 때와 창틀 먼지, 복도·계단과 화장실 오염을 살펴 개학 준비에 필요한 범위를 정합니다. 찐청소는 책걸상 배치, 돌봄·방과후 운영과 교내 공사 일정을 고려해 학교청소를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("학교청소", "교실 바닥의 묵은 때와 창틀 먼지, 복도·계단과 화장실 오염을 살펴 개학 준비에 필요한 범위를 정합니다. 찐청소는 책걸상 배치, 돌봄·방과후 운영과 교내 공사 일정을 고려해 학교청소를 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">학교청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="학교청소" />
         </div>
       </section>
 

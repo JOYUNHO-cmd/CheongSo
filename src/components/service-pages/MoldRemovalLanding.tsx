@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -209,11 +211,12 @@ export default function MoldRemovalLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>곰팡이제거</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">위생·방역케어</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">벽지·베란다 곰팡이제거, 얼룩과 반복되는 습기 문제를 구분합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("곰팡이제거").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>벽지 모서리, 베란다 창 주변이나 천장에 곰팡이가 다시 생기나요? 찐청소는 오염 범위와 마감재 상태, 누수·결로 이력을 확인해 제거 가능한 부분과 교체·보수가 필요한 부분을 나눠 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("곰팡이제거", "벽지 모서리, 베란다 창 주변이나 천장에 곰팡이가 다시 생기나요? 찐청소는 오염 범위와 마감재 상태, 누수·결로 이력을 확인해 제거 가능한 부분과 교체·보수가 필요한 부분을 나눠 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">곰팡이제거 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="곰팡이제거" />
         </div>
       </section>
 

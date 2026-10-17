@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -224,11 +226,12 @@ export default function LegacyItemsCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>유품정리</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">유품정리, 남길 물건과 정리할 공간을 차분히 나눕니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("유품정리").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("유품정리", "고인이 생활하시던 집의 옷과 가구, 서류를 어디서부터 정리해야 할지 고민되실 수 있습니다. 찐청소는 권한 있는 의뢰인과 보관·처리 기준을 정하고, 수거·폐기물 처리·청소·소독·냄새 제거를 함께 진행합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">유품정리 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="유품정리" />
         </div>
       </section>
 

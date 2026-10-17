@@ -1,4 +1,6 @@
 import readability from "./service-pages/Readability.module.css";
+import { serviceSearchCopy } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './service-pages/ServiceRegionLinks';
 import { ReadingParagraph } from "./service-pages/ReadingParagraph";
 import { BackToContents } from "./service-pages/BackToContents";
 import Link from "next/link";
@@ -51,7 +53,7 @@ function RegionalFieldCase({ page, serviceName }: { page: RegionalPage; serviceN
 
 export default function ServiceLanding({ service, regional }: { service: ServiceProfile; regional?: RegionalPage }) {
   const category = serviceCategories.find(c => c.slug === service.category)!;
-  const heading = regional?.heading || service.name;
+  const heading = regional?.heading || serviceSearchCopy(service).heading;
   const path = regional ? regionalPath(regional) : servicePath(service.name);
   const hasRegionalPhotos = regional?.service === "바닥-왁스-코팅" && regional.region === "경기도-안양시";
   const fieldCase = regional?.fieldCase;
@@ -73,7 +75,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
   ];
 
-  const introText = regional?.intro || service.intro;
+  const introText = regional?.intro || serviceSearchCopy(service).intro;
   const introParts = introText.split(". ").filter(Boolean);
 
   return <article className={`${readability.landing} ${readability.enhanced}`}>
@@ -83,7 +85,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
         <nav aria-label="현재 위치" className="mb-8 flex flex-wrap gap-2 text-sm text-white/80"><Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><Link href={servicePath(service.name)}>{service.name}</Link>{regional && <><span>/</span><span>{regional.region.replaceAll("-", " ")}</span></>}</nav>
         <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">{category.title}</ReadingParagraph>
         <h1 className="mt-4 text-3xl font-black md:text-5xl">{heading}</h1>
-        <ReadingParagraph className="mt-5 text-xl font-bold md:text-2xl">{service.headline}</ReadingParagraph>
+        {regional && <ReadingParagraph className="mt-5 text-xl font-bold md:text-2xl">{service.headline}</ReadingParagraph>}
         <div className="mt-5 max-w-3xl text-base sm:text-lg leading-relaxed text-white/90">
           {introParts.length === 2 ? (
             <>
@@ -95,6 +97,7 @@ export default function ServiceLanding({ service, regional }: { service: Service
           )}
         </div>
         <Link href="/contact/" className="mt-8 inline-block rounded-full bg-white px-6 py-3 font-bold text-brand-dark">상담 준비 항목 확인 →</Link>
+        {!regional && <RegionJumpLink service={service.name} />}
         {hasRegionalPhotos && <nav aria-label="안양 바닥왁스코팅 빠른 안내" className="mt-5 flex flex-wrap gap-x-6 gap-y-1">
           <a href="#cases" className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">안양 실제 작업 사진 →</a>
           <a href="#estimate" className="inline-flex min-h-11 items-center font-bold underline underline-offset-4">비용·견적 기준 →</a>

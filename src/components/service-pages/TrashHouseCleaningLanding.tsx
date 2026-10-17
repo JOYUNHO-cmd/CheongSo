@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -223,11 +225,12 @@ export default function TrashHouseCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>쓰레기집청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">쓰레기가 쌓인 원룸·주거 공간, 남길 물건부터 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("쓰레기집청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("쓰레기집청소", "원룸이나 집 안에 쓰레기와 생활용품이 쌓여 어디부터 정리할지 막막하신가요? 찐청소는 보관할 물건을 먼저 확인하고 수거·폐기물 처리·실내 청소(바닥청소 포함)·소독·냄새 제거를 기본으로 진행합니다. 요청 시 비대면 진행과 상세한 작업 전후 사진 전달이 가능합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">쓰레기집청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="쓰레기집청소" />
         </div>
       </section>
 

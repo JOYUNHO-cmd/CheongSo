@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -217,11 +219,12 @@ export default function FloorAdhesiveRemovalLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥본드제거</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·장판 철거 후 본드 제거, 바닥 사용 목적부터 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("바닥본드제거").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>바닥재를 걷어낸 뒤 본드와 끈적이는 접착제가 남았나요? 찐청소는 새 타일을 시공할 바탕인지 기존 바닥을 다시 사용할 것인지 먼저 확인합니다. 협의한 본드 제거와 마무리 세척은 기본이며, 바닥재 철거는 별도입니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("바닥본드제거", "바닥재를 걷어낸 뒤 본드와 끈적이는 접착제가 남았나요? 찐청소는 새 타일을 시공할 바탕인지 기존 바닥을 다시 사용할 것인지 먼저 확인합니다. 협의한 본드 제거와 마무리 세척은 기본이며, 바닥재 철거는 별도입니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥본드제거 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="바닥본드제거" />
         </div>
       </section>
 

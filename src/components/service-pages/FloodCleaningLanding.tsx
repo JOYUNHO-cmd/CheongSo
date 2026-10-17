@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -225,11 +227,12 @@ export default function FloodCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>침수청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">특수청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">반지하·상가 침수청소, 남은 오염부터 건조·소독까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("침수청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("침수청소", "물이 빠진 뒤에도 바닥에 오염이 남고 벽과 가구가 젖어 있나요? 찐청소 침수청소는 침수 오염 청소에 건조·소독·냄새 제거를 기본으로 포함합니다. 피해 소재와 현장 상태를 보고 필요한 철거·복원은 별도 견적으로 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">침수청소·복구 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="침수청소" />
         </div>
       </section>
 

@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -221,12 +223,13 @@ export default function StudioCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>원룸청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">간단청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">원룸·오피스텔 청소, 짐과 옵션 가전까지 범위를 확인하세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("원룸청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>입주 전 빈 원룸인지, 살고 있는 오피스텔인지, 퇴실 후 정리가 필요한 방인지 알려주세요. 찐청소는 주방 기름때, 욕실 물때, 창틀 먼지와 옵션 가전의 상태를 나눠 확인하고 필요한 작업을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("원룸청소", "입주 전 빈 원룸인지, 살고 있는 오피스텔인지, 퇴실 후 정리가 필요한 방인지 알려주세요. 찐청소는 주방 기름때, 욕실 물때, 창틀 먼지와 옵션 가전의 상태를 나눠 확인하고 필요한 작업을 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>방은 하나여도 청소할 일까지 하나는 아니니까요. 작업 범위와 비용부터 분명하게 알려드리겠습니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">원룸청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="원룸청소" />
         </div>
       </section>
 

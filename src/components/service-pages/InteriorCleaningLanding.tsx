@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -230,12 +232,13 @@ export default function InteriorCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>인테리어청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">리모델링·부분공사 후 청소, 새 마감과 남은 짐을 함께 살펴봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("인테리어청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>주방·욕실·창호 공사 뒤 주변 방까지 먼지가 퍼졌거나, 리모델링 후 바닥과 수납장에 분진이 남았나요? 찐청소는 공사한 구역과 주변으로 오염이 번진 구역을 나눠 인테리어청소 범위를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("인테리어청소", "주방·욕실·창호 공사 뒤 주변 방까지 먼지가 퍼졌거나, 리모델링 후 바닥과 수납장에 분진이 남았나요? 찐청소는 공사한 구역과 주변으로 오염이 번진 구역을 나눠 인테리어청소 범위를 안내합니다.")}</ReadingParagraph>
             <ReadingParagraph>인테리어는 마음에 드는데 마지막 기억이 먼지 닦기일 필요는 없으니까요. 사용할 날짜에 맞춰 청소 범위와 순서부터 정하겠습니다.</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">인테리어청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="인테리어청소" />
         </div>
       </section>
 

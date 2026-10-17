@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -269,11 +271,12 @@ export default function ResidentialCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>거주청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">살고 있는 집 대청소, 짐이 있는 상태에 맞춰 진행합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("거주청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>살고 있는 아파트나 주택의 주방 기름때, 욕실 물때, 가구 주변 먼지가 쌓였나요? 찐청소는 생활용품과 가구 배치를 고려해 접근 가능한 구역을 나누고, 물품 이동과 청소 범위를 먼저 정합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("거주청소", "살고 있는 아파트나 주택의 주방 기름때, 욕실 물때, 가구 주변 먼지가 쌓였나요? 찐청소는 생활용품과 가구 배치를 고려해 접근 가능한 구역을 나누고, 물품 이동과 청소 범위를 먼저 정합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">거주청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="거주청소" />
         </div>
       </section>
 

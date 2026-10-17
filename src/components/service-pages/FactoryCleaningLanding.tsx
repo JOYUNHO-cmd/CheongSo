@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -243,11 +245,12 @@ export default function FactoryCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>공장청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">사업장청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">공장 바닥의 기름때·분진부터 유니트쿨러와 기계설비까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("공장청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>공장 바닥에 쌓인 기름때와 분진, 창고 통로 오염을 생산 일정에 맞춰 정리합니다. 찐청소는 유니트쿨러 내부·외부 세척과 기계설비청소도 상담하며, 공간 청소와 설비별 작업 비용을 나눠 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("공장청소", "공장 바닥에 쌓인 기름때와 분진, 창고 통로 오염을 생산 일정에 맞춰 정리합니다. 찐청소는 유니트쿨러 내부·외부 세척과 기계설비청소도 상담하며, 공간 청소와 설비별 작업 비용을 나눠 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">공장청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="공장청소" />
         </div>
       </section>
 

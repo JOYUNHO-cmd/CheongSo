@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -235,11 +237,12 @@ export default function FloorWaxCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>바닥왁스코팅</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">데코타일·사무실 바닥왁스코팅, 기존 오염과 피막부터 확인합니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("바닥왁스코팅").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>사무실이나 학원 바닥을 닦아도 칙칙하거나 기존 왁스에 때가 겹쳐 보이나요? 찐청소는 바닥 재질과 기존 피막 상태를 살펴 세척·박리 필요 여부와 코팅 범위를 나눠 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("바닥왁스코팅", "사무실이나 학원 바닥을 닦아도 칙칙하거나 기존 왁스에 때가 겹쳐 보이나요? 찐청소는 바닥 재질과 기존 피막 상태를 살펴 세척·박리 필요 여부와 코팅 범위를 나눠 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">바닥왁스코팅 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="바닥왁스코팅" />
         </div>
       </section>
 

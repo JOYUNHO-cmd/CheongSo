@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -243,11 +245,12 @@ export default function FloorWoodCoatingLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>마루코팅</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">바닥시공</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">강마루·강화마루·원목마루 코팅, 기존 마감과 적합성을 먼저 봅니다</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("마루코팅").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>마루가 칙칙해졌거나 표면 관리가 필요해 코팅을 고민하고 계신가요? 찐청소는 마루 종류와 제조사 관리 기준, 기존 마감과 손상 상태를 확인해 적용 가능 여부를 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("마루코팅", "마루가 칙칙해졌거나 표면 관리가 필요해 코팅을 고민하고 계신가요? 찐청소는 마루 종류와 제조사 관리 기준, 기존 마감과 손상 상태를 확인해 적용 가능 여부를 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">마루코팅 상담·견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="마루코팅" />
         </div>
       </section>
 

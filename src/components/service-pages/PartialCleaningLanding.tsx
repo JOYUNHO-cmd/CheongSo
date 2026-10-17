@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -227,11 +229,12 @@ export default function PartialCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>부분청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">간단청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">화장실 한 곳부터 주방·창틀까지, 필요한 부분만 청소하세요</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("부분청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>집 전체는 괜찮은데 욕실 물때나 주방 기름때, 창틀 먼지가 신경 쓰이시나요? 찐청소는 필요한 구역을 지정해 오염과 재질을 살펴보고 작업 범위를 안내합니다. 집 전체 청소가 필요한지부터 고민하지 않으셔도 됩니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("부분청소", "집 전체는 괜찮은데 욕실 물때나 주방 기름때, 창틀 먼지가 신경 쓰이시나요? 찐청소는 필요한 구역을 지정해 오염과 재질을 살펴보고 작업 범위를 안내합니다. 집 전체 청소가 필요한지부터 고민하지 않으셔도 됩니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">부분청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="부분청소" />
         </div>
       </section>
 

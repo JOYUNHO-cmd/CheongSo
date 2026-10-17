@@ -1,3 +1,5 @@
+import { serviceSearchCopy, serviceLead } from '@/lib/service-search-copy';
+import { RegionJumpLink } from './ServiceRegionLinks';
 import readability from "./Readability.module.css";
 import { ReadingParagraph } from "./ReadingParagraph";
 import { BackToContents } from "./BackToContents";
@@ -215,11 +217,12 @@ export default function PremiumCleaningLanding() {
             <Link href="/">홈</Link><span>/</span><Link href="/services/">서비스</Link><span>/</span><span>프리미엄청소</span>
           </nav>
           <ReadingParagraph className="text-sm font-bold tracking-widest text-brand-light">이사·입주청소</ReadingParagraph>
-          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">정밀청소에 새집 냄새와 새집증후군 관리까지</h1>
+          <h1 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{serviceSearchCopy("프리미엄청소").heading}</h1>
           <div className="mt-5 max-w-3xl space-y-2 text-base sm:text-lg leading-relaxed text-white/90">
-            <ReadingParagraph>신축 입주나 인테리어 이후 먼지뿐 아니라 새집 냄새도 신경 쓰이시나요? 찐청소 프리미엄청소는 정밀청소, 냄새 제거, 특허받은 약품과 장비를 활용한 새집증후군 관리를 함께 구성합니다. 현장별 적용 범위와 이용 재개 조건을 안내합니다.</ReadingParagraph>
+            <ReadingParagraph>{serviceLead("프리미엄청소", "신축 입주나 인테리어 이후 먼지뿐 아니라 새집 냄새도 신경 쓰이시나요? 찐청소 프리미엄청소는 정밀청소, 냄새 제거, 특허받은 약품과 장비를 활용한 새집증후군 관리를 함께 구성합니다. 현장별 적용 범위와 이용 재개 조건을 안내합니다.")}</ReadingParagraph>
           </div>
           <CtaButton className="mt-8 !bg-white !text-brand-dark hover:!bg-brand-light">프리미엄청소 견적 문의하기 →</CtaButton>
+          <RegionJumpLink service="프리미엄청소" />
         </div>
       </section>
 
