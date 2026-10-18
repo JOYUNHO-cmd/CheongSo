@@ -1,0 +1,1182 @@
+{
+  "gwanak": [
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-1.webp",
+      "width": 720,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "상자·봉투와 반려묘 용품이 놓인 실내 통로입니다.",
+      "alt": "관악구 쓰레기집청소 상자·봉투와 반려묘 용품이 놓인 실내 통로입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-2.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 후",
+      "caption": "물품 정리 후 바닥이 드러난 출입구와 방 방향의 모습입니다.",
+      "alt": "관악구 쓰레기집청소 물품 정리 후 바닥이 드러난 출입구와 방 방향의 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-02.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "관악구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-06.webp",
+      "width": 1024,
+      "height": 867,
+      "stage": "청소 후",
+      "caption": "방 안의 청소 후 모습입니다.",
+      "alt": "관악구 쓰레기집청소 방 안 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-03.webp",
+      "width": 1080,
+      "height": 1044,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "관악구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-07.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 후",
+      "caption": "침대 주변의 청소 후 모습입니다.",
+      "alt": "관악구 쓰레기집청소 침대 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-04.webp",
+      "width": 864,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "관악구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-08.webp",
+      "width": 792,
+      "height": 1056,
+      "stage": "청소 후",
+      "caption": "방 안의 청소 후 모습입니다.",
+      "alt": "관악구 쓰레기집청소 방 안 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/gwanak-photo-09.webp",
+      "width": 1056,
+      "height": 944,
+      "stage": "청소 후",
+      "caption": "반려묘 용품 주변의 청소 후 모습입니다.",
+      "alt": "관악구 쓰레기집청소 반려묘 용품 주변 청소 후"
+    }
+  ],
+  "yeongjong": [
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-1.webp",
+      "width": 868,
+      "height": 1024,
+      "stage": "청소 전",
+      "caption": "주방에서 방으로 이어지는 바닥에 봉투와 생활 물품이 놓여 있습니다.",
+      "alt": "영종도 쓰레기집청소 주방에서 방으로 이어지는 바닥에 봉투와 생활 물품이 놓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-2.webp",
+      "width": 931,
+      "height": 960,
+      "stage": "청소 후",
+      "caption": "바닥 공간이 드러난 주방과 방 방향의 모습입니다. 앞 사진과 촬영 방향이 다릅니다.",
+      "alt": "영종도 쓰레기집청소 바닥 공간이 드러난 주방과 방 방향의 모습입니다. 앞 사진과 촬영 방향이 다릅니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-04.webp",
+      "width": 814,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-11.webp",
+      "width": 1152,
+      "height": 1053,
+      "stage": "청소 후",
+      "caption": "침대 주변의 청소 후 모습입니다.",
+      "alt": "영종도 쓰레기집청소 침대 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-05.webp",
+      "width": 977,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "욕실의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 욕실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-12.webp",
+      "width": 977,
+      "height": 1152,
+      "stage": "청소 후",
+      "caption": "욕실의 청소 후 모습입니다.",
+      "alt": "영종도 쓰레기집청소 욕실 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-02.webp",
+      "width": 896,
+      "height": 1056,
+      "stage": "청소 전",
+      "caption": "방 입구의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 방 입구 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-03.webp",
+      "width": 896,
+      "height": 1056,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-06.webp",
+      "width": 886,
+      "height": 1080,
+      "stage": "청소 전",
+      "caption": "냉장고 내부의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 냉장고 내부 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-07.webp",
+      "width": 1047,
+      "height": 1080,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-08.webp",
+      "width": 1047,
+      "height": 1080,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yeongjong-photo-09.webp",
+      "width": 977,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "영종도 쓰레기집청소 생활 공간 청소 전"
+    }
+  ],
+  "guro": [
+    {
+      "src": "/images/regional-trash/batch-01/guro-1.webp",
+      "width": 720,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "침대와 책상 주변에 용기·봉투·생활 물품이 쌓인 방입니다.",
+      "alt": "구로구 쓰레기집청소 침대와 책상 주변에 용기·봉투·생활 물품이 쌓인 방입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-2.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 후",
+      "caption": "바닥 공간이 드러난 방의 모습입니다. 앞 사진과 다른 구역을 촬영했습니다.",
+      "alt": "구로구 쓰레기집청소 바닥 공간이 드러난 방의 모습입니다. 앞 사진과 다른 구역을 촬영했습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-04.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "물품 보관 공간의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 물품 보관 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-10.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "출입구의 청소 후 모습입니다.",
+      "alt": "구로구 쓰레기집청소 출입구 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-02.webp",
+      "width": 720,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-03.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "다용도 공간의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 다용도 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-05.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-06.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-07.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-08.webp",
+      "width": 864,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "구로구 쓰레기집청소 생활 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-11.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "창틀의 청소 후 모습입니다.",
+      "alt": "구로구 쓰레기집청소 창틀 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/guro-photo-12.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "문턱과 바닥의 청소 후 모습입니다.",
+      "alt": "구로구 쓰레기집청소 문턱과 바닥 청소 후"
+    }
+  ],
+  "yangcheon": [
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-1.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "실내 통로에 상자와 봉투, 생활 물품이 쌓여 있습니다.",
+      "alt": "양천구 쓰레기집청소 실내 통로에 상자와 봉투, 생활 물품이 쌓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-2.webp",
+      "width": 1024,
+      "height": 1056,
+      "stage": "청소 후",
+      "caption": "출입문 방향 바닥이 드러난 모습입니다. 촬영 방향은 앞 사진과 다릅니다.",
+      "alt": "양천구 쓰레기집청소 출입문 방향 바닥이 드러난 모습입니다. 촬영 방향은 앞 사진과 다릅니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-11.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "정리 전 냉장고",
+      "caption": "냉장고 내부의 모습입니다.",
+      "alt": "양천구 쓰레기집청소 냉장고 내부 정리 전 냉장고"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-13.webp",
+      "width": 768,
+      "height": 1024,
+      "stage": "청소 후",
+      "caption": "냉장고 내부의 청소 후 모습입니다.",
+      "alt": "양천구 쓰레기집청소 냉장고 내부 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-02.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 생활 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-03.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-04.webp",
+      "width": 720,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-05.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "주방의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 주방 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-06.webp",
+      "width": 864,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 생활 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-07.webp",
+      "width": 810,
+      "height": 1080,
+      "stage": "청소 전",
+      "caption": "통로의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 통로 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-08.webp",
+      "width": 720,
+      "height": 960,
+      "stage": "청소 전",
+      "caption": "통로의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 통로 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-09.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "정리 과정",
+      "caption": "주방 바닥의 정리 과정입니다.",
+      "alt": "양천구 쓰레기집청소 주방 바닥 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/yangcheon-photo-10.webp",
+      "width": 864,
+      "height": 1152,
+      "stage": "청소 전",
+      "caption": "통로의 청소 전 모습입니다.",
+      "alt": "양천구 쓰레기집청소 통로 청소 전"
+    }
+  ],
+  "bucheon": [
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-1.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "거실 소파와 탁자 주변에 봉투·상자와 생활 물품이 놓여 있습니다.",
+      "alt": "부천 쓰레기집청소 거실 소파와 탁자 주변에 봉투·상자와 생활 물품이 놓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-2.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 후",
+      "caption": "물품을 정리한 뒤 거실 바닥 공간이 드러난 모습입니다.",
+      "alt": "부천 쓰레기집청소 물품을 정리한 뒤 거실 바닥 공간이 드러난 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-02.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 전",
+      "caption": "소파 주변의 청소 전 모습입니다.",
+      "alt": "부천 쓰레기집청소 소파 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-08.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "소파 주변의 청소 후 모습입니다.",
+      "alt": "부천 쓰레기집청소 소파 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-05.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "창틀의 청소 전 모습입니다.",
+      "alt": "부천 쓰레기집청소 창틀 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-09.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 후",
+      "caption": "창틀의 청소 후 모습입니다.",
+      "alt": "부천 쓰레기집청소 창틀 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-03.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "거실의 청소 전 모습입니다.",
+      "alt": "부천 쓰레기집청소 거실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-04.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "부천 쓰레기집청소 생활 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/bucheon-photo-06.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "거실의 청소 전 모습입니다.",
+      "alt": "부천 쓰레기집청소 거실 청소 전"
+    }
+  ],
+  "hwaseong": [
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-1.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "주방 옆 통로와 안쪽 공간에 봉투·상자가 쌓여 있습니다.",
+      "alt": "화성 쓰레기집청소 주방 옆 통로와 안쪽 공간에 봉투·상자가 쌓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-12.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "주방 통로의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 주방 통로 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-03.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-2.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "방 바닥이 드러난 작업 후 모습입니다. 앞 사진의 주방 통로와는 다른 구역입니다.",
+      "alt": "화성 쓰레기집청소 방 바닥이 드러난 작업 후 모습입니다. 앞 사진의 주방 통로와는 다른 구역입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-06.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "싱크대 아래의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 싱크대 아래 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-14.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 후",
+      "caption": "싱크대 아래의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 싱크대 아래 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-07.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "수납장 내부의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 수납장 내부 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-15.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "서랍 내부의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 서랍 내부 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-08.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "냉장고 내부의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 냉장고 내부 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-18.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 후",
+      "caption": "냉장고 내부의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 냉장고 내부 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-09.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "욕실의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 욕실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-17.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 후",
+      "caption": "욕실의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 욕실 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-02.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "주방의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 주방 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-04.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-05.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "다용도 공간의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 다용도 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-10.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "주방 통로의 청소 전 모습입니다.",
+      "alt": "화성 쓰레기집청소 주방 통로 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-13.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "싱크대의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 싱크대 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-16.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "서랍 내부의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 서랍 내부 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-19.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "문턱의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 문턱 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/hwaseong-photo-20.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "출입구의 청소 후 모습입니다.",
+      "alt": "화성 쓰레기집청소 출입구 청소 후"
+    }
+  ],
+  "dongjak": [
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-1.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "정리 과정",
+      "caption": "침대와 책상 주변에 봉투·상자와 생활 물품이 쌓인 상태입니다.",
+      "alt": "동작구 쓰레기집청소 침대와 책상 주변에 봉투·상자와 생활 물품이 쌓인 상태입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-2.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "침대와 책상 사이 바닥이 드러난 모습입니다.",
+      "alt": "동작구 쓰레기집청소 침대와 책상 사이 바닥이 드러난 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-10.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-21.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "방 안의 청소 후 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-11.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "방 입구의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 입구 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-20.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "출입구의 청소 후 모습입니다.",
+      "alt": "동작구 쓰레기집청소 출입구 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-15.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "정리 과정",
+      "caption": "세탁기 주변의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 세탁기 주변 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-23.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "세탁기 주변의 청소 후 모습입니다.",
+      "alt": "동작구 쓰레기집청소 세탁기 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-16.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "창틀의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 창틀 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-22.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "수납장 주변의 청소 후 모습입니다.",
+      "alt": "동작구 쓰레기집청소 수납장 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-02.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-03.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "정리 과정",
+      "caption": "통로의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 통로 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-04.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "정리 과정",
+      "caption": "방 안의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-05.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "정리 과정",
+      "caption": "침대 주변의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-06.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-07.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "정리 과정",
+      "caption": "바닥과 수거 봉투의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 바닥과 수거 봉투 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-08.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "정리 과정",
+      "caption": "생활 공간의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 생활 공간 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-09.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "정리 과정",
+      "caption": "침대 주변의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-12.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-13.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-14.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "정리 과정",
+      "caption": "생활 공간의 정리 과정입니다.",
+      "alt": "동작구 쓰레기집청소 생활 공간 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-17.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-18.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/dongjak-photo-24.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "침대 주변의 청소 후 모습입니다.",
+      "alt": "동작구 쓰레기집청소 침대 주변 청소 후"
+    }
+  ],
+  "jungnang": [
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-1.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "현관에서 주방 방향으로 본 생활 물품과 바닥의 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 현관에서 주방 방향으로 본 생활 물품과 바닥의 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-2.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "반대 방향에서 본 정리 후 통로입니다. 촬영 방향이 다릅니다.",
+      "alt": "중랑구 쓰레기집청소 반대 방향에서 본 정리 후 통로입니다. 촬영 방향이 다릅니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-02.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-11.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "방 안의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 방 안 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-03.webp",
+      "width": 1086,
+      "height": 1448,
+      "stage": "청소 전",
+      "caption": "주방의 청소 전 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 주방 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-12.webp",
+      "width": 1007,
+      "height": 1561,
+      "stage": "청소 후",
+      "caption": "주방의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 주방 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-05.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "욕실의 청소 전 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 욕실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-13.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "욕실의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 욕실 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-06.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "베란다의 청소 전 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 베란다 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-16.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "베란다의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 베란다 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-04.webp",
+      "width": 1008,
+      "height": 1561,
+      "stage": "청소 전",
+      "caption": "주방의 청소 전 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 주방 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-07.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "정리 과정",
+      "caption": "수거 봉투의 정리 과정입니다.",
+      "alt": "중랑구 쓰레기집청소 수거 봉투 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-08.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "정리 과정",
+      "caption": "통로의 정리 과정입니다.",
+      "alt": "중랑구 쓰레기집청소 통로 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-09.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "정리 과정",
+      "caption": "통로의 정리 과정입니다.",
+      "alt": "중랑구 쓰레기집청소 통로 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-14.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "욕실의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 욕실 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/jungnang-photo-15.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "욕실의 청소 후 모습입니다.",
+      "alt": "중랑구 쓰레기집청소 욕실 청소 후"
+    }
+  ],
+  "seocho": [
+    {
+      "src": "/images/regional-trash/batch-01/seocho-1.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "침대와 책상 주변에 봉투와 용기, 혼합 물품이 쌓여 있습니다.",
+      "alt": "서초구 쓰레기집청소 침대와 책상 주변에 봉투와 용기, 혼합 물품이 쌓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-2.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 후",
+      "caption": "침대 주변과 책상 앞 바닥이 드러난 모습입니다.",
+      "alt": "서초구 쓰레기집청소 침대 주변과 책상 앞 바닥이 드러난 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-photo-03.webp",
+      "width": 1080,
+      "height": 810,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "서초구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-photo-05.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "침대 주변의 청소 후 모습입니다.",
+      "alt": "서초구 쓰레기집청소 침대 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-photo-01.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "현장 상태",
+      "caption": "생활용품 주변의 모습입니다.",
+      "alt": "서초구 쓰레기집청소 생활용품 주변 현장 상태"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-photo-06.webp",
+      "width": 960,
+      "height": 720,
+      "stage": "청소 후",
+      "caption": "바닥의 청소 후 모습입니다.",
+      "alt": "서초구 쓰레기집청소 바닥 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/seocho-photo-07.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 후",
+      "caption": "방 입구의 청소 후 모습입니다.",
+      "alt": "서초구 쓰레기집청소 방 입구 청소 후"
+    }
+  ],
+  "incheon-seo": [
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-1.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "현관 주변에 봉투·상자와 생활 물품이 놓여 있습니다.",
+      "alt": "인천 서구 쓰레기집청소 현관 주변에 봉투·상자와 생활 물품이 놓여 있습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-2.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 후",
+      "caption": "정리 후 주방과 안쪽 생활 공간의 모습입니다. 앞 사진과 촬영 방향이 다릅니다.",
+      "alt": "인천 서구 쓰레기집청소 정리 후 주방과 안쪽 생활 공간의 모습입니다. 앞 사진과 촬영 방향이 다릅니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-3.webp",
+      "width": 1673,
+      "height": 940,
+      "stage": "청소 전",
+      "caption": "선반과 문 수납부에 식품과 용기가 들어 있는 냉장고입니다.",
+      "alt": "인천 서구 쓰레기집청소 선반과 문 수납부에 식품과 용기가 들어 있는 냉장고입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-4.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 후",
+      "caption": "일부 보관품이 남아 있는 냉장고 모습입니다. 사진만으로 식품의 상태를 판단하지 않습니다.",
+      "alt": "인천 서구 쓰레기집청소 일부 보관품이 남아 있는 냉장고 모습입니다. 사진만으로 식품의 상태를 판단하지 않습니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-07.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "방 안의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 방 안 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-17.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 후",
+      "caption": "방 안의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 방 안 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-10.webp",
+      "width": 1672,
+      "height": 941,
+      "stage": "청소 전",
+      "caption": "베란다의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 베란다 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-21.webp",
+      "width": 1672,
+      "height": 941,
+      "stage": "청소 후",
+      "caption": "실외기 주변의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 실외기 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-11.webp",
+      "width": 1268,
+      "height": 1241,
+      "stage": "청소 전",
+      "caption": "실외기 주변의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 실외기 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-22.webp",
+      "width": 1265,
+      "height": 1243,
+      "stage": "청소 후",
+      "caption": "실외기 주변의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 실외기 주변 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-12.webp",
+      "width": 1672,
+      "height": 941,
+      "stage": "청소 전",
+      "caption": "베란다의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 베란다 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-23.webp",
+      "width": 1672,
+      "height": 941,
+      "stage": "청소 후",
+      "caption": "베란다의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 베란다 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-02.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "주방 통로의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 주방 통로 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-03.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 전",
+      "caption": "생활 공간의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 생활 공간 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-04.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 전",
+      "caption": "물품 주변의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 물품 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-06.webp",
+      "width": 1673,
+      "height": 940,
+      "stage": "청소 전",
+      "caption": "냉동실의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 냉동실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-08.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 전",
+      "caption": "침대 주변의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 침대 주변 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-09.webp",
+      "width": 1181,
+      "height": 1332,
+      "stage": "청소 전",
+      "caption": "방 입구의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 방 입구 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-13.webp",
+      "width": 1672,
+      "height": 941,
+      "stage": "청소 전",
+      "caption": "욕실의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 욕실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-14.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "청소 전",
+      "caption": "욕실의 청소 전 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 욕실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-15.webp",
+      "width": 1448,
+      "height": 1086,
+      "stage": "정리 과정",
+      "caption": "수거 봉투의 정리 과정입니다.",
+      "alt": "인천 서구 쓰레기집청소 수거 봉투 정리 과정"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-18.webp",
+      "width": 1181,
+      "height": 1332,
+      "stage": "청소 후",
+      "caption": "바닥의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 바닥 청소 후"
+    },
+    {
+      "src": "/images/regional-trash/batch-01/incheon-seo-photo-19.webp",
+      "width": 1674,
+      "height": 940,
+      "stage": "청소 후",
+      "caption": "싱크대의 청소 후 모습입니다.",
+      "alt": "인천 서구 쓰레기집청소 싱크대 청소 후"
+    }
+  ]
+}
