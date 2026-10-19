@@ -9,20 +9,21 @@ import { BackToContents } from './BackToContents';
 import { TocSidebar, CtaButton } from './shared';
 import styles from './Readability.module.css';
 
-type Case = (typeof cases)[number];
+type Case = Omit<(typeof cases)[number], 'crew' | 'hours'> & { crew: number | null; hours: number | null };
+type Photo = (typeof photoSets)['gwanak'][number];
 export function batchFaq(c: Case) {
   return [c.faq,
     [`${c.area} 쓰레기집청소비용은 평수로 정하나요?`, `평수만으로 정하지 않습니다. ${c.estimate} 폐기물의 양과 종류, 오염 상태, 필요한 인원과 반출 조건을 함께 살펴 쓰레기집청소견적을 안내합니다.`],
     ['폐기물처리와 바닥청소도 포함되나요?', '폐기물처리와 실내 바닥청소는 쓰레기집청소의 기본 작업 범위입니다. 남길 물건과 처리할 물건을 구분하고, 공간별 세부 범위와 별도 확인 항목은 상담 때 안내합니다.'],
-    ['이 사례와 같은 인원과 시간으로 끝나나요?', `현장마다 다릅니다. 이번 사례는 ${c.crew}명이 ${c.hours}시간 작업했습니다. 다른 집은 물량과 오염, 이동 조건에 따라 필요한 인원과 시간이 달라집니다.`],
+    ['이 사례와 같은 인원과 시간으로 끝나나요?', c.crew !== null && c.hours !== null ? `현장마다 다릅니다. 이번 사례는 ${c.crew}명이 ${c.hours}시간 작업했습니다. 다른 집은 물량과 오염, 이동 조건에 따라 필요한 인원과 시간이 달라집니다.` : '현장마다 다릅니다. 폐기물의 양과 오염 상태, 보관할 물품의 분류 범위, 차량까지의 이동 조건을 함께 확인해 필요한 인원과 일정을 안내합니다.'],
   ];
 }
-export default function TrashBatchLanding({ item: c, published = false }: { item: Case; published?: boolean }) {
+export default function TrashBatchLanding({ item: c, published = false, publishedRegion, photoOverride, previewList = '/preview/trash-batch/' }: { item: Case; published?: boolean; publishedRegion?: string; photoOverride?: Photo[]; previewList?: string }) {
   const faq = batchFaq(c);
-  const photos = photoSets[c.slug as keyof typeof photoSets];
+  const photos = photoOverride ?? photoSets[c.slug as keyof typeof photoSets];
   const toc = [['case', `${c.area} 작업 사례`], ['scope', '작업 범위'], ['estimate', '비용·견적 확인'], ['process', '상담과 진행 순서'], ['faq', '자주 묻는 질문'], ['contact', '상담 준비와 문의']] as const;
   return <article className={`${styles.landing} ${styles.enhanced}`}>
-    {published ? <TrashCaseSchema region={regions[c.slug as keyof typeof regions]} area={c.area} title={c.title} description={c.description} /> : <div className="bg-amber-50 px-5 py-3 text-center text-sm text-amber-950">검토용 미리보기 <Link className="inline-flex min-h-11 items-center underline" href="/preview/trash-batch/">10개 사례 목록 →</Link></div>}
+    {published ? <TrashCaseSchema region={publishedRegion ?? regions[c.slug as keyof typeof regions]} area={c.area} title={c.title} description={c.description} /> : <div className="bg-amber-50 px-5 py-3 text-center text-sm text-amber-950">검토용 미리보기 <Link className="inline-flex min-h-11 items-center underline" href={previewList}>사례 목록 →</Link></div>}
     <header className="bg-brand-dark px-5 py-12 text-white md:py-16"><div className="mx-auto max-w-5xl">
       <nav aria-label="현재 위치" className="mb-6 flex flex-wrap gap-2 text-sm"><Link href="/">홈</Link><span>/</span><Link href="/쓰레기집청소/">쓰레기집청소</Link><span>/</span><span>{c.area} 사례</span></nav>
       <h1 className="max-w-4xl text-3xl font-black md:text-4xl">{c.heading}</h1>
@@ -32,7 +33,7 @@ export default function TrashBatchLanding({ item: c, published = false }: { item
     </div></header>
     <div className={styles.layout}><TocSidebar toc={toc} id="service-toc" /><div className={`${styles.body} [&_h2]:mb-5 [&_h2]:text-2xl [&_h2]:font-black [&_h2]:text-brand-dark [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-bold`}>
       <section id="case"><h2>{c.caseHeading}</h2>
-        <p className="mb-5 font-bold text-brand-dark">📍 {c.area} · {c.space} · <span className="whitespace-nowrap">{c.crew}명 · {c.hours}시간</span></p>
+        <p className="mb-5 font-bold text-brand-dark">📍 {c.area} · {c.space}{c.crew !== null && c.hours !== null && <> · <span className="whitespace-nowrap">{c.crew}명 · {c.hours}시간</span></>}</p>
         {c.paragraphs.map(p => <ReadingParagraph key={p}>{p}</ReadingParagraph>)}
         <p className="mt-6 font-bold text-brand-dark">📷 현장 사진 {photos.length}장</p>
         <div className="mt-4 grid items-start gap-5 sm:grid-cols-2">{photos.map(p => <figure key={p.src}>

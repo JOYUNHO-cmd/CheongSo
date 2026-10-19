@@ -1,0 +1,54 @@
+{
+  "geumcheon": [
+    {
+      "src": "/images/regional-trash/batch-02/geumcheon-06.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "청소 전",
+      "caption": "침실 청소 전 모습입니다.",
+      "alt": "금천구 쓰레기집청소 침실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-02/geumcheon-13.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "청소 후",
+      "caption": "침실 청소 후 모습입니다.",
+      "alt": "금천구 쓰레기집청소 침실 청소 후"
+    }
+  ],
+  "eunpyeong": [
+    {
+      "src": "/images/regional-trash/batch-02/eunpyeong-01.webp",
+      "width": 1056,
+      "height": 792,
+      "stage": "청소 전",
+      "caption": "침실 청소 전 모습입니다.",
+      "alt": "은평구 쓰레기집청소 침실 청소 전"
+    },
+    {
+      "src": "/images/regional-trash/batch-02/eunpyeong-06.webp",
+      "width": 1024,
+      "height": 768,
+      "stage": "현장 상태",
+      "caption": "침실 현장 상태 모습입니다.",
+      "alt": "은평구 쓰레기집청소 침실 현장 상태"
+    },
+    {
+      "src": "/images/regional-trash/batch-02/eunpyeong-07.webp",
+      "width": 1152,
+      "height": 864,
+      "stage": "현장 상태",
+      "alt": "은평구 쓰레기집청소 침실 현장 상태",
+      "caption": "침실 현장 상태 모습입니다."
+    },
+    {
+      "src": "/images/regional-trash/batch-02/eunpyeong-12.webp",
+      "width": 1152,
+      "height": 665,
+      "stage": "청소 후",
+      "caption": "침실 청소 후 모습입니다.",
+      "alt": "은평구 쓰레기집청소 침실 청소 후"
+    }
+  ]
+}
